@@ -1,0 +1,61 @@
+= Engineering Generalizable Features for Eye-Tracking Data Through a Cloud Based Machine Learning Platform 
+
+== Introduction
+
+=== Cognitive Workload
+
+=== Feature Generalizability
+
+== Related Work
+
+=== Eye Tracking
+
+=== EEG
+
+=== Generalizability
+
+== Datasets
+
+=== EMIP
+
+=== Jetris
+
+== Implementation
+
+== Analysis
+
+=== Cross-Sudy Data Collection
+
+=== Data Pre-Processing
+
+=== Feature Extraction
+
+=== Dimensinality Reduction
+
+=== Prediction: Ensumle Learning
+
+=== Training, validation and testing setup
+
+=== Feature Generalizability Index
+
+=== Bench-marking the Generalizable Features
+
+== Results and Discussion
+
+=== Selecting Generalizable Features
+
+=== Enineering Generalizable Eye-Tracking Features
+
+=== Enineering Generalizable EEG Features
+
+=== On Feature Generalizablity
+
+=== Bench-Mark Results for Generalizable Features
+
+=== Context-Specific Features
+
+=== Implications
+
+=== Limitations
+
+== Conclusion and Further Work
