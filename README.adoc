@@ -1,3 +1,7 @@
 = ideal-pancake, the text
 
 This is the repository for our thesis. It is written in asciidoc.
+
+You can read our thesis hosted on github here: link:index.html[index.html]
+
+And it will soon be hosted at some other domain, probably through netlify, because that sounds fun. 
