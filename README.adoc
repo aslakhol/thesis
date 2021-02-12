@@ -1,0 +1,3 @@
+= ideal-pancake, the text
+
+This is the repository for our thesis. It is written in asciidoc.
