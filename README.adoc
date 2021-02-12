@@ -5,3 +5,5 @@ This is the repository for our thesis. It is written in asciidoc.
 You can read our thesis hosted on github here: link:index.adoc[index]
 
 And it will soon be hosted at some other domain, probably through netlify, because that sounds fun. 
+
+The code for our thesis is hosted here: link:https://github.com/s0lvang/ideal-pancake/[code]
