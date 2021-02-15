@@ -33,7 +33,7 @@
 
 === Dimensinality Reduction
 
-=== Prediction: Ensumle Learning
+=== Prediction: Ensamble Learning
 
 === Training, validation and testing setup
 
