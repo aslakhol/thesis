@@ -1,4 +1,4 @@
-= Engineering Generalizable Features for Eye-Tracking Data Through a Cloud Based Machine Learning Platform 
+= Engineering Generalizable Features for Eye-Tracking Data Through a Cloud Based Machine Learning Platform
 :toc:
 
 == Introduction
@@ -22,6 +22,43 @@
 === Jetris
 
 == Implementation
+
+Our goal with this system is to create a platform on which we can perform our feature generalizability experiments efficiently and consistently.
+
+The system must also allow for full reproducibility of any experiments ran.
+
+Problems that we want to solve:
+
+* Cloud. We want to be able to run the system in the cloud. So that we can run multiple experiments in parallel and not be limited by our own devices.
+* Handle multiple datasets
+* Feature set as hyperparameters
+* Reproducibility
+* Multiple different feature types (heatmap/ts)
+* Creating features
+
+=== Cloud
+Our cloud provider for this project is google cloud provider.
+
+
+
+=== Reproducability
+Our reproducibility strategy primarily consists of two different components.
+The version-control tool, git; and the machine learning management tool comet.ml.
+
+==== Git
+Git keeps track of all versions of our source-code.
+We have set up our system to demand that all local changes to the code be committed to git before a run in the cloud will be allowed.
+We ensure that all our parameters are represented in the code. This ensures that we always know the state of the code responsible for each experiment.
+When we run an experiment in the cloud we log the start parameters of the system and the hash associated with the commit.
+
+==== comet.ml
+comet.ml is a machine learning management tool. It can handle user-management, visualization, tracking of experiments, and much more.
+In our case we use it to track the results of our experiements, and how they relate to eachother.
+
+
+
+One of the primary complications is our need for the combination of different datasets.
+
 
 == Analysis
 
