@@ -7,6 +7,16 @@
 
 === Feature Generalizability
 
+In general machine learning problems you are optimizing a value
+
+Generalizability is especially useful in situations where data is easily available, but labels are not. When
+
+
+
+In machine learning problems where there is limited access to data, transfer learning is a popular approach. "Transfer learning and domain adaptation refer to the situation where what has been learned in one setting … is exploited to improve generalization in another setting". Transfer Learning
+
+"Feature generalizability we define as the extent to which extracted features can predict the same variable in different context." [0] As in Sharma et al, the variable we are predicting in multiple contexts is Cognitive Performance, with features engineered from eye-tracking data.
+
 == Related Work
 
 === Eye Tracking
