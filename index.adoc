@@ -1,3 +1,7 @@
+:bibtex-file: library.bibtex
+:bibtex-order: alphabetical
+:bibtex-style: ieee
+
 = Engineering Generalizable Features for Eye-Tracking Data Through a Cloud Based Machine Learning Platform
 :toc:
 
@@ -16,7 +20,7 @@ This would involve an investigation of which features  are best suited for that 
 Our hypothesis is that for a set of related contexts, there exists a set of features that would be useful for creating models in each of those contexts.
 We will be following the Feature Generalizability Index methodology set out in Sharma et al to investigate the generalizability of several different features derived from EEG and Eye-tracking data.
 
-If we want to be able to quickly build models for new contexts it will undoutedly be useful to have a deeper understand of which features will likely give good or decent results for your context.
+If we want to be able to quickly build models for new contexts it will undoutedly be useful to have a deeper understand of which features will likely give good or decent results for your context. citenp:[sharmaAssessingCognitivePerformance2020]
 
 Why is it different than transfer learning?
 
@@ -110,9 +114,9 @@ One of the primary complications is our need for the combination of different da
 
 === Selecting Generalizable Features
 
-=== Enineering Generalizable Eye-Tracking Features
+=== Engineering Generalizable Eye-Tracking Features
 
-=== Enineering Generalizable EEG Features
+=== Engineering Generalizable EEG Features
 
 === On Feature Generalizablity
 
@@ -125,3 +129,6 @@ One of the primary complications is our need for the combination of different da
 === Limitations
 
 == Conclusion and Further Work
+
+
+bibliography::[]
