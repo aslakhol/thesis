@@ -41,11 +41,14 @@ In machine learning problems where there is limited access to data, transfer lea
 == Related Work
 
 
+
 === Eye Tracking
+LHIPA
 
 === EEG
 
 === Generalizability
+
 
 == Datasets
 
@@ -71,6 +74,13 @@ Problems that we want to solve:
 === Cloud
 Our cloud provider for this project is google cloud provider.
 
+AI-platform for running jobs
+Google Cloud Storage for storing datasets and generated features
+
+
+=== HP-tuning
+
+Our pipelines are built with Scikit-learn pipelines which makes
 
 
 === Reproducability
@@ -87,6 +97,8 @@ When we run an experiment in the cloud we log the start parameters of the system
 comet.ml is a machine learning management tool. It can handle user-management, visualization, tracking of experiments, and much more.
 In our case we use it to track the results of our experiements, and how they relate to eachother.
 
+Comet for hyperparameters
+
 
 
 One of the primary complications is our need for the combination of different datasets.
@@ -98,9 +110,28 @@ One of the primary complications is our need for the combination of different da
 
 === Data Pre-Processing
 
+==== EMIP dataset
+
+==== Generating Heatmaps
+
 === Feature Extraction
 
-=== Dimensinality Reduction
+==== VGG19 Heatmaps
+
+==== Powerspectrum
+
+==== Arma
+
+==== Garch
+
+==== Markov models
+
+==== LHIPA
+
+
+=== Dimensionality Reduction
+
+==== Lasso
 
 === Prediction: Ensamble Learning
 
