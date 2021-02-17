@@ -7,17 +7,35 @@
 
 === Feature Generalizability
 
+Why do we want to generalize for features?
+
+Machine learning often needs large quantities of data to get good results.
+In some instances, you can still get good results with less data.
+Generally you would then create a model that is specifically tailored to the context you are working in.
+This would involve an investigation of which features  are best suited for that specific context.
+Our hypothesis is that for a set of related contexts, there exists a set of features that would be useful for creating models in each of those contexts.
+We will be following the Feature Generalizability Index methodology set out in Sharma et al to investigate the generalizability of several different features derived from EEG and Eye-tracking data.
+
+If we want to be able to quickly build models for new contexts it will undoutedly be useful to have a deeper understand of which features will likely give good or decent results for your context.
+
+Why is it different than transfer learning?
+
+Feature generalizability isn't the only technique that can be used to approach the problem of more effeciently getting good predictions with less effort, or in data-poor environments.
+Transfer learning is a popular approach which, through different techniques, train a model partially on a domain or context where there is a large amount of data avaialable, and then adapt the model to the context with less available data.
+This technique differs from feature generalization in that feature generalization doesn't aim at providing those faced with these issues with a pretrained model, but rather some a priori knowledge about what features could lead to a good result.
+
+
+
+
+
 In general machine learning problems you are optimizing a value
-
-Generalizability is especially useful in situations where data is easily available, but labels are not. When
-
-
 
 In machine learning problems where there is limited access to data, transfer learning is a popular approach. "Transfer learning and domain adaptation refer to the situation where what has been learned in one setting … is exploited to improve generalization in another setting". Transfer Learning
 
 "Feature generalizability we define as the extent to which extracted features can predict the same variable in different context." [0] As in Sharma et al, the variable we are predicting in multiple contexts is Cognitive Performance, with features engineered from eye-tracking data.
 
 == Related Work
+
 
 === Eye Tracking
 
