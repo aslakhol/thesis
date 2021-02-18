@@ -43,7 +43,7 @@ In machine learning problems where there is limited access to data, transfer lea
 
 
 === Eye Tracking
-LHIPA
+LHIPA citenp:[duchowskiLowHighIndex2020]
 
 === EEG
 
@@ -99,7 +99,7 @@ In our case we use it to track the results of our experiements, and how they rel
 
 Comet for hyperparameters
 
-
+==== TS fresh
 
 One of the primary complications is our need for the combination of different datasets.
 
@@ -110,13 +110,47 @@ One of the primary complications is our need for the combination of different da
 
 === Data Pre-Processing
 
+We separate the preprocessing of the emip dataset in two parts, pre-preprocessing which is mostly quality of life changes to the dataset to make it easier to work with. And actual preprocessing for cleaning and normalzing the data.
+
 ==== EMIP dataset
+We changed the dataset to make it easier to work with.
+
+. Created a new column for the status for each timeframe cotaining "CALIBRATION", "READING", "TEST"
+. Created a new column for which trial they were performing
+. Removed rows for where the values were all 0, as that could be interpreted as nan.
+
+Preprocessing
+
+. Remove 0 values as they are nan
+.
 
 ==== Generating Heatmaps
+We used this and that for generating heatmpas
+
+===== Mooc-images
+We got the dataset
+
+===== EMIP
+The heatmaps for emip we generated ourselves with a python library called heatmappy. We used the preprocessed emip-dataset as explained in preprocessing.
+
+. Split each subjects into 54 partitions to match the mooc-images dataset
+. We only chose the datapoints where the subjects were reading code
+. We took the average of the left and right position of the eye
+. Created a 1920 * 1080 image
+. Plotted the x,y postions with heatmappy
+. Resized the image to 640*360
+
+The emip-dataset is separated into two trials. We chose not to separate these trials since the heatmaps became to sparse when we did.
 
 === Feature Extraction
 
 ==== VGG19 Heatmaps
+
+From the heatmaps used a pretrained vgg19 model with the imagenet weights to generate a feature vector of size 1000 features per image
+
+1. Scale the images down using the preprocess_input function found in `keras.applications.image_netutils`
+2. Use the pretrained VGG-19 model to extract features per image
+3. Flatten the matrix to a single list of values
 
 ==== Powerspectrum
 
