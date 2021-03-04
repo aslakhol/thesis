@@ -2,14 +2,31 @@
 :bibtex-order: alphabetical
 :bibtex-style: ieee
 
-= Engineering Generalizable Features for Eye-Tracking Data Through a Cloud Based Machine Learning Platform
+= Engineering Generalizable Features for Eye-Tracking Data Through a Cloud-Based Machine Learning Platform
 :toc:
 
 == Introduction
 
+We are developing a set of generalizable eye-tracking features that can be used to predict cognitive performance, as well as a machine learning platform to facilitate testing and development of these features.
+Core to our methodology is the Feature Generalizability Index developed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020]
+
 === Cognitive Workload
 
 === Feature Generalizability
+Feature generalizabilty is the degree with with a given feature is applicable in predictions on data gathered from other contexts.
+
+When we are successful in predicting coginitive performance within one context there are two things that could be happening.
+The first possibility is that we have identified some pattern or feature in the dataset that correlates to cognitive performance within the context of that experiment.
+For example, if an exam-score is our measure of cognitive performance we could assume that hours spent studying for that exam would be good measure of your performance, with a relatively high degree of context specificity.
+The other possibliity is that we have found some pattern or feature that actually relates more directly to cognitive performance, without being linked so closely to the context.
+In our previous example, studying for one specific test would probably give you good results on that test. However, being well-rested would also be closely linked to your performance, while not being closely linked to that particular test.
+
+
+
+
+Feature generalizability is the degree with which a set of features, generated for one dataset, can make accurate predictions on another dataset.
+
+It is not a measure of which features typically perform well for a given context or domain. Neither is it training a model on a related dataset which is much larger, and then adapting that model to the new context.
 
 Why do we want to generalize for features?
 
@@ -18,25 +35,75 @@ In some instances, you can still get good results with less data.
 Generally you would then create a model that is specifically tailored to the context you are working in.
 This would involve an investigation of which features  are best suited for that specific context.
 Our hypothesis is that for a set of related contexts, there exists a set of features that would be useful for creating models in each of those contexts.
-We will be following the Feature Generalizability Index methodology set out in Sharma et al to investigate the generalizability of several different features derived from EEG and Eye-tracking data.
+We will follow the Feature Generalizability Index methodology set out in Sharma et al. to investigate the generalizability of several different features derived from EEG and Eye-tracking data.
 
-If we want to be able to quickly build models for new contexts it will undoutedly be useful to have a deeper understand of which features will likely give good or decent results for your context. citenp:[sharmaAssessingCognitivePerformance2020]
+If we want to be able to quickly build models for new contexts it will undoubtedly be useful to have a deeper understanding of which features will likely give good or decent results for your context. citenp:[sharmaAssessingCognitivePerformance2020]
 
 Why is it different than transfer learning?
 
-Feature generalizability isn't the only technique that can be used to approach the problem of more effeciently getting good predictions with less effort, or in data-poor environments.
-Transfer learning is a popular approach which, through different techniques, train a model partially on a domain or context where there is a large amount of data avaialable, and then adapt the model to the context with less available data.
-This technique differs from feature generalization in that feature generalization doesn't aim at providing those faced with these issues with a pretrained model, but rather some a priori knowledge about what features could lead to a good result.
+
+
+Feature generalizability isn't the only technique that can be used to approach the problem of more efficiently getting good predictions with less effort or in data-poor environments.
+Transfer learning is a popular approach which, through different techniques, train a model partially on a domain or context where there is a large amount of data available and then adapts the model to a context with less available data.
+This technique differs from feature generalization in that feature generalization doesn't aim at providing those faced with these issues with a pre-trained model, but rather some a priori knowledge about what features could lead to a good result.
+
+
+Our thesis will be about developing generalisable features that will help us predict the cognitive performance.
+
+Feature generalisability is the idea that features  that are extracted from one context can be used to make a prediction in a different context.
+It does not mean to train a model on one dataset and and then make predictions on another dataset, that would perhaps be closer to transfer learning.
+What we are attemptemting to do is to extract features from a dataset and then and then using those features to train a model that can predict on different data.
+
+We should not confuse this with with gaining an understanding of what sorts of features are generally helpful for making predictions within our domain.
+
+
+What we are hypothesising when we are developing this generalisable features that is that there is something in the eye tracking data that we are looking at which correlates directly to cognitive performance which is the thing we are trying to create rather than some sort of concept content context specific topic
+
+So when we are trying to predict currency performance with this I tracking data and we are making good predictions there can be two reasons why we are at reaching these good predictions one we could be trying to then we could be seeing some sort of pattern that within the context we currently working on it it relates to guarantee for performance or two we could have found some sort of factor or feature in the eye tracking data that actually correlates to go into performance that is what we try to find
 
 
 
+our ultimate goal is to develop a set of features that will be generalisable throughout one domain but not necessarily a domain it would be unreasonable to expect that we could get features that would be generalisable to any predicted problem therefore we have to decide on a single factor we are trying to predict that has to remain relatively constant throughout the context we are working with in our case that would be coginitive performance.
+
+When we talk about this generalisability we are not talking about making a one-stop-shop feature set that we can use for this any prediction problem.
+It is unreasonable to assume
+We have to stay within a sort of estate within an area so we are obviously deciding on one thing to predict that in our case that would be cognitive performance and so that's how we are limiting ourselves in and how we can hope to get some some sort results of the core idea here is that somethings some aspects of the data we are looking some aspects of the day they were looking at will actually correlate to the value we are trying to predict and not just correlate in the context that we are currently looking at and this is kind of hard to find out but they figure out that's what we're going to try to do in this paper
+
+One of the things we're not trying to do is gaining an understanding of what sorts of features are usually useful for for predicting current performance that can obviously be helpful and it might be a byproduct of trying to do better ""this is not about doing some sort of literature review or or or systematic testing of different sorts of features what were looking on is which features are generalisable and that again means which features extracted from one set of data can me
+Can make predictions on the secondary set of data
+
+Another thing we're not trying to do is transfer learning to transfer learning would be a technique that you use when you have wonder mean you don't want to be in a field with a lot of data points which is usually a proper prick is it for good models in in machine learning one thing you could have if you could have a lot of data we do a lot of feature in January to try and get the right data so transfer learning would take one of these realms of of lots of data and an available data points and they would try and train a model on that data would you could later adapt or modify
+
+Would you could leave later adapt or modify to add to make predictions on your specific dates at which might be much smaller than other things that's definitely something that in the future could be used in conjunction with the sort of things we are trying to do here however we are explicitly not doing transfer learning or doing a related but significantly different field of generalisability
+
+Someone important thing to underline is that generalisability is a total you would use when talking about transferring in that case you would likely be talking about the generalisability of your model because naturally we are trying to build interest for learning we are trying to build a good predictive model for a large dataset but the secondary and white maybe more important thing is also how easy it is to generalised to other contacts and data sets so that you could do this this switch where you try and adapt your model we are not talking about model generalisability were talking about feature generalisability so
+
+With all my feet generalisability so how generalisable are features extracted from one context to another related but different context
+
+So then the question is how do we go about investigating a sport first of all we obviously will need to do a lot of feature in January we need to print it to produce a lot of the different kinds of features between her and yeah we need to produce a lot of different kind of features we also need a method of testing their generalisability and yes
+
+The method that will be using for testing generalisability is a method that our supervisor has developed called in which we will produce something called a feature generalisability index which of generalisability index is is a measure of its generalisability of this features in advisability and to produce and we will use something called a Muslim or analysis of similarities it's a non-parametric text test that can show us the relationship between two different distributions and since we don't know anything
 
 
 In general machine learning problems you are optimizing a value
 
 In machine learning problems where there is limited access to data, transfer learning is a popular approach. "Transfer learning and domain adaptation refer to the situation where what has been learned in one setting … is exploited to improve generalization in another setting". Transfer Learning
 
-"Feature generalizability we define as the extent to which extracted features can predict the same variable in different context." [0] As in Sharma et al, the variable we are predicting in multiple contexts is Cognitive Performance, with features engineered from eye-tracking data.
+"Feature generalizability we define as the extent to which extracted features can predict the same variable in different contexts." [0] As in Sharma et al, the variable we are predicting in multiple contexts is Cognitive Performance, with features engineered from eye-tracking data.
+
+
+
+
+==== Feature Generalizability Index (FGI)
+
+To measure the generalizability of our features, we will follow the method laid out by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
+Their method provides us with a Feature Generalizability Index (FGI) calculated by using ANOSIM (analysis of similarity).
+To measure how generalizable our features our we need a statistical test to see the similarities between the tests we run in our in-study- and our out-of-study-experiments.
+We have used NRMSE to measure the error in our predictions.
+As there is no theoretical distribution that describes the NRMSE values, we need a non-parametric test to compare our two distributions.
+The FGI method uses ANOSIM (analysis of similarities) to do this.
+ANOSIM is a non-parametric test that bears the null-hypothesis that two or more groups have a different mean and variance.
+Our groups will be the NRMSE-values from the in-study-tests and the NRMSE values from the out-of-study-tests
 
 == Related Work
 
@@ -56,6 +123,21 @@ LHIPA citenp:[duchowskiLowHighIndex2020]
 
 === Jetris
 
+=== CSCW
+
+A dataset of students who were working in groups of 2 or 3.
+They were first shown a video, which they watched at their own pace.
+The videoplayer had the ability to speed up or slow down the video, and the students could jump around in the timeline if they so chose.
+After watching the video they would create a concept map with the other students in their group.
+They were given a set of terms from the video and would create a concept map that would describe the relationship between the terms.
+
+While the task was cooperative, we are chosing to treat the data as individual, as all the measurements are individual.
+
+The eyetracking data is split into two parts.
+One part describes the data gathered during the video watching phase, and the other describes the data gathered during the concept mapping phase.
+
+=== Fractions
+
 == Implementation
 
 Our goal with this system is to create a platform on which we can perform our feature generalizability experiments efficiently and consistently.
@@ -70,6 +152,20 @@ Problems that we want to solve:
 * Reproducibility
 * Multiple different feature types (heatmap/ts)
 * Creating features
+
+.These are the steps to our platform:
+* Data pre-preprocessing
+** Correct units (get everything do milliseconds)
+** Move the data into buckets in gcp
+** Fix or remove broken data
+* Feature generation
+** This is a seperate job that generates a large set of features from our specifications
+** When completed it uploads the generated features to gcp
+* Training and evaluation
+** This step downloads all the features from gcp and trains our model with those features
+** It trains and evaluates many models
+** In the end the best model is chosen and everything is logged.
+
 
 === Cloud
 Our cloud provider for this project is google cloud provider.
@@ -89,8 +185,8 @@ The version-control tool, git; and the machine learning management tool comet.ml
 
 ==== Git
 Git keeps track of all versions of our source-code.
-We have set up our system to demand that all local changes to the code be committed to git before a run in the cloud will be allowed.
-We ensure that all our parameters are represented in the code. This ensures that we always know the state of the code responsible for each experiment.
+Our system is set up to demand that all local changes to the code be committed to git before a run in the cloud will be allowed.
+We ensure that all our parameters are represented in the code. This in turn ensures that we always know the state of the code responsible for each experiment.
 When we run an experiment in the cloud we log the start parameters of the system and the hash associated with the commit.
 
 ==== comet.ml
@@ -106,14 +202,14 @@ One of the primary complications is our need for the combination of different da
 
 == Analysis
 
-=== Cross-Sudy Data Collection
+=== Cross-Study Data Collection
 
 === Data Pre-Processing
 
 We separate the preprocessing of the emip dataset in two parts, pre-preprocessing which is mostly quality of life changes to the dataset to make it easier to work with. And actual preprocessing for cleaning and normalzing the data.
 
 ==== EMIP dataset
-We changed the dataset to make it easier to work with.
+We changed the dataset to make it easier to handle.
 
 . Created a new column for the status for each timeframe cotaining "CALIBRATION", "READING", "TEST"
 . Created a new column for which trial they were performing
@@ -125,7 +221,7 @@ Preprocessing
 .
 
 ==== Generating Heatmaps
-We used this and that for generating heatmpas
+We used this and that for generating heatmaps
 
 ===== Mooc-images
 We got the dataset
