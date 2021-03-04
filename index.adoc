@@ -7,7 +7,7 @@
 
 == Introduction
 
-We are developing a set of generalizable eye-tracking features that can be used to predict cognitive performance, as well as a machine learning platform to facilitate testing and development of these features.
+We are developing a set of generalizable eye-tracking features that can predict cognitive performance and a machine learning platform to facilitate these features' testing and development.
 Core to our methodology is the Feature Generalizability Index developed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020]
 
 === Cognitive Workload
