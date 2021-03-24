@@ -7,6 +7,9 @@
 
 == Introduction
 
+Eye-tracking has emerged as a promising non-invasive way to evaluate the effect a task has on a person.
+
+
 We are developing a set of generalizable eye-tracking features that can predict cognitive performance and a machine learning platform to facilitate these features' testing and development.
 Core to our methodology is the Feature Generalizability Index developed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020]
 
@@ -74,9 +77,13 @@ Our groups will be the NRMSE-values from the in-study-tests and the NRMSE values
 
 
 === Eye Tracking
+
+
+
+
 LHIPA citenp:[duchowskiLowHighIndex2020]
 
-=== EEG
+
 
 === Generalizability
 
@@ -84,6 +91,8 @@ LHIPA citenp:[duchowskiLowHighIndex2020]
 == Datasets
 
 === EMIP
+
+One of the dates that we are working on is the EMIP dataset it's from a private study that deals with eye-movement in programming where they've had people of varying different skill levels in programming look at cold while tracking their islands
 
 === Jetris
 
