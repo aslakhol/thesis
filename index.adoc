@@ -14,7 +14,20 @@ Core to our methodology is the Feature Generalizability Index developed by Sharm
 
 When developing generalizable features, we are attempting to identify a relationship between the data and the factor we a trying to predict.
 As such, it makes no sense to have generalizable features that can predict arbitrary labels.
-We have decided to focus our efforts on predicting cognitive performance.
+We have decided to focus our efforts on predicting cognitive workload.
+
+Cognitive workload describes the level of mental resources that one person requires for performing a task.
+The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
+Cognitive workload is a valuable way of talking about how "heavy" a task is to complete.
+
+Cognitive workload will be an essential concept in any system that helps users learn or make decisions.
+For this reason, we have decided to focus our efforts on predicting cognitive workload.
+However, cognitive workload is not a concrete metric; it is not something one can measure directly.
+
+As an alternative, we have decided to work with cognitive performance.
+By cognitive performance, we mean some measure that correlates to the quality of the a cognitive work.
+Our project will include data gathered from studies handling many different cognitive tasks.
+Therefore, we will have to argue that each task has some measure, such as a score, that correlates to the coginitive performance of a participant for that task.
 
 === Feature Generalizability
 Feature generalizability is the degree to which a given feature, extracted from one context, is applicable in predictions on data gathered from other contexts.
