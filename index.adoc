@@ -78,6 +78,23 @@ Our groups will be the NRMSE-values from the in-study-tests and the NRMSE values
 
 === Eye Tracking
 
+Eye-tracking uses devices and software to track and record the position of a subject's eyes while interacting with digital devices. Eye-tracking can be used for input control or recording behavior during interactions with a system.
+
+As the technology has improved and systems become cheaper and cheaper, eye-tracking has emerged as an effective, efficient, and cheap non-invasive method of tracking attention and cognitive workload and many other factors.
+
+There are several different ways of performing eye-tracking. We are working with optical eye-trackers, which point the camera to the subject and record their pupils' position. The imagery is interpreted by software, and the eyes' positions are extracted, as well as any blinks and the pupillary response, how much the pupils dilate and trick. This information is recorded in the form of a time-series of the x and y position of where each subject's eyes are looking.
+
+From this data, we can extract several features. The position of one's gaze on the page could itself be a valuable point of information, usually referred to as areas of interest.
+
+Pupil dilation in and of itself has been shown to have direct relationships with how one processes data presented one is presented with. As such pupillary response over time is a promising feature. Blinking can, in the same way, give us some indication of how one is processing information.
+
+A fixation in attracting is when your gaze rests on a particular point for a certain amount of time fixation would usually indicate a higher level of attention to that specific region of the screen.
+
+Saccades are the rapid eye movement between two fixations. Information is not processed during a saccade. However, we can still learn something about how one processes information and the information being processed. For example, one would see a higher degree of saccades for texts that consist of longer and more complicated words.
+
+The duration of the saccades and fixations, the lengths of saccades, and the relationship between saccades and fixations in the dataset can give us insight into how the subject processes information.
+
+The features we are engineering in this thesis are primarily higher-order features built on top of the lower order features that we have just mentioned.
 
 
 
