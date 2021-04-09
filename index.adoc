@@ -15,7 +15,7 @@ Core to our methodology is the Feature Generalizability Index developed by Sharm
 
 === Cognitive Workload
 
-When developing generalizable features, we are attempting to identify a relationship between the data and the factor we a trying to predict.
+When engineering generalizable features, we are attempting to identify a relationship between the data and the factor we are trying to predict.
 As such, it makes no sense to have generalizable features that can predict arbitrary labels.
 We have decided to focus our efforts on predicting cognitive workload.
 
@@ -25,12 +25,12 @@ Cognitive workload is a valuable way of talking about how "heavy" a task is to c
 
 Cognitive workload will be an essential concept in any system that helps users learn or make decisions.
 For this reason, we have decided to focus our efforts on predicting cognitive workload.
-However, cognitive workload is not a concrete metric; it is not something one can measure directly.
+However, cognitive workload is not a concrete metric; it is not something we can measure directly.
 
 As an alternative, we have decided to work with cognitive performance.
-By cognitive performance, we mean some measure that correlates to the quality of the a cognitive work.
+By cognitive performance, we mean some measure that correlates to the quality of cognitive work.
 Our project will include data gathered from studies handling many different cognitive tasks.
-Therefore, we will have to argue that each task has some measure, such as a score, that correlates to the coginitive performance of a participant for that task.
+Therefore, we will argue that each task has some measure, such as a score, that correlates to the cognitive performance for that task.
 
 === Feature Generalizability
 Feature generalizability is the degree to which a given feature, extracted from one context, is applicable in predictions on data gathered from other contexts.
@@ -38,10 +38,10 @@ Feature generalizability is the degree to which a given feature, extracted from 
 When we are successful in predicting cognitive performance within one context, two things could be happening.
 The first possibility is that we have identified some patterns or features in the dataset that correlate to cognitive performance within the experiment's context.
 For example, suppose an exam-score is our measure of cognitive performance. In that case, we could assume that hours spent studying for that exam would be a good predictor of one's performance, with a relatively high degree of context specificity.
-The other possibility is that we have found some pattern or feature that is more directly related to cognitive performance without being linked so closely to the context.
-Studying for a specific test would probably give one good results on that test. However, being well-rested would also be closely linked to one's performance while not closely linked to that particular test.
+The other possibility is that we have found some pattern or feature that is directly related to cognitive performance without being linked closely to the context.
+Studying for a specific test would probably give one good results on that test. However, being well-rested would be closely linked to one's performance while not closely linked to that particular test.
 
-We hypothesize that when developing these generalizable features, there is some pattern in the eye-tracking data that correlates directly to cognitive performance and not merely correlates given the specific context.
+We hypothesize that when developing these generalizable features, some pattern in the eye-tracking data correlates directly to cognitive performance and not merely correlates given the specific context.
 Our goal in this thesis will be to identify and engineer a set of features that exhibit this underlying relationship between themselves and cognitive performance.
 
 So why would this be useful?
