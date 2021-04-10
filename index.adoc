@@ -37,8 +37,8 @@ Feature generalizability is the degree to which a given feature, extracted from 
 
 When we are successful in predicting cognitive performance within one context, two things could be happening.
 The first possibility is that we have identified some patterns or features in the dataset that correlate to cognitive performance within the experiment's context.
-For example, suppose an exam-score is our measure of cognitive performance. In that case, we could assume that hours spent studying for that exam would be a good predictor of one's performance, with a relatively high degree of context specificity.
-The other possibility is that we have found some pattern or feature that is directly related to cognitive performance without being linked closely to the context.
+For example, suppose an exam score is our measure of cognitive performance. In that case, we could assume that hours spent studying for that exam would be a good predictor of one's performance, with a relatively high degree of context specificity.
+The other possibility is that we have found some pattern or feature directly related to cognitive performance without being linked closely to the context.
 Studying for a specific test would probably give one good results on that test. However, being well-rested would be closely linked to one's performance while not closely linked to that particular test.
 
 We hypothesize that when developing these generalizable features, some pattern in the eye-tracking data correlates directly to cognitive performance and not merely correlates given the specific context.
@@ -46,7 +46,7 @@ Our goal in this thesis will be to identify and engineer a set of features that 
 
 So why would this be useful?
 As a rule of thumb, machine learning needs sufficiently large datasets to provide good results.
-However, there are certain domains where predictive power would be useful, but the necessary data is unavailable or hard to obtain.
+However, there are certain domains where predictive power would be helpful, but the necessary data is unavailable or hard to obtain.
 (Maybe add some examples of these domains with references)
 Feature generalizability could be a technique to utilize data gathered in separate but related contexts to achieve good results in even data-poor environments.
 
@@ -65,12 +65,13 @@ Feature generalizability is understanding which features could be extracted from
 
 To measure feature generalizability, we will follow the method laid out by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 Their method provides us with a Feature Generalizability Index (FGI) calculated using ANOSIM (Analysis of similarity).
-To measure how generalizable our features, we need a statistical test to see the similarities between the tests we run in our in-study and our out-of-study-experiments.
+To measure how generalizable our features, we need a statistical test to see the similarities between the tests we run in our in-study and our out-of-study experiments.
 We have used NRMSE to measure the error in our predictions.
 As there is no theoretical distribution that describes the NRMSE values, we need a non-parametric test to compare our two distributions.
 The FGI method uses ANOSIM (Analysis of similarities) to do this.
-ANOSIM is a non-parametric test that bears the null-hypothesis that two or more groups have a different mean and variance.
+ANOSIM is a non-parametric test that bears the null hypothesis that two or more groups have a different mean and variance.
 Our groups will be the NRMSE-values from the in-study-tests and the NRMSE values from the out-of-study-tests
+
 
 == Related Work
 
@@ -82,7 +83,7 @@ Eye-tracking uses devices and software to track and record the position of a sub
 
 As the technology has improved and systems become cheaper and cheaper, eye-tracking has emerged as an effective, efficient, and cheap non-invasive method of tracking attention and cognitive workload and many other factors.
 
-There are several different ways of performing eye-tracking. We are working with optical eye-trackers, which point the camera to the subject and record their pupils' position. The imagery is interpreted by software, and the eyes' positions are extracted, as well as any blinks and the pupillary response, how much the pupils dilate and trick. This information is recorded in the form of a time-series of the x and y position of where each subject's eyes are looking.
+There are several different ways of performing eye-tracking. We are working with optical eye-trackers, which point the camera to the subject and record their pupils' position. The imagery is interpreted by software, and the eyes' positions are extracted, as well as any blinks and the pupillary response, how much the pupils dilate and trick. This information is recorded in the form of a time series of the x and y position of where each subject's eyes are looking.
 
 From this data, we can extract several features. The position of one's gaze on the page could itself be a valuable point of information, usually referred to as areas of interest.
 
@@ -106,6 +107,9 @@ LHIPA citenp:[duchowskiLowHighIndex2020]
 
 
 == Datasets
+
+We have been working with three different datasets gathered and published by other researchers.
+
 
 === EMIP
 
@@ -201,7 +205,7 @@ We separate the preprocessing of the emip dataset in two parts, pre-preprocessin
 ==== EMIP dataset
 We changed the dataset to make it easier to handle.
 
-. Created a new column for the status for each timeframe cotaining "CALIBRATION", "READING", "TEST"
+. Created a new column for the status for each timeframe containing "CALIBRATION", "READING", "TEST"
 . Created a new column for which trial they were performing
 . Removed rows for where the values were all 0, as that could be interpreted as nan.
 
