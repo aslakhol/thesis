@@ -1,4 +1,4 @@
-:bibtex-file: library.bibtex
+:bibtex-file: library.bib
 :bibtex-order: alphabetical
 :bibtex-style: ieee
 
