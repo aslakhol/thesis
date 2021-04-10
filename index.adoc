@@ -148,6 +148,78 @@ One part describes the data gathered during the video watching phase, and the ot
 
 Our goal with this system is to create a platform on which we can perform our feature generalizability experiments efficiently and consistently.
 
+In order to achieve this goal, multiple components have to be present.
+
+* We need methods to standardize datasets, so the units are the same and the data is in the same form.
+* We need to clean the data to achieve high data quality which can produce good features
+* We need a platform that can generate computationally expensive features for multiple large datasets
+* We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for dimensionality reduction
+* We need an evaluation step that collects the results from all the pipelines, and can prove pipelines generalizable.
+* We need complete reproducibility.
+
+=== Preprocessing
+
+This subsection explains how we achieved goal 1 & 2 of creating a platform for generating generalizable features.
+
+==== Standardization of Datasets
+We have found three datasets from different experiments with different contexts.
+They also vary in units used and the name of the columns.
+Some of the datasets measure time in milliseconds, while others measure it in microseconds.
+The datasets also use different names for the same attributes.
+These were renamed to a consistent naming scheme.
+Some of the subjects were missing labels, we solved this by removing the sample.
+We also fixed inconsistencies such as wrong capitalizations of filenames.
+The scripts for standardization can be found at Github. In misc/fix*
+
+==== Data cleaning
+The datasets contains missing values
+
+
+==== Normalization and Outlier removal
+As our subjects comes from multiple contexts, the need for normalization and outlier removals is extra apparent.
+The baseline for a subjects pupil dialation is very sensitive to lighting and how well rested you are, so it is important to normalize it.
+We chose to min-max normalize the pupil diameter in the range of 0 to 1.
+
+// The normalized x and y postitions is only used in the entropy feature so it should maybe be mentioned there
+The screen sizes in the different experiments where the datasets were from are different. So we normalized the x and y positions in a 1000 by 1000 grid.
+
+As we are working on fixations our sense of time is discretized to the start of each fixation.
+But there can be artificially large periods of time between fixations, due to blinking, the subject looking away from the screen or technical malfunction on the equipment.
+To mitigate this we remove the outliers by setting a threshold of 1000 ms for saccade duration, and
+
+
+
+
+
+=== Feature generation
+
+To save computational time, we chose to separate the feature generation and the model training in to two separate jobs. This subsection explains how we achieved goal 3.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 The system must also allow for full reproducibility of any experiments ran.
 
 Problems that we want to solve:
