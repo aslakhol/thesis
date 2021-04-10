@@ -113,7 +113,19 @@ We have been working with three different datasets gathered and published by oth
 
 === EMIP
 
-One of the dates that we are working on is the EMIP dataset it's from a private study that deals with eye-movement in programming where they've had people of varying different skill levels in programming look at cold while tracking their islands
+The Eye-Movements In Programming (EMIP) dataset is a large eye-tracking dataset collected as a community effort involving 11 research teams across four continents.
+The goal was to provide a substantially large dataset open and free to stimulate research relating to development and eye-tracking.
+216 programmers of differing experience levels were recorded while performing two code comprehension tasks.
+In addition to the eye-tracking information a wealth of metadata is also provided. citenp:[bednarikEMIPEyeMovements2020]
+
+The recording was performed using a screen-mounted SMI RED25 mobile video-based eye tracker.
+Stimuli were presented on a laptop computer screen with a resolution of 1920 x 1080 pixels. citenp:[bednarikEMIPEyeMovements2020]
+
+The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers.
+There were 41 female participants and 175 male participants.
+The mean age was 26.56 years with a standard deviation of 9.28. citenp:[bednarikEMIPEyeMovements2020]
+
+
 
 === Jetris
 
