@@ -102,7 +102,6 @@ The features we are engineering in this thesis are primarily higher-order featur
 LHIPA citenp:[duchowskiLowHighIndex2020]
 
 
-
 === Generalizability
 
 
@@ -143,6 +142,8 @@ The eyetracking data is split into two parts.
 One part describes the data gathered during the video watching phase, and the other describes the data gathered during the concept mapping phase.
 
 === Fractions
+
+Fractions is a dataset.
 
 == Implementation
 
