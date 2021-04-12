@@ -195,6 +195,54 @@ To mitigate this we remove the outliers by setting a threshold of 1000 ms for sa
 
 To save computational time, we chose to separate the feature generation and the model training in to two separate jobs. This subsection explains how we achieved goal 3.
 
+==== Flow
+The feature generation , loads the dataset located in google cloud storage
+
+==== Features
+The features we generate can be separated into 3 different groups based on how they were made.
+* Timeseries Features
+* Eyetracking Features
+* Heatmap features
+
+==== Timeseries Features
+Agnostic features, they are a description of the signal, not the meaning behind the signal.
+The signals we used are pupil diameter, fixation duration, saccade duration and saccade length.
+
+Pupil diameter is the average diameter of the pupil over a fixation.
+Fixation duration is the duration of a fixation, and is the difference between the endtime and starttime of a fixation.
+Saccade duration is the time between two fixations.
+Saccade length is the euclidiean distance between the coordinates of two fixations.
+
+From these signals we calculate 5 features.
+===== Power Spectral Histogram.
+The power spectrum of a time series, decomposes the time series to the frequncies present in the signal, and the amplitude of each of these frequencies.
+Once compouted, they can be represented as a histogram which is called the power spectral histogram.
+ We computed the centroid, variance, skew and kurtosis of the power spectral histogram.
+
+===== Autoregressive Moving Average model (Arma)
+An ARMA process describes a time series with two polynomials.
+The first of these polynomials describes the autoregressive part of the timeseries.
+The second part describes the moving average.
+Arma is formally described by the following formula.
+
+asciimath:[sum_(i=1)^p i^3=((n(n+1))/2)^2]
+
+
+* Garch
+
+
+* Markov
+* LHIPA
+
+
+==== Eyetracking features
+These are features extra
+
+==== Heatmaps
+
+Heatmaps efa
+
+
 
 
 
