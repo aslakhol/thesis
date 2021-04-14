@@ -1,11 +1,13 @@
 :bibtex-file: library.bib
 :bibtex-order: alphabetical
 :bibtex-style: ieee
+:stem: asciimath
 
 = Engineering Generalizable Features for Eye-Tracking Data Through a Cloud-Based Machine Learning Platform
 :toc:
 
 == Introduction
+asciimath:[sum_(i=1)^p i^3=((n(n+1))/2)^2]
 
 Eye-tracking has emerged as a promising non-invasive way to evaluate the effect a task has on a person.
 
