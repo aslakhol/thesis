@@ -7,7 +7,6 @@
 :toc:
 
 == Introduction
-asciimath:[sum_(i=1)^p i^3=((n(n+1))/2)^2]
 
 Eye-tracking has emerged as a promising non-invasive way to evaluate the effect a task has on a person.
 
@@ -174,6 +173,9 @@ Some of the subjects were missing labels, we solved this by removing the sample.
 We also fixed inconsistencies such as wrong capitalizations of filenames.
 The scripts for standardization can be found at Github. In misc/fix*
 
+Something about us generating fixations for EMIP from rawdata
+
+
 ==== Data cleaning
 The datasets contains missing values
 
@@ -203,6 +205,7 @@ The feature generation , loads the dataset located in google cloud storage
 
 ==== Features
 The features we generate can be separated into 3 different groups based on how they were made.
+
 * Timeseries Features
 * Eyetracking Features
 * Heatmap features
@@ -217,6 +220,8 @@ Saccade duration is the time between two fixations.
 Saccade length is the euclidiean distance between the coordinates of two fixations.
 
 From these signals we calculate 5 features.
+
+
 ===== Power Spectral Histogram.
 The power spectrum of a time series, decomposes the time series to the frequncies present in the signal, and the amplitude of each of these frequencies.
 Once compouted, they can be represented as a histogram which is called the power spectral histogram.
@@ -228,23 +233,184 @@ The first of these polynomials describes the autoregressive part of the timeseri
 The second part describes the moving average.
 Arma is formally described by the following formula.
 
-asciimath:[sum_(i=1)^p i^3=((n(n+1))/2)^2]
+asciimath:[X_t = sum_(j=1)^p phi_j X_(t-j) + sum_(i=1)^q theta_i epsilon_(t-i) + epsilon_t]
+
+The features we extract from arma are extracted with the following algorithm
+
+```
+best_fit = null
+for p up to 4
+    for q up to 4
+        fit = arma(timeseries, p, q)
+        if(best_fit.aic > fit.aic)
+            best_fit = fit
+return best_fit["ar"], best_fit["ma"], best_fit["exog"]
 
 
-* Garch
+```
+===== Garch
+Garch is similar to Arma, but it is applied to the variance of the data instead of the mean.
+
+We extract features from garch similar to how we extract features from Arma.
+
+```
+best_fit = null
+for p up to 4
+    for q up to 4
+        fit = garch(timeseries, p, q)
+        if(best_fit.aic > fit.aic)
+            best_fit = fit
+return best_fit["mu"], best_fit["omega"], best_fit["alpha"], best_fit["gamma"], best_fit["beta"]
+```
 
 
-* Markov
-* LHIPA
+===== Markov Models
+I don't know the reason behind testing markov models, so we need to work that out.
+
+```
+normalized_timeseries = (timeseries - min(timeseries)) / (max(timeseries) - min(timeseries))
+discretized_timeseries = discretize timeseries in 100 bins
+best_fit = null
+for i up to 8
+   fit = GaussianHMM(covariance_type="full").fit(discretized_timeseries, n_components=i)
+   if(best_fit.aic > fit.aic)
+           best_fit = fit
+flat_transistion_matrix = best_fit.transition_matrix.flatten()
+padded_transition_matrix = pad flat_transistion matrix with n zeroes so the length is 64
+return padded_transition_matrix
+```
+
+===== The Low/High Index of Pupillary Activity (LHIPA)
+LHIPA citenp:[duchowskiLowHighIndex2020] is an enhancement to the Index of Pupilary Activity, which is a metric to discriminate cognitive load from pupil diameter oscillation.
+
+For simplicity we extracted the LHIPA metric from all the signals even though it is only proven to have value on pupil diameter signals.
 
 
 ==== Eyetracking features
-These are features extra
+These are features extracted
+
+
+===== Ratio of Information Processing Ratio
+
+
+Global information processing (GIP) is often synonymous with skimming text.
+Your gaze is jumping around to larger sections of the screen, and not staying at a place for a longer time.
+Which results in shorter fixations and longer saccades.
+
+Local information processing (LIP) is the exactly opposite, your gaze is focusing on smaller areas for a longer duration and not moving around that much.
+
+For this metric fixations are measured in time, while saccades are measured in distance.
+This is because we are interested in how big the area you are moving around is, and for how long you are focusing on specific areas.
+
+To compute the ratio, we divide GIP by LIP.
+
+The following algorithm extracts the feature:
+
+```
+upper_threshold_saccade_length = get 75 percentile of saccade_lengths
+lower_threshold_saccade_length = get 25 percentile of saccade_lengths
+upper_threshold_fixation_duration = get 75 percentile of fixation_durations
+lower_threshold_fixation_duration = get 25 percentile of fixation_durations
+
+LIP = 0
+GIP = 0
+for saccade_length, fixation_duration in saccade_lengths, fixation_durations
+    fixation_is_short = fixation_duration <= lower_threshold_fixation_duration
+    fixation_is_long = upper_threshold_fixation_duration <= fixation_duration
+    saccade_is_short = saccade_length <= lower_threshold_saccade_length
+    saccade_is_long = upper_threshold_saccade_length <= saccade_length
+
+    if fixation_is_long and saccade_is_short:
+        LIP += 1
+    elif fixation_is_short and saccade_is_long:
+        GIP += 1
+
+return GIP / (LIP + 1)
+```
+
+
+
+
+
+===== Skewness of saccade speed
+Saccade velocity skewness has been shown to correlate with familiarity.
+If the skewness is highly positive, that means that the overall speeds were high.
+It means that you knew where to look.
+
+Familiarity and expertise is different. You can know where to look, but have to think twice before doing it.
+
+To calculate this feature we calculated the speed by dividing the saccade length on the saccade duration.
+Then we got the skew of the distribution outputted.
+
+===== Verticality of Saccades
+Something about reasoning behind looking at horizontality of saccades.
+
+To get the horizontality of saccades we get the angle between every fixation, with respect to the x axis. We do that with arctan2, which outputs the angle in radians between pi and -pi. Since we're only interested in the horizontality of the saccade, we take the absolute value of the angle.
+```
+radians = atan2(y2 - y1, x2 - x1)
+return abs(radians)
+```
+To describe the horizontality of each point in a range between 0 and 1, we take take sinus of every angle.
+```
+for angle in angles
+   angle = sin(angle)
+```
+Then we average all the sinus values.
+
+```
+verticality = angles.average()
+```
+
+===== Entropy of Gaze
+
+We use the entropy of the gaze to compute the focus size of the subject. To calculate it we create a grid of 50 by 50 px bins. And placing each fixation in one of these bins based on which bin its x and y position corresponds to. When we have this grid we flatten it and take the entropy of the resulting distribution.
+
+This tells us if the gaze was evenly spread over the whole screen, or if the subject was more focused on specific areas of the screen. For this feature we used the normalized values for x and y, to keep the number of bins consistent between datasets.
+
+The following algorithm extracts the feature:
+```
+x_normalized = normalize x between 0 and 1000
+y_normalized = normalize y between 0 and 1000
+
+x_axis = [50, 100, 150 ... ,1000]
+y_axis = [50, 100, 150 ... ,1000]
+2d_histogram = 2d_histogram(xaxis, yaxis, x_normalized, y_normalized)
+return entropy(2d_histogram.flatten())
+
+```
+
+
 
 ==== Heatmaps
+As shown in cite:[K paper about heatmaps], heatmaps of the gaze can predict performance in learning activities.
 
-Heatmaps efa
+The heatmaps for emip we generated ourselves with a python library called heatmappy.
 
+. Split each subjects into 30 partitions
+. Created a 1920 * 1080 image
+. Plotted the x,y postions with heatmappy
+. Resized the image to 175*90
+
+This will return a list of heatmaps per subject.
+
+From the heatmaps used a pretrained vgg19 model with the imagenet weights to generate a feature vector of size 1000 features per image
+
+1. Scale the images down using the preprocess_input function found in `keras.applications.image_netutils`
+2. Use the pretrained VGG-19 model to extract features per image
+3. Flatten the matrix to a single list of values
+
+===== Pseudocode
+```
+frames = Split each subject into 30 partitions
+features = []
+for frame in frames
+    image = image of with dimensions 1920, 1080
+    heatmap = heatmappy.heatmap_on_img(frame.x_and_y_postions, image)
+    scaled_down_heatmap = keras.applications.image_netutils(heatmap)
+    heatmap_features = vgg19model.predict(scaled_down_heatmap)
+    features.append(heatmap_feature.flatten())
+return features.flatten()
+```
 
 
 
@@ -355,37 +521,6 @@ We used this and that for generating heatmaps
 ===== Mooc-images
 We got the dataset
 
-===== EMIP
-The heatmaps for emip we generated ourselves with a python library called heatmappy. We used the preprocessed emip-dataset as explained in preprocessing.
-
-. Split each subjects into 54 partitions to match the mooc-images dataset
-. We only chose the datapoints where the subjects were reading code
-. We took the average of the left and right position of the eye
-. Created a 1920 * 1080 image
-. Plotted the x,y postions with heatmappy
-. Resized the image to 640*360
-
-The emip-dataset is separated into two trials. We chose not to separate these trials since the heatmaps became to sparse when we did.
-
-=== Feature Extraction
-
-==== VGG19 Heatmaps
-
-From the heatmaps used a pretrained vgg19 model with the imagenet weights to generate a feature vector of size 1000 features per image
-
-1. Scale the images down using the preprocess_input function found in `keras.applications.image_netutils`
-2. Use the pretrained VGG-19 model to extract features per image
-3. Flatten the matrix to a single list of values
-
-==== Powerspectrum
-
-==== Arma
-
-==== Garch
-
-==== Markov models
-
-==== LHIPA
 
 
 === Dimensionality Reduction
