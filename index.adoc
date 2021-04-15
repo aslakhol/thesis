@@ -144,7 +144,18 @@ One part describes the data gathered during the video watching phase, and the ot
 
 === Fractions
 
-Fractions is a dataset.
+The dataset that we refer to as fractions was gathered by Olson et al. citenp:[olsenUsingIntelligentTutoring2014].
+It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems.
+The study included 84 4th and 5th grades from two US elementary schools.
+The students completed either individual tasks or collaborative tasks using an interactive tutoring system developed by the researchers.
+Participants in the study also completed a pretest on the morning of the experiment, and a posttest the day after.
+The results of the pre- and post-test are included with the data.
+
+The students selected for the collaborative tasks were paired by their teachers to ensure that the students collaborate effectively.
+They completed tasks in the interactive tutoring system, communicating verbally through a skype connection.
+They did not transmit any video signal.
+
+Our dataset consists of only the data used by Sharma et al. citenp:[sharmaMeasuringCausalityCollaborative2021] This only includes the data from the pairs that worked on the collaborative tasks, not the students that worked individually.
 
 == Implementation
 
