@@ -201,7 +201,16 @@ To mitigate this we remove the outliers by setting a threshold of 1000 ms for sa
 To save computational time, we chose to separate the feature generation and the model training in to two separate jobs. This subsection explains how we achieved goal 3.
 
 ==== Flow
-The feature generation , loads the dataset located in google cloud storage
+The flow of the feature generation job is as follows:
+
+* Download the datasets from google cloud storage
+* Load data as a list of pandas dataframes
+* Standardize data. This step is different for each dataset
+* Normalize data
+* Generate aggregated attributes, such as saccade duration, saccade_length and angle of saccades.
+* Take the rolling mean of the signals
+* Generate features
+* Upload features to google cloud storage
 
 ==== Features
 The features we generate can be separated into 3 different groups based on how they were made.
@@ -287,7 +296,7 @@ For simplicity we extracted the LHIPA metric from all the signals even though it
 
 
 ==== Eyetracking features
-These are features extracted
+These are features that are connected to the domain of eye-tracking and not signal processing features.
 
 
 ===== Ratio of Information Processing Ratio
@@ -412,6 +421,29 @@ for frame in frames
 return features.flatten()
 ```
 
+==== Final Feature set
+After feature generation these are the features that has been generated per subject.
+
+include::feature_set_table.adoc[]
+
+=== Classification
+
+This section explains how we solved goal 4 of creating our platform.
+We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for dimensionality reduction
+
+
+==== Grouping of features
+
+Since it would be too computationally exhaustive to test all combinations of the features, we separated them into 13 different feature groups, which we will test.
+
+The features are divided in this way:
+
+===== Feature Groups
+
+
+
+
+include::feature_groups_table.adoc[]
 
 
 
@@ -422,16 +454,10 @@ return features.flatten()
 
 
 
-
-
-
-
-
-
-
-
-
-
+[%header,format=csv]
+|===
+// include::results_filtered.csv[]
+|===
 
 
 
