@@ -1,0 +1,54 @@
+[cols="1,1,1"]
+|===
+| ID | Name | Features
+
+  | 1
+  | Eye tracking Features
+  | information_processing_ratio, saccade_speed_skewness, entropy_xy, saccade_verticality,
+
+  | 2
+  | Heatmaps
+  | heatmaps,
+
+  | 3
+  | Power Spectral Histogram
+  | pupil_diameter_rolling__fft_aggregated_*, ^duration_rolling__fft_aggregated__*, saccade_length_rolling__fft_aggregated__*, saccade_duration_rolling__fft_aggregated__*,
+
+  | 4
+  | LHIPA
+  | pupil_diameter_rolling__lhipa, saccade_length_rolling__lhipa, saccade_duration_rolling__lhipa, ^duration_rolling__lhipa,
+
+  | 5
+  | Markov
+  | ^duration_rolling__markov, pupil_diameter_rolling__markov, saccade_duration_rolling__markov, saccade_length_rolling__markov,
+
+  | 6
+  | Arma
+  | pupil_diameter_rolling__arma__*, ^duration_rolling__arma__*, saccade_length_rolling__arma__*, saccade_duration_rolling__arma__*,
+
+  | 7
+  | Garch
+  | saccade_duration_rolling__garch", ^duration_rolling__garch", pupil_diameter_rolling__garch, saccade_length_rolling__garch,
+
+  | 8
+  | Pupil diameter
+  | pupil_diameter_rolling__fft_aggregated_*, pupil_diameter_rolling__lhipa, pupil_diameter_rolling__markov, pupil_diameter_rolling__arma__*, pupil_diameter_rolling__garch,
+
+  | 9
+  | Fixation Duration
+  | ^duration_rolling__fft_aggregated__*, ^duration_rolling__lhipa, ^duration_rolling__markov, ^duration_rolling__arma__*, ^duration_rolling__garch,
+
+  | 10
+  | Saccade Length
+  | saccade_length_rolling__fft_aggregated__*, saccade_length_rolling__lhipa, saccade_length_rolling__markov, saccade_length_rolling__arma__*, saccade_length_rolling__garch,
+
+  | 11
+  | Saccade duration
+  | saccade_duration_rolling__fft_aggregated__*, saccade_duration_rolling__lhipa, saccade_duration_rolling__markov, saccade_duration_rolling__arma__*, saccade_duration_rolling__garch, ],
+
+  | 12
+  | ALL
+  | ALL
+
+
+|===
