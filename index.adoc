@@ -116,7 +116,7 @@ We have been working with three different datasets gathered and published by oth
 The Eye-Movements In Programming (EMIP) dataset is a large eye-tracking dataset collected as a community effort involving 11 research teams across four continents.
 The goal was to provide a substantially large dataset open and free to stimulate research relating to development and eye-tracking.
 216 programmers of differing experience levels were recorded while performing two code comprehension tasks.
-In addition to the eye-tracking information a wealth of metadata is also provided. citenp:[bednarikEMIPEyeMovements2020]
+In addition to the eye-tracking information, a wealth of metadata is also provided. citenp:[bednarikEMIPEyeMovements2020]
 
 The recording was performed using a screen-mounted SMI RED25 mobile video-based eye tracker.
 Stimuli were presented on a laptop computer screen with a resolution of 1920 x 1080 pixels. citenp:[bednarikEMIPEyeMovements2020]
@@ -126,21 +126,26 @@ There were 41 female participants and 175 male participants.
 The mean age was 26.56 years with a standard deviation of 9.28. citenp:[bednarikEMIPEyeMovements2020]
 
 
-
-=== Jetris
-
 === CSCW
 
-A dataset of students who were working in groups of 2 or 3.
-They were first shown a video, which they watched at their own pace.
-The videoplayer had the ability to speed up or slow down the video, and the students could jump around in the timeline if they so chose.
-After watching the video they would create a concept map with the other students in their group.
-They were given a set of terms from the video and would create a concept map that would describe the relationship between the terms.
+CSCW is a product of a study run by Sharma et al. citenp:[sharmaLookingLookingDual2015].
+In this study, 98 university students partook in an exercise designed to show the different gaze patterns of learnings using a Massive Open Online Course (MOOC).
 
-While the task was cooperative, we are chosing to treat the data as individual, as all the measurements are individual.
+The study used a pre-test as a contextual primer.
+The primer came in two different forms, one text-based test, and one schema-based test.
+Participants that got the textual primer were denoted T, and participants that got the schematic primer were denoted S.
 
-The eyetracking data is split into two parts.
-One part describes the data gathered during the video watching phase, and the other describes the data gathered during the concept mapping phase.
+After the primer, participants watched a video from Khan Academy on the topic of "resting membrane potential."
+Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each pair collaborated to create a concept map using IHMC CMap tools.
+
+The participants were recorded with SMI RED 250 eye-trackers as they completed the individual video task and the collaborative concept mapping task.
+After completing the pre-test, the video task, and the concept map, the participants also completed a post-test.
+
+While the concept mapping task was cooperative, all measurements are individual.
+We will be working with the data on the individual level.
+The data is also split into one part for the video watching phase and one part for the concept mapping phase.
+We will not be considering any links between the two and will treat them as separate.
+
 
 === Fractions
 
@@ -148,7 +153,7 @@ The dataset that we refer to as fractions was gathered by Olson et al. citenp:[o
 It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems.
 The study included 84 4th and 5th grades from two US elementary schools.
 The students completed either individual tasks or collaborative tasks using an interactive tutoring system developed by the researchers.
-Participants in the study also completed a pretest on the morning of the experiment, and a posttest the day after.
+Participants in the study also completed a pretest on the morning of the experiment, and a post-test the day after.
 The results of the pre- and post-test are included with the data.
 
 The students selected for the collaborative tasks were paired by their teachers to ensure that the students collaborate effectively.
