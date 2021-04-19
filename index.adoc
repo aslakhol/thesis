@@ -564,22 +564,6 @@ tf.random.set_seed(seed)
 
 == Results and Discussion
 
-=== Selecting Generalizable Features
-
-=== Engineering Generalizable Eye-Tracking Features
-
-=== Engineering Generalizable EEG Features
-
-=== On Feature Generalizablity
-
-=== Bench-Mark Results for Generalizable Features
-
-=== Context-Specific Features
-
-=== Implications
-
-=== Limitations
-
 == Conclusion and Further Work
 
 
