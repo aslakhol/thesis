@@ -271,7 +271,16 @@ The first of these polynomials describes the autoregressive part of the timeseri
 The second part describes the moving average.
 Arma is formally described by the following formula.
 
+Arma takes the historical values to account
+Arma is a non-stationary process
+Problem solving is also a non-stationary process, since your mental model always depends on the previous mental models of the problem.
+Hence Problem solving follows can be described as an arma process.
+
+
+
 asciimath:[X_t = sum_(j=1)^p phi_j X_(t-j) + sum_(i=1)^q theta_i epsilon_(t-i) + epsilon_t]
+
+
 
 The features we extract from arma are extracted with the following algorithm
 
@@ -289,7 +298,9 @@ return best_fit["ar"], best_fit["ma"], best_fit["exog"]
 ===== Garch
 Garch is similar to Arma, but it is applied to the variance of the data instead of the mean.
 
-We extract features from garch similar to how we extract features from Arma.
+We extract features from Garch similar to how we extract features from Arma.
+  homogenity principle, garch is more generalizable than arma.
+Garch has proved to be a
 
 ```
 best_fit = null
@@ -304,6 +315,11 @@ return best_fit["mu"], best_fit["omega"], best_fit["alpha"], best_fit["gamma"], 
 
 ===== Markov Models
 I don't know the reason behind testing markov models, so we need to work that out.
+
+Discrete arma
+presenting the present value as a function of the past values.
+Is discrete, when you have more continuous information the mutual information of the predictable can decrease.
+
 
 ```
 normalized_timeseries = (timeseries - min(timeseries)) / (max(timeseries) - min(timeseries))
