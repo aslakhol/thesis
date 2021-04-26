@@ -504,7 +504,7 @@ We use PCA for dimensionality reduction.
 
 ==== Feature Selection
 Feature selection is the process of reducing the number of features used by removing features that give less information.
-We use Lasso as our feature selection alorithm because it performs well when the number of samples is less than the number of features.
+We use Lasso as our feature selection algorithm because it performs well when the number of samples is less than the number of features.
 Which is often the case in our pipelines.
 For instance the heatmap feature group contains 153600 features per subject.
 
@@ -579,6 +579,18 @@ tf.random.set_seed(seed)
 ```
 
 == Results and Discussion
+We test a to
+
+=== Standard cross validation
+To get a baseline for how well our pipelines can classify on these datasets. We conducted an experiment where we only have one in-study dataset and only perform out-of-sample testing. That is we are training on one dataset and testing on a partition of the dataset which is unseen. We tuned the hyperparameters for these pipelines to find the optimal baseline.
+
+==== Feature Selection and Dimensionality reduction
+
+
+
+=== 2 to 1 testing
+
+=== Test on all
 
 == Conclusion and Further Work
 
