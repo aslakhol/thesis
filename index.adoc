@@ -33,7 +33,7 @@ These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDu
 
 ==== Generalizability
 
-Universitality and generalism  of research is an important concept and it's precense and role in information systems research is an ongoing debate.
+Universitality and generalism of research is an important concept and it's precense and role in information systems research is an ongoing debate.
 
 Cognitive performance describes our overall cognitive functioning including attention, memory, devision-making, learning and more.[NIH]
 
