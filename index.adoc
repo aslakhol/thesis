@@ -6,7 +6,46 @@
 = Engineering Generalizable Features for Eye-Tracking Data Through a Cloud-Based Machine Learning Platform
 :toc:
 
-== Introduction
+== Motivation
+
+=== The Topic
+
+
+==== Cognition
+The evaluation of cognition, or cognitive performance, has become very relevant for work in fields such as [A bunch of fields and papers here].
+Cognition describes the different workings of our mental capacities.
+Weintraub et. al citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
+The NIH Toolbox Cognition Batteries is a well-established set of tests of cognition. citenp:[weintraubCognitionAssessmentUsing2013]
+While the tests in the NIH Toolbox are thorough and well tested, they are also quite involved and take much time to perform.
+We need a proxy if we are to use evaluate cognitive performance in a micro context.
+
+Cognitive workload describes the level of mental resources that one person requires for performing a task and natrually falls withing the purview of cognitive performance.
+The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
+Cognitive workload has also been shown to influence ones eye-movements. citenp:[shojaeizadehDetectingTaskDemand2019, LowHighIndex, duchowskiIndexPupillaryActivity2018]
+
+==== Eye-tracking
+
+Eye-tracking is the process of tracking and recording the position of a subject's eyes while interacting with digital devices.
+The position that each of the eyes of a subject looks at is recorded over time.
+Eye-tracking can be used as input control for interacting with systems citenp:[cantoniEyeTrackingComputer2014], or to record user behaviour when interacting with digital and physical systems citenp:[grankaEyeTrackingAnalysisUser2004, bojkoEyeTrackingUser2005].
+As the equipment involved has become cheaper and more readily available, eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
+These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], colaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018]
+
+==== Generalizability
+
+Universitality and generalism  of research is an important concept and it's precense and role in information systems research is an ongoing debate.
+
+Cognitive performance describes our overall cognitive functioning including attention, memory, devision-making, learning and more.[NIH]
+
+
+
+is important for creating robust decision assistance systems.
+As the equipment to capture and process eye-tracking data becomes cheaper and more readily available eye-tracking is emerging as an evermore promising way of non-invasively evaluating cognitive workload.
+
+
+
+
+
 
 Eye-tracking has emerged as a promising non-invasive way to evaluate the effect a task has on a person.
 
