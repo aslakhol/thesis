@@ -1,0 +1,57 @@
+== Study
+
+=== Datasets
+
+We have been working with three different datasets gathered and published by other researchers.
+
+
+=== EMIP
+
+The Eye-Movements In Programming (EMIP) dataset is a large eye-tracking dataset collected as a community effort involving 11 research teams across four continents.
+The goal was to provide a substantially large dataset open and free to stimulate research relating to development and eye-tracking.
+216 programmers of differing experience levels were recorded while performing two code comprehension tasks.
+In addition to the eye-tracking information, a wealth of metadata is also provided. citenp:[bednarikEMIPEyeMovements2020]
+
+The recording was performed using a screen-mounted SMI RED25 mobile video-based eye tracker.
+Stimuli were presented on a laptop computer screen with a resolution of 1920 x 1080 pixels. citenp:[bednarikEMIPEyeMovements2020]
+
+The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers.
+There were 41 female participants and 175 male participants.
+The mean age was 26.56 years with a standard deviation of 9.28. citenp:[bednarikEMIPEyeMovements2020]
+
+
+=== CSCW
+
+CSCW is a product of a study run by Sharma et al. citenp:[sharmaLookingLookingDual2015].
+In this study, 98 university students partook in an exercise designed to show the different gaze patterns of learnings using a Massive Open Online Course (MOOC).
+
+The study used a pre-test as a contextual primer.
+The primer came in two different forms, one text-based test, and one schema-based test.
+Participants that got the textual primer were denoted T, and participants that got the schematic primer were denoted S.
+
+After the primer, participants watched a video from Khan Academy on the topic of "resting membrane potential."
+Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each pair collaborated to create a concept map using IHMC CMap tools.
+
+The participants were recorded with SMI RED 250 eye-trackers as they completed the individual video task and the collaborative concept mapping task.
+After completing the pre-test, the video task, and the concept map, the participants also completed a post-test.
+
+While the concept mapping task was cooperative, all measurements are individual.
+We will be working with the data on the individual level.
+The data is also split into one part for the video watching phase and one part for the concept mapping phase.
+We will not be considering any links between the two and will treat them as separate.
+
+
+=== Fractions
+
+The dataset that we refer to as fractions was gathered by Olson et al. citenp:[olsenUsingIntelligentTutoring2014].
+It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems.
+The study included 84 4th and 5th grades from two US elementary schools.
+The students completed either individual tasks or collaborative tasks using an interactive tutoring system developed by the researchers.
+Participants in the study also completed a pretest on the morning of the experiment, and a post-test the day after.
+The results of the pre- and post-test are included with the data.
+
+The students selected for the collaborative tasks were paired by their teachers to ensure that the students collaborate effectively.
+They completed tasks in the interactive tutoring system, communicating verbally through a skype connection.
+They did not transmit any video signal.
+
+Our dataset consists of only the data used by Sharma et al. citenp:[sharmaMeasuringCausalityCollaborative2021] This only includes the data from the pairs that worked on the collaborative tasks, not the students that worked individually.
