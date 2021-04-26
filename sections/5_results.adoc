@@ -1,0 +1,13 @@
+== Results and Discussion
+We test a to
+
+=== Standard cross validation
+To get a baseline for how well our pipelines can classify on these datasets. We conducted an experiment where we only have one in-study dataset and only perform out-of-sample testing. That is we are training on one dataset and testing on a partition of the dataset which is unseen. We tuned the hyperparameters for these pipelines to find the optimal baseline.
+
+==== Feature Selection and Dimensionality reduction
+
+
+
+=== 2 to 1 testing
+
+=== Test on all

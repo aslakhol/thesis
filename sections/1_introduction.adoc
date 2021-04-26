@@ -1,0 +1,103 @@
+== Motivation
+
+=== The Topic
+
+
+==== Cognition
+The evaluation of cognition, or cognitive performance, has become very relevant for work in fields such as [A bunch of fields and papers here].
+Cognition describes the different workings of our mental capacities.
+Weintraub et. al citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
+The NIH Toolbox Cognition Batteries is a well-established set of tests of cognition. citenp:[weintraubCognitionAssessmentUsing2013]
+While the tests in the NIH Toolbox are thorough and well tested, they are also quite involved and take much time to perform.
+We need a proxy if we are to use evaluate cognitive performance in a micro context.
+
+Cognitive workload describes the level of mental resources that one person requires for performing a task and natrually falls withing the purview of cognitive performance.
+The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
+Cognitive workload has also been shown to influence ones eye-movements. citenp:[shojaeizadehDetectingTaskDemand2019, LowHighIndex, duchowskiIndexPupillaryActivity2018]
+
+==== Eye-tracking
+
+Eye-tracking is the process of tracking and recording the position of a subject's eyes while interacting with digital devices.
+The position that each of the eyes of a subject looks at is recorded over time.
+Eye-tracking can be used as input control for interacting with systems citenp:[cantoniEyeTrackingComputer2014], or to record user behaviour when interacting with digital and physical systems citenp:[grankaEyeTrackingAnalysisUser2004, bojkoEyeTrackingUser2005].
+As the equipment involved has become cheaper and more readily available, eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
+These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], colaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018]
+
+==== Generalizability
+
+Universitality and generalism of research is an important concept and it's precense and role in information systems research is an ongoing debate.
+
+Cognitive performance describes our overall cognitive functioning including attention, memory, devision-making, learning and more.[NIH]
+
+
+
+is important for creating robust decision assistance systems.
+As the equipment to capture and process eye-tracking data becomes cheaper and more readily available eye-tracking is emerging as an evermore promising way of non-invasively evaluating cognitive workload.
+
+
+== Introduction
+
+Eye-tracking has emerged as a promising non-invasive way to evaluate the effect a task has on a person.
+
+
+We are developing a set of generalizable eye-tracking features that can predict cognitive performance and a machine learning platform to facilitate these features' testing and development.
+Core to our methodology is the Feature Generalizability Index developed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020]
+
+=== Cognitive Workload
+
+When engineering generalizable features, we are attempting to identify a relationship between the data and the factor we are trying to predict.
+As such, it makes no sense to have generalizable features that can predict arbitrary labels.
+We have decided to focus our efforts on predicting cognitive workload.
+
+Cognitive workload describes the level of mental resources that one person requires for performing a task.
+The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
+Cognitive workload is a valuable way of talking about how "heavy" a task is to complete.
+
+Cognitive workload will be an essential concept in any system that helps users learn or make decisions.
+For this reason, we have decided to focus our efforts on predicting cognitive workload.
+However, cognitive workload is not a concrete metric; it is not something we can measure directly.
+
+As an alternative, we have decided to work with cognitive performance.
+By cognitive performance, we mean some measure that correlates to the quality of cognitive work.
+Our project will include data gathered from studies handling many different cognitive tasks.
+Therefore, we will argue that each task has some measure, such as a score, that correlates to the cognitive performance for that task.
+
+=== Feature Generalizability
+Feature generalizability is the degree to which a given feature, extracted from one context, is applicable in predictions on data gathered from other contexts.
+
+When we are successful in predicting cognitive performance within one context, two things could be happening.
+The first possibility is that we have identified some patterns or features in the dataset that correlate to cognitive performance within the experiment's context.
+For example, suppose an exam score is our measure of cognitive performance. In that case, we could assume that hours spent studying for that exam would be a good predictor of one's performance, with a relatively high degree of context specificity.
+The other possibility is that we have found some pattern or feature directly related to cognitive performance without being linked closely to the context.
+Studying for a specific test would probably give one good results on that test. However, being well-rested would be closely linked to one's performance while not closely linked to that particular test.
+
+We hypothesize that when developing these generalizable features, some pattern in the eye-tracking data correlates directly to cognitive performance and not merely correlates given the specific context.
+Our goal in this thesis will be to identify and engineer a set of features that exhibit this underlying relationship between themselves and cognitive performance.
+
+So why would this be useful?
+As a rule of thumb, machine learning needs sufficiently large datasets to provide good results.
+However, there are certain domains where predictive power would be helpful, but the necessary data is unavailable or hard to obtain.
+(Maybe add some examples of these domains with references)
+Feature generalizability could be a technique to utilize data gathered in separate but related contexts to achieve good results in even data-poor environments.
+
+Transfer learning, another popular approach to data-poor contexts, is related to feature generalizability; however, they are distinct.
+In transfer learning, through different techniques, one would train a model partially on a domain or context where there is a large amount of data available and then adapt that model to the context with less available data.
+
+Another related but distinct technique from feature generalizability is the expert knowledge an experienced data scientist accumulates throughout several projects.
+An experienced data scientist or a subject matter expert could have a priori knowledge about which features typically perform well for a given context or domain.
+
+Feature generalizability could be said to exist in the space between these two approaches to the issue.
+It is not developing a model adapted to the problem at hand when necessary. Neither is it not understanding which features would typically be good to use for a specific problem.
+Feature generalizability is understanding which features could be extracted from one dataset and build models that could predict in another related dataset.
+
+
+==== Feature Generalizability Index (FGI)
+
+To measure feature generalizability, we will follow the method laid out by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
+Their method provides us with a Feature Generalizability Index (FGI) calculated using ANOSIM (Analysis of similarity).
+To measure how generalizable our features, we need a statistical test to see the similarities between the tests we run in our in-study and our out-of-study experiments.
+We have used NRMSE to measure the error in our predictions.
+As there is no theoretical distribution that describes the NRMSE values, we need a non-parametric test to compare our two distributions.
+The FGI method uses ANOSIM (Analysis of similarities) to do this.
+ANOSIM is a non-parametric test that bears the null hypothesis that two or more groups have a different mean and variance.
+Our groups will be the NRMSE-values from the in-study-tests and the NRMSE values from the out-of-study-tests
