@@ -25,23 +25,11 @@ These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDu
 
 ==== Generalizability
 
-Universitality and generalism of research is an important concept and it's precense and role in information systems research is an ongoing debate.
-
-Cognitive performance describes our overall cognitive functioning including attention, memory, devision-making, learning and more.[NIH]
+Universality and generalism of research is an important concept, and its role in information systems research is an ongoing debate citenp:[davisonContextKingConsidering2016, chengContextMayBe2016].
 
 
 
-is important for creating robust decision assistance systems.
-As the equipment to capture and process eye-tracking data becomes cheaper and more readily available eye-tracking is emerging as an evermore promising way of non-invasively evaluating cognitive workload.
 
-
-== Introduction
-
-Eye-tracking has emerged as a promising non-invasive way to evaluate the effect a task has on a person.
-
-
-We are developing a set of generalizable eye-tracking features that can predict cognitive performance and a machine learning platform to facilitate these features' testing and development.
-Core to our methodology is the Feature Generalizability Index developed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020]
 
 === Cognitive Workload
 
