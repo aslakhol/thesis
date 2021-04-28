@@ -33,7 +33,15 @@ However Steichen et al. citenp::[steichenUseradaptiveInformationVisualization201
 Toker et al. citenp::[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
 Chen and Epps citenp[chenUsingTaskInducedPupil2014] did binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency, that gave promising results for automatic prediction of cognitive load with gaze-data.
 
-Duchowski et al. citenp::[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA). IPA was proposed as an alternative to the exisitng Index of Cognitive Activity (ICA), since ICA is not available to the public.  Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which is able to discriminate cognitive load in several experiments where IPA fails to do so.
+
+There are also novel features engineered from gaze-data.
+Duchowski et al. citenp::[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA). IPA was proposed as an alternative to the exisitng Index of Cognitive Activity (ICA), since ICA is not available to the public.  Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which is able to discriminate cognitive load in several experiments where IPA fails to do so. Sharma et al. citenp::[sharmaEyetrackingArtificialIntelligence2020] used heatmaps generated from the fixtures of subjects to predict the performance of students.
+Features from the heatmaps was extracted with a pretrained VGG19 model.
+They showed that cognitive performance can be predicted with an error rate less than 5%.
+
+
+Even though gaze-data has shown promising results in predicting cognitive workload and performance. There is no to little litterature proving that cogntive performance can be inferred from gaze-data across contexts.
+
 
 
 
