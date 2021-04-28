@@ -23,7 +23,7 @@ asciimath::[1_1]
 
 === Eye Tracking and Cognitive Performance
 
-Since gaze-data of a human can be associated with cognition citenp::[raptisUsingEyeTracking2016], there has been conducted multiple studies to find the relationship between eye-tracking and cognitive performance.
+Since gaze-data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016], multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
 As cognitive load can be a proxy between a task and a subjects performance citenp:[ haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
 Zhang et al. citenp::[zhangTuC4DriverCognitive] classified a drivers cognitive load in two classes, using the mean and standard deviation on pupil diameter and the direction of the subjects gaze.
 They achieved significant results, using a desicion tree classifier.
