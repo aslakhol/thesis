@@ -8,10 +8,15 @@
 
 
 include::sections/1_introduction.adoc[]
+
 include::sections/2_related_work.adoc[]
+
 include::sections/3_study.adoc[]
+
 include::sections/4_implementation.adoc[]
+
 include::sections/5_results.adoc[]
+
 include::sections/6_conclusion.adoc[]
 
 
