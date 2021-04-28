@@ -109,7 +109,7 @@ Arma is formally described by the following formula.
 
 Arma takes the historical values to account
 Arma is a non-stationary process
-Problem solving is also a non-stationary process, since your mental model always depends on the previous mental models of the problem.
+Problem solving is also a non-stationary process, since your mental model always depends on the previous mental models of the Problem.
 Hence Problem solving follows can be described as an arma process.
 
 
@@ -133,6 +133,12 @@ return best_fit["ar"], best_fit["ma"], best_fit["exog"]
 ```
 ===== Garch
 Garch is similar to Arma, but it is applied to the variance of the data instead of the mean.
+
+Arma assumes a uniform distribution of the events it's modeling with shifting trends.
+However, we know that this is not entirely descriptive of cognitive processes.
+When working with a cognitive task, you have periods where you focus intently to understand one aspect of the problem and other periods when your mind rests.
+The heteroskedasticity aspect of GARCH accounts for this grouping of events.
+Just as, in the analysis of financial markets, GARCH is able to account for the spikes and sudden drops in prices of certain investment vehicles citenp:[bollerslevGeneralizedAutoregressiveConditional1986], we posit that GARCH will allow us to model the perceived grouping of cognitive workload spikes.
 
 We extract features from Garch similar to how we extract features from Arma.
   homogenity principle, garch is more generalizable than arma.
