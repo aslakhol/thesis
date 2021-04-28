@@ -1,5 +1,5 @@
 == Related Work
-=== Eye Tracking
+=== Eye Tracking and Cognitive Performance
 
 Eye-tracking uses devices and software to track and record the position of a subject's eyes while interacting with digital devices. Eye-tracking can be used for input control or recording behavior during interactions with a system.
 
@@ -21,5 +21,35 @@ The features we are engineering in this thesis are primarily higher-order featur
 
 asciimath::[1_1]
 
+=== Eye Tracking and Cognitive Performance
+
+Since gaze-data of a human can be associated with cognition citenp::[raptisUsingEyeTracking2016], there has been conducted multiple studies to find the relationship between eye-tracking and cognitive performance.
+As cognitive load can be a proxy between a task and a subjects performance citenp:[ haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
+Zhang et al. citenp::[zhangTuC4DriverCognitive] classified a drivers cognitive load in two classes, using the mean and standard deviation on pupil diameter and the direction of the subjects gaze.
+They achieved significant results, using a desicion tree classifier.
+Haapalainen et al. citenp:: [haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010] used multiple different physiological sensors and combinations of their signals to determine their usefulness.
+Their results show that the pupillometry was one of the least useful features for their problem.
+However Steichen et al. citenp::[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze-data, and showed that using aggregated features from gaze-data can predict a subject's perceptual speed and visual working memory reliably.
+Toker et al. citenp::[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
+Chen and Epps citenp[chenUsingTaskInducedPupil2014] did binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency, that gave promising results for automatic prediction of cognitive load with gaze-data.
+
+Duchowski et al. citenp::[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA). IPA was proposed as an alternative to the exisitng Index of Cognitive Activity (ICA), since ICA is not available to the public.  Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which is able to discriminate cognitive load in several experiments where IPA fails to do so.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 LHIPA citenp:[duchowskiLowHighIndex2020]
+
+=== Feature Generalizability
+
+===
