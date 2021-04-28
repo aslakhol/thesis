@@ -102,6 +102,11 @@ Once compouted, they can be represented as a histogram which is called the power
  We computed the centroid, variance, skew and kurtosis of the power spectral histogram.
 
 ===== Autoregressive Moving Average model (Arma)
+We know that a coginitive process takes place over a span of time, and our gaze data is organized as a time-series.
+If our goal is to model cognitive workload we need to capture the temporal aspects of cognition.
+ARMA combines an auto-regressive part and an moving average part to model movements in a timeseries.
+It uses information fo previous events to predict future events with the same source.
+
 An ARMA process describes a time series with two polynomials.
 The first of these polynomials describes the autoregressive part of the timeseries.
 The second part describes the moving average.
