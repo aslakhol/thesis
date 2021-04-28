@@ -24,23 +24,27 @@
 === Eye Tracking and Cognitive Performance
 
 Since gaze data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016], multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
-As cognitive load can be a proxy between a task and a subjects performance citenp:[ haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
-Zhang et al. citenp::[zhangTuC4DriverCognitive] classified a drivers cognitive load in two classes, using the mean and standard deviation on pupil diameter and the direction of the subjects gaze.
-They achieved significant results, using a desicion tree classifier.
-Haapalainen et al. citenp:: [haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010] used multiple different physiological sensors and combinations of their signals to determine their usefulness.
-Their results show that the pupillometry was one of the least useful features for their problem.
-However Steichen et al. citenp::[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze-data, and showed that using aggregated features from gaze-data can predict a subject's perceptual speed and visual working memory reliably.
-Toker et al. citenp::[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
-Chen and Epps citenp[chenUsingTaskInducedPupil2014] did binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency, that gave promising results for automatic prediction of cognitive load with gaze-data.
+As cognitive load can be a proxy between a task and a subject's performance, citenp:[haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
+Zhang et al. citenp:[zhangTuC4DriverCognitive] classified a driver's cognitive load in two classes, using the direction of the subject's gaze and the mean and standard deviation of pupil diameter changes.
+They achieved significant results using a decision tree classifier.
+Haapalainen et al. citenp:[haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine their usefulness.
+Their results show that the pupillometry was one of the least valuable features for their problem.
+However, Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze data and showed that using aggregated features from gaze-data can predict a subject's perceptual speed and visual working memory reliably.
+Toker et al. citenp:[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
+Chen and Epps citenp:[chenUsingTaskInducedPupil2014] did binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency.
+Their work showed promising results for the automatic prediction of cognitive load with gaze data.
 
 
-There are also novel features engineered from gaze-data.
-Duchowski et al. citenp::[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA). IPA was proposed as an alternative to the exisitng Index of Cognitive Activity (ICA), since ICA is not available to the public.  Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which is able to discriminate cognitive load in several experiments where IPA fails to do so. Sharma et al. citenp::[sharmaEyetrackingArtificialIntelligence2020] used heatmaps generated from the fixtures of subjects to predict the performance of students.
-Features from the heatmaps was extracted with a pretrained VGG19 model.
-They showed that cognitive performance can be predicted with an error rate less than 5%.
+There are also novel features engineered from gaze data.
+Duchowski et al. citenp:[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA).
+IPA was proposed as an alternative to the existing Index of Cognitive Activity (ICA) since ICA is not available to the public.
+Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which can discriminate cognitive load in several experiments where IPA fails do so.
+Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020] used heatmaps generated from the fixtures of subjects to predict students' performance.
+Features from the heatmaps were extracted with a pre-trained VGG19 model.
+They showed that cognitive performance could be predicted with an error rate of less than 5%.
 
 
-Even though gaze-data has shown promising results in predicting cognitive workload and performance. There is no to little litterature proving that cogntive performance can be inferred from gaze-data across contexts.
+Even though gaze-data has shown promising results in predicting cognitive workload and performance, there is little work in the literature that addresses inferring cognitive performance between contexts from gaze data.
 
 
 
@@ -59,5 +63,3 @@ Even though gaze-data has shown promising results in predicting cognitive worklo
 LHIPA citenp:[duchowskiLowHighIndex2020]
 
 === Feature Generalizability
-
-===
