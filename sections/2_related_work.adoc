@@ -29,7 +29,7 @@ Zhang et al. citenp:[zhangTuC4DriverCognitive] classified a driver's cognitive l
 They achieved significant results using a decision tree classifier.
 Haapalainen et al. citenp:[haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine their usefulness.
 Their results show that the pupillometry was one of the least valuable features for their problem.
-However, Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze data and showed that using aggregated features from gaze-data can predict a subject's perceptual speed and visual working memory reliably.
+However, Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze data and showed aggregated features from gaze data could predict a subject's perceptual speed and visual working memory reliably.
 Toker et al. citenp:[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
 Chen and Epps citenp:[chenUsingTaskInducedPupil2014] did binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency.
 Their work showed promising results for the automatic prediction of cognitive load with gaze data.
