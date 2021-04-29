@@ -47,16 +47,14 @@ They showed that cognitive performance could be predicted with an error rate of 
 Even though gaze-data has shown promising results in predicting cognitive workload and performance, there is little work in the literature that addresses inferring cognitive performance between contexts from gaze data.
 
 
+=== Generalizability
+While universalism and context sensitivity in information systems research remain an essential topic of research, citenp:[davisonContextKingConsidering2016, chengContextMayBe2016,] generalizability continues to be a chief concern in machine learning research.
+It is named as one of the primary goals in a slew of fields ranging from healthcare analytics citenp:[dexterGeneralizationMachineLearning2020, MachineLearningArtificial], business research citenp:[salminenMachineLearningApproach2019], finance citenp:[mcnallyPredictingPriceBitcoin2018] to psychiatry citenp:[chekroudCrosstrialPredictionTreatment2016]
 
-
-
-
-
-
-
-
-
-
+Turney has worked to provide a formal definition of context sensitive features within concept learning citenp:[turneyIdentificationContextSensitiveFeatures2002, turneyExploitingContextWhen1993, turneyRobustClassificationContextsensitive1993].
+His work is strengthened by John et al. and others citenp:[johnIrrelevantFeaturesSubset1994]
+While our view of context is tangential to his, the definition of context-sensitive features as features that are relevant only given a set context is still applicable to our work.
+We look to engineer generalizable features that provide predictive power on data gathered outside of the context that the feature was generated in.
 
 
 
