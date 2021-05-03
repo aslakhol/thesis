@@ -3,10 +3,10 @@
 === Eye Tracking and Cognitive Performance
 
 Since gaze data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016], multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
-As cognitive load can be a proxy between a task and a subject's performance, citenp:[haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
+As cognitive load can be a proxy between a task and a subject's performance, citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
 Zhang et al. citenp:[zhangTuC4DriverCognitive] classified a driver's cognitive load in two classes, using the direction of the subject's gaze and the mean and standard deviation of pupil diameter changes.
 They achieved significant results using a decision tree classifier.
-Haapalainen et al. citenp:[haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine their usefulness.
+Haapalainen et al. citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine their usefulness.
 Their results show that the pupillometry was one of the least valuable features for their problem.
 However, Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze data and showed aggregated features from gaze data could predict a subject's perceptual speed and visual working memory reliably.
 Toker et al. citenp:[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
