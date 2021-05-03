@@ -18,10 +18,4 @@ include::sections/4_implementation.adoc[]
 include::sections/5_results.adoc[]
 
 include::sections/6_conclusion.adoc[]
-
-
-
-
-
-
 bibliography::[]
