@@ -53,3 +53,15 @@ Recently feature generalizability has also been shown to have relevance when pre
 
 === Platform
 A significant portion of our work has been put into developing a platform to run our experiments as machine learning pipelines easily.
+The use of machine learning pipelines to automate the many steps involved in producing a machine learning model is a well-regarded practice that has seen much research lately citenp:[ ,mohrPredictingMachineLearning2021,romanMachineLearningPipeline2021]
+
+
+The ability to reproduce a scientific works central finding, reproducibility, is key to the scientific process, and as such is important in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
+This challenge is both more complicated and simpler in the age of digital.
+Analyses that can be made are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
+While this added complexity adds to the difficulty in adequately describing the process involved in reaching our conclusions, digital tools can also give us the ability to share the exact code that confirms our results' citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].
+There has been a growing push to include code with materials published along with scientific findings citenp:[inceCaseOpenComputer2012, DevilDetails2011].
+Ince et al. argues that even with the complete source code, one is not guaranteed reproducibility.
+Local software and hardware environments introduce noise that could impact results.
+They argue for including descriptions of the environments in which the code was executed citenp:[inceCaseOpenComputer2012].
+With the advent of containerization and commercial cloud platform, it is possible to reach close to the same descriptive rigor of the hardware and software environments as sharing code represents for the system. citenp:[ditommasoNextflowEnablesReproducible2017, naglerSustainabilityReproducibilityContainerized2015, vaillancourtReproduciblePortableWorkflows2020]
