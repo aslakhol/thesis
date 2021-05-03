@@ -1,9 +1,6 @@
 == Motivation
 
-=== The Topic
-
-
-==== Cognition
+=== Cognition
 The evaluation of cognition, or cognitive performance, has become very relevant for work in fields such as [A bunch of fields and papers here].
 Cognition describes the different workings of our mental capacities.
 Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
@@ -19,7 +16,7 @@ Our project will include data gathered from studies handling many different cogn
 Therefore, we will argue that each task has some measure, such as a score, that correlates to the cognitive performance for that task.
 
 
-==== Eye-tracking
+=== Eye-tracking
 
 Eye-tracking is the process of tracking and recording the position of a subject's eyes while interacting with digital devices.
 The gaze point for each of the eyes of a subject is recorded over time.
@@ -27,17 +24,17 @@ Eye-tracking can be used as input control for interacting with systems citenp:[c
 As the equipment involved has become cheaper and more readily available, eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
 These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], colaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018]
 
-==== Generalizability
+=== Generalizability
 
 Universality and generalism of research are important concepts, and their role in information systems research is an ongoing debate citenp:[davisonContextKingConsidering2016, chengContextMayBe2016].
 Davison et al. point out that one must be explicitly aware of the context of one's research and avoid unjustified generalization citenp:[davisonContextKingConsidering2016].
-Cheng et al. agree a close look at the context of a study is very important.
+Cheng et al. agree that a close look at the context of a study is very important.
 However, they underline that generalizability is the ultimate goal of research, and well-reasoned generalizability should be pursued citenp:[chengContextMayBe2016].
 Our work is acutely aware of the context of each of the datasets we use, and we will aim to engineer features that are generalizable to other contexts.
 We will evaluate the degree of generalizability of each of the pipelines used to produce our results through statistical analysis.
 
 While generalizability is an oft pursued goal in machine learning, there is little focus on feature generalizability in the literature.
-We follow the inspiration of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] and aim to engineer features that are produced with data from one or more specific contexts and can be used to predict the same variables on datasets gathered in other contexts.
+Inspired by the methods of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] we aim to engineer features that are produced with data from one or more specific contexts and can be used to predict the same variables on datasets gathered in other contexts.
 The usefulness of understanding the rationale behind features and how they might differ when predicting the same target on different types of data has been studied by Rogers et al. in the context of text mining citenp:[rogersGeneralizabilityDocumentFeatures2017].
 Feature generalizability has also been considered a central goal in feature selection within music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
 It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019]
