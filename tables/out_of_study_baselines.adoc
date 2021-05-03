@@ -1,0 +1,23 @@
+[cols="1,1"]
+|===
+| Dataset | Baseline (rmse)
+
+| cscw
+| 0.324
+
+| Emip
+| 0.432
+
+| Fractions
+| 0.357
+
+| Emip & Fractions
+| 0.417
+
+| Emip & cscw
+| 0.408
+
+| cscw & Fractions
+| 0.354
+
+|===
