@@ -53,7 +53,7 @@ Recently feature generalizability has also been shown to have relevance when pre
 
 === Platform
 A significant portion of our work has been put into developing a platform to run our experiments as machine learning pipelines easily.
-The use of machine learning pipelines to automate the many steps involved in producing a machine learning model is a well-regarded practice that has seen much research lately citenp:[mohrPredictingMachineLearning2021, romanMachineLearningPipeline2021]
+While the use of machine learning pipelines to automate the many steps involved in producing a machine learning model have obtained little attention in academia the techinques are still used and more research is emerging recently citenp:[mohrPredictingMachineLearning2021, romanMachineLearningPipeline2021].
 
 
 The ability to reproduce a scientific works central finding, reproducibility, is key to the scientific process, and as such is important in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
