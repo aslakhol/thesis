@@ -52,16 +52,36 @@ Recently feature generalizability has also been shown to have relevance when pre
 
 
 === Platform
-A significant portion of our work has been put into developing a platform to run our experiments as machine learning pipelines easily.
-While the use of machine learning pipelines to automate the many steps involved in producing a machine learning model have obtained little attention in academia the techinques are still used and more research is emerging recently citenp:[mohrPredictingMachineLearning2021, romanMachineLearningPipeline2021].
 
+Machine learning platforms and pipelines are essential in many research projects.
+In bioinformatics, Guzzetta et al. present an L1L2 based machine learning pipeline that is effective for fitting quantitative phenotypes from genome data citenp:[guzzettaMachineLearningPipeline2010].
+Fountain-Jones et al. demonstrate how a flexible ensemble pipeline can be used for predicting pathogen exposure in animal ecology.
+To demonstrate their pipeline, they model pathogen exposure risk in two different viruses that infect African lions citenp:[fountain-jonesHowMakeMore2019]
+Sutton et al. have developed PhysOnline, a pipeline built on the Apache Spark platform.
+PhysOnline uses streaming physiological data and can be used for real-time classification in the biomedical and health informatics field citenp:[suttonPhysOnlineOpenSource2019]
+Shaikh et al. tackle the complicated task of creating a machine learning pipeline that can ensure fairness in decision-making. The system can understand policies written in natural language and will assist users in ensuring that set fairness policies are followed citenp:[shaikhEndToEndMachineLearning2017].
+
+There has been some research that focuses on the pipelines themselves.
+Olson and Moore present TPOT, a tree-based tool for optimizing pipelines, which has recently shown much promise citenp:[olsonTPOTTreeBasedPipeline2019].
+This system exists in the new and promising field of AutoML, which seeks to automate the design of pipelines for machine learning, democratizing machine learning further.
+Mohr et al. have contributed to predicting pipeline runtimes to improve one of the significant limitations of current AutoMl technology citenp:[mohrPredictingMachineLearning2021].
+The systems we have available today take a considerable amount of time to arrive at good pipeline designs if the case is even slightly complex.
+Effectively predicting pipelines would enable us to significantly decrease the cost of AutoML systems, as one could ignore pipelines that would not complete within the systems timeout limits.
+
+There have also been several attempts at creating more generally applicable platforms for machine learning.
+López García et al. presents the DEEP-Hybrid-DataCloud framework as "a distributed architectore top provide machine learning practitioners with a set of tools and cloud services to cover the whole machine learning development cycle" citenp:[lopezgarciaCloudBasedFrameworkMachine2020].
+The DEEP framework reprecents an important step democratizing machine learning and deep learning for all areas of research.
+Ribeiro et al. present an architecture to provide scalable machine learning capabilities as a service, along with an open source implementation citenp:[ribeiroMLaaSMachineLearning2015].
+Kraska et al. have developed MLBase, which includes a simple declarative language for specifying machine learning tasks with the intent to be used by both researchers and end-users citenp:[kraskaMLbaseDistributedMachinelearning].
+The available resources for machine learning in the form of proposed architectures, open-source and commercial platforms and pipelines, tooling and other supporting techonologies have exploded in the last years.
+Machine learning tools to process large-scale data for devision assistance, automation and interactive data analytics is growing and will continue to be important for research and business citenp:[nguyenMachineLearningDeep2019].
 
 The ability to reproduce a scientific works central finding, reproducibility, is key to the scientific process, and as such is important in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
-This challenge is both more complicated and simpler in the age of digital.
+This challenge is both more complicated and more straightforward in the age of digital.
 Analyses that can be made are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
 While this added complexity adds to the difficulty in adequately describing the process involved in reaching our conclusions, digital tools can also give us the ability to share the exact code that confirms our results' citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].
 There has been a growing push to include code with materials published along with scientific findings citenp:[inceCaseOpenComputer2012, DevilDetails2011].
-Ince et al. argues that even with the complete source code, one is not guaranteed reproducibility.
+Ince et al. argue that even with the complete source code, one is not guaranteed reproducibility.
 Local software and hardware environments introduce noise that could impact results.
 They argue for including descriptions of the environments in which the code was executed citenp:[inceCaseOpenComputer2012].
 With the advent of containerization and commercial cloud platform, it is possible to reach close to the same descriptive rigor of the hardware and software environments as sharing code represents for the system. citenp:[ditommasoNextflowEnablesReproducible2017, naglerSustainabilityReproducibilityContainerized2015, vaillancourtReproduciblePortableWorkflows2020]
