@@ -69,14 +69,14 @@ The systems we have available today take a considerable amount of time to arrive
 Effectively predicting pipelines would enable us to significantly decrease the cost of AutoML systems, as one could ignore pipelines that would not complete within the systems timeout limits.
 
 There have also been several attempts at creating more generally applicable platforms for machine learning.
-López García et al. presents the DEEP-Hybrid-DataCloud framework as "a distributed architectore top provide machine learning practitioners with a set of tools and cloud services to cover the whole machine learning development cycle" citenp:[lopezgarciaCloudBasedFrameworkMachine2020].
-The DEEP framework reprecents an important step democratizing machine learning and deep learning for all areas of research.
-Ribeiro et al. present an architecture to provide scalable machine learning capabilities as a service, along with an open source implementation citenp:[ribeiroMLaaSMachineLearning2015].
-Kraska et al. have developed MLBase, which includes a simple declarative language for specifying machine learning tasks with the intent to be used by both researchers and end-users citenp:[kraskaMLbaseDistributedMachinelearning].
-The available resources for machine learning in the form of proposed architectures, open-source and commercial platforms and pipelines, tooling and other supporting techonologies have exploded in the last years.
-Machine learning tools to process large-scale data for devision assistance, automation and interactive data analytics is growing and will continue to be important for research and business citenp:[nguyenMachineLearningDeep2019].
+López García et al. presents the DEEP-Hybrid-DataCloud framework as "a distributed architecture top provide machine learning practitioners with a set of tools and cloud services to cover the whole machine learning development cycle" citenp:[lopezgarciaCloudBasedFrameworkMachine2020].
+The DEEP framework represents an important step in democratizing machine learning and deep learning for all areas of research.
+Ribeiro et al. present an architecture to provide scalable machine learning capabilities as a service, along with an open-source implementation citenp:[ribeiroMLaaSMachineLearning2015].
+Kraska et al. have developed MLBase, which includes a simple declarative language for specifying machine learning tasks to be used by both researchers and end-users citenp:[kraskaMLbaseDistributedMachinelearning].
+The available resources for machine learning in proposed architectures, open-source and commercial platforms and pipelines, tooling, and other supporting technologies have exploded in the last years.
+Machine learning tools to process large-scale data for decision assistance, automation, and interactive data analytics are growing and will continue to be essential for research and business citenp:[nguyenMachineLearningDeep2019].
 
-The ability to reproduce a scientific works central finding, reproducibility, is key to the scientific process, and as such is important in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
+The ability to reproduce a scientific works central finding, reproducibility, is key to the scientific process, and as such is essential in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
 This challenge is both more complicated and more straightforward in the age of digital.
 Analyses that can be made are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
 While this added complexity adds to the difficulty in adequately describing the process involved in reaching our conclusions, digital tools can also give us the ability to share the exact code that confirms our results' citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].
