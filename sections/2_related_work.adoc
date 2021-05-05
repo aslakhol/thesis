@@ -3,10 +3,10 @@
 === Eye Tracking and Cognitive Performance
 
 Since gaze data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016], multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
-As cognitive load can be a proxy between a task and a subject's performance, citenp:[haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
+As cognitive load can be a proxy between a task and a subject's performance, citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
 Zhang et al. citenp:[zhangTuC4DriverCognitive] classified a driver's cognitive load in two classes, using the direction of the subject's gaze and the mean and standard deviation of pupil diameter changes.
 They achieved significant results using a decision tree classifier.
-Haapalainen et al. citenp:[haapalainenferreiraPsychoPhysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine their usefulness.
+Haapalainen et al. citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine their usefulness.
 Their results show that the pupillometry was one of the least valuable features for their problem.
 However, Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze data and showed aggregated features from gaze data could predict a subject's perceptual speed and visual working memory reliably.
 Toker et al. citenp:[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
@@ -52,4 +52,36 @@ Recently feature generalizability has also been shown to have relevance when pre
 
 
 === Platform
-A significant portion of our work has been put into developing a platform to run our experiments as machine learning pipelines easily.
+
+Machine learning platforms and pipelines are essential in many research projects.
+In bioinformatics, Guzzetta et al. present an L1L2 based machine learning pipeline that is effective for fitting quantitative phenotypes from genome data citenp:[guzzettaMachineLearningPipeline2010].
+Fountain-Jones et al. demonstrate how a flexible ensemble pipeline can be used for predicting pathogen exposure in animal ecology.
+To demonstrate their pipeline, they model pathogen exposure risk in two different viruses that infect African lions citenp:[fountain-jonesHowMakeMore2019]
+Sutton et al. have developed PhysOnline, a pipeline built on the Apache Spark platform.
+PhysOnline uses streaming physiological data and can be used for real-time classification in the biomedical and health informatics field citenp:[suttonPhysOnlineOpenSource2019]
+Shaikh et al. tackle the complicated task of creating a machine learning pipeline that can ensure fairness in decision-making. The system can understand policies written in natural language and will assist users in ensuring that set fairness policies are followed citenp:[shaikhEndToEndMachineLearning2017].
+
+There has been some research that focuses on the pipelines themselves.
+Olson and Moore present TPOT, a tree-based tool for optimizing pipelines, which has recently shown much promise citenp:[olsonTPOTTreeBasedPipeline2019].
+This system exists in the new and promising field of AutoML, which seeks to automate the design of pipelines for machine learning, democratizing machine learning further.
+Mohr et al. have contributed to predicting pipeline runtimes to improve one of the significant limitations of current AutoMl technology citenp:[mohrPredictingMachineLearning2021].
+The systems we have available today take a considerable amount of time to arrive at good pipeline designs if the case is even slightly complex.
+Effectively predicting pipelines would enable us to significantly decrease the cost of AutoML systems, as one could ignore pipelines that would not complete within the systems timeout limits.
+
+There have also been several attempts at creating more generally applicable platforms for machine learning.
+López García et al. presents the DEEP-Hybrid-DataCloud framework as "a distributed architecture top provide machine learning practitioners with a set of tools and cloud services to cover the whole machine learning development cycle" citenp:[lopezgarciaCloudBasedFrameworkMachine2020].
+The DEEP framework represents an important step in democratizing machine learning and deep learning for all areas of research.
+Ribeiro et al. present an architecture to provide scalable machine learning capabilities as a service, along with an open-source implementation citenp:[ribeiroMLaaSMachineLearning2015].
+Kraska et al. have developed MLBase, which includes a simple declarative language for specifying machine learning tasks to be used by both researchers and end-users citenp:[kraskaMLbaseDistributedMachinelearning].
+The available resources for machine learning in proposed architectures, open-source and commercial platforms and pipelines, tooling, and other supporting technologies have exploded in the last years.
+Machine learning tools to process large-scale data for decision assistance, automation, and interactive data analytics are growing and will continue to be essential for research and business citenp:[nguyenMachineLearningDeep2019].
+
+The ability to reproduce a scientific works central finding, reproducibility, is key to the scientific process, and as such is essential in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
+This challenge is both more complicated and more straightforward in the age of digital.
+Analyses that can be made are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
+While this added complexity adds to the difficulty in adequately describing the process involved in reaching our conclusions, digital tools can also give us the ability to share the exact code that confirms our results' citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].
+There has been a growing push to include code with materials published along with scientific findings citenp:[inceCaseOpenComputer2012, DevilDetails2011].
+Ince et al. argue that even with the complete source code, one is not guaranteed reproducibility.
+Local software and hardware environments introduce noise that could impact results.
+They argue for including descriptions of the environments in which the code was executed citenp:[inceCaseOpenComputer2012].
+With the advent of containerization and commercial cloud platform, it is possible to reach close to the same descriptive rigor of the hardware and software environments as sharing code represents for the system. citenp:[ditommasoNextflowEnablesReproducible2017, naglerSustainabilityReproducibilityContainerized2015, vaillancourtReproduciblePortableWorkflows2020]
