@@ -27,54 +27,45 @@
 | Transistion matrix of fitted markov model
 
 | pupil_diameter_rolling__arma__,
-| Ar, ma and Exog attributes of a fitted arma model
+| Ar, ma, and Exog attributes of a fitted ARMA model
 
 | pupil_diameter_rolling__garch,
-| mu, omega, alpha, gamma, and beta attributes of a fitted garch model
+| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
 
 | duration_rolling__fft_aggregated,
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
-
-| duration_rolling__lhipa,
-| The Low/High Index of Pupillary Activity
 
 | duration_rolling__markov,
 | Transistion matrix of fitted markov model
 
 | duration_rolling__arma__,
-| Ar, ma and Exog attributes of a fitted arma model
+| Ar, ma, and Exog attributes of a fitted ARMA model
 
 | duration_rolling__garch,
-| mu, omega, alpha, gamma, and beta attributes of a fitted garch model
+| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
 
 | saccade_length_rolling_fft_aggregated__,
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
-
-| saccade_length_rolling__lhipa,
-| The Low/High Index of Pupillary Activity
 
 | saccade_length_rolling__markov,
 | Transistion matrix of fitted markov model
 
 | saccade_length_rolling__arma__,
-| Ar, ma and Exog attributes of a fitted arma model
+| Ar, ma and Exog attributes of a fitted ARMA model
 
 | saccade_length_rolling__garch,
-| mu, omega, alpha, gamma, and beta attributes of a fitted garch model
+| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
 
 | saccade_duration_rolling__fft_aggregated__,
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
-
-| saccade_duration_rolling__lhipa,
-| The Low/High Index of Pupillary Activity
 
 | saccade_duration_rolling__markov,
 | Transistion matrix of fitted markov model
 
 | saccade_duration_rolling__arma__,
-| Ar, ma and Exog attributes of a fitted arma model
+| Ar, ma, and Exog attributes of a fitted ARMA model
 
 | saccade_duration_rolling__garch,
-| mu, omega, alpha, gamma, and beta attributes of a fitted garch model
+| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
 
 |===

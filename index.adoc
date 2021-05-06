@@ -2,6 +2,8 @@
 :bibtex-order: alphabetical
 :bibtex-style: ieee
 :stem: asciimath
+:xrefstyle: short
+:sectnums:
 
 = Engineering Generalizable Features for Eye-Tracking Data Through a Cloud-Based Machine Learning Platform
 :toc:
