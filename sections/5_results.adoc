@@ -63,6 +63,7 @@ We do this by ranking, giving each pipeline a rank for NRMSE and FGI, then group
 This mean of ranks gives us the results of which variables produce the most generalizable pipelines and perform best in the same context.
 
 
+
 === Feature Selection and Dimensionality reduction
 
 ==== Same training and testing context
@@ -75,10 +76,38 @@ image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
 However when we aggregate the results, we can see that Lasso performs slightly better than PCA across all pipelines.
 
+.This is a table
+[format="csv", options="header"]
+|===
+include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
+|===
+
+.This is also a table
+[format="csv", options="header"]
+|===
+include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
+|===
+
+
 ==== Generalizability
 There seems to be no clear results to if Lasso or PCA is most generalizable.
 
 image::../figures/dimensionality_reduction_generalizability.jpg[]
+
+.This is also a table
+[format="csv", options="header"]
+|===
+include::../tables/results/1_to_1_dimensionality_reduction_generalizability_aggregated.csv[]
+|===
+
+.This is also a table
+[format="csv", options="header"]
+|===
+include::../tables/results/2_to_1_dimensionality_reduction_generalizability_aggregated.csv[]
+|===
+
+
+
 
 
 === Feature groups
@@ -87,5 +116,32 @@ image::../figures/dimensionality_reduction_generalizability.jpg[]
 
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
+.This is a table
+[format="csv", options="header"]
+|===
+include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
+|===
+
+.This is also a table
+[format="csv", options="header"]
+|===
+include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
+|===
+
+
+
 ==== Generalizability
 image::../figures/feature_groups_generalizability.jpg[]
+
+.This is also a table
+[format="csv", options="header"]
+|===
+include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
+|===
+
+
+.This is also a table
+[format="csv", options="header"]
+|===
+include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
+|===

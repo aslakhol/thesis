@@ -1,0 +1,14 @@
+.FGI Rank 1 to 1 Dimensionality Reduction
+[cols="1,1,1"]
+|===
+| Method | FGI Rank | Average FGI
+
+| Lasso
+| 60.13
+| 0.010852
+
+| PCA
+| 70.09
+| 0.011641
+
+|===
