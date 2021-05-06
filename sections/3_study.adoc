@@ -1,5 +1,22 @@
 == Study
 
+The study design, described below, is inspired by the study performed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
+
+We have selected three datasets used in published articles that all include eye-tracking data from subjects completing one or more cognitive tasks.
+The studies that produced the datasets were distinct, and their differences allow us to argue that the datasets have different contexts.
+
+When running our pipelines, we designate either one or two datasets as in-study and one dataset as out-of-study.
+If two datasets are used as in-study, they are combined into one larger dataset.
+If we use only one dataset as in-study, we do not include the third dataset in that pipeline.
+
+We split the in-study dataset into three parts: training, validation, and testing data by leave-one-participant-out.
+The training data is used to train the model; the validation data is used to set weights for the classifiers in the voting ensemble and the testing data is used to evaluate the predictive power of each pipeline on unseen data.
+
+Our next step our *out-of-study-testing*.
+In this step we evaluate our use the model outputted from a pipeline to predict on data gathered in a separate context.
+This allowes us to analyse the generalizability of the pipeline.
+
+
 === Datasets
 
 We have been working with three different datasets gathered and published by other researchers.
