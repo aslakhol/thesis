@@ -1,16 +1,18 @@
+
+.yolo
 == Results and Discussion
-We ran all different combinations of datasets, dimensionality reduction and feature groups.
+We ran all different combinations of datasets, dimensionality reduction, and feature groups. xref:yolo[]
 
 === Baselines
 We use two different baselines to evaluate our results, in study baseline and out of study baseline.
 
 ==== In study baseline
-The in study baseline is a basic error of something i need to find a reference for this.
-We calculate a baseline for each of the dataset combinations and use these to evaluate the pipelines with the datasets combinations.
-This is because the baselines differ between the datasets, since the distribution of labels is different.
+The in-study baseline is an essential error of something i need to find a reference for this.
+We calculate a baseline for each of the dataset combinations and use these to evaluate the pipelines with the dataset combinations.
+This is because the baselines differ between the datasets since the distribution of labels is different.
 include::../tables/in_study_baselines_table.adoc[]
 
-Pseudocode for the in study baseline.
+Pseudocode for the in-study baseline:
 ```
 def get_baseline(labels):
     error = labels - labels.mean()
@@ -20,14 +22,14 @@ def get_baseline(labels):
 ```
 
 ==== Out of study baseline
-We use a different method to calculate the out of study baselines.
+We use a different method to calculate the out-of-study baselines.
 We do this because the model has no a priori knowledge of the distribution of labels, and it would be a tremendous achievement to beat the baselines based on the mean.
-We calculate the out of study baselines by taking the mean of the errors created by prediciting with a uniform and a normal distribution.
+We calculate the out-of-study baselines by taking the mean of the errors created by choosing values from a uniform and a normal distribution.
 
 
 include::../tables/out_of_study_baselines.adoc[]
 
-Pseudocode for the out of study baseline.
+Pseudocode for the out-of-study baseline:
 ```
 def get_random_normal_prediction(labels):
     prediction = [np.random.normal(loc=labels.mean(), scale=labels.std()) for i in labels]
@@ -47,21 +49,31 @@ def get_oos_baseline(labels):
     return (avg_normal_rmse + avg_uniform_rmse)/2
 ```
 
+
 === Evaluating Generalizability
 We evaluate the generalizability of the pipelines with the out of study dataset.
-The results from predicting on the out of study dataset is compared to the cross-validation results with FGI which is explained in chapter 4.
-To find the most generalizable features, we need to filter out the pipelines performs badly on both the in study and out of study dataset, since two models performs badly may yield a good FGI.
-This is because trash is similar to trash.
-We do this by filtering out the pipelines that does not perform better than the baseline on both in study and out of study, and rank the remaining pipelines on FGI.
+The results from predicting the out-of-study dataset are compared to the cross-validation results with FGI, which we explained in chapter 4.
+To find the most generalizable features, we need to filter out the pipelines that perform poorly on both the in-study and out-of-study dataset since two models perform poorly may yield a good FGI.
+We do this by filtering out the pipelines that do not perform better than the baseline on both in-study and out-of-study and rank the remaining pipelines on FGI.
 
+
+=== Aggregation of the results
+To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
+We do this by ranking, giving each pipeline a rank for NRMSE and FGI, then grouping on either dimensionality reduction, feature combination, or both, then taking the average.
+This mean of ranks gives us the results of which variables produce the most generalizable pipelines and perform best in the same context.
 
 
 === Feature Selection and Dimensionality reduction
 
 ==== Same training and testing context
-There seems to be no clear results to if Lasso or PCA is best for training and testing in the same context.
+<<CaptionTHIS>> xref:CaptionTHIS[] shows which dimensionality reduction method is used for the pipelines with the 5 smallest NRMSES per dataset.
+Which method performs better seems to rely heavily on the in-study dataset, and at first glance it seems like the which method is used is equivalent.
+As mentioned in xref:Baselines[]
 
+.CaptionTHIS
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
+
+However when we aggregate the results, we can see that Lasso performs slightly better than PCA across all pipelines.
 
 ==== Generalizability
 There seems to be no clear results to if Lasso or PCA is most generalizable.
