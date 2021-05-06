@@ -4,38 +4,94 @@ The study design, described below, is inspired by the study performed by Sharma 
 
 We have selected three datasets used in published articles that all include eye-tracking data from subjects completing one or more cognitive tasks.
 The studies that produced the datasets were distinct, and their differences allow us to argue that the datasets have different contexts.
+With these datasets, we generate several different pipelines consisting of different feature groups, different dimensionality reduction or feature selection techniques, and different combinations of the datasets.
+These pipelines are then evaluated using both *out-of-sample testing* to determine the predictive power on unseen data and *out-of-study testing* to assess the generalizability of the pipeline.
 
-When running our pipelines, we designate either one or two datasets as in-study and one dataset as out-of-study.
-If two datasets are used as in-study, they are combined into one larger dataset.
+For each pipeline, we designate either one or two datasets as in-study and one dataset as out-of-study.
+In the cases where two datasets are selected as in-study, they are combined into one larger dataset.
 If we use only one dataset as in-study, we do not include the third dataset in that pipeline.
 
 We split the in-study dataset into three parts: training, validation, and testing data by leave-one-participant-out.
-The training data is used to train the model; the validation data is used to set weights for the classifiers in the voting ensemble and the testing data is used to evaluate the predictive power of each pipeline on unseen data.
+The training data is used to train the model; the validation data is used to set weights for the classifiers in the voting ensemble, and the testing data is used to evaluate the predictive power of each pipeline on unseen data.
+The testing of the pipeline on unseen data from the same dataset(s) is our *out-of-sample testing*.
 
-Our next step our *out-of-study-testing*.
-In this step we evaluate our use the model outputted from a pipeline to predict on data gathered in a separate context.
-This allowes us to analyse the generalizability of the pipeline.
+Our next step is the *out-of-study-testing*.
+In this step, we use the model outputted from a pipeline to make predictions on data gathered in separate contexts.
+This allows us to analyze the generalizability of the pipeline.
 
 
 === Datasets
 
 We have been working with three different datasets gathered and published by other researchers.
+They are all gathered during cognitive tasks and, as such, are suitable for investigating cognitive workload.
+We have used the shorthand names EMIP, CSCW and Fractions to refer to the datasets.
+They are further described in the following section.
 
 
-=== EMIP
+==== EMIP
 
 The Eye-Movements In Programming (EMIP) dataset is a large eye-tracking dataset collected as a community effort involving 11 research teams across four continents.
-The goal was to provide a substantially large dataset open and free to stimulate research relating to development and eye-tracking.
-216 programmers of differing experience levels were recorded while performing two code comprehension tasks.
-In addition to the eye-tracking information, a wealth of metadata is also provided. citenp:[bednarikEMIPEyeMovements2020]
+The goal was to provide a substantially large dataset open and free to stimulate research relating to programming and eye-tracking citenp:[bednarikEMIPEyeMovements2020].
+
+
+===== Tasks
+The participants were recorded while performing two code comprehension tasks.
+They filled out a questioneer where they self-reported their level of programming expertise from the options none, low, medium, and high, recorded years of programming experience.
+In addition, they answered several other questions that make up the metadata that accompanies the eye-tracking data.
+The participants also selected the language to be used in the task, from Java, Scala, or Python.
+
+After the questioner, the eye-tracker was calibrated, and the code comprehension task was started.
+The task consisted of reading two different pieces of code called Vehicle and Rectangle, each comprising 11-22 code lines.
+After reading and trying to understand a piece of code, the participants would indicate that they were ready to proceed by pressing the space bar.
+Next, the system presented the participants with a multiple-choice question that evaluated code comprehension.
+After completing the question for Vehicle, they were presented with the code for Rectangle and subsequently its accompanying question.
+
+The rectangle code consists of a class representing a rectangle, instantiated through a constructer that takes four coordinates.
+The class also has methods to width, height, and area.
+In the _main_ function of the class, two rectangles are instantiated, and their areas are printed.
+The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity], and the EMIP researchers translated code from python two Scala and Java.
+The vehicle code is a class that represents a vehicle with several variables and a function to accelerate the car.
+A constructor takes a producer, a type, and a top speed.
+In the _main_ function, a vehicle is created, and its speed is accelerated citenp:[bednarikEMIPEyeMovements2020].
+
+===== Participants
+
+Each site recruited participants by opportunity sampling.
+Data from 216 participants at differing levels of expertise is included in the dataset.
+There were 41 female and 175 male participants; their mean age was 26.56 with a standard deviation of 9.28.
+The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers citenp:[bednarikEMIPEyeMovements2020].
+
+The data was collected at these institutions at the following locations:
+* The Centre for Human Centred Technology Design, University of Technology Sydney, Australia.
+* The Department of Computer Science, Aalto University, Finland.
+* The Department of Computer Science, University of Helsinki, Finland.
+* The Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava, Slovakia.
+* Information & Computer Sciences, University of Hawai’i at Mānoa, USA.
+* Neuroinformatics Group, Bielefeld University, Germany.
+* The School of Mathematics and Computer Science of the Netanya Academic College, Netanya, Israel.
+* The School of Computing, Engineering and Built Environment, Glasgow Caledonian University, United Kingdom.
+* Software Engineering Research and Empirical Studies Lab, Youngstown State University, USA.
+* The Physical Structure of Perception and Computation Group, University of Genoa, Italy.
+* The School of Computing and Information Science, Anglia Ruskin University, Cambridge, United Kingdom.
+
+
+===== Technology and experimental setup
 
 The recording was performed using a screen-mounted SMI RED25 mobile video-based eye tracker.
-Stimuli were presented on a laptop computer screen with a resolution of 1920 x 1080 pixels. citenp:[bednarikEMIPEyeMovements2020]
+The tracker has a sample rate of 250 Hz with an accuracy < 0.4◦ and a precision of ≈ 0.03◦ of visual angle.
+Stimuli were presented on a laptop computer screen with a resolution of 1920 x 1080 pixels and were viewed without a headrest in a fashion that closely simulated a familiar programming environment.
+The data collection procedure was implemented in the SMI Experimental Suite software.
+The laptop, eye-tracker, and software were shipped between the locations to minimize differences in setup citenp:[bednarikEMIPEyeMovements2020].
 
-The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers.
-There were 41 female participants and 175 male participants.
-The mean age was 26.56 years with a standard deviation of 9.28. citenp:[bednarikEMIPEyeMovements2020]
+===== Description of the data
 
+Below is a list of the contest of the dataset provided by Bednarik et al. citenp:[bednarikEMIPEyeMovements2020].
+
+.Contents of the dataset
+* rawdata: a folder with 216 TSV files containing raw eye movement data.
+* stimuli: screenshots of the experiment slides in JPG-format and CSV files with AOI (area of interest) coordinates for the stimulus program
+* metadata: a CSV file with information with background information on the participants, results from the questioner, and the order in which the stimulus programs were shown.
+* data: TXT file specifying when the dataset was uploaded.
 
 === CSCW
 
@@ -43,7 +99,7 @@ CSCW is a product of a study run by Sharma et al. citenp:[sharmaLookingLookingDu
 In this study, 98 university students partook in an exercise designed to show the different gaze patterns of learnings using a Massive Open Online Course (MOOC).
 
 The study used a pre-test as a contextual primer.
-The primer came in two different forms, one text-based test, and one schema-based test.
+The primer came in two different forms, one text-based test and one schema-based test.
 Participants that got the textual primer were denoted T, and participants that got the schematic primer were denoted S.
 
 After the primer, participants watched a video from Khan Academy on the topic of "resting membrane potential."
@@ -64,7 +120,7 @@ The dataset that we refer to as fractions was gathered by Olson et al. citenp:[o
 It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems.
 The study included 84 4th and 5th grades from two US elementary schools.
 The students completed either individual tasks or collaborative tasks using an interactive tutoring system developed by the researchers.
-Participants in the study also completed a pretest on the morning of the experiment, and a post-test the day after.
+Participants in the study also completed a pre-test on the morning of the experiment, and a post-test the day after.
 The results of the pre- and post-test are included with the data.
 
 The students selected for the collaborative tasks were paired by their teachers to ensure that the students collaborate effectively.
