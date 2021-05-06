@@ -1,5 +1,4 @@
-
-.yolo
+[[yolo]]
 == Results and Discussion
 We ran all different combinations of datasets, dimensionality reduction, and feature groups. xref:yolo[]
 
@@ -67,22 +66,25 @@ This mean of ranks gives us the results of which variables produce the most gene
 === Feature Selection and Dimensionality reduction
 
 ==== Same training and testing context
-<<CaptionTHIS>> xref:CaptionTHIS[] shows which dimensionality reduction method is used for the pipelines with the 5 smallest NRMSES per dataset.
+xref:pipelines_nrmses_dim_reduction[] shows which dimensionality reduction method is used for the pipelines with the 5 smallest NRMSES per dataset.
 Which method performs better seems to rely heavily on the in-study dataset, and at first glance it seems like the which method is used is equivalent.
-As mentioned in xref:Baselines[]
 
-.CaptionTHIS
+[[pipelines_nrmses_dim_reduction]]
+.The pipelines with the 5 lowest NRMSES per dataset and if they used dimensionality reduction or feature selection
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
-However when we aggregate the results, we can see that Lasso performs slightly better than PCA across all pipelines.
+However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that Lasso performs slightly better than PCA across all pipelines.
+But there is still no clear answer to which method
 
-.This is a table
+[[one_to_one_dim_nrmse_aggregated]]
+.NRMSE Rank and mean NRMSE for Dimensionality reduction and feature selection across all 1 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
-.This is also a table
+[[two_to_one_dim_nrmse_aggregated]]
+.NRMSE Rank and mean NRMSE for Dimensionality reduction and feature selection across all 2 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
@@ -90,17 +92,22 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 
 ==== Generalizability
-There seems to be no clear results to if Lasso or PCA is most generalizable.
+There seem to be no precise results as to if Lasso or PCA is most generalizable.
 
+[[pipelines_fgi_dim_reduction]]
+.The pipelines with the 10 lowest FGI and if they used dimensionality reduction or feature selection
 image::../figures/dimensionality_reduction_generalizability.jpg[]
 
-.This is also a table
+
+[[one_to_one_dim_FGI_aggregated]]
+.FGI Rank and mean FGI for Dimensionality reduction and feature selection across all 1 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_dimensionality_reduction_generalizability_aggregated.csv[]
 |===
 
-.This is also a table
+[[two_to_one_dim_FGI_aggregated]]
+.FGI Rank and mean FGI for Dimensionality reduction and feature selection across all 2 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_dimensionality_reduction_generalizability_aggregated.csv[]
@@ -114,15 +121,19 @@ include::../tables/results/2_to_1_dimensionality_reduction_generalizability_aggr
 
 ==== Same training and testing context
 
+[[pipelines_nrmses_dim_reduction]]
+.The pipelines with the 5 lowest NRMSES per dataset and which feature group it contained
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
-.This is a table
+[[one_to_one_feature_nrmse_aggregated]]
+.10 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
-.This is also a table
+[[two_to_one_feature_nrmse_aggregated]]
+.10 smallest NRMSE Rank and mean NRMSE for the feature groups across all 2 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
@@ -131,16 +142,20 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 
 
 ==== Generalizability
+[[pipelines_fgi_feature]]
+.The pipelines with the 10 lowest FGI and which feature group they used
 image::../figures/feature_groups_generalizability.jpg[]
 
-.This is also a table
+[[one_to_one_dim_FGI_aggregated]]
+.10 smallest FGI Rank and mean FGI for feature groups across all 1 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
 |===
 
 
-.This is also a table
+[[two_to_one_dim_FGI_aggregated]]
+.10 smallest FGI Rank and mean FGI for feature groups across all 2 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
