@@ -376,15 +376,31 @@ Since all the datasets are from different contexts, we can evaluate how our pipe
 
 ==== Evaluation Criteira
 
-All of our pipelines are evaluated with Root mean squared error.
-Since the labels are normalized in a range from 0 to 1 before training, our RMSE is equivalent to NRMSE, so we can reliably compare the results from one dataset to another.
-RMSE is calculated by the following formula.
+All of our pipelines are evaluated with NRMSE(normalized root mean squared error).
+Since the labels of the datasets we are in different ranges we need a metric that can be compared across datasets.
+NRMSE is normalized in the range from 0 to 1 where 1 is the maximum error possible for the dataset.
+NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[PredictionMOOCsReview]  and is the preferred metric for student models. citenp:[pelanekMetricsEvaluationStudent2015]
+Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to NRMSE in this thesis.
+Hence we refer to it as NRMSE in this thesis.
 
+
+NRMSE is calculated by the following formulas.
 
 :asciimath:[RMSE = sqrt ((sum_(i=1)^text(Number of samples) (text(predicted)_i - text(original)_i)^2) / text(Number of Samples))]
 
+:asciimath:[NRMSE = text(NRMSE)/(text(original)_max - text(original)_min)]
+
+
 === Feature Generalizability Index
-I think we can wait with this section until we have decided on a metric. I want to incorporate random-baseline
+We measure the generalizability of features by comparing the distributions of NRMSES from the in study cross validation and the out of study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
+Since the ground truth in both the in study datasets and the out of study datasets indicate cognitive performance we can safely assume that similar behaviour will indicate similar results.
+To compare the distributions of RMSE we use ANOSIM (ANalysis Of SIMiliarity) which is a non parametric function to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993]
+
+
+asciimath::[(text(mean ranks between groups) - text(mean ranks within groups))/N(N-1)/4]
+
+The denominator normalizes the values between -1 and +1 where 0 is a random grouping.
+
 
 
 === Bench-marking the Generalizable Features
