@@ -158,7 +158,7 @@ image::../figures/feature_groups_generalizability.jpg[]
 .5 smallest FGI Rank and mean FGI for feature groups across all 1 to 1 pipelines
 [format="csv", options="header"]
 |===
-include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
+include::../tables/results/1_to_1_features_generalizability_aggregated.csv[]
 |===
 
 
