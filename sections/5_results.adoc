@@ -1,9 +1,16 @@
-[[yolo]]
 == Results and Discussion
-We ran all different combinations of datasets, dimensionality reduction, and feature groups. xref:yolo[]
+We ran a total of 216 pipelines with different combinations of datasets, dimensionality reduction, and feature groups.
+144 of these pipelines were 1 to 1 pipelines, where we trained on one dataset and tested on another.
+72 of them were 2 to 1 where we had two in-study datasets and 1 out of study.
+In this section, we will present the results from these pipelines.
+xref:baselines[] explains how we calculate the baselines for the datasets, xref:evaluating_generalizability[] how we handle pipelines that do not exceed the baseline, and xref:aggregation[] explains how we aggregated the results across all the pipelines.
+xref:feature_selection_dim_reduction[] and presents the results and answers whether feature selection or dimensionality reduction performs best in prediction power and generalizability.
+xref:features[] does the same for the features.
+The two sections start by evaluating how the respective variable performs when training and testing in the same context before considering generalizability.
 
+[[baselines]]
 === Baselines
-We use two different baselines to evaluate our results, in study baseline and out of study baseline.
+We use two different baselines to evaluate our results, in study baseline and out of study baseline. They are described in the following subsections.
 
 ==== In study baseline
 The in-study baseline is an essential error of something i need to find a reference for this.
@@ -48,27 +55,27 @@ def get_oos_baseline(labels):
     return (avg_normal_rmse + avg_uniform_rmse)/2
 ```
 
-
+[[evaluating_generalizability]]
 === Evaluating Generalizability
 We evaluate the generalizability of the pipelines with the out of study dataset.
 The results from predicting the out-of-study dataset are compared to the cross-validation results with FGI, which we explained in chapter 4.
-To find the most generalizable features, we need to filter out the pipelines that perform poorly on both the in-study and out-of-study dataset since two models perform poorly may yield a good FGI.
+To find the most generalizable features, we need to filter out the pipelines that perform poorly on both the in-study and out-of-study dataset since two bad predictions yield a good FGI.
 We do this by filtering out the pipelines that do not perform better than the baseline on both in-study and out-of-study and rank the remaining pipelines on FGI.
 
-
+[[aggregation]]
 === Aggregation of the results
 To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
 We do this by ranking, giving each pipeline a rank for NRMSE and FGI, then grouping on either dimensionality reduction, feature combination, or both, then taking the average.
-This mean of ranks gives us the results of which variables produce the most generalizable pipelines and perform best in the same context.
+This mean of ranks gives us the results of which variables produce the most generalizable pipelines and perform best when testing it on a partition of the dataset it was trained on.
 
 
-
+[[feature_selection_dim_reduction]]
 === Feature Selection and Dimensionality reduction
 
 
 ==== Same training and testing context
 xref:pipelines_nrmses_dim_reduction[] shows which dimensionality reduction method is used for the pipelines with the 5 smallest NRMSES per dataset.
-Which method performs better seems to rely heavily on the in-study dataset, and that makes it hard to conclude which of the two performs better.
+Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
 [[pipelines_nrmses_dim_reduction]]
 .The pipelines with the 5 lowest NRMSES per dataset and if they used dimensionality reduction or feature selection
@@ -100,8 +107,9 @@ xref:pipelines_fgi_dim_reduction[] also has no clear indication to whether Lasso
 .The pipelines with the 10 lowest FGI and if they used dimensionality reduction or feature selection
 image::../figures/dimensionality_reduction_generalizability.jpg[]
 
-When we aggregate the data shown in xref:one_to_one_dim_FGI_aggregated[] and xref:two_to_one_dim_FGI_aggregated[] we can see that Lasso is more generalizable than PCA in the 1 to 1 pipelines, interestingly the trend is the opposite in the 2 to 1 pipelines PCA generates slightly more generalizable pipelines than Lasso.
-Hence our results shows that feature selection is preferred for 1 to 1 pipelines, while dimensionality reduction is more generalizable when training on mulitple contexts.
+When we aggregate the data shown in xref:one_to_one_dim_FGI_aggregated[] and xref:two_to_one_dim_FGI_aggregated[] we can see that Lasso is more generalizable than PCA in the 1 to 1 pipelines.
+Interestingly the trend is the opposite in the 2 to 1 pipelines. PCA generates slightly more generalizable pipelines than Lasso.
+Hence our results show that feature selection is preferred for 1 to 1 pipelines, while dimensionality reduction is more generalizable when training on multiple contexts.
 
 [[one_to_one_dim_FGI_aggregated]]
 .FGI Rank and mean FGI for Dimensionality reduction and feature selection across all 1 to 1 pipelines
@@ -121,17 +129,26 @@ include::../tables/results/2_to_1_dimensionality_reduction_generalizability_aggr
 
 
 
-
+[[Features]]
 === Feature groups
 
 ==== Same training and testing context
 
 
-xref:pipelines_nrmses_features[] shows a that there is a
+xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1 to 1 pipelines and 2 to 1 pipelines.
+_FFT_ gave good predictions on _fractions_ and is also among the top 5 for _emip_fractions_ and _fractions_cscw_.
+This pattern repeats for _cscw_ where _saccade_duration_ are among the top 5 in _cscw_, _fractions_cscw_ and _emip_cscw_.
+For _EMIP_ this is shown with Arma.
+
 
 [[pipelines_nrmses_features]]
 .The pipelines with the 5 lowest NRMSES per dataset and which feature group it contained
 image::../figures/feature_groups_context_sensitivity.jpg[]
+
+When we aggregate the results, as seen in xref:[[one_to_one_features_nrmse_aggregated]] and xref:[[two_to_one_features_nrmse_aggregated]]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1 to 1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
+However, _fixation_duration_ and _fft_ are also among the top five of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2 to 1 pipelines.
+
+
 
 [[one_to_one_features_nrmse_aggregated]]
 .5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1 to 1 pipelines
@@ -150,9 +167,16 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 
 
 ==== Generalizability
+
+In the ten pipelines with the lowest FGI, we see a wide variety of features. This is because the most generalizable pipelines have the same dataset as their in-study dataset.
+
 [[pipelines_fgi_features]]
 .The pipelines with the 10 lowest FGI and which feature group they used
 image::../figures/feature_groups_generalizability.jpg[]
+
+So to tell the whole story, we need to look at the aggregated data, which shows that saccade length is the most generalizable feature closely followed by GARCH.
+_Sacccade_duration_ also performs well, indicating that there is a connection between cognitive performance and saccades.
+As for the 1 to 1 pipeline, _Garch_ is the most generalizable feature.
 
 [[one_to_one_features_FGI_aggregated]]
 .5 smallest FGI Rank and mean FGI for feature groups across all 1 to 1 pipelines
