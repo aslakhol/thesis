@@ -134,14 +134,14 @@ xref:pipelines_nrmses_features[] shows a that there is a
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
 [[one_to_one_features_nrmse_aggregated]]
-.10 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1 to 1 pipelines
+.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_features_nrmse_aggregated]]
-.10 smallest NRMSE Rank and mean NRMSE for the feature groups across all 2 to 1 pipelines
+.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 2 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
@@ -155,7 +155,7 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 image::../figures/feature_groups_generalizability.jpg[]
 
 [[one_to_one_features_FGI_aggregated]]
-.10 smallest FGI Rank and mean FGI for feature groups across all 1 to 1 pipelines
+.5 smallest FGI Rank and mean FGI for feature groups across all 1 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
@@ -163,7 +163,7 @@ include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
 
 
 [[two_to_one_features_FGI_aggregated]]
-.10 smallest FGI Rank and mean FGI for feature groups across all 2 to 1 pipelines
+.5 smallest FGI Rank and mean FGI for feature groups across all 2 to 1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
