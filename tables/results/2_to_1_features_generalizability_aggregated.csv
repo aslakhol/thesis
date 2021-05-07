@@ -1,6 +1,6 @@
 Feature Group,FGI,FGI_RANK
-garch,0.008,19.0
 saccade_length,0.0077,19.0
+garch,0.008,19.0
 saccade_duration,0.0084,24.0
 heatmaps,0.0082,25.0
 fft,0.0086,25.7
