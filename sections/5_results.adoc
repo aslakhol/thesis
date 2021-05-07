@@ -13,9 +13,9 @@ The two sections start by evaluating how the respective variable performs when t
 We use two different baselines to evaluate our results, in study baseline and out of study baseline. They are described in the following subsections.
 
 ==== In study baseline
-The in-study baseline is an essential error of something i need to find a reference for this.
-We calculate a baseline for each of the dataset combinations and use these to evaluate the pipelines with the dataset combinations.
-This is because the baselines differ between the datasets since the distribution of labels is different.
+The in-study baseline would be the NRMSE value if all the predictions were the labels' mean, regardless of the feature vectors.
+We calculate a baseline for each of the dataset combinations and use these to evaluate the pipelines with the dataset combination as in-study.
+We do this because the baselines differ between the datasets since the distribution of labels is different.
 include::../tables/in_study_baselines_table.adoc[]
 
 Pseudocode for the in-study baseline:
@@ -59,7 +59,7 @@ def get_oos_baseline(labels):
 === Evaluating Generalizability
 We evaluate the generalizability of the pipelines with the out of study dataset.
 The results from predicting the out-of-study dataset are compared to the cross-validation results with FGI, which we explained in chapter 4.
-To find the most generalizable features, we need to filter out the pipelines that perform poorly on both the in-study and out-of-study dataset since two bad predictions yield a good FGI.
+To find the most generalizable features, we need to filter out the pipelines that perform poorly on both the in-study and out-of-study datasets since two poor predictions yield a good FGI.
 We do this by filtering out the pipelines that do not perform better than the baseline on both in-study and out-of-study and rank the remaining pipelines on FGI.
 
 [[aggregation]]
@@ -101,7 +101,7 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 ==== Generalizability
 
-xref:pipelines_fgi_dim_reduction[] also has no clear indication to whether Lasso or PCA is the most generalizable.
+xref:pipelines_fgi_dim_reduction[] also has no clear indication of whether Lasso or PCA is the most generalizable.
 
 [[pipelines_fgi_dim_reduction]]
 .The pipelines with the 10 lowest FGI and if they used dimensionality reduction or feature selection
