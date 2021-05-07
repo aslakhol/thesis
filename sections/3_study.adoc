@@ -24,7 +24,7 @@ This allows us to analyze the generalizability of the pipeline.
 
 We have been working with three different datasets gathered and published by other researchers.
 They are all gathered during cognitive tasks and, as such, are suitable for investigating cognitive workload.
-We have used the shorthand names EMIP, CSCW and Fractions to refer to the datasets.
+We have used the shorthand names EMIP, CSCW, and Fractions to refer to the datasets.
 They are further described in the following section.
 
 
@@ -35,6 +35,7 @@ The goal was to provide a substantially large dataset open and free to stimulate
 
 
 ===== Tasks
+
 The participants were recorded while performing two code comprehension tasks.
 They filled out a questioneer where they self-reported their level of programming expertise from the options none, low, medium, and high, recorded years of programming experience.
 In addition, they answered several other questions that make up the metadata that accompanies the eye-tracking data.
@@ -49,7 +50,7 @@ After completing the question for Vehicle, they were presented with the code for
 The rectangle code consists of a class representing a rectangle, instantiated through a constructer that takes four coordinates.
 The class also has methods to width, height, and area.
 In the _main_ function of the class, two rectangles are instantiated, and their areas are printed.
-The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity], and the EMIP researchers translated code from python two Scala and Java.
+The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity], and the EMIP researchers translated code from python two Scala, and Java.
 The vehicle code is a class that represents a vehicle with several variables and a function to accelerate the car.
 A constructor takes a producer, a type, and a top speed.
 In the _main_ function, a vehicle is created, and its speed is accelerated citenp:[bednarikEMIPEyeMovements2020].
@@ -66,7 +67,7 @@ The data was collected at these institutions at the following locations:
 * The Department of Computer Science, Aalto University, Finland.
 * The Department of Computer Science, University of Helsinki, Finland.
 * The Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava, Slovakia.
-* Information & Computer Sciences, University of Hawai’i at Mānoa, USA.
+* Information & Computer Sciences, University of Hawai'i at Mānoa, USA.
 * Neuroinformatics Group, Bielefeld University, Germany.
 * The School of Mathematics and Computer Science of the Netanya Academic College, Netanya, Israel.
 * The School of Computing, Engineering and Built Environment, Glasgow Caledonian University, United Kingdom.
@@ -93,37 +94,59 @@ Below is a list of the contest of the dataset provided by Bednarik et al. citenp
 * metadata: a CSV file with information with background information on the participants, results from the questioner, and the order in which the stimulus programs were shown.
 * data: TXT file specifying when the dataset was uploaded.
 
-=== CSCW
+==== CSCW
 
-CSCW is a product of a study run by Sharma et al. citenp:[sharmaLookingLookingDual2015].
-In this study, 98 university students partook in an exercise designed to show the different gaze patterns of learnings using a Massive Open Online Course (MOOC).
+The CSCW dataset was gathered during the Computer-Supported Cooperative Work and Social Computing course at École Polytechnique fédérale de Lausanne.
+The study intended to show the different gaze patterns across learners in Massive Open Online Courses (MOOCS) and study the priming effect on learning citenp:[sharmaLookingLookingDual2015].
 
-The study used a pre-test as a contextual primer.
-The primer came in two different forms, one text-based test and one schema-based test.
-Participants that got the textual primer were denoted T, and participants that got the schematic primer were denoted S.
+===== Tasks
 
-After the primer, participants watched a video from Khan Academy on the topic of "resting membrane potential."
-Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each pair collaborated to create a concept map using IHMC CMap tools.
+The experiment centered around a collaborative task with a contextual primer.
+Participants were presented with pre-tests, which also served as primers.
+They were given either a schematic or a text-based primer.
+The textual primer had questions described in text-form, while the schematic primer had the same questions but presented as a schema.
+Participants that received the textual primer were called T, and participants that received the schematic primer were called S.
 
-The participants were recorded with SMI RED 250 eye-trackers as they completed the individual video task and the collaborative concept mapping task.
-After completing the pre-test, the video task, and the concept map, the participants also completed a post-test.
+After the primer, participants watched a video from Khan Academy citenp:[KhanAcademyFree] on the topic of "resting membrane potential."
+Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each team collaborated to create a concept map using IHMC CMap tools citenp:[CmapCmapTools].
+Lastly, the participants also completed a post-test citenp:[sharmaLookingLookingDual2015].
 
-While the concept mapping task was cooperative, all measurements are individual.
-We will be working with the data on the individual level.
-The data is also split into one part for the video watching phase and one part for the concept mapping phase.
+===== Participants
+
+The dataset contains gaze data from 98 students in the CSCW course at EPFL.
+There were 49 participants in each of the two priming groups citenp:[sharmaLookingLookingDual2015].
+
+===== Technology and experimental setup
+
+Gaze data was recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions].
+The participants were while they completed watched the video and during the collaborative concept mapping task citenp:[sharmaLookingLookingDual2015].
+
+===== Description of the data
+
+The dataset contains two files with gaze data for each participant.
+One file describes the video watching phase, and one part describes the concept mapping phase.
 We will not be considering any links between the two and will treat them as separate.
+While the concept mapping task was cooperative, all measurements are individual.
+We will be working with the data on the individual level citenp:[sharmaLookingLookingDual2015].
 
-
-=== Fractions
-
-The dataset that we refer to as fractions was gathered by Olson et al. citenp:[olsenUsingIntelligentTutoring2014].
+==== Fractions
+The dataset that we refer to as Fractions was gathered by Olson et al. citenp:[olsenUsingIntelligentTutoring2014].
 It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems.
+
+===== Tasks
+
+===== Participants
+
+===== Technology and experimental setup
+
+===== Description of the data
+
 The study included 84 4th and 5th grades from two US elementary schools.
 The students completed either individual tasks or collaborative tasks using an interactive tutoring system developed by the researchers.
-Participants in the study also completed a pre-test on the morning of the experiment, and a post-test the day after.
-The results of the pre- and post-test are included with the data.
+Participants in the study also completed a pre-test on the morning of the experiment and a post-test the next day.
+The results of the pre and post-test are included with the data.
 
-The students selected for the collaborative tasks were paired by their teachers to ensure that the students collaborate effectively.
+Their teachers paired the students selected for the collaborative tasks to ensure that the students collaborate effectively.
 They completed tasks in the interactive tutoring system, communicating verbally through a skype connection.
 They did not transmit any video signal.
 
