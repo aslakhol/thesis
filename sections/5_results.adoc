@@ -1,4 +1,4 @@
-== Results and Discussion
+== Results
 We ran a total of 216 pipelines with different combinations of datasets, dimensionality reduction, and feature groups.
 144 of these pipelines were 1 to 1 pipelines, where we trained on one dataset and tested on another.
 72 of them were 2 to 1 where we had two in-study datasets and 1 out of study.
