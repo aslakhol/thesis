@@ -19,5 +19,8 @@ include::sections/4_implementation.adoc[]
 
 include::sections/5_results.adoc[]
 
-include::sections/6_conclusion.adoc[]
+include::sections/6_discussion.adoc[]
+
+include::sections/7_conclusion.adoc[]
+
 bibliography::[]
