@@ -24,7 +24,7 @@ This allows us to analyze the generalizability of the pipeline.
 
 We have been working with three different datasets gathered and published by other researchers.
 They are all gathered during cognitive tasks and, as such, are suitable for investigating cognitive workload.
-We have used the shorthand names EMIP, CSCW and Fractions to refer to the datasets.
+We have used the shorthand names EMIP, CSCW, and Fractions to refer to the datasets.
 They are further described in the following section.
 
 
@@ -33,8 +33,28 @@ They are further described in the following section.
 The Eye-Movements In Programming (EMIP) dataset is a large eye-tracking dataset collected as a community effort involving 11 research teams across four continents.
 The goal was to provide a substantially large dataset open and free to stimulate research relating to programming and eye-tracking citenp:[bednarikEMIPEyeMovements2020].
 
+===== Participants
+
+Each site recruited participants by opportunity sampling.
+Data from 216 participants at differing levels of expertise is included in the dataset.
+There were 41 female and 175 male participants; their mean age was 26.56 with a standard deviation of 9.28.
+The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers citenp:[bednarikEMIPEyeMovements2020].
+
+The data was collected at these institutions at the following locations:
+* The Centre for Human Centred Technology Design, University of Technology Sydney, Australia.
+* The Department of Computer Science, Aalto University, Finland.
+* The Department of Computer Science, University of Helsinki, Finland.
+* The Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava, Slovakia.
+* Information & Computer Sciences, University of Hawai'i at Mānoa, USA.
+* Neuroinformatics Group, Bielefeld University, Germany.
+* The School of Mathematics and Computer Science of the Netanya Academic College, Netanya, Israel.
+* The School of Computing, Engineering and Built Environment, Glasgow Caledonian University, United Kingdom.
+* Software Engineering Research and Empirical Studies Lab, Youngstown State University, USA.
+* The Physical Structure of Perception and Computation Group, University of Genoa, Italy.
+* The School of Computing and Information Science, Anglia Ruskin University, Cambridge, United Kingdom.
 
 ===== Tasks
+
 The participants were recorded while performing two code comprehension tasks.
 They filled out a questioneer where they self-reported their level of programming expertise from the options none, low, medium, and high, recorded years of programming experience.
 In addition, they answered several other questions that make up the metadata that accompanies the eye-tracking data.
@@ -49,31 +69,10 @@ After completing the question for Vehicle, they were presented with the code for
 The rectangle code consists of a class representing a rectangle, instantiated through a constructer that takes four coordinates.
 The class also has methods to width, height, and area.
 In the _main_ function of the class, two rectangles are instantiated, and their areas are printed.
-The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity], and the EMIP researchers translated code from python two Scala and Java.
+The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity], and the EMIP researchers translated code from python two Scala, and Java.
 The vehicle code is a class that represents a vehicle with several variables and a function to accelerate the car.
 A constructor takes a producer, a type, and a top speed.
 In the _main_ function, a vehicle is created, and its speed is accelerated citenp:[bednarikEMIPEyeMovements2020].
-
-===== Participants
-
-Each site recruited participants by opportunity sampling.
-Data from 216 participants at differing levels of expertise is included in the dataset.
-There were 41 female and 175 male participants; their mean age was 26.56 with a standard deviation of 9.28.
-The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers citenp:[bednarikEMIPEyeMovements2020].
-
-The data was collected at these institutions at the following locations:
-* The Centre for Human Centred Technology Design, University of Technology Sydney, Australia.
-* The Department of Computer Science, Aalto University, Finland.
-* The Department of Computer Science, University of Helsinki, Finland.
-* The Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava, Slovakia.
-* Information & Computer Sciences, University of Hawai’i at Mānoa, USA.
-* Neuroinformatics Group, Bielefeld University, Germany.
-* The School of Mathematics and Computer Science of the Netanya Academic College, Netanya, Israel.
-* The School of Computing, Engineering and Built Environment, Glasgow Caledonian University, United Kingdom.
-* Software Engineering Research and Empirical Studies Lab, Youngstown State University, USA.
-* The Physical Structure of Perception and Computation Group, University of Genoa, Italy.
-* The School of Computing and Information Science, Anglia Ruskin University, Cambridge, United Kingdom.
-
 
 ===== Technology and experimental setup
 
@@ -93,38 +92,73 @@ Below is a list of the contest of the dataset provided by Bednarik et al. citenp
 * metadata: a CSV file with information with background information on the participants, results from the questioner, and the order in which the stimulus programs were shown.
 * data: TXT file specifying when the dataset was uploaded.
 
-=== CSCW
+==== CSCW
 
-CSCW is a product of a study run by Sharma et al. citenp:[sharmaLookingLookingDual2015].
-In this study, 98 university students partook in an exercise designed to show the different gaze patterns of learnings using a Massive Open Online Course (MOOC).
+The CSCW dataset was gathered during the Computer-Supported Cooperative Work and Social Computing course at École Polytechnique fédérale de Lausanne.
+The study intended to show the different gaze patterns across learners in Massive Open Online Courses (MOOCS) and study the priming effect on learning citenp:[sharmaLookingLookingDual2015].
 
-The study used a pre-test as a contextual primer.
-The primer came in two different forms, one text-based test and one schema-based test.
-Participants that got the textual primer were denoted T, and participants that got the schematic primer were denoted S.
+===== Participants
 
-After the primer, participants watched a video from Khan Academy on the topic of "resting membrane potential."
-Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each pair collaborated to create a concept map using IHMC CMap tools.
+The dataset contains gaze data from 98 students in the CSCW course at EPFL.
+There were 49 participants in each of the two priming groups citenp:[sharmaLookingLookingDual2015].
 
-The participants were recorded with SMI RED 250 eye-trackers as they completed the individual video task and the collaborative concept mapping task.
-After completing the pre-test, the video task, and the concept map, the participants also completed a post-test.
+===== Tasks
 
-While the concept mapping task was cooperative, all measurements are individual.
-We will be working with the data on the individual level.
-The data is also split into one part for the video watching phase and one part for the concept mapping phase.
+The experiment centered around a collaborative task with a contextual primer.
+Participants were presented with pre-tests, which also served as primers.
+They were given either a schematic or a text-based primer.
+The textual primer had questions described in text-form, while the schematic primer had the same questions but presented as a schema.
+Participants that received the textual primer were called T, and participants that received the schematic primer were called S.
+
+After the primer, participants watched a video from Khan Academy citenp:[KhanAcademyFree] on the topic of "resting membrane potential."
+Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each team collaborated to create a concept map using IHMC CMap tools citenp:[CmapCmapTools].
+Lastly, the participants also completed a post-test citenp:[sharmaLookingLookingDual2015].
+
+===== Technology and experimental setup
+
+Gaze data was recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions].
+The participants were while they completed watched the video and during the collaborative concept mapping task citenp:[sharmaLookingLookingDual2015].
+
+===== Description of the data
+
+The dataset contains two files with gaze data for each participant.
+One file describes the video watching phase, and one part describes the concept mapping phase.
 We will not be considering any links between the two and will treat them as separate.
+While the concept mapping task was cooperative, all measurements are individual.
+We will be working with the data on the individual level citenp:[sharmaLookingLookingDual2015].
 
+==== Fractions
+The dataset that we refer to as Fractions was gathered by Olson et al. citenp:[olsenUsingIntelligentTutoring2014].
+It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems in a intelligent tutoring system (ITS) designed to teach fractions.
 
-=== Fractions
+===== Participants
 
-The dataset that we refer to as fractions was gathered by Olson et al. citenp:[olsenUsingIntelligentTutoring2014].
-It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems.
-The study included 84 4th and 5th grades from two US elementary schools.
-The students completed either individual tasks or collaborative tasks using an interactive tutoring system developed by the researchers.
-Participants in the study also completed a pre-test on the morning of the experiment, and a post-test the day after.
-The results of the pre- and post-test are included with the data.
+The study was conducted with 84 4th and 5th graders from two US elementary schools in the same school district.
+The students left their regular instruction during the school day to participate in the study.
+Teachers from the student's classes paired the students based on their mathematical abilities and who would work well together.
+Before participating in the experiment, the students worked with the Fractions Tutor during two of their regular classes to acclimatize them to the software.
+The pairs of students were randomly assigned to four groups completing different tasks.
+They where: collaborative conceptual, collaborative procedural, individual conceptual and individual procedural.
+Twice as many pairs were assigned the collaborative tasks as the individual citenp:[olsenUsingIntelligentTutoring2014].
 
-The students selected for the collaborative tasks were paired by their teachers to ensure that the students collaborate effectively.
-They completed tasks in the interactive tutoring system, communicating verbally through a skype connection.
-They did not transmit any video signal.
+===== Tasks
 
-Our dataset consists of only the data used by Sharma et al. citenp:[sharmaMeasuringCausalityCollaborative2021] This only includes the data from the pairs that worked on the collaborative tasks, not the students that worked individually.
+Olsen et al. hypothesized that students working collaboratively would show learning gains on both procedural and conceptual tasks, and that of those working on conceptual tasks, students working collaboratively would have stronger learning gains than those working individually.
+They also hypothesized that students working individually would have greater learning gains than those working cooperatively for procedural tasks.
+
+To investigate these hypotheses the pairs of students worked with their assigned tasks in an ITS.
+The tasks used different techniques to assist the students in learning equivalent fractions.
+Participants also completed a pre-test on the morning of the experiment and a post-test the next day citenp:[olsenUsingIntelligentTutoring2014].
+
+===== Technology and experimental setup
+
+Students participating in the study completed their tasks in an interactive tutoring system developed by the researchers.
+They communicated verbally through a skype connection.
+No video signal was transmitted.
+Gaze data recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions, olsenUsingIntelligentTutoring2014].
+
+===== Description of the data
+
+The data includes individual files with gaze data for each student as well as a file describing all the results from the pre and post-tests.
+Our dataset consists of only the data used by Sharma et al. citenp:[sharmaMeasuringCausalityCollaborative2021].
+This only includes the data from the pairs that worked on the collaborative tasks, not the students that worked individually.
