@@ -156,6 +156,14 @@ p {
   margin-top: 1rem;
 }
 
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 /* A elements that don't have a class get default styles */
 a:not([class]) {
   text-decoration-skip-ink: auto;
@@ -164,7 +172,7 @@ a:not([class]) {
 /* Make links red */
 a,
 a:visited {
-  color: #a00;
+  color: rgb(0, 0, 0);
 }
 
 a:focus {
