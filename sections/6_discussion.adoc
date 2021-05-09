@@ -1,0 +1,55 @@
+[[discussion]]
+== Discussion
+
+=== Findings
+- LASSO performs better than PCA in out-of-sample testing for both 1-to-1 pipelines and 2-to-1 pipelines.
+- PCA is slightly more generalizable than LASSO in 1-to-1 pipelines.
+- PCA and LASSO is equivalent in terms of generalizability in 2-to-1 pipelines.
+- Heatmaps is the best performing feature in out-of-sample testing in 1-to-1 pipelines.
+- GARCH is the best performing feature in out-of-sample testing in 2-to-1 pipelines.
+- GARCH is the most generalizable feature in 1-to-1 pipelines.
+- Saccade duration and GARCH are the most generalizable features in 2-to-1 pipelines.
+- 2-to-1 pipelines are more generalizable than 1-to-1 pipelines.
+- 2-to-1 pipelines where fractions and cscw are the in-study datasets produce more generalizable pipelines.
+We found this.
+
+=== Two to one vs one to one
+- We focus on the two to one pipelines since Sharma et al citenp:[sharmaAssessingCognitivePerformance2020] has shown that the most generalizable
+-
+
+=== Aggregation of results
+ - filter and aggregate
+ - filtering of pipelines
+ -
+
+=== Datasets discussion
+Are the datasets covering all aspects of cognitive performance
+fractions and cscw is pro
+Emip is fundamentally different and data shows it.
+
+
+=== Implications
+
+==== Finding 1
+- LASSO performs better than PCA in out-of-sample testing for both 1-to-1 pipelines and 2-to-1 pipelines
+
+==== Finding 2 & 3
+- PCA is slightly more generalizable than LASSO in 1-to-1 pipelines.
+- PCA and LASSO is equivalent in terms of generalizability in 2-to-1 pipelines.
+
+
+==== Finding 4
+- Heatmaps is the best performing feature in out-of-sample testing in 1-to-1 pipelines.
+
+
+==== Finding 5
+- GARCH is the best performing feature in out-of-sample testing in 2-to-1 pipelines.
+
+
+==== Finding 6
+- GARCH is the most generalizable feature in 1-to-1 pipelines.
+
+==== Finding 7
+- Saccade duration and GARCH are the most generalizable features in 2-to-1 pipelines.
+
+=== Limitations
