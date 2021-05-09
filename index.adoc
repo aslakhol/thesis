@@ -4,6 +4,8 @@
 :stem: asciimath
 :xrefstyle: short
 :sectnums:
+:stylesheet: style.css
+
 
 = Engineering Generalizable Features for Eye-Tracking Data Through a Cloud-Based Machine Learning Platform
 :toc:
