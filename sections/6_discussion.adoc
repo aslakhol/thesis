@@ -13,14 +13,43 @@
 - 2-to-1 pipelines where fractions and cscw are the in-study datasets produce more generalizable pipelines.
 We found this.
 
-=== Two to one vs one to one
-- We focus on the two to one pipelines since Sharma et al citenp:[sharmaAssessingCognitivePerformance2020] has shown that the most generalizable
+=== Two to one versus one to one
+- We focus on the two to one pipelines since Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] has shown that the most generalizable
 -
 
+
+
+
 === Aggregation of results
- - filter and aggregate
- - filtering of pipelines
- -
+
+==== Filtering on baseline
+Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
+FGI describes how similar the distribution of errors from *out-of-sample* testing and *out-of-study* testing and is a measure of generalizability.
+However, it is not enough that the two distributions are similar.
+Generalizability should be a measure of usable predictive power in outside contexts.
+Random guesses would create identical distributions of error in *out-of-sample* testing and *out-of-study* testing, and as such, would have a good FGI value.
+To counteract this, we chose to disregard all pipelines that do not outperform their respective baselines for the purpose of measuring generalizability.
+We do this by filtering the set of completed baselines.
+
+To investigate the effect a pipeline component will have on generalizability and predictive power, we need to aggregate pipelines based on pipeline components.
+The first step in our aggregation is to rank our pipelines by NRMSE or FGI, depending on what we are investigating.
+When looking at a specific pipeline component, we group all the pipelines that use that pipeline component and find the mean rank of that group.
+This mean rank will tell us how that specific component performs in relation to their peers.
+
+This technique gives us a meaningful way of comparing each component; however, it has some limitations.
+The primary weakness is that this methodology does not represent the fact that some components perform better than others.
+More pipelines using that component are included in the groups.
+The "one-hit-wonders", components that beat the threshold once, might outrank more reliable components that are represented multiple times in their groups.
+One such example is the feature group GARCH, which individually performs the best for FGI in 2-to-1 pipelines.
+However, it is barely out-competed by saccade_length.
+The reason is that GARCH has two pipelines that beat the threshold, one of which is the best-in-class, and the other barely surpasses the threshold.
+Saccade_length, on the other hand, has a single, well-performing pipeline, which does not beat the best GARCH, but slightly outperforms the mean of the two GARCH pipelines.
+
+While we acknowledge this problem, we chose to filter before aggregating the pipelines as we can not say anything meaningful about the generalizability of the pipelines that do not outperform the baseline.
+The problem is that we compare components where we have different quality of information to evalute those components.
+GARCH is represented multiple times, so we have a better picture of the real generalizability of GARCH.
+Saccade_duration only has one sample in our final aggregation and while it performs very well, we don't have the same level of confidence in the generalizability of that component.
+
 
 === Datasets discussion
 Are the datasets covering all aspects of cognitive performance
