@@ -69,11 +69,11 @@ We do this by ranking, giving each pipeline a rank for NRMSE and FGI, then group
 This mean of ranks gives us the results of which variables produce the most generalizable pipelines and perform best when testing it on a partition of the dataset it was trained on.
 
 
-[[feature_selection_dim_reduction]]
-=== Feature Selection and Dimensionality reduction
+[[same_training_and_testing_context]]
+===  Same Training and testing context
 
 
-==== Same training and testing context
+====  Dimensionality reduction and feature selection
 xref:pipelines_nrmses_dim_reduction[] shows which dimensionality reduction method is used for the pipelines with the 5 smallest NRMSES per dataset.
 Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
@@ -98,41 +98,7 @@ include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregate
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
-
-==== Generalizability
-
-xref:pipelines_fgi_dim_reduction[] also has no clear indication of whether Lasso or PCA is the most generalizable.
-
-[[pipelines_fgi_dim_reduction]]
-.The pipelines with the 10 lowest FGI and if they used dimensionality reduction or feature selection
-image::../figures/dimensionality_reduction_generalizability.jpg[]
-
-When we aggregate the data shown in xref:one_to_one_dim_FGI_aggregated[] and xref:two_to_one_dim_FGI_aggregated[] we can see that Lasso is more generalizable than PCA in the 1 to 1 pipelines.
-Interestingly the trend is the opposite in the 2 to 1 pipelines. PCA generates slightly more generalizable pipelines than Lasso.
-Hence our results show that feature selection is preferred for 1 to 1 pipelines, while dimensionality reduction is more generalizable when training on multiple contexts.
-
-[[one_to_one_dim_FGI_aggregated]]
-.FGI Rank and mean FGI for Dimensionality reduction and feature selection across all 1 to 1 pipelines
-[format="csv", options="header"]
-|===
-include::../tables/results/1_to_1_dimensionality_reduction_generalizability_aggregated.csv[]
-|===
-
-
-[[two_to_one_dim_FGI_aggregated]]
-.FGI Rank and mean FGI for Dimensionality reduction and feature selection across all 2 to 1 pipelines
-[format="csv", options="header"]
-|===
-include::../tables/results/2_to_1_dimensionality_reduction_generalizability_aggregated.csv[]
-|===
-
-
-
-
-[[Features]]
-=== Feature groups
-
-==== Same training and testing context
+==== Features
 
 
 xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1 to 1 pipelines and 2 to 1 pipelines.
@@ -147,8 +113,6 @@ image::../figures/feature_groups_context_sensitivity.jpg[]
 
 When we aggregate the results, as seen in xref:[[one_to_one_features_nrmse_aggregated]] and xref:[[two_to_one_features_nrmse_aggregated]]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1 to 1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
 However, _fixation_duration_ and _fft_ are also among the top five of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2 to 1 pipelines.
-
-
 
 [[one_to_one_features_nrmse_aggregated]]
 .5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1 to 1 pipelines
@@ -166,9 +130,24 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 
 
 
-==== Generalizability
 
-In the ten pipelines with the lowest FGI, we see a wide variety of features. This is because the most generalizable pipelines have the same dataset as their in-study dataset.
+=== Generalizability
+
+====  Feature Sele
+
+xref:pipelines_fgi_dim_reduction[] also has no clear indication of whether Lasso or PCA is the most generalizable.
+
+[[pipelines_fgi_dim_reduction]]
+.The pipelines with the 10 lowest FGI
+image::../figures/dimensionality_reduction_generalizability.jpg[]
+
+When we aggregate the data shown in xref:one_to_one_dim_FGI_aggregated[] and xref:two_to_one_dim_FGI_aggregated[] we can see that Lasso is more generalizable than PCA in the 1 to 1 pipelines.
+Interestingly the trend is the opposite in the 2 to 1 pipelines. PCA generates slightly more generalizable pipelines than Lasso.
+Hence our results show that feature selection is preferred for 1 to 1 pipelines, while dimensionality reduction is more generalizable when training on multiple contexts.
+
+
+==== Feature groups
+
 
 [[pipelines_fgi_features]]
 .The pipelines with the 10 lowest FGI and which feature group they used
@@ -178,17 +157,5 @@ So to tell the whole story, we need to look at the aggregated data, which shows 
 _Sacccade_duration_ also performs well, indicating that there is a connection between cognitive performance and saccades.
 As for the 1 to 1 pipeline, _Garch_ is the most generalizable feature.
 
-[[one_to_one_features_FGI_aggregated]]
-.5 smallest FGI Rank and mean FGI for feature groups across all 1 to 1 pipelines
-[format="csv", options="header"]
-|===
-include::../tables/results/1_to_1_features_generalizability_aggregated.csv[]
-|===
 
-
-[[two_to_one_features_FGI_aggregated]]
-.5 smallest FGI Rank and mean FGI for feature groups across all 2 to 1 pipelines
-[format="csv", options="header"]
-|===
-include::../tables/results/2_to_1_features_generalizability_aggregated.csv[]
-|===
+=== Context Sensitivity
