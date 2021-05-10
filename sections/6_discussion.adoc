@@ -13,11 +13,27 @@
 - 2-to-1 pipelines where fractions and cscw are the in-study datasets produce more generalizable pipelines.
 We found this.
 
-=== Two to one versus one to one
-The top 5 pipelines of the 1-to-1 pipelines perform worse than the 5 best performing pipelines for 2-to-1 pipelines, as seen in XREFHEREPLSPLS.
+=== 2-to-1 versus 1-to-1
+The top five pipelines of the 1-to-1 pipelines perform worse than the five best performing pipelines for 2-to-1 pipelines, as seen in XREFHEREPLSPLS.
 These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 Combining two datasets from two separate contexts for training introduces more variance.
 Unsurprisingly, these pipelines are more generalizable than those that use only one dataset for training.
+In further discussions, we will focus on results from the 2-to-1 pipelines.
+
+
+=== Generalizability of our datasets
+Our results indicate that pipelines that combine Fractions and CSCW for training, and that use EMIP for testing, are more generalizable than pipelines where EMIP is included in the training set.
+The EMIP dataset consists of gaze data recorded of people completing individual tasks.
+On the other hand, Fractions and CSCW include gathered from a collaborative process.
+All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
+We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect, and that the variance introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
+Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
+
+
+=== Why do the generalizable features generalize?
+In this section we will argue a few reasons we belive as to why the features generalize.
+
+We observe that heatmaps are among the generalizable features. Our heatmap feature is
 
 
 
