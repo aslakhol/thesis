@@ -41,6 +41,7 @@ There were 41 female and 175 male participants; their mean age was 26.56 with a 
 The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers citenp:[bednarikEMIPEyeMovements2020].
 
 The data was collected at these institutions at the following locations:
+
 * The Centre for Human Centred Technology Design, University of Technology Sydney, Australia.
 * The Department of Computer Science, Aalto University, Finland.
 * The Department of Computer Science, University of Helsinki, Finland.

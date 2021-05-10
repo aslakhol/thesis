@@ -49,9 +49,8 @@ This study aims to create a system that can perform feature generalizability exp
 To determine which features, dimensionality reduction methods and feature selection methods are more generalizable.
 From this, we can extract the following research questions.
 
-- *RQ 1* What are the most generalizable features for predicting cognitive performance on gaze data?
-- *RQ 2* Are feature selection or dimensionality reduction methods more generalizable for predicting cognitive performance on gaze data?
-
+- *RQ 1* What are the most generalizable features for predicting cognitive performance using gaze data?
+- *RQ 1 a* What are the most context-specific features for predicting cognitive performance using gaze data?
 
 === Outline
 This thesis consists of stuff.
