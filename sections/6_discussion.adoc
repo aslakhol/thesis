@@ -17,6 +17,10 @@ We found this.
 - We focus on the two to one pipelines since Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] has shown that the most generalizable
 -
 
+Based on the work of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] we would assume that 2-to-1 pipelines would be more generalizable than 1-to-1 pipelines as they include more variance in the training data.
+Our results from xref:whatever this one is seem to confirm our suspicion.
+The top 5 pipelines of the 1-to-1 pipelines perform worse than the top 5 pipelines for 2-to-1 pipelines.
+
 
 
 
