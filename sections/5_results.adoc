@@ -133,29 +133,24 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 
 === Generalizability
 
-====  Feature Sele
+====  Feature Selection vs Dimensionality reduction
 
-xref:pipelines_fgi_dim_reduction[] also has no clear indication of whether Lasso or PCA is the most generalizable.
+xref:generalizable_pipelines[] also has no clear indication of whether Lasso or PCA is the most generalizable.
 
-[[pipelines_fgi_dim_reduction]]
-.The pipelines with the 10 lowest FGI
-image::../figures/dimensionality_reduction_generalizability.jpg[]
+[[generalizable_pipelines]]
+.Generalizable pipelines
+[format="csv", options="header"]
+|===
+include::../tables/results/two_to_one_top_generalizable_pipelines.csv[]
+|===
 
-When we aggregate the data shown in xref:one_to_one_dim_FGI_aggregated[] and xref:two_to_one_dim_FGI_aggregated[] we can see that Lasso is more generalizable than PCA in the 1 to 1 pipelines.
-Interestingly the trend is the opposite in the 2 to 1 pipelines. PCA generates slightly more generalizable pipelines than Lasso.
-Hence our results show that feature selection is preferred for 1 to 1 pipelines, while dimensionality reduction is more generalizable when training on multiple contexts.
-
-
-==== Feature groups
-
-
-[[pipelines_fgi_features]]
-.The pipelines with the 10 lowest FGI and which feature group they used
-image::../figures/feature_groups_generalizability.jpg[]
-
-So to tell the whole story, we need to look at the aggregated data, which shows that saccade length is the most generalizable feature closely followed by GARCH.
-_Sacccade_duration_ also performs well, indicating that there is a connection between cognitive performance and saccades.
-As for the 1 to 1 pipeline, _Garch_ is the most generalizable feature.
 
 
 === Context Sensitivity
+
+[[context_sensitive_pipelines]]
+.Context sensitive pipelines
+[format="csv", options="header"]
+|===
+include::../tables/results/two_to_one_context_sensitivity.csv[]
+|===
