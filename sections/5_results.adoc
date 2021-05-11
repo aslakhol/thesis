@@ -10,9 +10,7 @@ The two sections start by evaluating how the respective variable performs when t
 
 [[baselines]]
 === Baselines
-We use two different baselines to evaluate our results, in study baseline and out of study baseline. They are described in the following subsections.
 
-==== In study baseline
 The in-study baseline would be the NRMSE value if all the predictions were the labels' mean, regardless of the feature vectors.
 We calculate a baseline for each of the dataset combinations and use these to evaluate the pipelines with the dataset combination as in-study.
 We do this because the baselines differ between the datasets since the distribution of labels is different.
@@ -27,40 +25,15 @@ def get_baseline(labels):
     return baseline
 ```
 
-==== Out of study baseline
-We use a different method to calculate the out-of-study baselines.
-We do this because the model has no a priori knowledge of the distribution of labels, and it would be a tremendous achievement to beat the baselines based on the mean.
-We calculate the out-of-study baselines by taking the mean of the errors created by choosing values from a uniform and a normal distribution.
-
-
-include::../tables/out_of_study_baselines.adoc[]
-
-Pseudocode for the out-of-study baseline:
-```
-def get_random_normal_prediction(labels):
-    prediction = [np.random.normal(loc=labels.mean(), scale=labels.std()) for i in labels]
-    rmse_baseline = mean_squared_error(labels, prediction, squared=False)
-    return rmse_baseline
-
-def get_random_uniform_prediction(labels):
-    prediction = [np.random.uniform(0,1) for i in labels]
-    rmse_baseline = mean_squared_error(labels, prediction, squared=False)
-    return rmse_baseline
-
-def get_oos_baseline(labels):
-    normal_rmses = [get_random_normal_prediction(labels) for i in range(300)]
-    avg_normal_rmse= sum(normal_rmses)/len(normal_rmses)
-    uniform_rmses = [get_random_uniform_prediction(labels) for i in range(300)]
-    avg_uniform_rmse= sum(uniform_rmses)/len(uniform_rmses)
-    return (avg_normal_rmse + avg_uniform_rmse)/2
-```
 
 [[evaluating_generalizability]]
 === Evaluating Generalizability
 We evaluate the generalizability of the pipelines with the out of study dataset.
 The results from predicting the out-of-study dataset are compared to the cross-validation results with FGI, which we explained in chapter 4.
 To find the most generalizable features, we need to filter out the pipelines that perform poorly on both the in-study and out-of-study datasets since two poor predictions yield a good FGI.
-We do this by filtering out the pipelines that do not perform better than the baseline on both in-study and out-of-study and rank the remaining pipelines on FGI.
+We do this by filtering out the pipelines that do not perform better than the baseline both in-study and -of-study and sort the remaining pipelines on FGI.
+From 72 2 to 1 pipelines 28 beat the baseline.
+Based on the sorting we separate these into three equally sized parts: generalizable pipelines, pipelines we are not able to say about, and context sensitive pipelines.
 
 [[aggregation]]
 === Aggregation of the results
@@ -133,9 +106,17 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 
 === Generalizability
 
-====  Feature Selection vs Dimensionality reduction
+xref:generalizable_pipelines[] shows the 10 most generalizable pipelines.
+The first and most prevalent factor for generalizable pipelines is which datasets was the in study dataset.
+When the in-study dataset is the combination of fractions and cscw, and emip is the out of study dataset, the pipelines are more generalizable.
+Nine of the ten generalizable pipelines contains this combination of datasets.
 
-xref:generalizable_pipelines[] also has no clear indication of whether Lasso or PCA is the most generalizable.
+For dimensionality reduction or feature selection Lasso is the most represented method among the more generalizable pipelines.
+It is also included in the two pipelines with the lowest FGI.
+However in combination with the feature group _all_ (ID 23, ID 22) and _heatmaps_ (ID 3, ID 2) PCA has a lower FGI than Lasso.
+These are both very large feature groups containing hundreds of thousands of values, indicating that PCA keeps more of the variance than Lasso in the larger feature groups.
+
+
 
 [[generalizable_pipelines]]
 .Generalizable pipelines
