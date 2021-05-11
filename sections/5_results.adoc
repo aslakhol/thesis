@@ -132,6 +132,14 @@ include::../tables/results/two_to_one_generalizable.csv[]
 
 === Context Sensitivity
 
+Again we can see that the dataset combination highly affects which pipelines are deemed context-sensitive, with a combination of emip_cscw and emip_fractions as in-study datasets.
+Lasso has a majority in more context specific pipelines, however there are more pipelines with Lasso that beats the baseline than there are pipelines with PCA.
+For the features we can see some difference from the generalizable pipelines.
+_ARMA_, _LHIPA_, _eye_tracking_, and _pupil_diameter_, are present in the context-sensitive pipelines but not in the more generalizable ones.
+_Heatmaps_, _fft_, _markov_, _all_ and _saccade_length_ shows up in both, again indicating that dataset combination is an important variable for generalizability.
+
+
+
 [[context_sensitive_pipelines]]
 .Context sensitive pipelines
 [format="csv", options="header"]
