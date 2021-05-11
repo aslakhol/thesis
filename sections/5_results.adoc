@@ -141,7 +141,7 @@ xref:generalizable_pipelines[] also has no clear indication of whether Lasso or 
 .Generalizable pipelines
 [format="csv", options="header"]
 |===
-include::../tables/results/two_to_one_top_generalizable_pipelines.csv[]
+include::../tables/results/two_to_one_generalizable.csv[]
 |===
 
 
