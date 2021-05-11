@@ -4,9 +4,7 @@ We ran a total of 216 pipelines with different combinations of datasets, dimensi
 72 of them were 2 to 1 where we had two in-study datasets and 1 out of study.
 In this section, we will present the results from these pipelines.
 xref:baselines[] explains how we calculate the baselines for the datasets, xref:evaluating_generalizability[] how we handle pipelines that do not exceed the baseline, and xref:aggregation[] explains how we aggregated the results across all the pipelines.
-xref:feature_selection_dim_reduction[] and presents the results and answers whether feature selection or dimensionality reduction performs best in prediction power and generalizability.
-xref:features[] does the same for the features.
-The two sections start by evaluating how the respective variable performs when training and testing in the same context before considering generalizability.
+xref:generalizability[] looks at the more generalizable pipelines and which components these pipelines consists of. xref:context_sensitivity[] does the same only looking at the more context sensitive pipelines.
 
 [[baselines]]
 === Baselines
@@ -29,22 +27,20 @@ def get_baseline(labels):
 [[evaluating_generalizability]]
 === Evaluating Generalizability
 We evaluate the generalizability of the pipelines with the out of study dataset.
-The results from predicting the out-of-study dataset are compared to the cross-validation results with FGI, which we explained in chapter 4.
-To find the most generalizable features, we need to filter out the pipelines that perform poorly on both the in-study and out-of-study datasets since two poor predictions yield a good FGI.
-We do this by filtering out the pipelines that do not perform better than the baseline both in-study and -of-study and sort the remaining pipelines on FGI.
-From 72 2 to 1 pipelines 28 beat the baseline.
+We compare the results from predicting the out-of-study dataset to the cross-validation results with FGI, which we explained in chapter 4.
+To find the most generalizable features, we need to filter out the pipelines that perform poorly on out-of-sample testing.
+We do this by filtering out the pipelines that do not perform better than the baseline and sort the remaining pipelines on FGI.
+From 72 2-to-1 pipelines 28 beat the baseline.
 Based on the sorting we separate these into three equally sized parts: generalizable pipelines, pipelines we are not able to say about, and context sensitive pipelines.
 
 [[aggregation]]
 === Aggregation of the results
 To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
-We do this by ranking, giving each pipeline a rank for NRMSE and FGI, then grouping on either dimensionality reduction, feature combination, or both, then taking the average.
-This mean of ranks gives us the results of which variables produce the most generalizable pipelines and perform best when testing it on a partition of the dataset it was trained on.
-
+We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on either dimensionality reduction, feature combination, then taking the average.
+This mean of ranks gives us the results of which variables perform best when testing on the same context it was trained on.
 
 [[same_training_and_testing_context]]
 ===  Same Training and testing context
-
 
 ====  Dimensionality reduction and feature selection
 xref:pipelines_nrmses_dim_reduction[] shows which dimensionality reduction method is used for the pipelines with the 5 smallest NRMSES per dataset.
@@ -103,7 +99,7 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 
 
 
-
+[[generalizability]]
 === Generalizability
 
 xref:generalizable_pipelines[] shows the 10 most generalizable pipelines.
@@ -129,13 +125,14 @@ include::../tables/results/two_to_one_generalizable.csv[]
 |===
 
 
-
+[[context_sensitivity]]
 === Context Sensitivity
 
 Again we can see that the dataset combination highly affects which pipelines are deemed context-sensitive, with a combination of emip_cscw and emip_fractions as in-study datasets.
 Lasso has a majority in more context specific pipelines, however there are more pipelines with Lasso that beats the baseline than there are pipelines with PCA.
 For the features we can see some difference from the generalizable pipelines.
 _ARMA_, _LHIPA_, _eye_tracking_, and _pupil_diameter_, are present in the context-sensitive pipelines but not in the more generalizable ones.
+Indicating that they are more context-sensitive features.
 _Heatmaps_, _fft_, _markov_, _all_ and _saccade_length_ shows up in both, again indicating that dataset combination is an important variable for generalizability.
 
 
