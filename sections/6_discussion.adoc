@@ -33,7 +33,9 @@ Pinpointing the effectiveness of training on collaborative data when generalizin
 === Why do the generalizable features generalize?
 In this section we will argue a few reasons we belive as to why the features generalize.
 
-We observe that heatmaps are among the generalizable features. Our heatmap feature is
+We observe that heatmaps are among the generalizable features. Our heatmap feature is the x and y position timeseries data for each subject, split into 30 partititions, converted to a heatmap and fed to a pretrained VGG19 model. The resulting feature vector is the feature we call heatmaps. While the stimuli that the subject is looking at is not included in the heatmap image, the stimuli is captured through the subjects interaction with it as the gaze pattern of the subject will follow the stimuli. The feature vector we call heatmaps represents how the gaze interacts with the given stimuli. Taking EMIP as an example, for all subjects a heatmap will tell us the shape of the code being presented to the subject. However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or the conditional logic, the latter being a focus point for experienced coders. Heatmaps generalize well because instead of just capturing how a subject interacts with their screen it also captures their interaction patterns and how they relate to their presented stimuli. In addition heatmaps encode information about both time and space (the x and y positions the subject is looking at), rather than just one dimension, introducing more variance.
+
+GARCH is a statistical modelling technique used to model timeseries data. We see that the coeficcients from the GARCH model generalize quite  well. This indicates to us that modelling the variance of the error in
 
 
 
