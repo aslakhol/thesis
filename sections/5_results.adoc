@@ -116,7 +116,10 @@ It is also included in the two pipelines with the lowest FGI.
 However in combination with the feature group _all_ (ID 23, ID 22) and _heatmaps_ (ID 3, ID 2) PCA has a lower FGI than Lasso.
 These are both very large feature groups containing hundreds of thousands of values, indicating that PCA keeps more of the variance than Lasso in the larger feature groups.
 
-
+In the feature groups there is a high variety among the more generalizable pipelines.
+However three feature groups shows up more than once, _all_, _heatmaps_ and _Garch_.
+This indicates that they might be more generalizable feature groups.
+_GARCH_ is also present the only pipeline with another in study dataset than fractions_cscw, that is emip_cscw.
 
 [[generalizable_pipelines]]
 .Generalizable pipelines
