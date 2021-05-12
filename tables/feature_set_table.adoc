@@ -2,70 +2,70 @@
 |===
 | Name | Description
 
-| Information Processing Ratio,
+| Information Processing Ratio
 | LIP divided by GIP
 
-| Saccade Speed Skewness,
+| Saccade Speed Skewness
 | Skewness of the saccade speed distribution
 
-| entropy_xy,
+| Entropy of Gaze
 | Entropy of the gaze
 
-| Verticality Of Saccades,
+| Verticality Of Saccades
 | Metric between 0, 1 describing the average angle of the saccades
 
-| heatmaps,
+| Heatmaps
 | Features extracted from heatmaps on VGG19
 
-| pupil_diameter_rolling__fft_aggregated,
+| Spectral Histogram - Pupil Diameter
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
 
-| LHIPA - Pupil Dialation,
+| LHIPA - Pupil Diameter
 | The Low/High Index of Pupillary Activity
 
-| HMM - Pupil Diameter,
+| HMM - Pupil Diameter
 | Transistion matrix of fitted markov model
 
-| pupil_diameter_rolling__arma__,
+| ARMA - Pupil Dialation
 | Ar, ma, and Exog attributes of a fitted ARMA model
 
-| GARCH - Pupil Diameter,
+| GARCH - Pupil Diameter
 | mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
 
-| duration_rolling__fft_aggregated,
+| Spectral Histogram -  Fixation Duration
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
 
-| duration_rolling__markov,
+| HMM - Fixation Duration
 | Transistion matrix of fitted markov model
 
-| duration_rolling__arma__,
+| ARMA - Fixation Duration
 | Ar, ma, and Exog attributes of a fitted ARMA model
 
-| duration_rolling__garch,
+| GARCH - Fixation Duration
 | mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
 
-| saccade_length_rolling_fft_aggregated__,
+| Spectral Histogram - Saccade Length
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
 
-| HMM - Saccade Length,
+| HMM - Saccade Length
 | Transistion matrix of fitted markov model
 
-| saccade_length_rolling__arma__,
-| Ar, ma and Exog attributes of a fitted ARMA model
-
-| GARCH - Saccade Length,
-| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
-
-| saccade_duration_rolling__fft_aggregated__,
-| Skew, Kurtosis, Mean, and Variance of the power spectral histogram
-
-| HMM - Saccade Duration,
-| Transistion matrix of fitted markov model
-
-| saccade_duration_rolling__arma__,
+| ARMA - Saccade Length
 | Ar, ma, and Exog attributes of a fitted ARMA model
 
-| GARCH - Saccade Duration,
+| GARCH - Saccade Length
+| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
+
+| Spectral Histogram - Saccade Duration
+| Skew, Kurtosis, Mean, and Variance of the power spectral histogram
+
+| HMM - Saccade Duration
+| Transistion matrix of fitted markov model
+
+| ARMA - Saccade Duration
+| Ar, ma, and Exog attributes of a fitted ARMA model
+
+| GARCH - Saccade Duration
 | mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
 
 |===
