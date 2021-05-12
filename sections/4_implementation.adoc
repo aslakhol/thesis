@@ -11,6 +11,10 @@ In order to achieve this goal, multiple components have to be present.
 . We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 . We need reproducibility.
 
+[[diagram]]
+.Diagram of our platform
+image:../figures/diagram.png[]
+
 === Preprocessing
 
 
