@@ -346,7 +346,7 @@ return features.flatten()
 ```
 
 ==== Final Feature set
-After feature generation these are the features that has been generated per subject.
+After feature extraction, these are the features that are generated for each subject.
 
 include::../tables/feature_set_table.adoc[]
 
@@ -355,7 +355,7 @@ include::../tables/feature_set_table.adoc[]
 This section explains how we solved goal 4 of creating our platform.
 > We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for reducing the feature space.
 
-By a pipeline we mean a specific combination of datasets, feature groups and methods for reducing the feature space (dimensionality reduction or feature selection).
+By a pipeline, we mean a specific combination of datasets, feature groups, and methods for reducing the feature space (dimensionality reduction or feature selection).
 
 For simplicity, we will refer to these as pipeline components.
 
@@ -377,7 +377,7 @@ With 27 features, 9 dataset combinations, and two methods of reducing the featur
 With a theoretical runtime of 1 second per pipeline, the total computing time necessary to tackle this challenge would be approximately 76 years, and our grandchildren would have to submit this thesis.
 
 As an alternative, we decided to group our features manually.
-We created one group for the eye-tracking features, four for the type of signal, and five for the different timeseries features.
+We created one group for the eye-tracking features, four for the type of signal, and five for the different time series features.
 In addition, we have a separate group for heatmaps and, lastly, one group with includes all the features.
 The groups are presented in the following table:
 
@@ -400,21 +400,20 @@ We use an ensemble because it has been shown to improve stability and robustness
 
 === Evaluation
 This section will outline how we achieve the fifth goal of our platform:
+
     > We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 
 Models produce by our pipelines are evaluated in two ways, with out-of-sample testing and out-of-study testing.
-Out-of-sample testing uses a subset the in-study dataset to evaluate the predictive power of the model, while out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
+Out-of-sample testing uses a subset of the in-study dataset to evaluate the predictive power of the model, while out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
 This subsection explains how we evaluate the results of each test.
 
 ==== Evaluation Criteira
-
-All of our pipelines are evaluated with NRMSE(normalized root mean squared error).
+We use normalized root mean squared error (NRMSE) as our primary evaluation metric.
 Since the datasets' labels are in different ranges, we need a metric that can be compared across datasets.
-NRMSE is normalized from 0 to 1 where 1 is the maximum error possible for the dataset.
+NRMSE is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
 NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[PredictionMOOCsReview]  and is the preferred metric for student models. citenp:[pelanekMetricsEvaluationStudent2015]
 Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to NRMSE in this thesis.
 Hence we refer to it as NRMSE in this thesis.
-
 
 The following formulas calculate NRMSE.
 
@@ -424,25 +423,25 @@ asciimath:[NRMSE = text(NRMSE)/(text(original)_max - text(original)_min)]
 
 
 === Feature Generalizability Index
-We measure the generalizability of features by comparing the distributions of NRMSES from the in-study cross-validation and the out of study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
-Since the ground truth in both the in study datasets and the out of study datasets indicate cognitive performance we can safely assume that similar behaviour will indicate similar results.
-To compare the distributions of RMSE we use ANOSIM (ANalysis Of SIMiliarity) which is a non parametric function to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993]
-
+We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
+Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can safely assume that similar behavior will indicate similar results.
+To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
 
 asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/N(N-1)/4]
 
-The denominator normalizes the values between -1 and +1 where 0 is a random grouping.
+The denominator normalizes the values between -1 and 1, where 0 represents a random grouping.
 
 
 === Reproducability
-This section explains how we reached goal 6 of our platform.
-* We need complete reproducibility.
+This section explains how we reached the sixth goal of our platform.
+
+> We need complete reproducibility.
 
 Our reproducibility strategy primarily consists of two different components.
 The version-control tool, git; and the machine learning management tool comet.ml.
 
 ==== Git
-Git keeps track of all versions of our source-code.
+Git keeps track of all versions of our source code.
 Our system is set up to demand that all local changes to the code be committed to git before a run in the cloud will be allowed.
 We ensure that all our parameters are represented in the code.
 This in turn ensures that we always know the state of the code responsible for each experiment.

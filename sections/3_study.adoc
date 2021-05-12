@@ -1,3 +1,4 @@
+[[study]]
 == Study
 
 The study design, described below, is inspired by the study performed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
