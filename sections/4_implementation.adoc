@@ -9,7 +9,7 @@ In order to achieve this goal, multiple components have to be present.
 . We need a platform that can generate computationally expensive features for multiple large datasets
 . We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for dimensionality reduction
 . We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
-. We need complete reproducibility.
+. We need reproducibility.
 
 === Preprocessing
 
@@ -404,7 +404,7 @@ This section will outline how we achieve the fifth goal of our platform:
 > We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 
 Models produce by our pipelines are evaluated in two ways, with out-of-sample testing and out-of-study testing.
-Out-of-sample testing uses a subset of the in-study dataset to evaluate the predictive power of the model, while out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
+Out-of-sample testing uses a subset of the in-study dataset to evaluate the predictive power of the model. Out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
 This subsection explains how we evaluate the results of each test.
 
 ==== Evaluation Criteira
@@ -435,24 +435,41 @@ The denominator normalizes the values between -1 and 1, where 0 represents a ran
 === Reproducability
 This section explains how we reached the sixth goal of our platform.
 
-> We need complete reproducibility.
+> We need reproducibility.
 
-Our reproducibility strategy primarily consists of two different components.
-The version-control tool, git; and the machine learning management tool comet.ml.
+Our reproducibility strategy primarily consists of three components.
+The version-control tool, git; the machine learning management tool, comet.ml; the python package management tool, poetry; and google cloud platform.
+
+
+==== comet.ml
+comet.ml is a machine learning management tool citenp:[CitationCometMl].
+It can handle user management, visualization, tracking of experiments, and much more.
+We use comet.ml to track the results of our experiments, the relevant hyperparameters, the git commit hash, which indicates our software state, and the virtual machine on the google cloud platform which executed the code.
+
+==== Poetry
+Poetry is a dependency manager for python.
+As with any large software project, our platform relies on several third-party libraries.
+To ensure both reproducibility and ease of use and development, we use poetry to track the versions of the libraries we use.
+Poetry stores these versions in a lock-file which git tracks.
 
 ==== Git
 Git keeps track of all versions of our source code.
-Our system is set up to demand that all local changes to the code be committed to git before a run in the cloud will be allowed.
-We ensure that all our parameters are represented in the code.
-This in turn ensures that we always know the state of the code responsible for each experiment.
-When we run an experiment in the cloud we log the start parameters of the system and the hash associated with the commit.
+We have set up safeguards that ensure that all changes to the local code are committed before a run can begin.
+In addition, all parameters of experiments are represented in the code.
+As a result, the complete state of the software, including configuration and hyper-parameters, is recorded in git.
+The commit hash, which uniquely identifies the point of commitment in our history, is logged, and we can reproduce the software side of our experiment.
 
-==== comet.ml
-comet.ml is a machine learning management tool. It can handle user-management, visualization, tracking of experiments, and much more.
-In our case we use it to track the results of our experiements, and how they relate to eachother.
+When we run an experiment in the cloud, we log the start parameters of the system and the hash associated with the commit.
+
+==== Google Cloud Platform
+Our experiments are run on virtual machines in the google cloud platform (GCP).
+GCP is one of several providers of commercial cloud and containerization services.
+Their products allow us to run our experiments on identical virtual machines, which ensures reproducibility also in the hardware aspects of our work.
+
 
 ==== Seeding
-All of our experiments ran with seeded randomness. Our implementation for seeding
+All of our experiments ran with seeded randomness.
+Our implementation for seeding
 
 ```
 seed = 69420
@@ -461,3 +478,7 @@ random.seed(seed)
 os.environ["PYTHONHASHSEED"] = str(seed)
 tf.random.set_seed(seed)
 ```
+
+==== Datasets
+At this point, we can reproduce any of the experiments presented in this work.
+However, as we are not allowed to share the data we received from other researchers, complete external repeatability is impossible.
