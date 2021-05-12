@@ -137,7 +137,6 @@ include::../tables/results/two_to_one_context_sensitivity.csv[]
 |===
 
 
-
 Again we can see that the dataset combination highly affects which pipelines are deemed context-sensitive, with a combination of emip_cscw and emip_fractions as in-study datasets.
 Lasso has a majority in more context specific pipelines, however there are more pipelines with Lasso that beats the baseline than there are pipelines with PCA.
 For the features we can see some difference from the generalizable pipelines.

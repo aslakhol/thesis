@@ -28,19 +28,6 @@ The scripts for standardization can be found at Github. In misc/fix*
 
 Something about us generating fixations for EMIP from rawdata
 
-Below we describe in detail how we standardized each of the datasets.
-
-===== EMIP
-We changed the dataset to make it easier to handle.
-
-. Created a new column for the status for each timeframe containing "CALIBRATION", "READING", "TEST"
-. Created a new column for which trial they were performing
-. Removed rows for where the values were all 0, as that could be interpreted as nan.
-
-Preprocessing
-
-. Remove 0 values as they are nan
-.
 
 ==== Data cleaning
 The datasets contains missing values
@@ -86,24 +73,25 @@ The features we generate can be separated into 3 different groups based on how t
 * Heatmap features
 
 ==== Timeseries Features
-Agnostic features, they are a description of the signal, not the meaning behind the signal.
-The signals we used are pupil diameter, fixation duration, saccade duration and saccade length.
+Timeseries feature are features that are agnostic to the source of data.
+They are a description of the signal, not the meaning behind the signal.
+The signals we describe with timeseries features are pupil diameter, fixation duration, saccade duration, and saccade length.
 
-Pupil diameter is the average diameter of the pupil over a fixation.
-Fixation duration is the duration of a fixation, and is the difference between the endtime and starttime of a fixation.
-Saccade duration is the time between two fixations.
-Saccade length is the euclidiean distance between the coordinates of two fixations.
 
-From these signals we calculate 5 features.
+From eac of these signals we calculate 5 features. Power Spectral Histrogram, ARMA, GARCH, Markov models and LHIPA. They are described below.
 
 
 ===== Power Spectral Histogram.
-The power spectrum of a time series, decomposes the time series to the frequncies present in the signal, and the amplitude of each of these frequencies.
-Once compouted, they can be represented as a histogram which is called the power spectral histogram.
- We computed the centroid, variance, skew and kurtosis of the power spectral histogram.
+The power spectrum of a timeseries decomposes the time series to the frequencies present in the signal and the amplitude of each frequency.
+Once computed, they can be represented as a histogram called the power spectral histogram.
+We computed the centroid, variance, skew, and kurtosis of the power spectral histogram.
 
-===== Autoregressive Moving Average model (Arma)
-We know that a coginitive process takes place over a span of time, and our gaze data is organized as a time-series.
+The power spectral histogram describes the repetition of patterns in the data.
+We hypothesize that similar pattern repetitions will be present in subjects that display a high cognitive performance across contexts.
+
+
+===== Autoregressive Moving Average model (ARMA)
+We know that a cognitive process takes place over a span of time, and our gaze data is organized as a timeseries.
 If our goal is to model cognitive workload we need to capture the temporal aspects of cognition.
 ARMA combines an auto-regressive part and an moving average part to model movements in a timeseries.
 It uses information fo previous events to predict future events with the same source.
@@ -157,20 +145,28 @@ for p up to 4
         fit = garch(timeseries, p, q)
         if(best_fit.aic > fit.aic)
             best_fit = fit
-return best_fit["mu"], best_fit["omega"], best_fit["alpha"], best_fit["gamma"], best_fit["beta"]
-```
-
-
-===== Markov Models
-I don't know the reason behind testing markov models, so we need to work that out.
-
-Discrete arma
-presenting the present value as a function of the past values.
-Is discrete, when you have more continuous information the mutual information of the predictable can decrease.
-
+return [best_fit["alpha"],
+       best_fit["beta"],
+       best_fit["gamma"],
+       best_fit["mu"],
+       best_fit["omega"]]
 
 ```
-normalized_timeseries = (timeseries - min(timeseries)) / (max(timeseries) - min(timeseries))
+
+
+===== Hidden Markov Models
+
+Hidden Markov Models contains the Markov assumption, which assumes that the present value is conditionally independent on its non-ancestors given its n last parents.
+Similarly to ARMA, this means that the current value is a function of the past values.
+While ARMA models continuous values, HMM is discrete.
+Hence we discretize the values into 100 buckets before we model the transitions between these buckets with HMM.
+We then use the resulting transition matrix as the feature.
+
+The reasoning behind using HMM is the same as to why we chose ARMA.
+We hypothesize that HMM might model the changing state nature of cognitive work.
+
+```
+normalized_timeseries = normalize the timeseries between 0 and 1
 discretized_timeseries = discretize timeseries in 100 bins
 best_fit = null
 for i up to 8
@@ -183,9 +179,15 @@ return padded_transition_matrix
 ```
 
 ===== The Low/High Index of Pupillary Activity (LHIPA)
-LHIPA citenp:[duchowskiLowHighIndex2020] is an enhancement to the Index of Pupilary Activity, which is a metric to discriminate cognitive load from pupil diameter oscillation.
+LHIPA citenp:[duchowskiLowHighIndex2020] enhances the Index of Pupillary Activity citenp:[duchowskiIndexPupillaryActivity2018], which is a metric to discriminate cognitive load from pupil diameter oscillation.
+LHIPA partially models the functioning of the human autonomic nervous system by looking at the low and high frequencies of pupil oscillation.
 
-For simplicity we extracted the LHIPA metric from all the signals even though it is only proven to have value on pupil diameter signals.
+Cognitive load has been shown to correlate with cognitive performance citenp:[hebbDrivesConceptualNervous1955].
+The Yerkes-Dodson law describes the relationship between the two, indicating an optimal plateau where a certain degree of cognitive workload is tied to maximized cognitive performance.
+If the cognitive workload is increased beyond this point, cognitive performance is diminished citenp:[hebbDrivesConceptualNervous1955].
+
+Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020]
+
 
 
 ==== Eyetracking features
@@ -244,15 +246,30 @@ Familiarity and expertise is different. You can know where to look, but have to 
 To calculate this feature we calculated the speed by dividing the saccade length on the saccade duration.
 Then we got the skew of the distribution outputted.
 
-===== Verticality of Saccades
-Something about reasoning behind looking at horizontality of saccades.
+```
+get_skewness_of_saccades(saccade_duration, saccade_length):
+    saccade_speed = saccade_length/saccade_duration
+    return saccade_speed.skew()
 
-To get the horizontality of saccades we get the angle between every fixation, with respect to the x axis. We do that with arctan2, which outputs the angle in radians between pi and -pi. Since we're only interested in the horizontality of the saccade, we take the absolute value of the angle.
+```
+
+===== Verticality of Saccades
+By verticality of saccades, we mean the ratio of which saccades move vertically over horizontally.
+Our intuition for generating this feature is based on the difference between how we read code versus how we read text.
+An experienced coder is read vertically, focusing on definitions and conditionals.
+Traditional text, on the other hand, is read line by line in a horizontal fashion.
+Based on this anecdotal observation, we were interested in how well the verticality of saccades would generalize.
+
+
+To calculate the feature, we get the angle between every consecutive fixation with respect to the x-axis.
+We do that with arctan2, which outputs the angle in radians between pi and -pi.
+Since we are only interested in the verticality of the saccade, we take the absolute value of the angle.
+
 ```
 radians = atan2(y2 - y1, x2 - x1)
 return abs(radians)
 ```
-To describe the horizontality of each point in a range between 0 and 1, we take take sinus of every angle.
+To describe the horizontality of each point in a range between 0 and 1, we take the sine of every angle.
 ```
 for angle in angles
    angle = sin(angle)
@@ -264,10 +281,14 @@ verticality = angles.average()
 ```
 
 ===== Entropy of Gaze
+The entropy of gaze explains the size of the field of focus for a subject.
+Entropy is higher the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
 
-We use the entropy of the gaze to compute the focus size of the subject. To calculate it we create a grid of 50 by 50 px bins. And placing each fixation in one of these bins based on which bin its x and y position corresponds to. When we have this grid we flatten it and take the entropy of the resulting distribution.
 
-This tells us if the gaze was evenly spread over the whole screen, or if the subject was more focused on specific areas of the screen. For this feature we used the normalized values for x and y, to keep the number of bins consistent between datasets.
+To calculate entropy, of gaze we create a grid of 50 by 50 px bins.
+We then normalize the x and y positions of each fixation in a range from 0 to 1000.
+Further, we place each fixation in one of these bins based on which bin its x and y position corresponds to.
+When we have this grid, we flatten it and take the entropy of the resulting distribution.
 
 The following algorithm extracts the feature:
 ```
@@ -284,22 +305,32 @@ return entropy(2d_histogram.flatten())
 
 
 ==== Heatmaps
-As shown in cite:[K paper about heatmaps], heatmaps of the gaze can predict performance in learning activities.
+A heatmap is a graphical representation of data where values are depicted by color.
+Areas of higher activity will be highlighted more.
+Our heatmaps represent the gaze position of a subject over time.
+To capture both spatial and temporal data, we create multiple heatmaps for each subject.
 
-The heatmaps for emip we generated ourselves with a python library called heatmappy.
+These are the steps we take to create our heatmaps
 
-. Split each subjects into 30 partitions
-. Created a 1920 * 1080 image
-. Plotted the x,y postions with heatmappy
-. Resized the image to 175*90
+. Split the data from each subject into 30 partitions
+. Create a 1920 * 1080 image
+. Plot the gaze position with heatmappy citenp:[LumenResearchHeatmappy2021]
+. Resize the image to 175*90
 
-This will return a list of heatmaps per subject.
+.Heatmap without stimulus from EMIP
+image:../figures/heatmap_emip.png[]
 
-From the heatmaps used a pretrained vgg19 model with the imagenet weights to generate a feature vector of size 1000 features per image
+From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
 1. Scale the images down using the preprocess_input function found in `keras.applications.image_netutils`
-2. Use the pretrained VGG-19 model to extract features per image
-3. Flatten the matrix to a single list of values
+2. Use the pre-trained VGG-19 model to extract features per image
+3. Flatten the matrices outputted by the VGG19 model to a single list of values and concatenate them.
+
+
+As shown by Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020], deep features of heatmaps from gaze data can predict cognitive performance in learning activities.
+
+
+
 
 ===== Pseudocode
 ```

@@ -52,6 +52,13 @@ From this, we can extract the following research questions.
 - *RQ 1* What are the most generalizable features for predicting cognitive performance using gaze data?
 - *RQ 1 a* What are the most context-specific features for predicting cognitive performance using gaze data?
 
+=== Terminology
+
+Pupil diameter is the average diameter of the pupil over a fixation.
+Fixation duration is the duration of a fixation, and is the difference between the endtime and starttime of a fixation.
+Saccade duration is the time between two fixations.
+Saccade length is the euclidiean distance between the coordinates of two fixations.
+
 === Outline
 This thesis consists of stuff.
 
