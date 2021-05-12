@@ -350,15 +350,13 @@ After feature generation these are the features that has been generated per subj
 
 include::../tables/feature_set_table.adoc[]
 
-=== Classification
+=== Pipelines
 
-This section explains how we solved goal 4 and 5 of creating our platform.
-We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for dimensionality reduction
+This section explains how we solved goal 4 of creating our platform.
+> We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for reducing the feature space.
 
-==== Flow
+==== What is a pipeline
 
-* Download features from Google Cloud Storage
-*
 
 
 ==== Grouping of features
