@@ -64,7 +64,7 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1 to 1 pipelines and 2 to 1 pipelines.
 _FFT_ gave good predictions on _fractions_ and is also among the top 5 for _emip_fractions_ and _fractions_cscw_.
 This pattern repeats for _cscw_ where _saccade_duration_ are among the top 5 in _cscw_, _fractions_cscw_ and _emip_cscw_.
-For _EMIP_ this is shown with Arma.
+For _EMIP_, this is shown with Arma.
 
 
 [[pipelines_nrmses_features]]
@@ -93,12 +93,12 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 [[generalizability]]
 === Generalizability
 We evaluate the generalizability of the pipelines with the out of study dataset.
-We compare the erros from predicting the out-of-study dataset to the cross-validation results with FGI, which we explained in chapter 4.
+We compare the errors from predicting the out-of-study dataset to the cross-validation results with FGI, which we explained in chapter 4.
 To find the most generalizable features, we need to filter out the pipelines that perform poorly on out-of-sample testing.
 We do this by filtering out the pipelines that do not perform better than the baseline.
-From 72 2-to-1 pipelines 28 beat the baseline.
+From 72 2-to-1 pipelines, 28 beat the baseline.
 We then sort the remaining pipelines on FGI.
-Based on the sorting we separate these into three equally sized parts: generalizable pipelines, pipelines we are not able to say anything about, and context sensitive pipelines.
+Based on the sorting, we separate these into three equally sized parts: generalizable pipelines, pipelines we are not able to say anything about, and context-sensitive pipelines.
 
 [[generalizable_pipelines]]
 .Generalizable pipelines

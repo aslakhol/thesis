@@ -4,11 +4,11 @@ Our goal with this system is to create a platform on which we can perform our fe
 
 In order to achieve this goal, multiple components have to be present.
 
-. We need methods to standardize datasets, so the units are the same and the data is in the same form.
-. We need to clean the data to achieve high data quality which can produce good features
+. We need methods to standardize datasets so the units are the same and the data is in the same form.
+. We need to clean the data to achieve high data quality, which can produce good features
 . We need a platform that can generate computationally expensive features for multiple large datasets
 . We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for dimensionality reduction
-. We need an evaluation step that collects the results from all the pipelines, and can prove pipelines generalizable.
+. We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 . We need complete reproducibility.
 
 === Preprocessing
@@ -138,7 +138,7 @@ We extract features from Garch similar to how we extract features from Arma.
   homogenity principle, garch is more generalizable than arma.
 Garch has proved to be a
 
-```
+```''
 best_fit = null
 for p up to 4
     for q up to 4
@@ -355,53 +355,56 @@ include::../tables/feature_set_table.adoc[]
 This section explains how we solved goal 4 of creating our platform.
 > We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for reducing the feature space.
 
-==== What is a pipeline
+By a pipeline we mean a specific combination of datasets, feature groups and methods for reducing the feature space (dimensionality reduction or feature selection).
+
+For simplicity, we will refer to these as pipeline components.
 
 
+==== Datasets
+We have three different datasets: EMIP, Fractions, and CSCW.
+As is discussed in xref:study[] for each of our pipelines, we designate either one or two datasets as in-study.
+All pipelines include a single dataset as the out-of-study dataset.
+No dataset is used twice in one pipeline.
 
-==== Grouping of features
+We refer to the pipelines where one dataset is designated in-study as 1-to-1 pipelines, as these pipelines train on one dataset and test on another.
+Pipelines, where two datasets are designated in-study, are referred to as 2-to-1 pipelines since we train on two datasets combined and test on one dataset.
+We have three datasets, which make up nine dataset combinations, six of which create 1-to-1 pipelines and three go into 2-to-1 pipelines.
 
-Since it would be too computationally exhaustive to test all combinations of the features, we separated them into 13 different feature groups, which we will test.
+==== Feature groups
+Initially, we considered running pipelines to test all combinations of features.
+These would prove to be unfeasible.
+With 27 features, 9 dataset combinations, and two methods of reducing the feature space, there would be 2 415 919 104 pipelines.
+With a theoretical runtime of 1 second per pipeline, the total computing time necessary to tackle this challenge would be approximately 76 years, and our grandchildren would have to submit this thesis.
 
-The features are divided in this way:
-
-===== Feature Groups
+As an alternative, we decided to group our features manually.
+We created one group for the eye-tracking features, four for the type of signal, and five for the different timeseries features.
+In addition, we have a separate group for heatmaps and, lastly, one group with includes all the features.
+The groups are presented in the following table:
 
 include::../tables/feature_groups_table.adoc[]
 
 ==== Reducing the feature space
-All of our pipelines does either feature selection or Dimensionality reduction.
-The method we use for dimensionality reduction is PCA and the one for Feature selection is Lasso.
-For all pipelines we also use a zero-variance filter to remove the features that has no variance in its data
+Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and improve predictive power.
+The focus of our thesis was on testing different features, and as such, we decided not to test a wide range of alternatives.
+The effect of different methods for reducing the feature space on generalizability is a potential area for further study.
+The method we use for dimensionality reduction is PCA, and the one for feature selection is LASSO.
+For all pipelines, we also use a zero-variance filter to remove the features that have no variance in their data
 
-==== Dimensionality Reduction
-Dimensionality reduction is the process of mapping the current feature space to another feature space with a lower dimensionality.
-We use PCA for dimensionality reduction.
+Lasso was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[tibshiraniRegressionShrinkageSelection1996, giannakosMultimodalDataMeans2019], which is the case for most of our feature groups.
 
-
-==== Feature Selection
-Feature selection is the process of reducing the number of features used by removing features that give less information.
-We use Lasso as our feature selection algorithm because it performs well when the number of samples is less than the number of features.
-Which is often the case in our pipelines.
-For instance the heatmap feature group contains 153600 features per subject.
 
 ==== Prediction: Ensemble Learning
-Our classifier is a weighted voting ensemble with a KNN-regressor, Random forest regressor and a Support Vector regressor.
-To find the weights we do a cross-validation and set the respective weights as 1 - Root Mean square error.
+Our pipelines were tested with the same classifier, a weighted voting ensemble with a KNN-regressor, a Random forest regressor, and a Support Vector regressor.
+To find the weights for the voting, we perform cross-validation on each of the regressors and set their respective weights as 1 - Root Mean square error.
+We use an ensemble because it has been shown to improve stability and robustness, capture linear as well as non-linear relationships, and the variance in our datasets suggests that a single model would perform inadequately citenp:[sharmaAssessingCognitivePerformance2020].
 
-=== Training, validation and testing setup
-We do two types of testing to evaluate our pipelines: *out-of-sampling-testing* and *out-of-study-testing*.
+=== Evaluation
+This section will outline how we achieve the fifth goal of our platform:
+    > We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 
-To perform out of sampling testing, we split our in study dataset in three parts.
-Training, validation, and testing data.
-The training data is used to train the models, the validation set is used weight the different classifiers in the voting ensemble.
-The test data is to evaluate the model on unseen data.
-
-Out of study testing is how we can evaluate the generalizibility of the pipeline.
-We are using two out of three datasets to train and evaluate the model with out of sampling testing.
-The out of study testing is done with the dataset we do not use in the in study testing.
-If EMIP and fractions are used for in study, then cscw is used for out of study testing.
-Since all the datasets are from different contexts, we can evaluate how our pipelines generalize over contexts.
+Models produce by our pipelines are evaluated in two ways, with out-of-sample testing and out-of-study testing.
+Out-of-sample testing uses a subset the in-study dataset to evaluate the predictive power of the model, while out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
+This subsection explains how we evaluate the results of each test.
 
 ==== Evaluation Criteira
 
