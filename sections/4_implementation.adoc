@@ -371,7 +371,7 @@ The features are divided in this way:
 
 include::../tables/feature_groups_table.adoc[]
 
-=== Dimensionality Reduction / Feature Selection
+==== Reducing the feature space
 All of our pipelines does either feature selection or Dimensionality reduction.
 The method we use for dimensionality reduction is PCA and the one for Feature selection is Lasso.
 For all pipelines we also use a zero-variance filter to remove the features that has no variance in its data
@@ -387,7 +387,7 @@ We use Lasso as our feature selection algorithm because it performs well when th
 Which is often the case in our pipelines.
 For instance the heatmap feature group contains 153600 features per subject.
 
-=== Prediction: Ensemble Learning
+==== Prediction: Ensemble Learning
 Our classifier is a weighted voting ensemble with a KNN-regressor, Random forest regressor and a Support Vector regressor.
 To find the weights we do a cross-validation and set the respective weights as 1 - Root Mean square error.
 
@@ -433,18 +433,7 @@ asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/N(
 The denominator normalizes the values between -1 and +1 where 0 is a random grouping.
 
 
-
-=== Bench-marking the Generalizable Features
-
-
-
-
-[%header,format=csv]
-|===
-// include::results_filtered.csv[]
-|===
-
-==== Reproducability
+=== Reproducability
 This section explains how we reached goal 6 of our platform.
 * We need complete reproducibility.
 
