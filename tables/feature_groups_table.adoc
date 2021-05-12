@@ -4,47 +4,47 @@
 
   | 1
   | Eye tracking Features
-  | information_processing_ratio, saccade_speed_skewness, entropy_xy, saccade_verticality,
+  | Information Processing Ratio, Saccade Speed Skewness, Entropy Of Gaze, Verticality Of Saccades
 
   | 2
   | Heatmaps
-  | heatmaps,
+  | Heatmaps
 
   | 3
   | Power Spectral Histogram
-  | pupil_diameter_rolling__fft_aggregated_*, ^duration_rolling__fft_aggregated__*, saccade_length_rolling__fft_aggregated__*, saccade_duration_rolling__fft_aggregated__*,
+  | Spectral Histogram - Pupil Diameter, Spectral Histogram - Fixation Duration, Spectral Histogram - Saccade Length, Spectral Histogram - Saccade Duration
 
   | 4
   | LHIPA
-  | pupil_diameter_rolling__lhipa,
+  | LHIPA - Pupil Dialation
 
   | 5
   | Markov
-  | ^duration_rolling__markov, pupil_diameter_rolling__markov, saccade_duration_rolling__markov, saccade_length_rolling__markov,
+  | HMM - Fixation Duration, HMM - Pupil Diameter, HMM - Saccade Duration, HMM - Saccade Length
 
   | 6
-  | Arma
-  | pupil_diameter_rolling__arma__*, ^duration_rolling__arma__*, saccade_length_rolling__arma__*, saccade_duration_rolling__arma__*,
+  | ARMA
+  | ARMA - Pupil Diameter, ARMA - Fixation Duration, ARMA - Saccade Length, ARMA - Saccade Duration
 
   | 7
   | Garch
-  | saccade_duration_rolling__garch", ^duration_rolling__garch", pupil_diameter_rolling__garch, saccade_length_rolling__garch,
+  | GARCH - Saccade Duration, GARCH - Fixation Duration, GARCH - Pupil Diameter, GARCH - Saccade Length
 
   | 8
   | Pupil diameter
-  | pupil_diameter_rolling__fft_aggregated_*, pupil_diameter_rolling__lhipa, pupil_diameter_rolling__markov, pupil_diameter_rolling__arma__*, pupil_diameter_rolling__garch,
+  | Spectral Histogram - Pupil Diameter, LHIPA - Pupil Dialation, HMM - Pupil Diameter, ARMA - Pupil Diameter, GARCH - Pupil Diameter
 
   | 9
   | Fixation Duration
-  | ^duration_rolling__fft_aggregated__*, ^duration_rolling__markov, ^duration_rolling__arma__*, ^duration_rolling__garch,
+  | Spectral Histogram - Fixation Duration, HMM - Fixation Duration, ARMA - Fixation Duration, GARCH - Fixation Duration
 
   | 10
   | Saccade Length
-  | saccade_length_rolling__fft_aggregated__*, saccade_length_rolling__markov, saccade_length_rolling__arma__*, saccade_length_rolling__garch,
+  | Spectral Histogram - Saccade Length, HMM - Saccade Length, ARMA - Saccade Length, GARCH - Saccade Length
 
   | 11
   | Saccade duration
-  | saccade_duration_rolling__fft_aggregated__*, saccade_duration_rolling__markov, saccade_duration_rolling__arma__*, saccade_duration_rolling__garch, ],
+  | Spectral Histogram - Saccade Duration, HMM - Saccade Duration, ARMA - Saccade Duration, GARCH - Saccade Duration
 
   | 12
   | ALL
