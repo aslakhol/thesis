@@ -401,7 +401,7 @@ We use an ensemble because it has been shown to improve stability and robustness
 === Evaluation
 This section will outline how we achieve the fifth goal of our platform:
 
-    > We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
+> We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 
 Models produce by our pipelines are evaluated in two ways, with out-of-sample testing and out-of-study testing.
 Out-of-sample testing uses a subset of the in-study dataset to evaluate the predictive power of the model, while out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
