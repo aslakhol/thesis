@@ -108,7 +108,7 @@ Based on the sorting, we separate these into three equally sized parts: generali
 .Generalizable pipelines
 [format="csv", options="header"]
 |===
-include::../tables/results/two_to_one_generalizable.csv[]
+include::../tables/results/generalizable_pipelines.csv[]
 |===
 
 xref:generalizable_pipelines[] shows the 10 most generalizable pipelines.
@@ -137,7 +137,7 @@ The bottom third of the filtered baselines, contains the pipelines that are more
 .Context sensitive pipelines
 [format="csv", options="header"]
 |===
-include::../tables/results/two_to_one_context_sensitivity.csv[]
+include::../tables/results/context_sensitive_pipelines.csv[]
 |===
 
 

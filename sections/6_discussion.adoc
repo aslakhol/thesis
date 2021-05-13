@@ -2,16 +2,10 @@
 == Discussion
 
 === Findings
-- LASSO performs better than PCA in out-of-sample testing for both 1-to-1 pipelines and 2-to-1 pipelines.
-- PCA is slightly more generalizable than LASSO in 1-to-1 pipelines.
-- PCA and LASSO is equivalent in terms of generalizability in 2-to-1 pipelines.
-- Heatmaps is the best performing feature in out-of-sample testing in 1-to-1 pipelines.
-- GARCH is the best performing feature in out-of-sample testing in 2-to-1 pipelines.
-- GARCH is the most generalizable feature in 1-to-1 pipelines.
-- Saccade duration and GARCH are the most generalizable features in 2-to-1 pipelines.
 - 2-to-1 pipelines are more generalizable than 1-to-1 pipelines.
-- 2-to-1 pipelines where fractions and cscw are the in-study datasets produce more generalizable pipelines.
-We found this.
+- 2-to-1 pipelines where Fractions and CSCW are the in-study datasets produce more generalizable pipelines.
+- GARCH, Power Spectral Histogram, heatmaps, saccade duration, saccade length, and Markov can produce generalizable pipelines.
+- Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context sensitive pipelines, and we do not observe any tendencies to generalize.
 
 === 2-to-1 versus 1-to-1
 The top five pipelines of the 1-to-1 pipelines perform worse than the five best performing pipelines for 2-to-1 pipelines, as seen in XREFHEREPLSPLS.
@@ -31,11 +25,25 @@ Pinpointing the effectiveness of training on collaborative data when generalizin
 
 
 === Why do the generalizable features generalize?
-In this section we will argue a few reasons we belive as to why the features generalize.
+In this section, we will argue a few reasons we believe as to why the features generalize.
 
-We observe that heatmaps are among the generalizable features. Our heatmap feature is the x and y position timeseries data for each subject, split into 30 partititions, converted to a heatmap and fed to a pretrained VGG19 model. The resulting feature vector is the feature we call heatmaps. While the stimuli that the subject is looking at is not included in the heatmap image, the stimuli is captured through the subjects interaction with it as the gaze pattern of the subject will follow the stimuli. The feature vector we call heatmaps represents how the gaze interacts with the given stimuli. Taking EMIP as an example, for all subjects a heatmap will tell us the shape of the code being presented to the subject. However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or the conditional logic, the latter being a focus point for experienced coders. Heatmaps generalize well because instead of just capturing how a subject interacts with their screen it also captures their interaction patterns and how they relate to their presented stimuli. In addition heatmaps encode information about both time and space (the x and y positions the subject is looking at), rather than just one dimension, introducing more variance.
+We observe that heatmaps are among the generalizable features.
+Our heatmap feature is the gaze-position for each subject over time, split into 30 partitions, converted to a heatmap, and fed to a pre-trained VGG19 model.
+The resulting feature vector is the feature we call heatmaps.
+While the stimulus is not included in the heatmap image, the stimulus is captured through the subject's interaction with it, as the gaze pattern will follow the stimuli.
+The feature vector we call heatmaps represents how the gaze interacts with the given stimuli. Taking EMIP as an example, a heatmap will tell us the shape of the code being presented to the subject for all subjects.
+However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
+The latter is a focus point for experienced coders.
+Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimuli.
+In addition, heatmaps encode information about time and space, rather than just one of the dimensions, introducing more variance.
 
-GARCH is a statistical modelling technique used to model timeseries data. We see that the coeficcients from the GARCH model generalize quite  well. This indicates to us that modelling the variance of the error in
+GARCH is a statistical modeling technique used to model timeseries data.
+Our data suggest that GARCH is the most generalizable feature group of the ones we have tested.
+GARCH is models the variance of data and has the heteroscedasticity property.
+Heteroscedasticity means that the random disturbance is different across the elements.
+In our case, this means the variance of indicators of cognitive performance varies from point to point in the timeseries.
+In different contexts, the timing of the indicators will vary based on the task and other factors.
+This might explain why GARCH is generalizable across contexts.
 
 
 
