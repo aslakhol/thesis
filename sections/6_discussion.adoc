@@ -5,38 +5,41 @@
 - 2-to-1 pipelines are more generalizable than 1-to-1 pipelines.
 - 2-to-1 pipelines where Fractions and CSCW are the in-study datasets produce more generalizable pipelines.
 - GARCH, Power Spectral Histogram, heatmaps, saccade duration, saccade length, and Markov can produce generalizable pipelines.
-- Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context sensitive pipelines, and we do not observe any tendencies to generalize.
+- Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
 
 === 2-to-1 versus 1-to-1
-The top five pipelines of the 1-to-1 pipelines perform worse than the five best performing pipelines for 2-to-1 pipelines, as seen in XREFHEREPLSPLS.
-These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
+As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better then 1-to-1 pipelines.
 Combining two datasets from two separate contexts for training introduces more variance.
 Unsurprisingly, these pipelines are more generalizable than those that use only one dataset for training.
+These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 In further discussions, we will focus on results from the 2-to-1 pipelines.
 
 
 === Generalizability of our datasets
-Our results indicate that pipelines that combine Fractions and CSCW for training, and that use EMIP for testing, are more generalizable than pipelines where EMIP is included in the training set.
+Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP is included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
-On the other hand, Fractions and CSCW include gathered from a collaborative process.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
-We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect, and that the variance introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
+We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect and that the variance introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
 
 
 === Why do the generalizable features generalize?
 In this section, we will argue a few reasons we believe as to why the features generalize.
 
+
+==== Heatmaps
 We observe that heatmaps are among the generalizable features.
 Our heatmap feature is the gaze-position for each subject over time, split into 30 partitions, converted to a heatmap, and fed to a pre-trained VGG19 model.
 The resulting feature vector is the feature we call heatmaps.
-While the stimulus is not included in the heatmap image, the stimulus is captured through the subject's interaction with it, as the gaze pattern will follow the stimuli.
+While the stimulus is not included in the heatmap image, the stimulus is captured through the subject's interaction with it, as the gaze pattern will follow the stimulus.
 The feature vector we call heatmaps represents how the gaze interacts with the given stimuli. Taking EMIP as an example, a heatmap will tell us the shape of the code being presented to the subject for all subjects.
 However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
 The latter is a focus point for experienced coders.
 Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimuli.
 In addition, heatmaps encode information about time and space, rather than just one of the dimensions, introducing more variance.
 
+
+==== GARCH, Hidden Markov Models and Power Spectral Histogram
 GARCH is a statistical modeling technique used to model timeseries data.
 Our data suggest that GARCH is the most generalizable feature group of the ones we have tested.
 GARCH is models the variance of data and has the heteroscedasticity property.
@@ -45,8 +48,13 @@ In our case, this means the variance of indicators of cognitive performance vari
 In different contexts, the timing of the indicators will vary based on the task and other factors.
 This might explain why GARCH is generalizable across contexts.
 
+Our results indicate that spectral histograms generalize pretty well.
+Spectral histograms are the distribution of frequencies and their corresponding amplitudes.
+Spectral histograms capture repetitiveness and hence might capture patterns of behavior exhibited by the subjects.
+Repetetiveness indicates a flow which suggests that the subject is comfortable in their task as opposed to more chaotic non-repetetive behaviour that might occour when one is not comfortable.
+We suggest that this relationship should be represented across contexts and hence, could be a reason why spectral histograms seem to generalize quite well.
 
-
+==== Saccade duration and Saccade length
 
 
 === Aggregation of results
