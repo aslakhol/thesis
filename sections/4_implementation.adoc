@@ -11,10 +11,19 @@ In order to achieve this goal, multiple components have to be present.
 . We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 . We need reproducibility.
 
-[[diagram]]
+
+xref:architecture_diagram[] shows the outlines of the architecture we propose.
+The first step is data preprocessing, explained in xref:preprocessing[].
+Preprocessed data is then fed to the feature extraction step explained in xref:feature_extraction[].
+Then we organize 219 separate pipelines that consist of unique combinations of datasets, feature groups, and methods for reducing the feature space explained in xref:pipelines[].
+All pipelines use the same ensemble classifier.
+Results are then evaluated in the evaluation step, xref:evaluation[], and logged xref:reproducability[].
+
+[[architecture_diagram]]
 .Diagram of our platform
 image:../figures/diagram.png[]
 
+[[preprocessing]]
 === Preprocessing
 
 This subsection explains how we achieved goals 1 & 2 of creating a platform for generating generalizable features.
@@ -51,13 +60,14 @@ This might be due to blinking, the subject looking outside the range of the eye-
 To mitigate this, we remove the outliers by setting a threshold of 1000 ms for saccade duration.
 All gaps in time over 1000ms were reduced to 1000ms.
 
-=== Feature generation
+[[feature_extraction]]
+=== Feature extraction
 This subsection explains how we achieved goal 3.
 
 > We need a platform that can generate computationally expensive features for multiple large datasets
 
 ==== Flow
-The flow of the feature generation job is as follows:
+The flow of the feature extraction job is as follows:
 
 . Download the datasets from google cloud storage
 . Load data as a list of pandas data frames
@@ -343,6 +353,7 @@ After feature extraction, these are the features that are generated for each sub
 
 include::../tables/feature_set_table.adoc[]
 
+[[pipelines]]
 === Pipelines
 
 This section explains how we solved goal 4 of creating our platform.
@@ -391,6 +402,7 @@ Our pipelines were tested with the same classifier, a weighted voting ensemble w
 To find the weights for the voting, we perform cross-validation on each of the regressors and set their respective weights as 1 - Root Mean square error.
 We use an ensemble because it has been shown to improve stability and robustness, capture linear as well as non-linear relationships, and the variance in our datasets suggests that a single model would perform inadequately citenp:[sharmaAssessingCognitivePerformance2020].
 
+[[evaluation]]
 === Evaluation
 This section will outline how we achieve the fifth goal of our platform:
 
@@ -415,7 +427,7 @@ asciimath:[RMSE = sqrt ((sum_(i=1)^text(Number of samples) (text(predicted)_i - 
 asciimath:[NRMSE = text(NRMSE)/(text(original)_max - text(original)_min)]
 
 
-=== Feature Generalizability Index
+==== Feature Generalizability Index
 We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
 Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can safely assume that similar behavior will indicate similar results.
 To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
@@ -424,7 +436,7 @@ asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/N(
 
 The denominator normalizes the values between -1 and 1, where 0 represents a random grouping.
 
-
+[[reproducability]]
 === Reproducability
 This section explains how we reached the sixth goal of our platform.
 
