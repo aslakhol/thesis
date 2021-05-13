@@ -358,10 +358,10 @@ include::../tables/feature_set_table.adoc[]
 === Pipelines
 
 This section explains how we solved goal 4 of creating our platform.
+
 > We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for reducing the feature space.
 
 By a pipeline, we mean a specific combination of datasets, feature groups, and methods for reducing the feature space (dimensionality reduction or feature selection).
-
 For simplicity, we will refer to these as pipeline components.
 
 
