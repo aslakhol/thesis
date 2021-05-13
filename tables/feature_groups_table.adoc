@@ -1,51 +1,43 @@
-[cols="1,1,1"]
+[cols="1,1"]
 |===
-| ID | Name | Features
+| Name | Features
 
-  | 1
   | Eye tracking Features
   | Information Processing Ratio, +
    Saccade Speed Skewness, +
    Entropy Of Gaze, +
    Verticality Of Saccades
 
-  | 2
   | Heatmaps
   | Heatmaps
 
-  | 3
   | Power Spectral Histogram
   | Spectral Histogram - Pupil Diameter, +
    Spectral Histogram - Fixation Duration, +
    Spectral Histogram - Saccade Length, +
    Spectral Histogram - Saccade Duration
 
-  | 4
   | LHIPA
   | LHIPA - Pupil Diameter
 
-  | 5
   | Markov
   | HMM - Fixation Duration, +
    HMM - Pupil Diameter, +
    HMM - Saccade Duration, +
    HMM - Saccade Length
 
-  | 6
   | ARMA
   | ARMA - Pupil Diameter, +
    ARMA - Fixation Duration, +
    ARMA - Saccade Length, +
    ARMA - Saccade Duration
 
-  | 7
   | Garch
   | GARCH - Saccade Duration, +
    GARCH - Fixation Duration, +
    GARCH - Pupil Diameter, +
    GARCH - Saccade Length
 
-  | 8
   | Pupil diameter
   | Spectral Histogram - Pupil Diameter, +
    LHIPA - Pupil Diameter, +
@@ -53,28 +45,24 @@
    ARMA - Pupil Diameter, +
    GARCH - Pupil Diameter
 
-  | 9
   | Fixation Duration
   | Spectral Histogram - Fixation Duration, +
    HMM - Fixation Duration, +
    ARMA - Fixation Duration, +
    GARCH - Fixation Duration
 
-  | 10
   | Saccade Length
   | Spectral Histogram - Saccade Length, +
    HMM - Saccade Length, +
    ARMA - Saccade Length, +
    GARCH - Saccade Length
 
-  | 11
   | Saccade duration
   | Spectral Histogram - Saccade Duration, +
    HMM - Saccade Duration, +
    ARMA - Saccade Duration, +
    GARCH - Saccade Duration
 
-  | 12
   | ALL
   | ALL
 
