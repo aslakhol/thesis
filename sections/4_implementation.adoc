@@ -29,6 +29,7 @@ image::../figures/diagram.png[]
 This subsection explains how we achieved goals 1 & 2 of creating a platform for generating generalizable features.
 
 > We need methods to standardize datasets so the units are the same and the data is in the same form.
+
 > We need to clean the data to achieve high data quality, which can produce good features.
 
 ==== Standardization of Datasets
