@@ -1,5 +1,4 @@
 [[results]]
-
 == Results
 We ran a total of 216 pipelines with different combinations of datasets, dimensionality reduction, and feature groups.
 144 of these pipelines were 1 to 1 pipelines, where we trained on one dataset and tested on another.

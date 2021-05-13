@@ -1,4 +1,4 @@
 [[conclusion]]
 == Conclusion
 
-At some point we will have a conclusion here.
+At some point, we will have a conclusion here.
