@@ -119,7 +119,7 @@ include::../tables/results/generalizable_pipelines.csv[]
 |===
 
 xref:generalizable_pipelines[] shows the 10 most generalizable pipelines.
-The first and most prevalent factor for generalizable pipelines is which datasets was the in study dataset.
+The first and most prevalent factor for generalizable pipelines is which datasets were the in study dataset.
 When the in-study dataset is the combination of fractions and cscw, and emip is the out of study dataset, the pipelines are more generalizable.
 Nine of the ten generalizable pipelines contains this combination of datasets.
 
