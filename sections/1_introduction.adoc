@@ -54,10 +54,23 @@ From this, we can extract the following research questions.
 
 === Terminology
 
-Pupil diameter is the average diameter of the pupil over a fixation.
-Fixation duration is the duration of a fixation, and is the difference between the endtime and starttime of a fixation.
-Saccade duration is the time between two fixations.
-Saccade length is the euclidiean distance between the coordinates of two fixations.
+In this section, we will introduce the reader to a few key terms from the eye-tracking world.
+
+A fixation is when the eye holds steady on an object or a position.
+In a fixation recorded gaze points vary little in both time and space.
+Fixations usually reflexs attention to a stimulus citenp:[shojaeizadehDetectingTaskDemand2019].
+When discussing fixations we will often refer to the fixation duration, which is the amount between the start of the fixation and the end of the fixation
+
+Saccades are small rapid eye movements that happens between two fixations.
+It is moving the eye from one stimulus to another.
+Cognitive information is not processed during saccadic eye movements, however studies have shown that they still can provide information about viewing behaviour and indicate changes in cognition citenp:[shojaeizadehDetectingTaskDemand2019].
+We will mostly refer to the measures saccade duration and saccade length.
+Saccade length is the euclidian distance between the two fixations a saccade is moving between.
+Saccade duration is the time that the eye movements takes, the time between the two fixations.
+
+Pupilary changes are changes in pupil size.
+We will most commonly refer to pupil diameter, which is the size in pixels or millimeters that the pupil has at a point in time.
+Changes to the pupil diameter can serve as a reliable proxy of mental effort citenp:[shojaeizadehDetectingTaskDemand2019].
 
 === Outline
 This thesis consists of stuff.
