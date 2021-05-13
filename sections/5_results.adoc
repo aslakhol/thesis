@@ -100,9 +100,16 @@ We evaluate the generalizability of the pipelines with the out of study dataset.
 We compare the errors from predicting the out-of-study dataset to the cross-validation results with FGI, which we explained in chapter 4.
 To find the most generalizable features, we need to filter out the pipelines that perform poorly on out-of-sample testing.
 We do this by filtering out the pipelines that do not perform better than the baseline.
-From 72 2-to-1 pipelines, 28 beat the baseline.
-We then sort the remaining pipelines on FGI.
-Based on the sorting, we separate these into three equally sized parts: generalizable pipelines, pipelines we are not able to say anything about, and context-sensitive pipelines.
+From 216 pipelines, 72 beat the baseline.
+
+[[distribution_fgi]]
+.Kernel Density Estimation plot of the FGI by pipeline type
+image::../figures/distribution_of_FGI.png[]
+
+As represented in xref:distribution_fgi[], 2 to 1 pipelines are in general more generalizable than 1 to 1 pipelines.
+This is in line with the results of citenp:[sharmaAssessingCognitivePerformance2020].
+For simplicity and since our focus is generalizability, we will only refer to the 2 to 1 pipelines in the following sections.
+
 
 [[generalizable_pipelines]]
 .Generalizable pipelines
