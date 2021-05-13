@@ -74,25 +74,32 @@ Changes to the pupil diameter can serve as a reliable proxy of mental effort cit
 
 === Outline
 
-xref:introduction[]
+xref:introduction[]: Introduction
+
 Our introduction introduces the motivation for the work, our research questions, some key terminology and this outline.
 
 
-xref:related_work[]
+xref:related_work[]: Related work
+
 The related work chapter situates our work in relation to the established literature and provides the theoretical background that outlines our assumptions.
 
 
-xref:study[]
+xref:study[]: Study
+
 This chapter outlines how we approach engineering generalizable features from gaze data and presents the datasets used in our experiments.
 
-xref:implementation[]
+==== xref:implementation[]: Implementation
+
 Our chapter on implementation presents the requirements for our platform, describes the architecture we propose to meet these requirements, and presents details on how we implement that architecture, including how and which features we engineer and how we evaluate our pipelines.
 
-xref:results[]
+==== xref:results[]: Results
+
 This chapter presents a range of tables and plots representing the evaluations of our pipelines and provides assistance in interpreting the presented materials.
 
-xref:discussion[]
+*xref:discussion[]: Discussion*
+
 The discussion delves further into the results, presents our thoughts on the patterns displayed by the results, and discusses the results in relation to the literature.
 
-xref:conclusion[]
+*xref:conclusion[]: Conclusion*
+
 At last, the conclusion presents a summary of the work, the contributions of the work, and suggestions for further work.
