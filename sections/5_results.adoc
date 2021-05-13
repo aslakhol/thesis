@@ -61,7 +61,7 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 ==== Features
 
 
-xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1 to 1 pipelines and 2 to 1 pipelines.
+xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1-to-1 pipelines and 2 to 1 pipelines.
 _FFT_ gave good predictions on _fractions_ and is also among the top 5 for _emip_fractions_ and _fractions_cscw_.
 This pattern repeats for _cscw_ where _saccade_duration_ are among the top 5 in _cscw_, _fractions_cscw_ and _emip_cscw_.
 For _EMIP_, this is shown with Arma.

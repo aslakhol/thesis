@@ -20,8 +20,8 @@ All pipelines use the same ensemble classifier.
 Results are then evaluated in the evaluation step, xref:evaluation[], and logged xref:reproducability[].
 
 [[architecture_diagram]]
-.Diagram of our platform
-image:../figures/diagram.png[]
+.Diagram of our architecture
+image::../figures/diagram.png[]
 
 [[preprocessing]]
 === Preprocessing
