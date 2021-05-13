@@ -1,0 +1,11 @@
+Pipeline ID,FGI,In Study,Feature Group,PCA or Lasso
+176,0.017,emip,markov,lasso
+189,0.0158,emip,saccade_duration,PCA
+130,0.0158,cscw,Arma,lasso
+134,0.0155,cscw,pupil_diameter,lasso
+142,0.0153,cscw,all,lasso
+171,0.0151,emip,heatmaps,PCA
+128,0.0149,cscw,markov,lasso
+137,0.0146,cscw,fixation_duration,PCA
+121,0.0141,cscw,eye_tracking,PCA
+124,0.0141,cscw,fft,lasso
