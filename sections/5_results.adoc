@@ -26,7 +26,11 @@ def get_baseline(labels):
 
 
 [[same_training_and_testing_context]]
-===  Same Training and testing context
+===  Same training and testing context
+
+Our work is focused on engineering generalizable features.
+This section ourlines the results from the out-of-sample testing, which does not indicate generalizability.
+However the section is presented to the reader to benchmark the range of predictive power that our features exhibit in more traditional tasks.
 
 ==== Aggregation of the results
 To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
