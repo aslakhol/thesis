@@ -5,9 +5,9 @@ Our goal with this system is to create a platform on which we can perform our fe
 In order to achieve this goal, multiple components have to be present.
 
 . We need methods to standardize datasets so the units are the same and the data is in the same form.
-. We need to clean the data to achieve high data quality, which can produce good features
-. We need a platform that can generate computationally expensive features for multiple large datasets
-. We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for dimensionality reduction
+. We need to clean the data to achieve high data quality, which can produce good features.
+. We need a platform that can generate computationally expensive features for multiple large datasets.
+. We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for dimensionality reduction.
 . We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 . We need reproducibility.
 
@@ -17,76 +17,80 @@ image:../figures/diagram.png[]
 
 === Preprocessing
 
+This subsection explains how we achieved goals 1 & 2 of creating a platform for generating generalizable features.
 
-This subsection explains how we achieved goal 1 & 2 of creating a platform for generating generalizable features.
+> We need methods to standardize datasets so the units are the same and the data is in the same form.
+> We need to clean the data to achieve high data quality, which can produce good features.
 
 ==== Standardization of Datasets
-We have found three datasets from different experiments with different contexts.
-They also vary in units used and the name of the columns.
+We use three datasets from different experiments with different contexts.
+Each dataset has its own set of column names, and they also use different units.
 Some of the datasets measure time in milliseconds, while others measure it in microseconds.
-The datasets also use different names for the same attributes.
-These were renamed to a consistent naming scheme.
-Some of the subjects were missing labels; we solved this by removing the sample.
+In standardizing the dataset, we converted all differing units and renamed columns that represented the same values so that all datasets are consistent with each other.
+Some subjects were missing labels; this was solved by removing the subject from the dataset.
 We also fixed inconsistencies such as wrong capitalizations of filenames.
-The scripts for standardization can be found at Github. In misc/fix*
 
-Something about us generating fixations for EMIP from raw data
-
-
-==== Data cleaning
-The datasets contain missing values
+For the EMIP dataset, we were provided with the raw data without fixations calculated.
+In order to use this dataset, we calculated fixations ourselves with the library PyGaze Analyzer citenp:[PyGazeOpenSource].
+The algorithm used is a dispersion-based algorithm that requires us to set the maximum distance and minimum duration for a fixation.
+We set the minimum duration by finding the minimum duration of fixations from our two other datasets.
+Pieter Blignaut citenp:[blignautFixationIdentificationOptimum2009] suggests that the maximum distance of a fixation when using a dispersion algorithm for finding fixations should be 1º of the foveal angle.
+The distance between the subject and the stimulus was 700 mm for EMIP; thus, 1º of the foveal angle works out to about 45 pixels.
+We only used fixations where the subject was reading code and disregarded data gathered during setup and calibration.
 
 
 ==== Normalization and Outlier removal
-As our subjects come from multiple contexts, the need for normalization and outlier removals is extra apparent.
-The baseline for a subjects pupil dialation is very sensitive to lighting and how well rested you are, so it is important to normalize it.
+As our subjects come from multiple contexts, the need for normalization and outlier removal is extra apparent.
+It is essential to normalize pupil diameter.
+Pupil diameter can be affected by several factors such as lighting conditions and how well-rested the subject is citenp:[pflegingModelRelatingPupil2016].
 We chose to min-max normalize the pupil diameter in the range of 0 to 1 per subject.
 
-// The normalized x and y postitions is only used in the entropy feature so it should maybe be mentioned there
-The screen sizes in the different experiments where the datasets were from are different. So we normalized the x and y positions in a 1000 by 1000 grid.
-
-As we are working on fixations our sense of time is discretized to the start of each fixation.
-But there can be artificially large periods of time between fixations, due to blinking, the subject looking away from the screen or technical malfunction on the equipment.
-To mitigate this we remove the outliers by setting a threshold of 1000 ms for saccade duration, and all timegaps over 1000 ms were set to 1000ms,
-
-
-
-
+Our time recordings are made at the start point of each fixation.
+This can be problematic, as there are situations where more time passes between fixations than would be reasonable for regular saccades.
+This might be due to blinking, the subject looking outside the range of the eye-tracker, or technical malfunction.
+To mitigate this, we remove the outliers by setting a threshold of 1000 ms for saccade duration.
+All gaps in time over 1000ms were reduced to 1000ms.
 
 === Feature generation
+This subsection explains how we achieved goal 3.
 
-To save computational time, we chose to separate the feature generation and the model training in to two separate jobs. This subsection explains how we achieved goal 3.
+> We need a platform that can generate computationally expensive features for multiple large datasets
 
 ==== Flow
 The flow of the feature generation job is as follows:
 
 . Download the datasets from google cloud storage
-. Load data as a list of pandas dataframes
+. Load data as a list of pandas data frames
 . Standardize data. This step is different for each dataset
 . Normalize data
-. Generate aggregated attributes, such as saccade duration, saccade_length and angle of saccades.
+. Generate aggregated attributes, such as saccade duration, saccade_length, and angle of saccades.
 . Take the rolling mean of the signals
 . Generate features
 . Upload features to google cloud storage
 
 ==== Features
-The features we generate can be separated into 3 different groups based on how they were made.
+The features we generate can be separated into three different groups.
 
 * Timeseries Features
 * Eyetracking Features
 * Heatmap features
 
 ==== Timeseries Features
-Timeseries feature are features that are agnostic to the source of data.
-They are a description of the signal, not the meaning behind the signal.
+Timeseries features are features that are agnostic to the source of data.
+They are a description of the signal rather than the meaning behind the signal.
 The signals we describe with timeseries features are pupil diameter, fixation duration, saccade duration, and saccade length.
 
 
-From eac of these signals we calculate 5 features. Power Spectral Histrogram, ARMA, GARCH, Markov models and LHIPA. They are described below.
+From each of these signals, we calculate five features.
 
+* Power Spectral Histogram.
+* ARMA.
+* GARCH.
+* Hidden Markov models.
+* LHIPA.
 
 ===== Power Spectral Histogram.
-The power spectrum of a timeseries decomposes the time series to the frequencies present in the signal and the amplitude of each frequency.
+The power spectrum decomposes the timeseries into the frequencies in the signal and the amplitude of each frequency.
 Once computed, they can be represented as a histogram called the power spectral histogram.
 We computed the centroid, variance, skew, and kurtosis of the power spectral histogram.
 
@@ -96,57 +100,47 @@ We hypothesize that similar pattern repetitions will be present in subjects that
 
 ===== Autoregressive Moving Average model (ARMA)
 We know that a cognitive process takes place over a span of time, and our gaze data is organized as a timeseries.
-If our goal is to model cognitive workload we need to capture the temporal aspects of cognition.
-ARMA combines an auto-regressive part and an moving average part to model movements in a timeseries.
-It uses information fo previous events to predict future events with the same source.
+If our goal is to model cognitive workload, we need to capture the temporal aspects of cognition.
+ARMA combines an auto-regressive part and a moving average part to model movements in a timeseries.
+It uses information for previous events to predict future events with the same source.
 
 An ARMA process describes a time series with two polynomials.
-The first of these polynomials describes the autoregressive part of the timeseries.
-The second part describes the moving average.
-Arma is formally described by the following formula.
-
-Arma takes the historical values to account
-Arma is a non-stationary process
-Problem solving is also a non-stationary process, since your mental model always depends on the previous mental models of the Problem.
-Hence Problem solving follows can be described as an arma process.
-
-
+The first of these polynomials describes the autoregressive (AR) part of the timeseries.
+The second part describes the moving average (MA).
+The following formula formally describes ARMA:
 
 asciimath:[X_t = sum_(j=1)^p phi_j X_(t-j) + sum_(i=1)^q theta_i epsilon_(t-i) + epsilon_t]
 
 
-
-The features we extract from arma are extracted with the following algorithm
+The features we extract from ARMA are extracted with the following algorithm
 
 ```
 best_fit = null
 for p up to 4
     for q up to 4
-        fit = arma(timeseries, p, q)
+        fit = ARMA(timeseries, p, q)
         if(best_fit.aic > fit.aic)
             best_fit = fit
 return best_fit["ar"], best_fit["ma"], best_fit["exog"]
 
 
 ```
-===== Garch
-Garch is similar to Arma, but it is applied to the variance of the data instead of the mean.
+===== GARCH
+GARCH is similar to ARMA, but it is applied to the variance of the data instead of the mean.
 
-Arma assumes a uniform distribution of the events it's modeling with shifting trends.
+ARMA assumes a uniform distribution of the events it is modeling with shifting trends.
 However, we know that this is not entirely descriptive of cognitive processes.
-When working with a cognitive task, you have periods where you focus intently to understand one aspect of the problem and other periods when your mind rests.
+When working with a cognitive task, one has periods of intense focus to understand one aspect of the problem and other periods where one's mind rests.
 The heteroskedasticity aspect of GARCH accounts for this grouping of events.
-Just as, in the analysis of financial markets, GARCH is able to account for the spikes and sudden drops in prices of certain investment vehicles citenp:[bollerslevGeneralizedAutoregressiveConditional1986], we posit that GARCH will allow us to model the perceived grouping of cognitive workload spikes.
+In the analysis of financial markets, GARCH can account for the spikes and sudden drops in prices of specific investment vehicles citenp:[bollerslevGeneralizedAutoregressiveConditional1986], we posit that GARCH will allow us to model the perceived grouping of cognitive workload spikes in a like manner.
 
-We extract features from Garch similar to how we extract features from Arma.
-  homogenity principle, garch is more generalizable than arma.
-Garch has proved to be a
+We extract features from GARCH similar to how we extract features from ARMA.
 
 ```''
 best_fit = null
 for p up to 4
     for q up to 4
-        fit = garch(timeseries, p, q)
+        fit = GARCH(timeseries, p, q)
         if(best_fit.aic > fit.aic)
             best_fit = fit
 return [best_fit["alpha"],
@@ -198,18 +192,17 @@ Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndex
 These are features that are connected to the domain of eye-tracking and not signal processing features.
 
 
-===== Ratio of Information Processing Ratio
-
+===== Information Processing Ratio
 
 Global information processing (GIP) is often synonymous with skimming text.
-Your gaze is jumping around to larger sections of the screen, and not staying at a place for a longer time.
-Which results in shorter fixations and longer saccades.
+When skimming, one's gaze jumps between large sections of the material and does not stay in place for extended periods.
+This manifests as shorter fixations and longer saccades.
+Local information processing (LIP) is the opposite; one's gaze focuses on smaller areas for longer durations and does not move around as much.
+For this metric, fixations are measured in time, while saccades are measured as distance.
+Hence we capture both the spatial and temporal dimensions.
 
-Local information processing (LIP) is the exactly opposite, your gaze is focusing on smaller areas for a longer duration and not moving around that much.
 
-For this metric fixations are measured in time, while saccades are measured in distance.
-This is because we are interested in how big the area you are moving around is, and for how long you are focusing on specific areas.
-
+The information processing ratio describes how much a subject skimmed the material versus how much they focus intently.
 To compute the ratio, we divide GIP by LIP.
 
 The following algorithm extracts the feature:
@@ -236,19 +229,15 @@ for saccade_length, fixation_duration in saccade_lengths, fixation_durations
 return GIP / (LIP + 1)
 ```
 
-
-
-
-
 ===== Skewness of saccade speed
-Saccade velocity skewness has been shown to correlate with familiarity.
-If the skewness is highly positive, that means that the overall speeds were high.
-It means that you knew where to look.
+Saccade velocity skewness has been shown to correlate with familiarity citenp:[pappasVisualAestheticsECommerce2018].
+If the skewness is highly positive, that means that the overall saccade speeds were high.
+This indicates that the subject is familiar with the stimulus and can quickly maneuver to the relevant sections when seeking information.
+Saccade speed does not necessarily indicate expertise in the relevant subject matter.
+A subject could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
 
-Familiarity and expertise is different. You can know where to look, but have to think twice before doing it.
-
-To calculate this feature we calculated the speed by dividing the saccade length on the saccade duration.
-Then we got the skew of the distribution outputted.
+To calculate this feature, we calculated the speed by dividing the saccade length by the saccade duration.
+We then got the skew of the distribution outputted.
 
 ```
 get_skewness_of_saccades(saccade_duration, saccade_length):
@@ -366,7 +355,7 @@ For simplicity, we will refer to these as pipeline components.
 
 ==== Datasets
 We have three different datasets: EMIP, Fractions, and CSCW.
-As is discussed in xref:study[] for each of our pipelines, we designate either one or two datasets as in-study.
+As discussed in xref:study[], we designate either one or two datasets as in-study for each of our pipelines.
 All pipelines include a single dataset as the out-of-study dataset.
 No dataset is used twice in one pipeline.
 
@@ -485,4 +474,4 @@ tf.random.set_seed(seed)
 
 ==== Datasets
 At this point, we can reproduce any of the experiments presented in this work.
-However, as we are not allowed to share the data we received from other researchers, complete external repeatability is impossible.
+However, as we cannot share the data we received from other researchers, complete external repeatability is impossible.
