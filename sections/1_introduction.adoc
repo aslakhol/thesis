@@ -73,46 +73,4 @@ We will most commonly refer to pupil diameter, which is the size in pixels or mi
 Changes to the pupil diameter can serve as a reliable proxy of mental effort citenp:[shojaeizadehDetectingTaskDemand2019].
 
 === Outline
-This thesis consists of stuff.
 
-
-
-// === Feature Generalizability
-// Feature generalizability is the degree to which a given feature, extracted from one context, is applicable in predictions on data gathered from other contexts.
-
-// When we are successful in predicting cognitive performance within one context, two things could be happening.
-// The first possibility is that we have identified some patterns or features in the dataset that correlate to cognitive performance within the experiment's context.
-// For example, suppose an exam score is our measure of cognitive performance. In that case, we could assume that hours spent studying for that exam would be a good predictor of one's performance, with a relatively high degree of context specificity.
-// The other possibility is that we have found some pattern or feature directly related to cognitive performance without being linked closely to the context.
-// Studying for a specific test would probably give one good results on that test. However, being well-rested would be closely linked to one's performance while not closely linked to that particular test.
-
-// We hypothesize that when developing these generalizable features, some pattern in the eye-tracking data correlates directly to cognitive performance and not merely correlates given the specific context.
-// Our goal in this thesis will be to identify and engineer a set of features that exhibit this underlying relationship between themselves and cognitive performance.
-
-// So why would this be useful?
-// As a rule of thumb, machine learning needs sufficiently large datasets to provide good results.
-// However, there are certain domains where predictive power would be helpful, but the necessary data is unavailable or hard to obtain.
-// (Maybe add some examples of these domains with references)
-// Feature generalizability could be a technique to utilize data gathered in separate but related contexts to achieve good results in even data-poor environments.
-
-// Transfer learning, another popular approach to data-poor contexts, is related to feature generalizability; however, they are distinct.
-// In transfer learning, through different techniques, one would train a model partially on a domain or context where there is a large amount of data available and then adapt that model to the context with less available data.
-
-// Another related but distinct technique from feature generalizability is the expert knowledge an experienced data scientist accumulates throughout several projects.
-// An experienced data scientist or a subject matter expert could have a priori knowledge about which features typically perform well for a given context or domain.
-
-// Feature generalizability could be said to exist in the space between these two approaches to the issue.
-// It is not developing a model adapted to the problem at hand when necessary. Neither is it not understanding which features would typically be good to use for a specific problem.
-// Feature generalizability is understanding which features could be extracted from one dataset and build models that could predict in another related dataset.
-
-
-// ==== Feature Generalizability Index (FGI)
-
-// To measure feature generalizability, we will follow the method laid out by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
-// Their method provides us with a Feature Generalizability Index (FGI) calculated using ANOSIM (Analysis of similarity).
-// To measure how generalizable our features, we need a statistical test to see the similarities between the tests we run in our in-study and our out-of-study experiments.
-// We have used NRMSE to measure the error in our predictions.
-// As there is no theoretical distribution that describes the NRMSE values, we need a non-parametric test to compare our two distributions.
-// The FGI method uses ANOSIM (Analysis of similarities) to do this.
-// ANOSIM is a non-parametric test that bears the null hypothesis that two or more groups have a different mean and variance.
-// Our groups will be the NRMSE-values from the in-study-tests and the NRMSE values from the out-of-study-tests
