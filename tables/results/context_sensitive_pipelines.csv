@@ -1,10 +1,10 @@
 Pipeline ID,FGI,In Study,Feature Group,PCA or Lasso
-50,0.0093,emip_cscw,heatmaps,lasso
-59,0.0093,emip_cscw,Arma,PCA
-28,0.0095,emip_fractions,fft,lasso
-56,0.0096,emip_cscw,markov,lasso
-87,0.0096,emip_fractions,lhipa,PCA
-90,0.0098,emip_cscw,saccade_length,lasso
-48,0.0102,emip_cscw,eye_tracking,lasso
-62,0.0102,emip_cscw,pupil_diameter,lasso
-70,0.0117,emip_cscw,all,lasso
+50,0.0093,emip_cscw,Heatmaps,lasso
+59,0.0093,emip_cscw,ARMA,PCA
+28,0.0095,emip_fractions,Power Spectral Histogram,lasso
+56,0.0096,emip_cscw,HMM,lasso
+87,0.0096,emip_fractions,LHIPA,PCA
+90,0.0098,emip_cscw,Saccade Length,lasso
+48,0.0102,emip_cscw,Eye Tracking Features,lasso
+62,0.0102,emip_cscw,Pupil Diameter,lasso
+70,0.0117,emip_cscw,ALL,lasso

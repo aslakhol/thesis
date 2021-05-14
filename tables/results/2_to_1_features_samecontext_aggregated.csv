@@ -1,6 +1,6 @@
 Feature Group,rmse,RMSE_RANK
-garch,0.264,27.8
-fixation_duration,0.269,29.8
-all,0.267,32.7
-fft,0.271,34.8
-markov,0.278,37.2
+GARCH,0.264,27.8
+Fixation Duration,0.269,29.8
+ALL,0.267,32.7
+Power Spectral Histogram,0.271,34.8
+HMM,0.278,37.2

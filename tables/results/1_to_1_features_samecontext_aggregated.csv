@@ -1,6 +1,6 @@
 Feature Group,rmse,RMSE_RANK
-eye_tracking,0.246,54.8
-heatmaps,0.253,61.1
-fixation_duration,0.263,69.7
-saccade_duration,0.266,71.2
-fft,0.268,71.8
+Eye Tracking Features,0.246,54.8
+Heatmaps,0.253,61.1
+Fixation Duration,0.263,69.7
+Saccade Duration,0.266,71.2
+Power Spectral Histogram,0.268,71.8

@@ -1,11 +1,11 @@
 Pipeline ID,FGI,In Study,Feature Group,PCA or Lasso
-12,0.007,fractions_cscw,garch,lasso
-4,0.0074,fractions_cscw,fft,lasso
-23,0.0074,fractions_cscw,all,PCA
-76,0.0077,fractions_cscw,saccade_duration,lasso
-3,0.0077,fractions_cscw,heatmaps,PCA
-74,0.0077,fractions_cscw,saccade_length,lasso
-2,0.0077,fractions_cscw,heatmaps,lasso
-22,0.0078,fractions_cscw,all,lasso
-8,0.0078,fractions_cscw,markov,lasso
-61,0.0081,emip_cscw,garch,PCA
+12,0.007,fractions_cscw,GARCH,lasso
+4,0.0074,fractions_cscw,Power Spectral Histogram,lasso
+23,0.0074,fractions_cscw,ALL,PCA
+76,0.0077,fractions_cscw,Saccade Duration,lasso
+3,0.0077,fractions_cscw,Heatmaps,PCA
+74,0.0077,fractions_cscw,Saccade Length,lasso
+2,0.0077,fractions_cscw,Heatmaps,lasso
+22,0.0078,fractions_cscw,ALL,lasso
+8,0.0078,fractions_cscw,HMM,lasso
+61,0.0081,emip_cscw,GARCH,PCA
