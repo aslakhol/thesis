@@ -1,4 +1,4 @@
-.FGI Rank 2 to 1 Dimensionality Reduction
+.FGI Rank 2-to-1 Dimensionality Reduction
 [cols="1,1,1"]
 |===
 | Method | FGI Rank | Average FGI
