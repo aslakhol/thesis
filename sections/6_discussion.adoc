@@ -7,6 +7,15 @@
 - GARCH, Power Spectral Histogram, heatmaps, saccade duration, saccade length, and Markov can produce generalizable pipelines.
 - Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
 
+=== Filtering on baseline
+Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
+FGI describes how similar the distribution of errors from *out-of-sample* testing and *out-of-study* testing and is a measure of generalizability.
+However, it is not enough that the two distributions are similar.
+Generalizability should be a measure of usable predictive power in outside contexts.
+Random guesses would create identical distributions of error in *out-of-sample* testing and *out-of-study* testing, and as such, would have a good FGI value.
+To counteract this, we chose to disregard all pipelines that do not outperform their respective baselines for the purpose of measuring generalizability.
+We do this by filtering the set of completed baselines.
+
 === 2-to-1 versus 1-to-1
 As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better then 1-to-1 pipelines.
 Combining two datasets from two separate contexts for training introduces more variance.
@@ -51,73 +60,15 @@ This might explain why GARCH is generalizable across contexts.
 Our results indicate that spectral histograms generalize pretty well.
 Spectral histograms are the distribution of frequencies and their corresponding amplitudes.
 Spectral histograms capture repetitiveness and hence might capture patterns of behavior exhibited by the subjects.
-Repetetiveness indicates a flow which suggests that the subject is comfortable in their task as opposed to more chaotic non-repetetive behaviour that might occour when one is not comfortable.
-We suggest that this relationship should be represented across contexts and hence, could be a reason why spectral histograms seem to generalize quite well.
+Repetitiveness indicates a flow which suggests that the subject is comfortable in their task as opposed to more chaotic non-repetitive behavior that might occur when one is not comfortable.
+We suggest that this relationship should be represented across contexts and could be a reason why spectral histograms seem to generalize quite well.
 
 We do not know why HMM generalizes this is a mystery, and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
 
 ==== Saccade duration and Saccade length
 
 
-=== Aggregation of results
-
-==== Filtering on baseline
-Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
-FGI describes how similar the distribution of errors from *out-of-sample* testing and *out-of-study* testing and is a measure of generalizability.
-However, it is not enough that the two distributions are similar.
-Generalizability should be a measure of usable predictive power in outside contexts.
-Random guesses would create identical distributions of error in *out-of-sample* testing and *out-of-study* testing, and as such, would have a good FGI value.
-To counteract this, we chose to disregard all pipelines that do not outperform their respective baselines for the purpose of measuring generalizability.
-We do this by filtering the set of completed baselines.
-
-To investigate the effect a pipeline component will have on generalizability and predictive power, we need to aggregate pipelines based on pipeline components.
-The first step in our aggregation is to rank our pipelines by NRMSE or FGI, depending on what we are investigating.
-When looking at a specific pipeline component, we group all the pipelines that use that pipeline component and find the mean rank of that group.
-This mean rank will tell us how that specific component performs in relation to their peers.
-
-This technique gives us a meaningful way of comparing each component; however, it has some limitations.
-The primary weakness is that this methodology does not represent the fact that some components perform better than others.
-More pipelines using that component are included in the groups.
-The "one-hit-wonders", components that beat the threshold once, might outrank more reliable components that are represented multiple times in their groups.
-One such example is the feature group GARCH, which individually performs the best for FGI in 2-to-1 pipelines.
-However, it is barely out-competed by saccade_length.
-The reason is that GARCH has two pipelines that beat the threshold, one of which is the best-in-class, and the other barely surpasses the threshold.
-Saccade_length, on the other hand, has a single, well-performing pipeline, which does not beat the best GARCH, but slightly outperforms the mean of the two GARCH pipelines.
-
-While we acknowledge this problem, we chose to filter before aggregating the pipelines as we can not say anything meaningful about the generalizability of the pipelines that do not outperform the baseline.
-The problem is that we compare components where we have different quality of information to evalute those components.
-GARCH is represented multiple times, so we have a better picture of the real generalizability of GARCH.
-Saccade_duration only has one sample in our final aggregation and while it performs very well, we don't have the same level of confidence in the generalizability of that component.
 
 
-=== Datasets discussion
-Are the datasets covering all aspects of cognitive performance
-fractions and cscw is pro
-Emip is fundamentally different and data shows it.
-
-
-=== Implications
-
-==== Finding 1
-- LASSO performs better than PCA in out-of-sample testing for both 1-to-1 pipelines and 2-to-1 pipelines
-
-==== Finding 2 & 3
-- PCA is slightly more generalizable than LASSO in 1-to-1 pipelines.
-- PCA and LASSO is equivalent in terms of generalizability in 2-to-1 pipelines.
-
-
-==== Finding 4
-- Heatmaps is the best performing feature in out-of-sample testing in 1-to-1 pipelines.
-
-
-==== Finding 5
-- GARCH is the best performing feature in out-of-sample testing in 2-to-1 pipelines.
-
-
-==== Finding 6
-- GARCH is the most generalizable feature in 1-to-1 pipelines.
-
-==== Finding 7
-- Saccade duration and GARCH are the most generalizable features in 2-to-1 pipelines.
 
 === Limitations
