@@ -80,14 +80,14 @@ When we aggregate the results, as seen in xref:[one_to_one_features_nrmse_aggreg
 However, _fixation_duration_ and _fft_ are also among the top four of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2-to-1 pipelines.
 
 [[one_to_one_features_nrmse_aggregated]]
-.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines
+.Four smallest NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_features_nrmse_aggregated]]
-.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines
+.Four smallest NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
