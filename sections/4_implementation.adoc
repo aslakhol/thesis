@@ -241,6 +241,7 @@ for saccade_length, fixation_duration in saccade_lengths, fixation_durations
 return GIP / (LIP + 1)
 ```
 
+[[skewness_saccade_speed]]
 ===== Skewness of saccade speed
 Saccade velocity skewness has been shown to correlate with familiarity citenp:[pappasVisualAestheticsECommerce2018].
 If the skewness is highly positive, that means that the overall saccade speeds were high.

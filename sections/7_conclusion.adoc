@@ -1,4 +1,12 @@
 [[conclusion]]
-== Conclusion
+== Conclusion and contributions
 
-At some point, we will have a conclusion here.
+In this work, we apply the methodology presented by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] to engineer generalizable features from gaze data.
+The work draws on three independent studies with data gathered on a total of XXX subjects.
+We also propose an architecture to efficiently and easily test the generalizability of pipelines constructed of different combinations of pipeline components.
+The code for our platform and the analysis is available on GitHub citenp:[sollesnesS0lvangIdealpancake2021].
+
+Our contributes include:
+- The list of generalizable features presented in xref:generalizable_pipelines[].
+- The list of context-sensitive features presented in xref:context_sensitive_pipelines[].
+- The architecture and implementation for experimenting on modular pipelines for generalizability experiments presented in xref:implementation[].

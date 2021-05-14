@@ -2,12 +2,14 @@
 == Discussion
 
 === Findings
+
 - 2-to-1 pipelines are more generalizable than 1-to-1 pipelines.
 - 2-to-1 pipelines where Fractions and CSCW are the in-study datasets produce more generalizable pipelines.
 - GARCH, Power Spectral Histogram, heatmaps, saccade duration, saccade length, and Markov can produce generalizable pipelines.
 - Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
 
 === Filtering on baseline
+
 Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
 FGI describes how similar the distribution of errors from *out-of-sample* testing and *out-of-study* testing and is a measure of generalizability.
 However, it is not enough that the two distributions are similar.
@@ -17,6 +19,7 @@ To counteract this, we chose to disregard all pipelines that do not outperform t
 We do this by filtering the set of completed baselines.
 
 === 2-to-1 versus 1-to-1
+
 As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better then 1-to-1 pipelines.
 Combining two datasets from two separate contexts for training introduces more variance.
 Unsurprisingly, these pipelines are more generalizable than those that use only one dataset for training.
@@ -25,6 +28,7 @@ In further discussions, we will focus on results from the 2-to-1 pipelines.
 
 
 === Generalizability of our datasets
+
 Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP is included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
@@ -33,10 +37,11 @@ Pinpointing the effectiveness of training on collaborative data when generalizin
 
 
 === Why do the generalizable features generalize?
+
 In this section, we will argue a few reasons we believe as to why the features generalize.
 
-
 ==== Heatmaps
+
 We observe that heatmaps are among the generalizable features.
 Our heatmap feature is the gaze-position for each subject over time, split into 30 partitions, converted to a heatmap, and fed to a pre-trained VGG19 model.
 The resulting feature vector is the feature we call heatmaps.
@@ -49,6 +54,7 @@ In addition, heatmaps encode information about time and space, rather than just 
 
 
 ==== GARCH, Hidden Markov Models and Power Spectral Histogram
+
 GARCH is a statistical modeling technique used to model timeseries data.
 Our data suggest that GARCH is the most generalizable feature group of the ones we have tested.
 GARCH is models the variance of data and has the heteroscedasticity property.
@@ -60,34 +66,45 @@ This might explain why GARCH is generalizable across contexts.
 Our results indicate that spectral histograms generalize pretty well.
 Spectral histograms are the distribution of frequencies and their corresponding amplitudes.
 Spectral histograms capture repetitiveness and hence might capture patterns of behavior exhibited by the subjects.
-Repetitiveness indicates a flow which suggests that the subject is comfortable in their task as opposed to more chaotic non-repetitive behavior that might occur when one is not comfortable.
-We suggest that this relationship should be represented across contexts and could be a reason why spectral histograms seem to generalize quite well.
+Repetitiveness indicates a flow that suggests that the subject is comfortable in their task; on the other hand, chaotic non-repetitive behavior might occur when one is not comfortable.
+We suggest that this relationship should be represented across contexts and could be why spectral histograms seem to generalize quite well.
 
-We do not know why HMM generalizes this is a mystery, and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
+We do not know why HMM generalizes this is a mystery and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
 
 ==== Saccade duration and Saccade length
 
 Both saccade duration and saccade length seem to generalize.
-To repeat, saccades are the movements of the eyes from one fixation to another.
+Saccades are the movements of the eyes from one fixation to another.
 As one example, both lower saccade durations and longer saccade lengths might indicate familiarity with the stimulus.
 As discussed in xref:skewness_saccade_speed[] higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018].
-Saccade speed is a function of saccade duration and saccade length both factors map familiarity in some degree.
-Since familiarity with the interface would be relevant in all tasks that our datasets contain this might be a reason why saccade duration and saccade length generalize.
+Saccade speed is a function of saccade duration and saccade length; both factors map familiarity to some degree.
+Since familiarity with the interface would be relevant in all tasks that our datasets contain, this might be why saccade duration and saccade length generalize.
 De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
-Indicating that saccadic length correlates with perceived task difficulity.
-Perceived task difficulity, or increased cognitive workload will correlate to cognitive performance across contexts.
+According to this perspective, saccadic length correlates with perceived task difficulty.
+Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
 
+=== Limitations and further work
 
+In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
+However, it would be presumptuous to say that three datasets from three different contexts could represent all of the cognitive processes.
+Our goal has been to generalize between our three contexts, and we hope that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
+We do not mean to say that our features will generalize to any context.
 
-2.2.2. Saccade
-Saccades refer to small, rapid eye movements when jumping from fixating on one object to another [31]. While visual information is not processed during saccadic eye movements [20], they still can provide information about viewing behavior [38,41]. For example, people tend to exhibit more saccadic eye movements when reading long pseudo- words [19]. Similarly, saccade amplitude, or the path traveled by a saccade between two consecutive fixations, tends to increase when reading longer words [19]. When interacting with an online resource, longer saccadic amplitudes can reflect whether users have become
+Our results show some indications that datasets from individual tasks generalize poorly to contexts that include collaborative work.
+Had individual work been better represented in our data, we might be able to say more about how individual tasks generalize in general.
+Ideally, we should have had at least one more dataset for individual tasks.
 
-familiar with an interface. Having a better internal representation of an interface allows users to move their eyes directly to a desired location on the screen, hence producing longer saccadic amplitudes [31]. Con- sistent with this point of view, difficulty in locating information when browsing a webpage is likely to impact the duration of saccades. Ac- cording to the theory of visual hierarchy [29], a stimulus is inspected by scanning it through a sequence of visual entry points. Each entry point acts like an anchor, which allows the user to scan for information around it. According to this perspective, longer duration of saccadic eye movements could indicate increased cognitive effort in finding a sui- table entry point into a visual display [20].
+Our work assumes that cognitive performance can be characterized by labels in our datasets and represented in gaze data.
+For our approach, we need an object, quantifiable, metric to assess cognitive performance, but as with many other things in cognition, the reality is likely more complex.
 
+For complete external repeatability, we would ideally publish the data we used to perform our experiments.
+However, the scope of our thesis project was such that it would be impossible to gather our own data to perform the analyses we have performed.
+As a result, we had to turn to generous researchers who allowed us to work with their data, which means that the data is not ours to share.
 
+Due to the considerable effort put into creating our experimental platform, it would be possible to expand the different pipeline components we test greatly.
+In our work, we tested 22 features in 12 feature groups, three datasets in 9 combinations, two methods for reducing the feature space, and a single ensemble classifier.
+While our tested features are quite exhaustive, we limited how many feature-space reduction methods we worked with and tested only a single ensemble classifier.
+It would be possible to investigate the effects of other variants of these pipeline components on generalizability in further work.
 
-
-
-
-
-=== Limitations
+While we can identify feature groups that can produce generalizable pipelines, we do not know how the individual features in each group affect the generalizability.
+It is also possible that combinations of features from different groups would create very generalizable pipelines.

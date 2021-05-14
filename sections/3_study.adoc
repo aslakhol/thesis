@@ -41,19 +41,6 @@ Data from 216 participants at differing levels of expertise is included in the d
 There were 41 female and 175 male participants; their mean age was 26.56 with a standard deviation of 9.28.
 The participants were primarily university students enrolled in computing courses but included academic and administrative staff and professional programmers citenp:[bednarikEMIPEyeMovements2020].
 
-The data was collected at these institutions at the following locations:
-
-* The Centre for Human Centred Technology Design, University of Technology Sydney, Australia.
-* The Department of Computer Science, Aalto University, Finland.
-* The Department of Computer Science, University of Helsinki, Finland.
-* The Faculty of Informatics and Information Technologies, Slovak University of Technology in Bratislava, Slovakia.
-* Information & Computer Sciences, University of Hawai'i at Mānoa, USA.
-* Neuroinformatics Group, Bielefeld University, Germany.
-* The School of Mathematics and Computer Science of the Netanya Academic College, Netanya, Israel.
-* The School of Computing, Engineering and Built Environment, Glasgow Caledonian University, United Kingdom.
-* Software Engineering Research and Empirical Studies Lab, Youngstown State University, USA.
-* The Physical Structure of Perception and Computation Group, University of Genoa, Italy.
-* The School of Computing and Information Science, Anglia Ruskin University, Cambridge, United Kingdom.
 
 ===== Tasks
 
@@ -164,3 +151,32 @@ Gaze data recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions, olse
 The data includes individual files with gaze data for each student as well as a file describing all the results from the pre and post-tests.
 Our dataset consists of only the data used by Sharma et al. citenp:[sharmaMeasuringCausalityCollaborative2021].
 This only includes the data from the pairs that worked on the collaborative tasks, not the students that worked individually.
+
+[[study_contexts]]
+=== Contexts
+
+Our work seeks to investigate generalizability between specific contexts; thus, we must be aware of our contextual biases.
+We have gathered datasets that we consider to cover a significant spectrum of cognitive processes.
+
+EMIP is an individual task that is about reading and understanding programming code.
+We hypothesize that the task in EMIP relies primarily on three of the cognitive subdomains deemed most critical by Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013].
+Reading and understanding code is a trained skill reliant heavily on ones understanding of language.
+Understanding the entirety of a class requires keeping all functions of the class in one's working memory. The post-test is organized so that one needs to remember these functions for a short time after reading the code.
+As with almost all cognitive tasks, attention is a critical part of performing well when reading and understanding code.
+
+CSCW is a task where participants collaborate in creating a concept map from a video they have watched individually.
+Naturally, language will be an important part of any collaborative work as one needs to express one's understanding of the content to one collaborator.
+Executive function, specifically planning, is essential for creating concept maps.
+Concept maps include tying different pieces of information together in a complete whole.
+Before starting the concept map, they viewed a video explaining the concept they were to map.
+In order to remember information presented in the videos, the cognitive subdomain episodic memory is at work.
+Again, attention is essential when viewing a video for learning and successful collaboration with another party.
+
+The Fractions dataset also stems from a collaborative task.
+Students work together to learn about equivalent fractions in an ITS.
+For the collaborative aspect, attention and language are again important.
+
+All cognitive tasks likely include some aspect of all cognitive subdomains.
+What we intend with this section is to illustrate how our three datasets cover tasks that rely more heavily on five of the six cognitive subdomains presented by Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] as most important.
+Of the six cognitive subdomains, our datasets do not include tasks that rely heavily on processing speed.
+Processing speed is an important factor in good collaboration, but we did not consider this subdomain to be as central in any of the tasks and thus will not claim to cover it with these datasets.

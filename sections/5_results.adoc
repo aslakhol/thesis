@@ -1,19 +1,22 @@
 [[results]]
 == Results
 We ran a total of 216 pipelines with different combinations of datasets, dimensionality reduction, and feature groups.
-144 of these pipelines were 1 to 1 pipelines, where we trained on one dataset and tested on another.
-72 of them were 2 to 1 where we had two in-study datasets and 1 out of study.
+144 of these pipelines were 1-to-1 pipelines, where we trained on only one dataset and tested on another.
+72 of the pipelines were 2-to-1, where two datasets are designated in-study and one dataset designated out-of-study.
 In this section, we will present the results from these pipelines.
-xref:baselines[] explains how we calculate the baselines for the datasets.
-xref:same_training_and_testing_context[] shows how the pipelines performed in the same training and testing contexts, and aggregates the results to find out which components performed best overall.
-xref:generalizability[] looks at the more generalizable pipelines and which components these pipelines consists of. xref:context_sensitivity[] does the same only looking at the more context sensitive pipelines.
+In xref:baselines[], we explain how baselines for the different datasets are calculated.
+xref:same_training_and_testing_context[] presents how pipelines performed in out-of-sample testing and which components performed the best overall by aggregating the results.
+The pipelines that show generalizability are presented in xref:generalizability[].
+The section also presents which components make up those pipelines.
+Pipelines that exhibit more context sensitivity are presented in xref:context_sensitivity[].
 
 [[baselines]]
 === Baselines
 
-The in-study baseline would be the NRMSE value if all the predictions were the labels' mean, regardless of the feature vectors.
-We calculate a baseline for each of the dataset combinations and use these to evaluate the pipelines with the dataset combination as in-study.
-We do this because the baselines differ between the datasets since the distribution of labels is different.
+We calculate a specific for each dataset combination.
+We use the NRMSE value equivalent to predicting the mean label value from the in-study dataset as the baseline for each combination.
+Our pipelines are evaluated against the baseline for the given dataset combination.
+
 include::../tables/in_study_baselines_table.adoc[]
 
 Pseudocode for the in-study baseline:
@@ -25,39 +28,39 @@ def get_baseline(labels):
     return baseline
 ```
 
-
 [[same_training_and_testing_context]]
-===  Same training and testing context
+===  Out-of-sample testing
 
-Our work is focused on engineering generalizable features.
-This section ourlines the results from the out-of-sample testing, which does not indicate generalizability.
-However the section is presented to the reader to benchmark the range of predictive power that our features exhibit in more traditional tasks.
+Our work focuses on engineering generalizable features.
+This section outlines the results from the out-of-sample testing, which does not indicate generalizability.
+However, the section is presented to the reader to benchmark the range of predictive power that our features exhibit in more traditional tasks.
 
 ==== Aggregation of the results
+
 To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
 We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on either dimensionality reduction, feature combination, then taking the average.
-This mean of ranks gives us the results of which variables perform best when testing on the same context it was trained on.
+This mean of ranks gives us the results of what pipeline components perform best when testing in the same context it was trained.
 
 ====  Dimensionality reduction and feature selection
-xref:pipelines_nrmses_dim_reduction[] shows which dimensionality reduction method is used for the pipelines with the 5 smallest NRMSES per dataset.
+xref:pipelines_nrmses_dim_reduction[] shows which method reduces the feature space for the pipelines with the five smallest NRMSEs per dataset.
 Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
 [[pipelines_nrmses_dim_reduction]]
-.The pipelines with the 5 lowest NRMSES per dataset and if they used dimensionality reduction or feature selection
+.The pipelines with the five lowest NRMSES per dataset and if they used dimensionality reduction or feature selection
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
-However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that Lasso performs slightly better than PCA across all 1 to 1 pipelines, and clearly better across the 2 to 1 pipelines.
-So our results indicate that feature selection performs better than dimensionality in predicting cognitive performance on gaze-data in the same context.
+However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines, and clearly better across the 2-to-1 pipelines.
+So our results indicate that feature selection performs better than dimensionality reduction in predicting cognitive performance on gaze data for out-of-sample testing.
 
 [[one_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for Dimensionality reduction and feature selection across all 1 to 1 pipelines
+.NRMSE Rank and mean NRMSE for PCA and LASSO across all 1-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for Dimensionality reduction and feature selection across all 2 to 1 pipelines
+.NRMSE Rank and mean NRMSE for PCA and LASSO across all 2-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
@@ -65,8 +68,7 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 ==== Features
 
-
-xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1-to-1 pipelines and 2 to 1 pipelines.
+xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1-to-1 pipelines and 2-to-1 pipelines.
 _FFT_ gave good predictions on _fractions_ and is also among the top 5 for _emip_fractions_ and _fractions_cscw_.
 This pattern repeats for _cscw_ where _saccade_duration_ are among the top 5 in _cscw_, _fractions_cscw_ and _emip_cscw_.
 For _EMIP_, this is shown with Arma.
@@ -76,18 +78,18 @@ For _EMIP_, this is shown with Arma.
 .The pipelines with the 5 lowest NRMSES per dataset and which feature group it contained
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
-When we aggregate the results, as seen in xref:[[one_to_one_features_nrmse_aggregated]] and xref:[[two_to_one_features_nrmse_aggregated]]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1 to 1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
-However, _fixation_duration_ and _fft_ are also among the top five of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2 to 1 pipelines.
+When we aggregate the results, as seen in xref:[[one_to_one_features_nrmse_aggregated]] and xref:[[two_to_one_features_nrmse_aggregated]]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1-to-1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
+However, _fixation_duration_ and _fft_ are also among the top five of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2-to-1 pipelines.
 
 [[one_to_one_features_nrmse_aggregated]]
-.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1 to 1 pipelines
+.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_features_nrmse_aggregated]]
-.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 2 to 1 pipelines
+.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
@@ -107,9 +109,9 @@ From 216 pipelines, 72 beat the baseline.
 .Kernel Density Estimation plot of the FGI by pipeline type
 image::../figures/distribution_of_FGI.png[]
 
-As represented in xref:distribution_fgi[], 2 to 1 pipelines are in general more generalizable than 1 to 1 pipelines.
+As represented in xref:distribution_fgi[], 2-to-1 pipelines are in general more generalizable than 1-to-1 pipelines.
 This is in line with the results of citenp:[sharmaAssessingCognitivePerformance2020].
-For simplicity and since our focus is generalizability, we will only refer to the 2 to 1 pipelines in the following sections.
+For simplicity and since our focus is generalizability, we will only refer to the 2-to-1 pipelines in the following sections.
 
 
 [[generalizable_pipelines]]
