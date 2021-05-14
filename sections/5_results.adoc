@@ -76,30 +76,31 @@ We note that fixation duration performs well in most combinations and that spect
 .The four best pipelines by NRMSES per dataset and what feature group it contained.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
-When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1-to-1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
-However, _fixation_duration_ and _fft_ are also among the top four of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2-to-1 pipelines.
+
+When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[].
+We see that eye-tracking features is the best feature grou for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than heatmaps and fixation duration.
+Piplines that include GARCH seem to outperform other pipelines but fixation duration also performs quite well.
 
 [[one_to_one_features_nrmse_aggregated]]
-.Four smallest NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines
+.The four best pipelines by NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_features_nrmse_aggregated]]
-.Four smallest NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines
+.The four best pipelines by NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 |===
 
-
-
 [[generalizability]]
 === Generalizability
-We evaluate the generalizability of the pipelines with the out of study dataset.
-We compare the errors from predicting the out-of-study dataset to the cross-validation results with FGI, which we explained in chapter 4.
-To find the most generalizable features, we need to filter out the pipelines that perform poorly on out-of-sample testing.
+
+We evaluate the generalizability of the pipelines with the out-of-study dataset.
+We compare the errors from predicting on the out-of-study dataset to the out-of-sample results using FGI, which is explained in xref:feature_generalizability_index[].
+To indetify the most generalizable pipelines, we need to filter out pipelines that perform poorly in out-of-sample testing.
 We do this by filtering out the pipelines that do not perform better than the baseline.
 From 216 pipelines, 72 beat the baseline.
 
@@ -120,16 +121,16 @@ include::../tables/results/generalizable_pipelines.csv[]
 |===
 
 xref:generalizable_pipelines[] shows the 10 most generalizable pipelines.
-The first and most prevalent factor for generalizable pipelines is which datasets were the in study dataset.
-When the in-study dataset is the combination of fractions and cscw, and emip is the out of study dataset, the pipelines are more generalizable.
-Nine of the ten generalizable pipelines contains this combination of datasets.
+The first and most prevalent factor for generalizable pipelines is which datasets were designated in-study datasets for that pipeline.
+When the in-study dataset combines Fractions and CSCW (fractions_cscw), and EMIP is the out-of-study dataset, the pipelines are more generalizable.
+Nine of the ten more generalizable pipelines contain this combination of datasets.
 
-For dimensionality reduction or feature selection Lasso is the most represented method among the more generalizable pipelines.
-It is also included in the two pipelines with the lowest FGI.
-However in combination with the feature group _all_ (ID 23, ID 22) and _heatmaps_ (ID 3, ID 2) PCA has a lower FGI than Lasso.
-These are the two largest feature groups containing hundreds of thousands of values.
+LASSO is the most represented method of feature space reduction among the more generalizable pipelines.
+It is also included in the two pipelines with the best FGI.
+We note PCA performs very well for the feature groups ALL and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
 
-In the feature groups there is a high variety among the more generalizable pipelines.
+
+Many of the feature groups are represented among the more generalizable pipelines.
 However three feature groups shows up more than once, _all_, _heatmaps_ and _Garch_.
 This indicates that they might be more generalizable feature groups.
 It should also be noted that _GARCH_ is also the only pipeline with another in study dataset than fractions_cscw.
