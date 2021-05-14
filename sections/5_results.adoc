@@ -76,7 +76,7 @@ We note that fixation duration performs well in most combinations and that spect
 .The four best pipelines by NRMSES per dataset and what feature group it contained.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
-When we aggregate the results, as seen in xref:[one_to_one_features_nrmse_aggregated] and xref:[two_to_one_features_nrmse_aggregated]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1-to-1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
+When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1-to-1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
 However, _fixation_duration_ and _fft_ are also among the top four of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2-to-1 pipelines.
 
 [[one_to_one_features_nrmse_aggregated]]
