@@ -46,21 +46,21 @@ xref:pipelines_nrmses_dim_reduction[] shows which method reduces the feature spa
 Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
 [[pipelines_nrmses_dim_reduction]]
-.The pipelines with the five lowest NRMSES per dataset and if they used dimensionality reduction or feature selection
+.The four best pipelines by NRMSE per dataset and if whether used dimensionality reduction or feature selection
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
 However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines, and clearly better across the 2-to-1 pipelines.
 So our results indicate that feature selection performs better than dimensionality reduction in predicting cognitive performance on gaze data for out-of-sample testing.
 
 [[one_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for PCA and LASSO across all 1-to-1 pipelines
+.NRMSE Rank and mean NRMSE for PCA and LASSO for all 1-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for PCA and LASSO across all 2-to-1 pipelines
+.NRMSE Rank and mean NRMSE for PCA and LASSO for all 2-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
@@ -68,18 +68,16 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 ==== Features
 
-xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1-to-1 pipelines and 2-to-1 pipelines.
-_FFT_ gave good predictions on _fractions_ and is also among the top 5 for _emip_fractions_ and _fractions_cscw_.
-This pattern repeats for _cscw_ where _saccade_duration_ are among the top 5 in _cscw_, _fractions_cscw_ and _emip_cscw_.
-For _EMIP_, this is shown with Arma.
-
+xref:pipelines_nrmses_features[] shows the best four pipelines by NRMSE and their feature groups.
+It seems that several different feature groups perform quite well for the different dataset combinations.
+We note that fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines and that ALL performs well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
-.The pipelines with the 5 lowest NRMSES per dataset and which feature group it contained
+.The four best pipelines by NRMSES per dataset and what feature group it contained.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
-When we aggregate the results, as seen in xref:[[one_to_one_features_nrmse_aggregated]] and xref:[[two_to_one_features_nrmse_aggregated]]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1-to-1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
-However, _fixation_duration_ and _fft_ are also among the top five of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2-to-1 pipelines.
+When we aggregate the results, as seen in xref:[one_to_one_features_nrmse_aggregated] and xref:[two_to_one_features_nrmse_aggregated]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1-to-1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
+However, _fixation_duration_ and _fft_ are also among the top four of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2-to-1 pipelines.
 
 [[one_to_one_features_nrmse_aggregated]]
 .5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines
