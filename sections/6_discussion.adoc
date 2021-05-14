@@ -2,12 +2,14 @@
 == Discussion
 
 === Findings
+
 - 2-to-1 pipelines are more generalizable than 1-to-1 pipelines.
 - 2-to-1 pipelines where Fractions and CSCW are the in-study datasets produce more generalizable pipelines.
 - GARCH, Power Spectral Histogram, heatmaps, saccade duration, saccade length, and Markov can produce generalizable pipelines.
 - Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
 
 === Filtering on baseline
+
 Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
 FGI describes how similar the distribution of errors from *out-of-sample* testing and *out-of-study* testing and is a measure of generalizability.
 However, it is not enough that the two distributions are similar.
@@ -17,6 +19,7 @@ To counteract this, we chose to disregard all pipelines that do not outperform t
 We do this by filtering the set of completed baselines.
 
 === 2-to-1 versus 1-to-1
+
 As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better then 1-to-1 pipelines.
 Combining two datasets from two separate contexts for training introduces more variance.
 Unsurprisingly, these pipelines are more generalizable than those that use only one dataset for training.
@@ -25,6 +28,7 @@ In further discussions, we will focus on results from the 2-to-1 pipelines.
 
 
 === Generalizability of our datasets
+
 Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP is included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
@@ -33,10 +37,12 @@ Pinpointing the effectiveness of training on collaborative data when generalizin
 
 
 === Why do the generalizable features generalize?
+
 In this section, we will argue a few reasons we believe as to why the features generalize.
 
 
 ==== Heatmaps
+
 We observe that heatmaps are among the generalizable features.
 Our heatmap feature is the gaze-position for each subject over time, split into 30 partitions, converted to a heatmap, and fed to a pre-trained VGG19 model.
 The resulting feature vector is the feature we call heatmaps.
@@ -49,6 +55,7 @@ In addition, heatmaps encode information about time and space, rather than just 
 
 
 ==== GARCH, Hidden Markov Models and Power Spectral Histogram
+
 GARCH is a statistical modeling technique used to model timeseries data.
 Our data suggest that GARCH is the most generalizable feature group of the ones we have tested.
 GARCH is models the variance of data and has the heteroscedasticity property.
@@ -76,9 +83,5 @@ Since familiarity with the interface would be relevant in all tasks that our dat
 De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
-
-
-
-
 
 === Limitations
