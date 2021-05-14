@@ -67,6 +67,25 @@ We do not know why HMM generalizes this is a mystery, and a subject for future d
 
 ==== Saccade duration and Saccade length
 
+Both saccade duration and saccade length seem to generalize.
+To repeat, saccades are the movements of the eyes from one fixation to another.
+As one example, both lower saccade durations and longer saccade lengths might indicate familiarity with the stimulus.
+As discussed in xref:skewness_saccade_speed[] higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018].
+Saccade speed is a function of saccade duration and saccade length both factors map familiarity in some degree.
+Since familiarity with the interface would be relevant in all tasks that our datasets contain this might be a reason why saccade duration and saccade length generalize.
+De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
+Indicating that saccadic length correlates with perceived task difficulity.
+Perceived task difficulity, or increased cognitive workload will correlate to cognitive performance across contexts.
+
+
+
+2.2.2. Saccade
+Saccades refer to small, rapid eye movements when jumping from fixating on one object to another [31]. While visual information is not processed during saccadic eye movements [20], they still can provide information about viewing behavior [38,41]. For example, people tend to exhibit more saccadic eye movements when reading long pseudo- words [19]. Similarly, saccade amplitude, or the path traveled by a saccade between two consecutive fixations, tends to increase when reading longer words [19]. When interacting with an online resource, longer saccadic amplitudes can reflect whether users have become
+
+familiar with an interface. Having a better internal representation of an interface allows users to move their eyes directly to a desired location on the screen, hence producing longer saccadic amplitudes [31]. Con- sistent with this point of view, difficulty in locating information when browsing a webpage is likely to impact the duration of saccades. Ac- cording to the theory of visual hierarchy [29], a stimulus is inspected by scanning it through a sequence of visual entry points. Each entry point acts like an anchor, which allows the user to scan for information around it. According to this perspective, longer duration of saccadic eye movements could indicate increased cognitive effort in finding a sui- table entry point into a visual display [20].
+
+
+
 
 
 
