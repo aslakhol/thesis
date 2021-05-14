@@ -40,7 +40,6 @@ Pinpointing the effectiveness of training on collaborative data when generalizin
 
 In this section, we will argue a few reasons we believe as to why the features generalize.
 
-
 ==== Heatmaps
 
 We observe that heatmaps are among the generalizable features.
@@ -84,4 +83,28 @@ De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic len
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
 
-=== Limitations
+=== Limitations and further work
+
+In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
+However, it would be presumptuous to say that three datasets from three different contexts could represent all of the cognitive processes.
+Our goal has been to generalize between our three contexts, and we hope that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
+We do not mean to say that our features will generalize to any context.
+
+Our results show some indications that datasets from individual tasks generalize poorly to contexts that include collaborative work.
+Had individual work been better represented in our data, we might be able to say more about how individual tasks generalize in general.
+Ideally, we should have had at least one more dataset for individual tasks.
+
+Our work assumes that cognitive performance can be characterized by labels in our datasets and represented in gaze data.
+For our approach, we need an object, quantifiable, metric to assess cognitive performance, but as with many other things in cognition, the reality is likely more complex.
+
+For complete external repeatability, we would ideally publish the data we used to perform our experiments.
+However, the scope of our thesis project was such that it would be impossible to gather our own data to perform the analyses we have performed.
+As a result, we had to turn to generous researchers who allowed us to work with their data, which means that the data is not ours to share.
+
+Due to the considerable effort put into creating our experimental platform, it would be possible to expand the different pipeline components we test greatly.
+In our work, we tested 22 features in 12 feature groups, three datasets in 9 combinations, two methods for reducing the feature space, and a single ensemble classifier.
+While our tested features are quite exhaustive, we limited how many feature-space reduction methods we worked with and tested only a single ensemble classifier.
+It would be possible to investigate the effects of other variants of these pipeline components on generalizability in further work.
+
+While we can identify feature groups that can produce generalizable pipelines, we do not know how the individual features in each group affect the generalizability.
+It is also possible that combinations of features from different groups would create very generalizable pipelines.
