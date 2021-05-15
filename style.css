@@ -381,10 +381,11 @@ ul.sectlevel2 {
   margin-bottom: 1.5rem;
 }
 
-.toctitle {
+#toctitle {
   font-size: 1.7rem;
   line-height: 2rem;
   margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 
 @media print {
