@@ -378,7 +378,7 @@ ul.sectlevel1 > li > a {
 }
 
 ul.sectlevel2 {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 #toctitle {
@@ -386,6 +386,7 @@ ul.sectlevel2 {
   line-height: 2rem;
   margin-top: 3rem;
   margin-bottom: 2rem;
+  font-weight: bold;
 }
 
 @media print {
