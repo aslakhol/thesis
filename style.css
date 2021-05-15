@@ -385,12 +385,17 @@ ul.sectlevel2 {
   font-size: 1.7rem;
   line-height: 2rem;
   margin-top: 3rem;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
   font-weight: bold;
+  page-break-before: always;
 }
 
 @media print {
   body {
     margin: 0 100px;
   }
+}
+
+h2 {
+  page-break-before: always;
 }
