@@ -70,7 +70,7 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 xref:pipelines_nrmses_features[] shows the best four pipelines by NRMSE and their feature groups.
 It seems that several different feature groups perform quite well for the different dataset combinations.
-We note that fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines and that ALL performs well, particularly for fractions_cscw.
+We note that fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines and ALL perform well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
 .The four best pipelines by NRMSES per dataset and what feature group it contained.
@@ -78,8 +78,8 @@ image::../figures/feature_groups_context_sensitivity.jpg[]
 
 
 When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[].
-We see that eye-tracking features is the best feature grou for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than heatmaps and fixation duration.
-Piplines that include GARCH seem to outperform other pipelines but fixation duration also performs quite well.
+We see that eye-tracking is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than heatmaps and fixation duration.
+2-to-1 pipelines that include GARCH seem to outperform other 2-to-1 pipelines, but fixation duration also performs quite well.
 
 [[one_to_one_features_nrmse_aggregated]]
 .The four best pipelines by NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines.
@@ -99,8 +99,8 @@ include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 === Generalizability
 
 We evaluate the generalizability of the pipelines with the out-of-study dataset.
-We compare the errors from predicting on the out-of-study dataset to the out-of-sample results using FGI, which is explained in xref:feature_generalizability_index[].
-To indetify the most generalizable pipelines, we need to filter out pipelines that perform poorly in out-of-sample testing.
+We compare the errors from making predictions on the out-of-study dataset to the out-of-sample results using FGI, explained in xref:feature_generalizability_index[].
+In order to identify the most generalizable pipelines, we need to filter out pipelines that perform poorly in out-of-sample testing.
 We do this by filtering out the pipelines that do not perform better than the baseline.
 From 216 pipelines, 72 beat the baseline.
 
@@ -126,21 +126,18 @@ When the in-study dataset combines Fractions and CSCW (fractions_cscw), and EMIP
 Nine of the ten more generalizable pipelines contain this combination of datasets.
 
 LASSO is the most represented method of feature space reduction among the more generalizable pipelines.
-It is also included in the two pipelines with the best FGI.
-We note PCA performs very well for the feature groups ALL and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
+We note that there are more pipelines with LASSO that beat the baseline and might explain the trend we are seeing.
+LASSO is also included in the two pipelines with the best FGI.
+PCA performs very well for the feature groups ALL and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
 
-
-Many of the feature groups are represented among the more generalizable pipelines.
-However three feature groups shows up more than once, _all_, _heatmaps_ and _Garch_.
+Seven of our twelve feature groups are represented among the ten most generalizable pipelines.
+However, three feature groups show up more than once, ALL, heatmaps, and GARCH.
 This indicates that they might be more generalizable feature groups.
-It should also be noted that _GARCH_ is also the only pipeline with another in study dataset than fractions_cscw.
-
-
-
+It should also be noted that GARCH is also the only pipeline with an in-study dataset that is not fractions_cscw of the ten most generalizable pipelines.
 
 [[context_sensitivity]]
 === Context Sensitivity
-The bottom third of the filtered baselines, contains the pipelines that are more context specific.
+The bottom third of the filtered baselines contain the pipelines that are more context-specific.
 
 [[context_sensitive_pipelines]]
 .Context sensitive pipelines
@@ -150,9 +147,10 @@ include::../tables/results/context_sensitive_pipelines.csv[]
 |===
 
 
-Again we can see that the dataset combination highly affects which pipelines are deemed context-sensitive, with a combination of emip_cscw and emip_fractions as in-study datasets.
-Lasso has a majority in more context specific pipelines, however there are more pipelines with Lasso that beats the baseline than there are pipelines with PCA.
-For the features we can see some difference from the generalizable pipelines.
-_ARMA_, _LHIPA_, _eye_tracking_, and _pupil_diameter_, are present in the context-sensitive pipelines but not in the more generalizable ones.
-Indicating that they are more context-sensitive features.
-_Heatmaps_, _fft_, _markov_, _all_ and _saccade_length_ shows up in both, again indicating that dataset combination is an important variable for generalizability.
+Again we can see that the dataset combination is an important factor in which pipelines are exhibit context sensitivity.
+LASSO is more represented among the more context-specific pipelines.
+As with the generalizable pipelines, there are more pipelines with LASSO that beat the baseline.
+For the feature groups, we observe some differences from the generalizable pipelines.
+ARMA, LHIPA, Eye Tracking, and Pupil Diameter are present in the context-sensitive pipelines but not in the more generalizable pipelines.
+This indicates that these feature groups are more likely to produce context-sensitive pipelines.
+Heatmaps, Spectral Histogram, Hidden Markov Models, ALL, and Saccade Length appear in generalizable and context-sensitive pipelines. This further supports the observation that dataset combination is an essential variable for generalizability.

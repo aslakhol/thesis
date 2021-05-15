@@ -380,8 +380,8 @@ We have three datasets, which make up nine dataset combinations, six of which cr
 ==== Feature groups
 Initially, we considered running pipelines to test all combinations of features.
 These would prove to be unfeasible.
-With 27 features, 9 dataset combinations, and two methods of reducing the feature space, there would be 2 415 919 104 pipelines.
-With a theoretical runtime of 1 second per pipeline, the total computing time necessary to tackle this challenge would be approximately 76 years, and our grandchildren would have to submit this thesis.
+With 22 features, 9 dataset combinations, and two methods of reducing the feature space, there would be 75 597 472 pipelines.
+With a theoretical runtime of 1 second per pipeline, the total computing time necessary to tackle this challenge would be approximately 2 years, and we would not make our deadline for this thesis.
 
 As an alternative, we decided to group our features manually.
 We created one group for the eye-tracking features, four for the type of signal, and five for the different time series features.
