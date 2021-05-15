@@ -108,3 +108,36 @@ It would be possible to investigate the effects of other variants of these pipel
 
 While we can identify feature groups that can produce generalizable pipelines, we do not know how the individual features in each group affect the generalizability.
 It is also possible that combinations of features from different groups would create very generalizable pipelines.
+
+
+
+
+
+ARMA seems to display more context sensitivity.
+This makes sense if we compare it to GARCH, another timeseries modelling technique.
+While GARCH models the variance of the series, ARMA models the mean of the series.
+The variance is defined as the difference from the mean.
+The mean would naturally depend based on what is being measure in the context, and as such modelling the mean would make for a more context sensitive model.
+An example would be pupil diameter, where the lighting conditions impact the values with a constant value.
+Arma would be effected by this while garch would not.
+
+LHIPA being a context sensitive measure makes a lot of sense.
+LIHPA was developed to an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
+The cognitive load of a task will have many factors, but the specific complexities of the given task must certainly be a part of those.
+This complexity and other factors directly related to the task, are likely modelled by LHIPA.
+
+Pupil diameter has been shown to be affected by a number of task specific factors.
+Both task difficulity and time limits have been shown to impact pupil dialation citenp:[shojaeizadehDetectingTaskDemand2019].
+These are task and context specific factors and as such it might explain why pupil diameter seem to produce context specific pipelines.
+Shojaeizadeh et al. also point out that variation in cognitive effort are also conveyed by information about pupil size, this factor seems more likely to generalize and is what we model with GARCH, however the feature group pupil diameter primarily consists of features that model the mean of pupil diameter.
+
+
+GIP/LIP represents the tendency to skim text versus focused reading.
+While there is certainly an aspect of skill involved in picking a right strategy for the task, and an expert might more quickly move to focused reading.
+What strategy, skimming or focused reading, is more appropriate, is a task specific factor.
+
+
+
+
+
+
