@@ -11,10 +11,10 @@
 === Filtering on baseline
 
 Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
-FGI describes how similar the distribution of errors from *out-of-sample* testing and *out-of-study* testing and is a measure of generalizability.
+FGI describes how similar the distribution of errors from out-of-sample testing and out-of-study testing and is a measure of generalizability.
 However, it is not enough that the two distributions are similar.
 Generalizability should be a measure of usable predictive power in outside contexts.
-Random guesses would create identical distributions of error in *out-of-sample* testing and *out-of-study* testing, and as such, would have a good FGI value.
+Random guesses would create identical distributions of error in out-of-sample testing and out-of-study testing, and as such, would have a good FGI value.
 To counteract this, we chose to disregard all pipelines that do not outperform their respective baselines for the purpose of measuring generalizability.
 We do this by filtering the set of completed baselines.
 
@@ -83,6 +83,44 @@ De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic len
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
 
+=== Context-specificity
+
+In this section, we will argue a few reasons we believe as to why the features are context-specific.
+
+==== ARMA
+
+Our results indicate that ARMA produces quite context-sensitive pipelines.
+ARMA models the conditional mean of a timeseries, as opposed to the variance which GARCH models.
+Intuitively the mean value would be more dependent on the measurement's context than the variance.
+For example, an ARMA model would be impacted by a stimulus with longer distances between points of interest when modeling saccade length, while GARCH would not.
+
+====  LHIPA and Pupil Diameter
+
+LHIPA was developed to be an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
+The cognitive load of a task will have many factors, but the specific complexities of the given task must undoubtedly be a part of those.
+LHIPA likely models these complexities and other factors directly related to the task.
+Our observations that LHIPA can produce context-sensitive pipelines are in line with this thinking.
+
+Pupil diameter has been shown to be affected by several task-specific factors.
+Both task difficulty and time limits have an impact on pupil dilation citenp:[shojaeizadehDetectingTaskDemand2019].
+These are task-related factors, and as such, it might explain why pupil diameter seems to produce context-specific pipelines.
+
+Shojaeizadeh et al. also point out that pupil size might convey information about variation in cognitive effort.
+This factor seems more likely to generalize and is what we model with GARCH.
+GARCH of pupil diameter is included in this feature group.
+However, the group primarily consists of features that model the mean of pupil diameter.
+
+==== Eye-Tracking Features
+
+The eye-tracking feature tries to encapsulate different strategies for interacting with the stimulus.
+The information processing ratio represents the tendency to skim text versus more focused reading.
+A strategy of either skimming or focused reading might be more appropriate for a specific task, which might be why this indicates context-specificity.
+However, this is not an entirely specific trait.
+Some skill might be involved in picking the correct strategy when presented with a stimulus, and greater familiarity might lead to a faster transition to focused reading.
+
+Entropy models the spread of the gaze over the stimulus, which might model the generalizable aspect of focus; however, it is also affected by the task design. The verticality of saccades is also certainly context-specific as it relies heavily on the nature of and how the stimulus is organized.
+
+
 === Limitations and further work
 
 In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
@@ -107,37 +145,4 @@ While our tested features are quite exhaustive, we limited how many feature-spac
 It would be possible to investigate the effects of other variants of these pipeline components on generalizability in further work.
 
 While we can identify feature groups that can produce generalizable pipelines, we do not know how the individual features in each group affect the generalizability.
-It is also possible that combinations of features from different groups would create very generalizable pipelines.
-
-
-
-
-
-ARMA seems to display more context sensitivity.
-This makes sense if we compare it to GARCH, another timeseries modelling technique.
-While GARCH models the variance of the series, ARMA models the mean of the series.
-The variance is defined as the difference from the mean.
-The mean would naturally depend based on what is being measure in the context, and as such modelling the mean would make for a more context sensitive model.
-An example would be pupil diameter, where the lighting conditions impact the values with a constant value.
-Arma would be effected by this while garch would not.
-
-LHIPA being a context sensitive measure makes a lot of sense.
-LIHPA was developed to an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
-The cognitive load of a task will have many factors, but the specific complexities of the given task must certainly be a part of those.
-This complexity and other factors directly related to the task, are likely modelled by LHIPA.
-
-Pupil diameter has been shown to be affected by a number of task specific factors.
-Both task difficulity and time limits have been shown to impact pupil dialation citenp:[shojaeizadehDetectingTaskDemand2019].
-These are task and context specific factors and as such it might explain why pupil diameter seem to produce context specific pipelines.
-Shojaeizadeh et al. also point out that variation in cognitive effort are also conveyed by information about pupil size, this factor seems more likely to generalize and is what we model with GARCH, however the feature group pupil diameter primarily consists of features that model the mean of pupil diameter.
-
-
-GIP/LIP represents the tendency to skim text versus focused reading.
-While there is certainly an aspect of skill involved in picking a right strategy for the task, and an expert might more quickly move to focused reading.
-What strategy, skimming or focused reading, is more appropriate, is a task specific factor.
-
-
-
-
-
-
+It is also likely that combinations of features from different groups would create very generalizable pipelines.
