@@ -46,21 +46,21 @@ xref:pipelines_nrmses_dim_reduction[] shows which method reduces the feature spa
 Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
 [[pipelines_nrmses_dim_reduction]]
-.The pipelines with the five lowest NRMSES per dataset and if they used dimensionality reduction or feature selection
+.The four best pipelines by NRMSE per dataset and if whether used dimensionality reduction or feature selection
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
 However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines, and clearly better across the 2-to-1 pipelines.
 So our results indicate that feature selection performs better than dimensionality reduction in predicting cognitive performance on gaze data for out-of-sample testing.
 
 [[one_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for PCA and LASSO across all 1-to-1 pipelines
+.NRMSE Rank and mean NRMSE for PCA and LASSO for all 1-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for PCA and LASSO across all 2-to-1 pipelines
+.NRMSE Rank and mean NRMSE for PCA and LASSO for all 2-to-1 pipelines
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
@@ -68,40 +68,39 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 ==== Features
 
-xref:pipelines_nrmses_features[] shows some overlap to which features work in both the 1-to-1 pipelines and 2-to-1 pipelines.
-_FFT_ gave good predictions on _fractions_ and is also among the top 5 for _emip_fractions_ and _fractions_cscw_.
-This pattern repeats for _cscw_ where _saccade_duration_ are among the top 5 in _cscw_, _fractions_cscw_ and _emip_cscw_.
-For _EMIP_, this is shown with Arma.
-
+xref:pipelines_nrmses_features[] shows the best four pipelines by NRMSE and their feature groups.
+It seems that several different feature groups perform quite well for the different dataset combinations.
+We note that fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines and ALL perform well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
-.The pipelines with the 5 lowest NRMSES per dataset and which feature group it contained
+.The four best pipelines by NRMSES per dataset and what feature group it contained.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
-When we aggregate the results, as seen in xref:[[one_to_one_features_nrmse_aggregated]] and xref:[[two_to_one_features_nrmse_aggregated]]. We see that Heatmaps is the best feature for training and testing on the same dataset for 1-to-1 pipelines, performing slightly better than _fixation_duration_ and _fft_.
-However, _fixation_duration_ and _fft_ are also among the top five of the 2-to-1 pipelines, indicating that they are overall better choices. _Garch_ is the feature that performs best on the 2-to-1 pipelines.
+
+When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[].
+We see that eye-tracking is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than heatmaps and fixation duration.
+2-to-1 pipelines that include GARCH seem to outperform other 2-to-1 pipelines, but fixation duration also performs quite well.
 
 [[one_to_one_features_nrmse_aggregated]]
-.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines
+.The four best pipelines by NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_features_nrmse_aggregated]]
-.5 smallest NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines
+.The four best pipelines by NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 |===
 
-
-
 [[generalizability]]
 === Generalizability
-We evaluate the generalizability of the pipelines with the out of study dataset.
-We compare the errors from predicting the out-of-study dataset to the cross-validation results with FGI, which we explained in chapter 4.
-To find the most generalizable features, we need to filter out the pipelines that perform poorly on out-of-sample testing.
+
+We evaluate the generalizability of the pipelines with the out-of-study dataset.
+We compare the errors from making predictions on the out-of-study dataset to the out-of-sample results using FGI, explained in xref:feature_generalizability_index[].
+In order to identify the most generalizable pipelines, we need to filter out pipelines that perform poorly in out-of-sample testing.
 We do this by filtering out the pipelines that do not perform better than the baseline.
 From 216 pipelines, 72 beat the baseline.
 
@@ -122,26 +121,23 @@ include::../tables/results/generalizable_pipelines.csv[]
 |===
 
 xref:generalizable_pipelines[] shows the 10 most generalizable pipelines.
-The first and most prevalent factor for generalizable pipelines is which datasets were the in study dataset.
-When the in-study dataset is the combination of fractions and cscw, and emip is the out of study dataset, the pipelines are more generalizable.
-Nine of the ten generalizable pipelines contains this combination of datasets.
+The first and most prevalent factor for generalizable pipelines is which datasets were designated in-study datasets for that pipeline.
+When the in-study dataset combines Fractions and CSCW (fractions_cscw), and EMIP is the out-of-study dataset, the pipelines are more generalizable.
+Nine of the ten more generalizable pipelines contain this combination of datasets.
 
-For dimensionality reduction or feature selection Lasso is the most represented method among the more generalizable pipelines.
-It is also included in the two pipelines with the lowest FGI.
-However in combination with the feature group _all_ (ID 23, ID 22) and _heatmaps_ (ID 3, ID 2) PCA has a lower FGI than Lasso.
-These are the two largest feature groups containing hundreds of thousands of values.
+LASSO is the most represented method of feature space reduction among the more generalizable pipelines.
+We note that there are more pipelines with LASSO that beat the baseline and might explain the trend we are seeing.
+LASSO is also included in the two pipelines with the best FGI.
+PCA performs very well for the feature groups ALL and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
 
-In the feature groups there is a high variety among the more generalizable pipelines.
-However three feature groups shows up more than once, _all_, _heatmaps_ and _Garch_.
+Seven of our twelve feature groups are represented among the ten most generalizable pipelines.
+However, three feature groups show up more than once, ALL, heatmaps, and GARCH.
 This indicates that they might be more generalizable feature groups.
-It should also be noted that _GARCH_ is also the only pipeline with another in study dataset than fractions_cscw.
-
-
-
+It should also be noted that GARCH is also the only pipeline with an in-study dataset that is not fractions_cscw of the ten most generalizable pipelines.
 
 [[context_sensitivity]]
 === Context Sensitivity
-The bottom third of the filtered baselines, contains the pipelines that are more context specific.
+The bottom third of the filtered baselines contain the pipelines that are more context-specific.
 
 [[context_sensitive_pipelines]]
 .Context sensitive pipelines
@@ -151,9 +147,10 @@ include::../tables/results/context_sensitive_pipelines.csv[]
 |===
 
 
-Again we can see that the dataset combination highly affects which pipelines are deemed context-sensitive, with a combination of emip_cscw and emip_fractions as in-study datasets.
-Lasso has a majority in more context specific pipelines, however there are more pipelines with Lasso that beats the baseline than there are pipelines with PCA.
-For the features we can see some difference from the generalizable pipelines.
-_ARMA_, _LHIPA_, _eye_tracking_, and _pupil_diameter_, are present in the context-sensitive pipelines but not in the more generalizable ones.
-Indicating that they are more context-sensitive features.
-_Heatmaps_, _fft_, _markov_, _all_ and _saccade_length_ shows up in both, again indicating that dataset combination is an important variable for generalizability.
+Again we can see that the dataset combination is an important factor in which pipelines are exhibit context sensitivity.
+LASSO is more represented among the more context-specific pipelines.
+As with the generalizable pipelines, there are more pipelines with LASSO that beat the baseline.
+For the feature groups, we observe some differences from the generalizable pipelines.
+ARMA, LHIPA, Eye Tracking, and Pupil Diameter are present in the context-sensitive pipelines but not in the more generalizable pipelines.
+This indicates that these feature groups are more likely to produce context-sensitive pipelines.
+Heatmaps, Spectral Histogram, Hidden Markov Models, ALL, and Saccade Length appear in generalizable and context-sensitive pipelines. This further supports the observation that dataset combination is an essential variable for generalizability.

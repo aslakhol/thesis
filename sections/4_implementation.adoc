@@ -380,8 +380,8 @@ We have three datasets, which make up nine dataset combinations, six of which cr
 ==== Feature groups
 Initially, we considered running pipelines to test all combinations of features.
 These would prove to be unfeasible.
-With 27 features, 9 dataset combinations, and two methods of reducing the feature space, there would be 2 415 919 104 pipelines.
-With a theoretical runtime of 1 second per pipeline, the total computing time necessary to tackle this challenge would be approximately 76 years, and our grandchildren would have to submit this thesis.
+With 22 features, 9 dataset combinations, and two methods of reducing the feature space, there would be 75 597 472 pipelines.
+With a theoretical runtime of 1 second per pipeline, the total computing time necessary to tackle this challenge would be approximately 2 years, and we would not make our deadline for this thesis.
 
 As an alternative, we decided to group our features manually.
 We created one group for the eye-tracking features, four for the type of signal, and five for the different time series features.
@@ -430,7 +430,8 @@ asciimath:[RMSE = sqrt ((sum_(i=1)^text(Number of samples) (text(predicted)_i - 
 asciimath:[NRMSE = text(NRMSE)/(text(original)_max - text(original)_min)]
 
 
-==== Feature Generalizability Index
+[[feature_generalizability_index]]
+==== Feature Generalizability Index (FGI)
 We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
 Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can safely assume that similar behavior will indicate similar results.
 To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
@@ -438,6 +439,7 @@ To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), w
 asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/N(N-1)/4]
 
 The denominator normalizes the values between -1 and 1, where 0 represents a random grouping.
+Pipelines that have an FGI value closer to zero are more generalizable.
 
 [[reproducability]]
 === Reproducability
