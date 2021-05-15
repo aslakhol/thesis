@@ -374,6 +374,11 @@ h6 {
 
 ul.sectlevel1 > li > a {
   font-weight: bold;
+  line-height: 2rem;
+}
+
+ul.sectlevel2 {
+  margin-bottom: 1.5rem;
 }
 
 .toctitle {
