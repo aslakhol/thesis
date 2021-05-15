@@ -387,7 +387,6 @@ ul.sectlevel2 {
   margin-top: 3rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  page-break-before: always;
 }
 
 @media print {
@@ -396,6 +395,19 @@ ul.sectlevel2 {
   }
 }
 
-h2 {
+h2,
+#toctitle {
   page-break-before: always;
+}
+
+h3,
+h4,
+h5 {
+  page-break-after: avoid;
+}
+
+.paragrah,
+pre,
+code {
+  page-break-inside: avoid;
 }
