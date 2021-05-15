@@ -368,6 +368,10 @@ h6 {
   margin-bottom: 0.8rem;
 }
 
+.toc ul {
+  list-style-type: none;
+}
+
 @media print {
   body {
     margin: 0 100px;
