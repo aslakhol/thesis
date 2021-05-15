@@ -27,4 +27,6 @@ include::sections/6_discussion.adoc[]
 
 include::sections/7_conclusion.adoc[]
 
+== Bibliography
+
 bibliography::[]
