@@ -4,7 +4,8 @@
 :stem: asciimath
 :xrefstyle: short
 :sectnums:
-:stylesheet: style.css
+:stylesheet: empty.css
+:docinfo: shared,private-footer
 
 
 
