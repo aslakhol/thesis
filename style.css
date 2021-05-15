@@ -372,6 +372,10 @@ h6 {
   list-style-type: none;
 }
 
+ul.sectlevel1 > li > a {
+  font-weight: bold;
+}
+
 @media print {
   body {
     margin: 0 100px;
