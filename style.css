@@ -411,3 +411,20 @@ pre,
 code {
   page-break-inside: avoid;
 }
+
+@page {
+  size: A4;
+  margin-top: 50mm;
+  margin-right: 20mm;
+  margin-bottom: 25mm;
+  margin-left: 15mm;
+
+  @bottom-left {
+    content: counter(page);
+  }
+
+  @bottom-center {
+    content: string(title);
+    text-transform: uppercase;
+  }
+}
