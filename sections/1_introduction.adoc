@@ -7,13 +7,13 @@
 The evaluation of cognition or cognitive performance is essential for a variety of fields.
 Cognition describes the different workings of our mental capacities.
 Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
-The NIH Toolbox Cognition Batteries is a well-established set of tests of cognition. citenp:[weintraubCognitionAssessmentUsing2013]
+The NIH Toolbox Cognition Batteries is a well-established set of tests of cognition citenp:[weintraubCognitionAssessmentUsing2013].
 While the tests in the NIH Toolbox are thorough and well tested, they are also quite involved and take much time to perform.
 We need a proxy if we are to evaluate cognitive performance in a micro context.
 
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
 The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
-Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, LowHighIndex, duchowskiIndexPupillaryActivity2018]
+Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, LowHighIndex, duchowskiIndexPupillaryActivity2018].
 
 Our project will include data gathered from studies handling many different cognitive tasks.
 We will argue that each task has some measure, such as a score, that correlates to the cognitive performance for that task.
@@ -24,7 +24,7 @@ Eye-tracking is the process of tracking and recording the position of a subject'
 The gaze point for each of the eyes of a subject is recorded over time.
 Eye-tracking can be used as input control for interacting with systems citenp:[cantoniEyeTrackingComputer2014], or to record user behavior when interacting with digital and physical systems citenp:[grankaEyeTrackingAnalysisUser2004, bojkoEyeTrackingUser2005].
 As the equipment involved has become cheaper and more readily available, eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
-These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], colaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018]
+These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], colaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
 
 ==== Generalizability
 
@@ -39,7 +39,7 @@ While generalizability is an oft pursued goal in machine learning, there is litt
 Inspired by the methods of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020], we aim to engineer features that are produced with data from one or more specific contexts and can be used to predict the same variables on datasets gathered in other contexts.
 The usefulness of understanding the rationale behind features and how they might differ when predicting the same target on different types of data has been studied by Rogers et al. in the context of text mining citenp:[rogersGeneralizabilityDocumentFeatures2017].
 Feature generalizability has also been considered a central goal in feature selection within music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
-It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019]
+It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019].
 
 Sharma et al. engineered generalizable features from physiological data and facial expressions.
 They evaluated their features with a proposed "feature generalizability index" metric. citenp:[sharmaAssessingCognitivePerformance2020].
@@ -58,7 +58,7 @@ From this, we can extract the following research questions.
 
 In this section, we will introduce the reader to a few key terms from the eye-tracking world.
 
-A fixation is when the eye holds steady on an object or a position.
+The term fixation refers to when the eye holds steady on an object or a position.
 In a fixation, recorded gaze points vary little in both time and space.
 Fixations usually reflect attention to a stimulus citenp:[shojaeizadehDetectingTaskDemand2019].
 When discussing fixations, we will often refer to the fixation duration, which is the amount between the start of the fixation and the end of the fixation
