@@ -1,7 +1,13 @@
 <script type="text/javascript" src="https://livejs.com/live.js"></script>
 <link rel="stylesheet" href="style.css" />
-<script
-  async
-  src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_CHTML"
-></script>
 <script src="https://unpkg.com/pagedjs/dist/paged.polyfill.js"></script>
+
+<script>
+  window.PagedConfig = {
+    auto: false,
+  };
+
+  MathJax.Hub.Queue(function () {
+    window.PagedPolyfill.preview();
+  });
+</script>
