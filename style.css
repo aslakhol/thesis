@@ -389,51 +389,34 @@ ul.sectlevel2 {
   font-weight: bold;
 }
 
-/* @page {
-  margin: 1.1in;
-}
-
 h2,
 #toctitle {
   page-break-before: always;
 }
 
-.imageblock {
+.imageblock,
+pre,
+code,
+tr {
   page-break-inside: avoid;
-} */
+}
 
-/* h3,
+h3,
 h4,
 h5 {
   page-break-after: avoid;
-} */
+}
 
-/* h3 + .paragraph,
+h3 + .paragraph,
 h4 + .paragraph,
 h5 + .paragraph {
   page-break-before: avoid;
   page-break-inside: avoid;
-  color: red !important;
-} */
-
-/* h3,
-.imageblock,
-.paragraph,
-p,
-pre,
-code,
-ol,
-ul,
-tr {
-  page-break-inside: avoid;
-} */
+}
 
 @page {
   size: A4;
-  margin-top: 50mm;
-  margin-right: 20mm;
-  margin-bottom: 25mm;
-  margin-left: 15mm;
+  margin: 1.1in;
 
   @bottom-left {
     content: counter(page);
