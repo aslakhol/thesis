@@ -10,6 +10,22 @@
 
 
 = Engineering Generalizable Features for Eye-Tracking Data Through a Cloud-Based Machine Learning Platform
+Aslak Hollund and August Sollesnes Solvang
+
+[[byline]]
+Master's Thesis in Informatics, Spring 2021
+
+[[department]]
+Artificial Intelligence Group +
+Department of Computer and Information Science +
+Faculty Of Information Technology, Matematics and Electrical Engineering
+
+
+[[ntnu_logo]]
+image:figures/ntnu.png[ntnu, 100]
+
+
+
 :toc:
 
 
