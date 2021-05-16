@@ -389,7 +389,7 @@ ul.sectlevel2 {
   font-weight: bold;
 }
 
-@page {
+/* @page {
   margin: 1.1in;
 }
 
@@ -400,7 +400,7 @@ h2,
 
 .imageblock {
   page-break-inside: avoid;
-}
+} */
 
 /* h3,
 h4,
@@ -427,3 +427,20 @@ ul,
 tr {
   page-break-inside: avoid;
 } */
+
+@page {
+  size: A4;
+  margin-top: 50mm;
+  margin-right: 20mm;
+  margin-bottom: 25mm;
+  margin-left: 15mm;
+
+  @bottom-left {
+    content: counter(page);
+  }
+
+  @bottom-center {
+    content: string(title);
+    text-transform: uppercase;
+  }
+}
