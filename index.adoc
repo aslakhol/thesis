@@ -6,6 +6,7 @@
 :sectnums:
 :stylesheet: empty.css
 :docinfo: shared,private-footer
+:toc: macro
 
 
 
@@ -26,7 +27,7 @@ image:figures/ntnu.png[ntnu, 100]
 
 
 
-:toc:
+toc::[]
 
 
 include::sections/1_introduction.adoc[]
