@@ -6,6 +6,7 @@
 :sectnums:
 :stylesheet: empty.css
 :docinfo: shared,private-footer
+:toc: macro
 
 
 
@@ -25,8 +26,7 @@ Faculty Of Information Technology, Matematics and Electrical Engineering
 image:figures/ntnu.png[ntnu, 100]
 
 
-
-:toc:
+toc::[]
 
 
 include::sections/1_introduction.adoc[]
