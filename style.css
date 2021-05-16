@@ -397,7 +397,8 @@ h2,
 .imageblock,
 pre,
 code,
-tr {
+tr,
+ol {
   page-break-inside: avoid;
 }
 
