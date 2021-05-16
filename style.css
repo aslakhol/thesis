@@ -408,6 +408,11 @@ h5 {
   page-break-after: avoid;
 }
 
+.title {
+  page-break-after: avoid;
+  page-break-inside: avoid;
+}
+
 h3 + .paragraph,
 h4 + .paragraph,
 h5 + .paragraph {
@@ -427,4 +432,16 @@ h5 + .paragraph {
     content: string(title);
     text-transform: uppercase;
   }
+}
+
+.imageblock,
+pre,
+.math {
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+table {
+  margin-top: 35px;
+  margin-bottom: 35px;
 }
