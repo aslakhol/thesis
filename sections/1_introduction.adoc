@@ -9,7 +9,7 @@ Cognition describes the different workings of our mental capacities.
 Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
 The NIH Toolbox Cognition Batteries is a well-established set of tests of cognition citenp:[weintraubCognitionAssessmentUsing2013].
 While the tests in the NIH Toolbox are thorough and well tested, they are also quite involved and take much time to perform.
-We need a proxy if we are to evaluate cognitive performance in a micro context.
+Therefore, need a proxy if we are to evaluate cognitive performance in a micro context.
 
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
 The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
