@@ -36,7 +36,7 @@ We theorize that pipelines trained on EMIP do worse at describing this collabora
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
 
 
-=== Why do the generalizable features generalize?
+=== Generalizable features
 
 In this section, we will argue a few reasons we believe as to why the features generalize.
 
