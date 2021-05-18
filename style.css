@@ -395,6 +395,12 @@ pre,
   margin-bottom: 25px;
 }
 
+.toc a::after,
+.toc2 a::after {
+  content: "p. " target-counter(attr(href), page);
+  float: right;
+}
+
 /* Asciidoc tables */
 
 table {
