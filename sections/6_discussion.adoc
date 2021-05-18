@@ -36,7 +36,7 @@ We theorize that pipelines trained on EMIP do worse at describing this collabora
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
 
 
-=== Generalizable features
+=== Generalizable Features
 
 In this section, we will argue a few reasons we believe as to why the features generalize.
 
@@ -83,7 +83,7 @@ De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic len
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
 
-=== Context-specificity
+=== Context Specific Features
 
 In this section, we will argue a few reasons we believe as to why the features are context-specific.
 
