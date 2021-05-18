@@ -324,7 +324,7 @@ These are the steps we take to create our heatmaps
 . Resize the image to 175*90
 
 .Heatmap without stimulus from EMIP
-image:../figures/heatmap_emip.png[]
+image::../figures/heatmap_emip.png[]
 
 From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
