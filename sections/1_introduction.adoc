@@ -47,7 +47,8 @@ We will follow their methodology to develop generalizable features from gaze dat
 In addition, we will present a machine learning platform we have developed to effectively run experiments to investigate generalizability and produce features from eye-tracking data.
 
 === Research Questions
-This study aims to create a system that can perform feature generalizability experiments on gaze data.
+This study aims to create a step-by-step approach to perform feature generalizability experiments on gaze data.
+We also propose an architecture and provide an implementation for this approach.
 To determine which features and which methods for reducing the feature space are generalizable.
 From this, we can extract the following research questions.
 
