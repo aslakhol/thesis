@@ -36,7 +36,7 @@ We theorize that pipelines trained on EMIP do worse at describing this collabora
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
 
 
-=== Why do the generalizable features generalize?
+=== Generalizable Features
 
 In this section, we will argue a few reasons we believe as to why the features generalize.
 
@@ -83,7 +83,7 @@ De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic len
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
 
-=== Context-specificity
+=== Context Specific Features
 
 In this section, we will argue a few reasons we believe as to why the features are context-specific.
 
@@ -127,6 +127,7 @@ In xref:study_contexts[], we outline how we believe our datasets are representat
 However, it would be presumptuous to say that three datasets from three different contexts could represent all of the cognitive processes.
 Our goal has been to generalize between our three contexts, and we hope that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
 We do not mean to say that our features will generalize to any context.
+Nevertheless, this is a first step that provides evidence on how gaze-related features provide a certain level of generalizability across three distinct and commonly employed contexts.
 
 Our results show some indications that datasets from individual tasks generalize poorly to contexts that include collaborative work.
 Had individual work been better represented in our data, we might be able to say more about how individual tasks generalize in general.
