@@ -36,7 +36,8 @@ Our work is acutely aware of the context of each of the datasets we use, and we 
 We will evaluate the degree of generalizability of each of the pipelines used to produce our results through statistical analysis.
 
 While generalizability is an oft pursued goal in machine learning, there is little focus on feature generalizability in the literature.
-Inspired by the methods of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020], we aim to engineer features that are produced with data from one or more specific contexts and can be used to predict the same variables on datasets gathered in other contexts.
+By feature generalizability, we mean the extent to which extracted features can predict the same variable, in our case cognitive performance, in different contexts.
+Inspired by the methods of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020], we aim to engineer features that exhibit feature generalizability.
 The usefulness of understanding the rationale behind features and how they might differ when predicting the same target on different types of data has been studied by Rogers et al. in the context of text mining citenp:[rogersGeneralizabilityDocumentFeatures2017].
 Feature generalizability has also been considered a central goal in feature selection within music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
 It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019].
@@ -47,7 +48,8 @@ We will follow their methodology to develop generalizable features from gaze dat
 In addition, we will present a machine learning platform we have developed to effectively run experiments to investigate generalizability and produce features from eye-tracking data.
 
 === Research Questions
-This study aims to create a system that can perform feature generalizability experiments on gaze data.
+This study aims to create a step-by-step approach to perform feature generalizability experiments on gaze data.
+We also propose an architecture and provide an implementation for this approach.
 To determine which features and which methods for reducing the feature space are generalizable.
 From this, we can extract the following research questions.
 

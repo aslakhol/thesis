@@ -21,18 +21,17 @@ We do this by filtering the set of completed baselines.
 === 2-to-1 versus 1-to-1
 
 As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better then 1-to-1 pipelines.
-Combining two datasets from two separate contexts for training introduces more variance.
-Unsurprisingly, these pipelines are more generalizable than those that use only one dataset for training.
+Combining two datasets from two separate contexts for training introduces more variability to the dataset.
+The result is a model which has lower variance and generalizes better than those that use only one dataset for training.
 These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 In further discussions, we will focus on results from the 2-to-1 pipelines.
-
 
 === Generalizability of our datasets
 
 Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP is included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
-We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect and that the variance introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
+We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect and that the variability introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
 
 
@@ -50,7 +49,7 @@ The feature vector we call heatmaps represents how the gaze interacts with the g
 However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
 The latter is a focus point for experienced coders.
 Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimuli.
-In addition, heatmaps encode information about time and space, rather than just one of the dimensions, introducing more variance.
+In addition, heatmaps encode information about time and space, rather than just one of the dimensions.
 
 
 ==== GARCH, Hidden Markov Models and Power Spectral Histogram
