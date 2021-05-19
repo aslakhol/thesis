@@ -7,6 +7,7 @@ We also propose an architecture to efficiently and easily test the generalizabil
 The code for our platform and the analysis is available on GitHub citenp:[sollesnesS0lvangIdealpancake2021].
 
 Our contributes include:
+
 - The list of generalizable features presented in xref:generalizable_pipelines[].
 - The list of context-sensitive features presented in xref:context_sensitive_pipelines[].
 - The architecture and implementation for experimenting on modular pipelines for generalizability experiments presented in xref:implementation[].
