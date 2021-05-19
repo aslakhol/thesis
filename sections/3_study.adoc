@@ -46,7 +46,7 @@ The participants were primarily university students enrolled in computing course
 ===== Tasks
 
 The participants were recorded while performing two code comprehension tasks.
-They filled out a questioneer where they self-reported their level of programming expertise from the options none, low, medium, and high, recorded years of programming experience.
+They filled out a questionnaire where they self-reported their level of programming expertise from the options none, low, medium, and high, recorded years of programming experience.
 In addition, they answered several other questions that make up the metadata that accompanies the eye-tracking data.
 The participants also selected the language to be used in the task, from Java, Scala, or Python.
 
