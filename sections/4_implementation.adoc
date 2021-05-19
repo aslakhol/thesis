@@ -401,9 +401,12 @@ Lasso was selected as our feature selection algorithm because it has been shown 
 
 
 ==== Prediction: Ensemble Learning
-Our pipelines were tested with the same classifier, a weighted voting ensemble with a KNN-regressor, a Random forest regressor, and a Support Vector regressor.
+Our pipelines were tested with the same regressor, a weighted voting ensemble with a KNN-regressor, a Random forest regressor, and a Support Vector regressor.
+A ensemble combines several different base regressors or classifiers in order to leverage the strengths of each classifier or regressor.
+A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
+Then it averages the individual predictions respective to their given weights to form a final prediction.
 To find the weights for the voting, we perform cross-validation on each of the regressors and set their respective weights as 1 - Root Mean square error.
-We use an ensemble because it has been shown to improve stability and robustness, capture linear as well as non-linear relationships, and the variance in our datasets suggests that a single model would perform inadequately citenp:[sharmaAssessingCognitivePerformance2020].
+Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[CombiningPatternClassifiers, anOptimalWeightSelectionRegressor2009].
 
 [[evaluation]]
 === Evaluation
