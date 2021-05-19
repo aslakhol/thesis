@@ -1,7 +1,8 @@
 [[study]]
 == Research Design
 
-The study design, described below, is inspired by the study performed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
+The study design, described below, is inspired by a previous study by Sharma et al. that was conducted to engineer generalizable features to predict cognitive performance from physiological responses (sensor data recorded from subjects' wrists) and facial expressions citenp:[sharmaAssessingCognitivePerformance2020].
+We follow the same methodological decision as Sharma et al. but focus on the user's gaze and leverage datasets by other researchers.
 
 We have selected three datasets used in published articles that all include eye-tracking data from subjects completing one or more cognitive tasks.
 The studies that produced the datasets were distinct, and their differences allow us to argue that the datasets have different contexts.
