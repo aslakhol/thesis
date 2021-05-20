@@ -13,12 +13,12 @@ Therefore, we need a proxy if we are to evaluate cognitive performance in a micr
 
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
 The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
-Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, LowHighIndex, duchowskiIndexPupillaryActivity2018].
+Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
 Our project will include data gathered from studies handling many different cognitive tasks.
 We will argue that each task has some measure, such as a score, that correlates to the cognitive performance for that task.
 
-==== Eye-tracking
+==== Eye-Tracking
 
 Eye-tracking is the process of tracking and recording the position of a subject's gaze while interacting with digital devices.
 The gaze point for each of the eyes of a subject is recorded over time.
@@ -85,7 +85,7 @@ Changes to the pupil diameter can serve as a reliable proxy of mental effort cit
 Our introduction introduces the motivation for the work, our research questions, some key terminology, and this outline.
 
 [discrete]
-===== xref:related_work[]: Related work
+===== xref:related_work[]: Related Work
 
 The related work chapter situates our work in relation to the established literature and provides the theoretical background that outlines our assumptions.
 

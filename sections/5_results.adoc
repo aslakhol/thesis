@@ -1,5 +1,6 @@
 [[results]]
 == Results
+
 We ran a total of 216 pipelines with different combinations of datasets, dimensionality reduction, and feature groups.
 144 of these pipelines were 1-to-1 pipelines, where we trained on only one dataset and tested on another.
 72 of the pipelines were 2-to-1, where two datasets are designated in-study and one dataset designated out-of-study.
@@ -29,24 +30,25 @@ def get_baseline(labels):
 ```
 
 [[same_training_and_testing_context]]
-===  Out-of-sample testing
+===  Out-of-Sample Testing
 
 Our work focuses on engineering generalizable features.
 This section outlines the results from the out-of-sample testing, which does not indicate generalizability.
 However, the section is presented to the reader to benchmark the range of predictive power that our features exhibit in more traditional tasks.
 
-==== Aggregation of the results
+==== Aggregation of the Results
 
 To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
 We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on either dimensionality reduction, feature combination, then taking the average.
 This mean of ranks gives us the results of what pipeline components perform best when testing in the same context it was trained.
 
-====  Dimensionality reduction and feature selection
+====  Dimensionality Reduction and Feature Selection
+
 xref:pipelines_nrmses_dim_reduction[] shows which method reduces the feature space for the pipelines with the five smallest NRMSEs per dataset.
 Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
 [[pipelines_nrmses_dim_reduction]]
-.The four best pipelines by NRMSE per dataset and if whether used dimensionality reduction or feature selection
+.The four best pipelines by NRMSE per dataset and whether they used dimensionality reduction or feature selection.
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
 However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines, and clearly better across the 2-to-1 pipelines.
@@ -137,6 +139,7 @@ It should also be noted that GARCH is also the only pipeline with an in-study da
 
 [[context_sensitivity]]
 === Context Sensitivity
+
 The bottom third of the filtered baselines contain the pipelines that are more context-specific.
 
 [[context_sensitive_pipelines]]
@@ -145,7 +148,6 @@ The bottom third of the filtered baselines contain the pipelines that are more c
 |===
 include::../tables/results/context_sensitive_pipelines.csv[]
 |===
-
 
 Again we can see that the dataset combination is an important factor in which pipelines are exhibit context sensitivity.
 LASSO is more represented among the more context-specific pipelines.

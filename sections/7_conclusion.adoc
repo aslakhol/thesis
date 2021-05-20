@@ -1,8 +1,8 @@
 [[conclusion]]
-== Conclusion and contributions
+== Conclusion and Contributions
 
 In this work, we apply the methodology presented by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] to engineer generalizable features from gaze data.
-The work draws on three independent studies with data gathered on a total of XXX subjects.
+The work draws on three independent studies with data gathered on a total of 370 subjects.
 We also propose an architecture to efficiently and easily test the generalizability of pipelines constructed of different combinations of pipeline components.
 The code for our platform and the analysis is available on GitHub citenp:[sollesnesS0lvangIdealpancake2021].
 
