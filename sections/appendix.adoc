@@ -1,0 +1,18 @@
+[appendix]
+== Appendix
+
+=== Code
+
+Our code can be found at
+
+=== Density Plots
+
+image::../figures/density_plots.jpg[]
+
+
+=== All Pipelines
+
+[format="csv", options="header"]
+|===
+include::../tables/results/all_pipelines.csv[]
+|===
