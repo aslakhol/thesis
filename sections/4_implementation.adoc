@@ -415,7 +415,7 @@ An ensemble combines several different base regressors or classifiers in order t
 A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
 Then it averages the individual predictions respective to their given weights to form a final prediction.
 To find the weights for the voting, we perform cross-validation on each of the regressors and set their respective weights as 1 - Root Mean square error.
-Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[CombiningPatternClassifiers, anOptimalWeightSelectionRegressor2009].
+Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[kunchevaCombiningPatternClassifiers, anOptimalWeightSelectionRegressor2009].
 
 KNN predictors approximate the target by associating it with its n nearest neighbors in the training set.
 We use the default value five for n, provided to us by sklearn citenp:[UsScikitlearn24].
@@ -480,7 +480,7 @@ The version-control tool, git; the machine learning management tool, comet.ml; t
 
 ==== comet.ml
 
-comet.ml is a machine learning management tool citenp:[CitationCometMl].
+comet.ml is a machine learning management tool citenp:[comet.mlCometMLHome2021].
 It can handle user management, visualization, tracking of experiments, and much more.
 We use comet.ml to track the results of our experiments, the relevant hyperparameters, the git commit hash, which indicates our software state, and the virtual machine on the google cloud platform which executed the code.
 

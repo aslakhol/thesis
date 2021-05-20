@@ -59,7 +59,7 @@ After completing the question for Vehicle, they were presented with the code for
 The rectangle code consists of a class representing a rectangle, instantiated through a constructer that takes four coordinates.
 The class also has methods to width, height, and area.
 In the _main_ function of the class, two rectangles are instantiated, and their areas are printed.
-The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity], and the EMIP researchers translated code from python two Scala, and Java.
+The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity2013], and the EMIP researchers translated code from python two Scala, and Java.
 The vehicle code is a class that represents a vehicle with several variables and a function to accelerate the car.
 A constructor takes a producer, a type, and a top speed.
 In the _main_ function, a vehicle is created, and its speed is accelerated citenp:[bednarikEMIPEyeMovements2020].
