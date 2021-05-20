@@ -29,7 +29,7 @@ Even though gaze-data has shown promising results in predicting cognitive worklo
 
 === Generalizability
 While universalism and context-sensitivity in information systems research remain essential research topics, citenp:[davisonContextKingConsidering2016, chengContextMayBe2016] generalizability continues to be a chief concern in machine learning research.
-It is named as one of the primary goals in a slew of fields ranging from healthcare analytics citenp:[dexterGeneralizationMachineLearning2020, MachineLearningArtificial], business research citenp:[salminenMachineLearningApproach2019], finance citenp:[mcnallyPredictingPriceBitcoin2018] to psychiatry citenp:[chekroudCrosstrialPredictionTreatment2016]
+It is named as one of the primary goals in a slew of fields ranging from healthcare analytics citenp:[dexterGeneralizationMachineLearning2020, vollmerMachineLearningArtificial2020], business research citenp:[salminenMachineLearningApproach2019], finance citenp:[mcnallyPredictingPriceBitcoin2018] to psychiatry citenp:[chekroudCrosstrialPredictionTreatment2016]
 
 Turney has worked to provide a formal definition of context sensitive features within concept learning citenp:[turneyIdentificationContextSensitiveFeatures2002, turneyExploitingContextWhen1993, turneyRobustClassificationContextsensitive1993].
 His work is strengthened by John et al. citenp:[johnIrrelevantFeaturesSubset1994] and others.

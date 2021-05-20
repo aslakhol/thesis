@@ -42,7 +42,7 @@ Some subjects were missing labels; this was solved by removing the subject from 
 We also fixed inconsistencies such as wrong capitalizations of filenames.
 
 For the EMIP dataset, we were provided with the raw data without fixations calculated.
-In order to use this dataset, we calculated fixations ourselves with the library PyGaze Analyzer citenp:[PyGazeOpenSource].
+In order to use this dataset, we calculated fixations ourselves with the library PyGaze Analyzer citenp:[dalmaijerPyGazeOpensourceCrossplatform2014].
 The algorithm used is a dispersion-based algorithm that requires us to set the maximum distance and minimum duration for a fixation.
 We set the minimum duration by finding the minimum duration of fixations from our two other datasets.
 Pieter Blignaut citenp:[blignautFixationIdentificationOptimum2009] suggests that the maximum distance of a fixation when using a dispersion algorithm for finding fixations should be 1º of the foveal angle.
@@ -249,7 +249,7 @@ return GIP / (LIP + 1)
 [[skewness_saccade_speed]]
 ===== Skewness of Saccade Speed
 
-Saccade velocity skewness has been shown to correlate with familiarity citenp:[pappasVisualAestheticsECommerce2018].
+Saccade velocity skewness has been shown to correlate with familiarity citenp:[pappasVisualAestheticsECommerce2018a].
 If the skewness is highly positive, that means that the overall saccade speeds were high.
 This indicates that the subject is familiar with the stimulus and can quickly maneuver to the relevant sections when seeking information.
 Saccade speed does not necessarily indicate expertise in the relevant subject matter.
@@ -444,7 +444,7 @@ This subsection explains how we evaluate the results of each test.
 We use normalized root mean squared error (NRMSE) as our primary evaluation metric.
 Since the datasets' labels are in different ranges, we need a metric that can be compared across datasets.
 NRMSE is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
-NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[PredictionMOOCsReview]  and is the preferred metric for student models. citenp:[pelanekMetricsEvaluationStudent2015]
+NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]  and is the preferred metric for student models. citenp:[pelanekMetricsEvaluationStudent2015]
 Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to NRMSE in this thesis.
 Hence we refer to it as NRMSE in this thesis.
 

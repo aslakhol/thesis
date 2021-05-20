@@ -101,7 +101,7 @@ The textual primer had questions described in text-form, while the schematic pri
 Participants that received the textual primer were called T, and participants that received the schematic primer were called S.
 
 After the primer, participants watched a video from Khan Academy citenp:[KhanAcademyFree] on the topic of "resting membrane potential."
-Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each team collaborated to create a concept map using IHMC CMap tools citenp:[CmapCmapTools].
+Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each team collaborated to create a concept map using IHMC CMap tools citenp:[canasCmapToolsKnowledgeModeling].
 Lastly, the participants also completed a post-test citenp:[sharmaLookingLookingDual2015].
 
 ===== Technology and Experimental Setup
