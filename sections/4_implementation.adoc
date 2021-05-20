@@ -21,7 +21,7 @@ All pipelines use the same ensemble classifier.
 Results are then evaluated in the evaluation step, xref:evaluation[], and logged xref:reproducability[].
 
 [[architecture_diagram]]
-.Diagram of our architecture
+.Diagram of our architecture.
 image::../figures/diagram.png[]
 
 [[preprocessing]]
@@ -50,7 +50,8 @@ The distance between the subject and the stimulus was 700 mm for EMIP; thus, 1º
 We only used fixations where the subject was reading code and disregarded data gathered during setup and calibration.
 
 
-==== Normalization and Outlier removal
+==== Normalization and Outlier Removal
+
 As our subjects come from multiple contexts, the need for normalization and outlier removal is extra apparent.
 It is essential to normalize pupil diameter.
 Pupil diameter can be affected by several factors such as lighting conditions and how well-rested the subject is citenp:[pflegingModelRelatingPupil2016].
@@ -63,7 +64,7 @@ To mitigate this, we remove the outliers by setting a threshold of 1000 ms for s
 All gaps in time over 1000ms were reduced to 1000ms.
 
 [[feature_extraction]]
-=== Feature extraction
+=== Feature Extraction
 This subsection explains how we achieved goal 3.
 
 > We need a platform that can generate computationally expensive features for multiple large datasets
@@ -76,6 +77,7 @@ The features are organized into three sections:
 * Heatmap features
 
 ==== Flow
+
 The flow of the feature extraction job is as follows:
 
 . Download the datasets from google cloud storage
@@ -102,7 +104,8 @@ From each of these signals, we calculate five features.
 * Hidden Markov models.
 * LHIPA.
 
-===== Power Spectral Histogram.
+===== Power Spectral Histogram
+
 The power spectrum decomposes the timeseries into the frequencies in the signal and the amplitude of each frequency.
 Once computed, they can be represented as a histogram called the power spectral histogram.
 We computed the centroid, variance, skew, and kurtosis of the power spectral histogram.
@@ -112,6 +115,7 @@ We hypothesize that similar pattern repetitions will be present in subjects that
 
 
 ===== Autoregressive Moving Average model (ARMA)
+
 We know that a cognitive process takes place over a span of time, and our gaze data is organized as a timeseries.
 If our goal is to model cognitive workload, we need to capture the temporal aspects of cognition.
 ARMA combines an auto-regressive part and a moving average part to model movements in a timeseries.
@@ -139,6 +143,7 @@ return best_fit["ar"], best_fit["ma"], best_fit["exog"]
 
 ```
 ===== GARCH
+
 GARCH is similar to ARMA, but it is applied to the variance of the data instead of the mean.
 
 ARMA assumes a uniform distribution of the events it is modeling with shifting trends.
@@ -190,6 +195,7 @@ return padded_transition_matrix
 ```
 
 ===== The Low/High Index of Pupillary Activity (LHIPA)
+
 LHIPA citenp:[duchowskiLowHighIndex2020] enhances the Index of Pupillary Activity citenp:[duchowskiIndexPupillaryActivity2018], which is a metric to discriminate cognitive load from pupil diameter oscillation.
 LHIPA partially models the functioning of the human autonomic nervous system by looking at the low and high frequencies of pupil oscillation.
 
@@ -199,11 +205,9 @@ If the cognitive workload is increased beyond this point, cognitive performance 
 
 Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020]
 
+==== Eyetracking Features
 
-
-==== Eyetracking features
 These are features that are connected to the domain of eye-tracking and not signal processing features.
-
 
 ===== Information Processing Ratio
 
@@ -243,7 +247,8 @@ return GIP / (LIP + 1)
 ```
 
 [[skewness_saccade_speed]]
-===== Skewness of saccade speed
+===== Skewness of Saccade Speed
+
 Saccade velocity skewness has been shown to correlate with familiarity citenp:[pappasVisualAestheticsECommerce2018].
 If the skewness is highly positive, that means that the overall saccade speeds were high.
 This indicates that the subject is familiar with the stimulus and can quickly maneuver to the relevant sections when seeking information.
@@ -261,6 +266,7 @@ get_skewness_of_saccades(saccade_duration, saccade_length):
 ```
 
 ===== Verticality of Saccades
+
 By verticality of saccades, we mean the ratio of which saccades move vertically over horizontally.
 Our intuition for generating this feature is based on the difference between how we read code versus how we read text.
 An experienced coder is read vertically, focusing on definitions and conditionals.
@@ -288,9 +294,9 @@ verticality = angles.average()
 ```
 
 ===== Entropy of Gaze
+
 The entropy of gaze explains the size of the field of focus for a subject.
 Entropy is higher the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
-
 
 To calculate entropy, of gaze we create a grid of 50 by 50 px bins.
 We then normalize the x and y positions of each fixation in a range from 0 to 1000.
@@ -309,9 +315,8 @@ return entropy(2d_histogram.flatten())
 
 ```
 
-
-
 ==== Heatmaps
+
 A heatmap is a graphical representation of data where values are depicted by color.
 Areas of higher activity will be highlighted more.
 Our heatmaps represent the gaze position of a subject over time.
@@ -336,10 +341,8 @@ From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolut
 
 As shown by Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020], deep features of heatmaps from gaze data can predict cognitive performance in learning activities.
 
-
-
-
 ===== Pseudocode
+
 ```
 frames = Split each subject into 30 partitions
 features = []
@@ -352,7 +355,8 @@ for frame in frames
 return features.flatten()
 ```
 
-==== Final Feature set
+==== Final Feature Set
+
 After feature extraction, these are the features that are generated for each subject.
 
 include::../tables/feature_set_table.adoc[]
@@ -369,6 +373,7 @@ For simplicity, we will refer to these as pipeline components.
 
 
 ==== Datasets
+
 We have three different datasets: EMIP, Fractions, and CSCW.
 As discussed in xref:study[], we designate either one or two datasets as in-study for each of our pipelines.
 All pipelines include a single dataset as the out-of-study dataset.
@@ -378,7 +383,8 @@ We refer to the pipelines where one dataset is designated in-study as 1-to-1 pip
 Pipelines, where two datasets are designated in-study, are referred to as 2-to-1 pipelines since we train on two datasets combined and test on one dataset.
 We have three datasets, which make up nine dataset combinations, six of which create 1-to-1 pipelines and three go into 2-to-1 pipelines.
 
-==== Feature groups
+==== Feature Groups
+
 Initially, we considered running pipelines to test all combinations of features.
 These would prove to be unfeasible.
 With 22 features, 9 dataset combinations, and two methods of reducing the feature space, there would be 75 597 472 pipelines.
@@ -391,7 +397,8 @@ The groups are presented in the following table:
 
 include::../tables/feature_groups_table.adoc[]
 
-==== Reducing the feature space
+==== Reducing the Feature Space
+
 Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and improve predictive power.
 The focus of our thesis was on testing different features, and as such, we decided not to test a wide range of alternatives.
 The effect of different methods for reducing the feature space on generalizability is a potential area for further study.
@@ -402,6 +409,7 @@ Lasso was selected as our feature selection algorithm because it has been shown 
 
 
 ==== Prediction: Ensemble Learning
+
 Our pipelines were tested with the same regressor, a weighted voting ensemble with a KNN-regressor, a Random forest regressor, and a Support Vector regressor.
 An ensemble combines several different base regressors or classifiers in order to leverage the strengths of each classifier or regressor.
 A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
@@ -420,10 +428,9 @@ SVRs estimate the target value by fitting a hyperplane by minimizing the margins
 Support vector regressors perform particularly well when the dimensionality of the feature space representation is much larger than the number of examples, which is the case for some of our feature groups citenp:[druckerSupportVectorRegression2003].
 All our hyperparameters are set to the default values provided by sklearn citenp:[UsScikitlearn24].
 
-
-
 [[evaluation]]
 === Evaluation
+
 This section will outline how we achieve the fifth goal of our platform:
 
 > We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
@@ -432,7 +439,8 @@ Models produce by our pipelines are evaluated in two ways, with out-of-sample te
 Out-of-sample testing uses a subset of the in-study dataset to evaluate the predictive power of the model. Out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
 This subsection explains how we evaluate the results of each test.
 
-==== Evaluation Criteira
+==== Evaluation Criteria
+
 We use normalized root mean squared error (NRMSE) as our primary evaluation metric.
 Since the datasets' labels are in different ranges, we need a metric that can be compared across datasets.
 NRMSE is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
@@ -449,6 +457,7 @@ asciimath:[NRMSE = text(NRMSE)/(text(original)_max - text(original)_min)]
 
 [[feature_generalizability_index]]
 ==== Feature Generalizability Index (FGI)
+
 We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
 Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can safely assume that similar behavior will indicate similar results.
 To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
@@ -460,6 +469,7 @@ Pipelines that have an FGI value closer to zero are more generalizable.
 
 [[reproducability]]
 === Reproducability
+
 This section explains how we reached the sixth goal of our platform.
 
 > We need reproducibility.
@@ -469,17 +479,20 @@ The version-control tool, git; the machine learning management tool, comet.ml; t
 
 
 ==== comet.ml
+
 comet.ml is a machine learning management tool citenp:[CitationCometMl].
 It can handle user management, visualization, tracking of experiments, and much more.
 We use comet.ml to track the results of our experiments, the relevant hyperparameters, the git commit hash, which indicates our software state, and the virtual machine on the google cloud platform which executed the code.
 
 ==== Poetry
+
 Poetry is a dependency manager for python citenp:[PoetryPythonDependency].
 As with any large software project, our platform relies on several third-party libraries.
 To ensure both reproducibility and ease of use and development, we use poetry to track the versions of the libraries we use.
 Poetry stores these versions in a lock-file which git tracks.
 
 ==== Git
+
 Git keeps track of all versions of our source code citenp:[Git].
 We have set up safeguards that ensure that all changes to the local code are committed before a run can begin.
 In addition, all parameters of experiments are represented in the code.
@@ -489,12 +502,13 @@ The commit hash, which uniquely identifies the point of commitment in our histor
 When we run an experiment in the cloud, we log the start parameters of the system and the hash associated with the commit.
 
 ==== Google Cloud Platform
+
 Our experiments are run on virtual machines in the google cloud platform (GCP) citenp:[kumarGoogleCloudPlatform2016].
 GCP is one of several providers of commercial cloud and containerization services.
 Their products allow us to run our experiments on identical virtual machines, which ensures reproducibility also in the hardware aspects of our work.
 
-
 ==== Seeding
+
 All of our experiments ran with seeded randomness.
 Our implementation for seeding
 
@@ -507,5 +521,6 @@ tf.random.set_seed(seed)
 ```
 
 ==== Datasets
+
 At this point, we can reproduce any of the experiments presented in this work.
 However, as we cannot share the data we received from other researchers, complete external repeatability is impossible.

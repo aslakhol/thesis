@@ -8,7 +8,7 @@
 - GARCH, Power Spectral Histogram, heatmaps, saccade duration, saccade length, and Markov can produce generalizable pipelines.
 - Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
 
-=== Filtering on baseline
+=== Filtering on the Baseline
 
 Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
 FGI describes how similar the distribution of errors from out-of-sample testing and out-of-study testing and is a measure of generalizability.
@@ -26,14 +26,13 @@ The result is a model which has lower variance and generalizes better than those
 These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 In further discussions, we will focus on results from the 2-to-1 pipelines.
 
-=== Generalizability of our datasets
+=== Generalizability of our Datasets
 
 Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP is included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
 We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect and that the variability introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
-
 
 === Generalizable Features
 
@@ -50,7 +49,6 @@ However,  it will also tell us how much time a subject spends reading the syntac
 The latter is a focus point for experienced coders.
 Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimuli.
 In addition, heatmaps encode information about time and space, rather than just one of the dimensions.
-
 
 ==== GARCH, Hidden Markov Models and Power Spectral Histogram
 
@@ -70,7 +68,7 @@ We suggest that this relationship should be represented across contexts and coul
 
 We do not know why HMM generalizes this is a mystery and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
 
-==== Saccade duration and Saccade length
+==== Saccade Duration and Saccade Length
 
 Both saccade duration and saccade length seem to generalize.
 Saccades are the movements of the eyes from one fixation to another.
@@ -120,7 +118,7 @@ Some skill might be involved in picking the correct strategy when presented with
 Entropy models the spread of the gaze over the stimulus, which might model the generalizable aspect of focus; however, it is also affected by the task design. The verticality of saccades is also certainly context-specific as it relies heavily on the nature of and how the stimulus is organized.
 
 
-=== Limitations and further work
+=== Limitations and Further Work
 
 In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
 However, it would be presumptuous to say that three datasets from three different contexts could represent all of the cognitive processes.

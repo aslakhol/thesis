@@ -64,7 +64,7 @@ The vehicle code is a class that represents a vehicle with several variables and
 A constructor takes a producer, a type, and a top speed.
 In the _main_ function, a vehicle is created, and its speed is accelerated citenp:[bednarikEMIPEyeMovements2020].
 
-===== Technology and experimental setup
+===== Technology and Experimental Setup
 
 The recording was performed using a screen-mounted SMI RED25 mobile video-based eye tracker.
 The tracker has a sample rate of 250 Hz with an accuracy < 0.4◦ and a precision of ≈ 0.03◦ of visual angle.
@@ -72,7 +72,7 @@ Stimuli were presented on a laptop computer screen with a resolution of 1920 x 1
 The data collection procedure was implemented in the SMI Experimental Suite software.
 The laptop, eye-tracker, and software were shipped between the locations to minimize differences in setup citenp:[bednarikEMIPEyeMovements2020].
 
-===== Description of the data
+===== Description of the Data
 
 Below is a list of the contest of the dataset provided by Bednarik et al. citenp:[bednarikEMIPEyeMovements2020].
 
@@ -104,12 +104,12 @@ After the primer, participants watched a video from Khan Academy citenp:[KhanAca
 Arranged in 16 TT pairs, 16 SS pairs, and 17 ST pairs, each team collaborated to create a concept map using IHMC CMap tools citenp:[CmapCmapTools].
 Lastly, the participants also completed a post-test citenp:[sharmaLookingLookingDual2015].
 
-===== Technology and experimental setup
+===== Technology and Experimental Setup
 
 Gaze data was recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions].
 The participants were while they completed watched the video and during the collaborative concept mapping task citenp:[sharmaLookingLookingDual2015].
 
-===== Description of the data
+===== Description of the Data
 
 The dataset contains two files with gaze data for each participant.
 One file describes the video watching phase, and one part describes the concept mapping phase.
@@ -140,14 +140,14 @@ To investigate these hypotheses the pairs of students worked with their assigned
 The tasks used different techniques to assist the students in learning equivalent fractions.
 Participants also completed a pre-test on the morning of the experiment and a post-test the next day citenp:[olsenUsingIntelligentTutoring2014].
 
-===== Technology and experimental setup
+===== Technology and Experimental Setup
 
 Students participating in the study completed their tasks in an interactive tutoring system developed by the researchers.
 They communicated verbally through a skype connection.
 No video signal was transmitted.
 Gaze data recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions, olsenUsingIntelligentTutoring2014].
 
-===== Description of the data
+===== Description of the Data
 
 The data includes individual files with gaze data for each student as well as a file describing all the results from the pre and post-tests.
 Our dataset consists of only the data used by Sharma et al. citenp:[sharmaMeasuringCausalityCollaborative2021].
