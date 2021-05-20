@@ -324,13 +324,13 @@ These are the steps we take to create our heatmaps
 . Plot the gaze position with heatmappy citenp:[LumenResearchHeatmappy2021]
 . Resize the image to 175*90
 
-.Three consecutive heatmaps without stimulus from CSCW
+.Three consecutive heatmaps without stimulus from CSCW.
 image::../figures/cscw_heatmaps.jpg[]
 
-.Three consecutive heatmaps without stimulus from EMIP
+.Three consecutive heatmaps without stimulus from EMIP.
 image::../figures/emip_heatmaps.jpg[]
 
-.Three consecutive heatmaps without stimulus from fractions
+.Three consecutive heatmaps without stimulus from Fractions.
 image::../figures/fractions_heatmaps.jpg[]
 
 From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
