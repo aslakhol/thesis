@@ -73,7 +73,7 @@ We do not know why HMM generalizes this is a mystery and a subject for future di
 Both saccade duration and saccade length seem to generalize.
 Saccades are the movements of the eyes from one fixation to another.
 As one example, both lower saccade durations and longer saccade lengths might indicate familiarity with the stimulus.
-As discussed in xref:skewness_saccade_speed[] higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018].
+As discussed in xref:skewness_saccade_speed[] higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018a].
 Saccade speed is a function of saccade duration and saccade length; both factors map familiarity to some degree.
 Since familiarity with the interface would be relevant in all tasks that our datasets contain, this might be why saccade duration and saccade length generalize.
 De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
