@@ -55,14 +55,14 @@ However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggr
 So our results indicate that feature selection performs better than dimensionality reduction in predicting cognitive performance on gaze data for out-of-sample testing.
 
 [[one_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for PCA and LASSO for all 1-to-1 pipelines.
+.Median NRMSE Rank and mean NRMSE for PCA and LASSO for all 1-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_dim_nrmse_aggregated]]
-.NRMSE Rank and mean NRMSE for PCA and LASSO for all 2-to-1 pipelines.
+.Median NRMSE Rank and mean NRMSE for PCA and LASSO for all 2-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
@@ -81,17 +81,17 @@ image::../figures/feature_groups_context_sensitivity.jpg[]
 
 When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[].
 We see that eye-tracking is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than heatmaps and fixation duration.
-2-to-1 pipelines that include GARCH seem to outperform other 2-to-1 pipelines, but fixation duration also performs quite well.
+2-to-1 pipelines that include fixation duration seem to outperform other 2-to-1 pipelines, but GARCH also performs quite well.
 
 [[one_to_one_features_nrmse_aggregated]]
-.The four best pipelines by NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines.
+.The four features with the best median NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_features_nrmse_aggregated]]
-.The four best pipelines by NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines.
+.The four features with the best median NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]

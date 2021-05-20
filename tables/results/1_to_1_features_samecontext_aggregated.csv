@@ -1,4 +1,4 @@
-Feature Group,rmse,RMSE_RANK
+Method,Mean NRMSE,Median NRMSE Rank
 Eye Tracking Features,0.246,54.8
 Heatmaps,0.253,61.1
 Fixation Duration,0.263,69.7
