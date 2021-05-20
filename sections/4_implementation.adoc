@@ -68,6 +68,13 @@ This subsection explains how we achieved goal 3.
 
 > We need a platform that can generate computationally expensive features for multiple large datasets
 
+We will present the flow of the feature extraction process and discuss the specific features we extract.
+The features are organized into three sections:
+
+* Timeseries Features
+* Eyetracking Features
+* Heatmap features
+
 ==== Flow
 The flow of the feature extraction job is as follows:
 
@@ -80,14 +87,8 @@ The flow of the feature extraction job is as follows:
 . Generate features
 . Upload features to google cloud storage
 
-==== Features
-The features we generate can be separated into three different groups.
-
-* Timeseries Features
-* Eyetracking Features
-* Heatmap features
-
 ==== Timeseries Features
+
 Timeseries features are features that are agnostic to the source of data.
 They are a description of the signal rather than the meaning behind the signal.
 The signals we describe with timeseries features are pupil diameter, fixation duration, saccade duration, and saccade length.
@@ -407,9 +408,25 @@ Lasso was selected as our feature selection algorithm because it has been shown 
 
 
 ==== Prediction: Ensemble Learning
-Our pipelines were tested with the same classifier, a weighted voting ensemble with a KNN-regressor, a Random forest regressor, and a Support Vector regressor.
+Our pipelines were tested with the same regressor, a weighted voting ensemble with a KNN-regressor, a Random forest regressor, and a Support Vector regressor.
+An ensemble combines several different base regressors or classifiers in order to leverage the strengths of each classifier or regressor.
+A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
+Then it averages the individual predictions respective to their given weights to form a final prediction.
 To find the weights for the voting, we perform cross-validation on each of the regressors and set their respective weights as 1 - Root Mean square error.
-We use an ensemble because it has been shown to improve stability and robustness, capture linear as well as non-linear relationships, and the variance in our datasets suggests that a single model would perform inadequately citenp:[sharmaAssessingCognitivePerformance2020].
+Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[CombiningPatternClassifiers, anOptimalWeightSelectionRegressor2009].
+
+KNN predictors approximate the target by associating it with its n nearest neighbors in the training set.
+We use the default value five for n, provided to us by sklearn citenp:[UsScikitlearn24].
+KNNs are simplistic algorithms that, despite their simplicity, in some cases, outperform more complex learning algorithms.
+However, it is also negatively affected by non-informative features citenp:[gulEnsembleSubsetKNN2016].
+A random forest fits a number of classifying decision trees on various sub-samples of the dataset and aggregates the predictions from the different trees.
+Random forests have been shown to outperform most other families of classifiers citenp:[fernandez-delgadoWeNeedHundreds2014].
+SVR, support vector regressors are a regression version of support vector machines proposed by Drucker et al. citenp:[druckerSupportVectorRegression2003]
+SVRs estimate the target value by fitting a hyperplane by minimizing the margins of the plane with an error threshold.
+Support vector regressors perform particularly well when the dimensionality of the feature space representation is much larger than the number of examples, which is the case for some of our feature groups citenp:[druckerSupportVectorRegression2003].
+All our hyperparameters are set to the default values provided by sklearn citenp:[UsScikitlearn24].
+
+
 
 [[evaluation]]
 === Evaluation
@@ -442,7 +459,7 @@ We measure the generalizability of features by comparing the distributions of NR
 Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can safely assume that similar behavior will indicate similar results.
 To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
 
-asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/N(N-1)/4]
+asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/(N(N-1)/4)]
 
 The denominator normalizes the values between -1 and 1, where 0 represents a random grouping.
 Pipelines that have an FGI value closer to zero are more generalizable.
