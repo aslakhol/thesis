@@ -2,6 +2,8 @@
 # Created by https://www.toptal.com/developers/gitignore/api/osx,linux,windows,node,ruby
 # Edit at https://www.toptal.com/developers/gitignore?templates=osx,linux,windows,node,ruby
 
+index.html
+
 ### Linux ###
 *~
 
