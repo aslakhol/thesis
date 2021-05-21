@@ -298,7 +298,7 @@ verticality = angles.average()
 The entropy of gaze explains the size of the field of focus for a subject.
 Entropy is higher the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
 
-To calculate entropy, of gaze we create a grid of 50 by 50 px bins.
+To calculate the entropy of gaze, we create a grid of 50 by 50 px bins.
 We then normalize the x and y positions of each fixation in a range from 0 to 1000.
 Further, we place each fixation in one of these bins based on which bin its x and y position corresponds to.
 When we have this grid, we flatten it and take the entropy of the resulting distribution.
