@@ -12,7 +12,7 @@ While the tests in the NIH Toolbox are thorough and well tested, they are also q
 Therefore, we need a proxy if we are to evaluate cognitive performance in a micro context.
 
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
-The perceived workload can be affected by many different factors such as the complexity of the task, the task's size, and external factors like how well one slept that night.
+Cognitive load theory, first proposed by John Sweller, establishes the three domains of cognitive load as intrinsic, extraneous, and germane. Intrinsic is concerned with the complexities in the information being learned. Extraneous cognitive load is the load that stems from the instructional material. Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
 Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
 Our project will include data gathered from studies handling many different cognitive tasks.
