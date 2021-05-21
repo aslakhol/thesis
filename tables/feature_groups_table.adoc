@@ -11,7 +11,7 @@
   | Heatmaps
   | Heatmaps
 
-  | Power Spectral Histogram
+  | Spectral Histogram
   | Spectral Histogram - Pupil Diameter, +
    Spectral Histogram - Fixation Duration, +
    Spectral Histogram - Saccade Length, +
@@ -20,7 +20,7 @@
   | LHIPA
   | LHIPA - Pupil Diameter
 
-  | Markov
+  | HMM
   | HMM - Fixation Duration, +
    HMM - Pupil Diameter, +
    HMM - Saccade Duration, +
@@ -32,13 +32,13 @@
    ARMA - Saccade Length, +
    ARMA - Saccade Duration
 
-  | Garch
+  | GARCH
   | GARCH - Saccade Duration, +
    GARCH - Fixation Duration, +
    GARCH - Pupil Diameter, +
    GARCH - Saccade Length
 
-  | Pupil diameter
+  | Pupil Diameter
   | Spectral Histogram - Pupil Diameter, +
    LHIPA - Pupil Diameter, +
    HMM - Pupil Diameter, +
@@ -57,7 +57,7 @@
    ARMA - Saccade Length, +
    GARCH - Saccade Length
 
-  | Saccade duration
+  | Saccade Duration
   | Spectral Histogram - Saccade Duration, +
    HMM - Saccade Duration, +
    ARMA - Saccade Duration, +
