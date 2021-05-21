@@ -184,11 +184,13 @@ normalized_timeseries = normalize the timeseries between 0 and 1
 discretized_timeseries = discretize timeseries in 100 bins
 best_fit = null
 for i up to 8
-   fit = GaussianHMM(covariance_type="full").fit(discretized_timeseries, n_components=i)
+   fit = GaussianHMM(covariance_type="full")
+        .fit(discretized_timeseries, n_components=i)
    if(best_fit.aic > fit.aic)
-           best_fit = fit
+        best_fit = fit
 flat_transistion_matrix = best_fit.transition_matrix.flatten()
-padded_transition_matrix = pad flat_transistion matrix with n zeroes so the length is 64
+padded_transition_matrix =
+    pad flat_transistion matrix with n zeroes so the length is 64
 return padded_transition_matrix
 ```
 
