@@ -2,7 +2,7 @@
 |===
 | Name | Features
 
-  | Eye tracking Features
+  | Gaze Characteristics
   | Information Processing Ratio, +
    Saccade Speed Skewness, +
    Entropy Of Gaze, +
