@@ -298,9 +298,9 @@ verticality = angles.average()
 The entropy of gaze explains the size of the field of focus for a subject.
 Entropy is higher the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
 
-To calculate entropy, of gaze we create a grid of 50 by 50 px bins.
+To calculate the entropy of gaze, we create a grid of 50 by 50 px bins.
 We then normalize the x and y positions of each fixation in a range from 0 to 1000.
-Further, we place each fixation in one of these bins based on which bin its x and y position corresponds to.
+Further, we place each fixation in its corresponding bin, based on its x and y position.
 When we have this grid, we flatten it and take the entropy of the resulting distribution.
 
 The following algorithm extracts the feature:
@@ -448,11 +448,20 @@ This subsection explains how we evaluate the results of each test.
 ==== Evaluation Criteria
 
 We use normalized root mean squared error (NRMSE) as our primary evaluation metric.
-Since the datasets' labels are in different ranges, we need a metric that can be compared across datasets.
-NRMSE is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
-NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]  and is the preferred metric for student models. citenp:[pelanekMetricsEvaluationStudent2015]
-Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to NRMSE in this thesis.
-Hence we refer to it as NRMSE in this thesis.
+NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]
+NRMSE is a probabilistic understanding of errors as defined by Ferri et al. citenp:[ferriExperimentalComparisonPerformance2009].
+The score in all our contexts is based on binary outcomes; a question is either correct or incorrect.
+Pelánek et al. citenp:[pelanekMetricsEvaluationStudent2015] argue that for such cases, metrics such as Root Mean Squared Error (RMSE) or Log-Likelihood (LL) is preferred to metrics such as Mean Average Error (MAE).
+MAE considers the absolute difference between the predictions and the errors and is not a suitable metric, as it prefers models that are biased toward the majority result.
+RMSE, on the other hand, does not have this issue, as it is based on the squared value of each error, giving greater weight to larger errors in its average.
+The main difference between RMSE and LL is the unbounded nature of LL, which means that it can very heavily punish models that confidently make incorrect assertions citenp:[pelanekMetricsEvaluationStudent2015].
+While this can be preferred in some contexts, we decided to proceed with the more common RMSE measure.
+
+The root part of RMSE serves to move the sum of errors back into the range of the labels being predicted to improve interpretability.
+This might have limited usefulness as the resulting numbers can still be challenging to interpret citenp:[pelanekMetricsEvaluationStudent2015].
+In our case, the labels exist in three different contexts with labels in different ranges, and since we are working across these contexts, we need normalized values.
+Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to Normalized RMSE (NRSME).
+Our NRSME is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
 
 The following formulas calculate NRMSE.
 
