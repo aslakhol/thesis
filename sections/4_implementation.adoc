@@ -91,10 +91,9 @@ The flow of the feature extraction job is as follows:
 
 ==== Timeseries Features
 
-Timeseries features are features that are agnostic to the source of data.
-They are a description of the signal rather than the meaning behind the signal.
-The signals we describe with timeseries features are pupil diameter, fixation duration, saccade duration, and saccade length.
-
+After preprocessing, our dataset includes several different eye-tracking variables.
+The variables we use are pupil diameter, fixation duration, saccade duration, and saccade length.
+We interpret these signals with different timeseries modeling techniques, which are elaborated upon in this section.
 
 From each of these signals, we calculate five features.
 
@@ -112,7 +111,6 @@ We computed the centroid, variance, skew, and kurtosis of the power spectral his
 
 The power spectral histogram describes the repetition of patterns in the data.
 We hypothesize that similar pattern repetitions will be present in subjects that display a high cognitive performance across contexts.
-
 
 ===== Autoregressive Moving Average model (ARMA)
 
