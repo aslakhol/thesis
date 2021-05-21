@@ -94,9 +94,10 @@ For example, an ARMA model would be impacted by a stimulus with longer distances
 ====  LHIPA and Pupil Diameter
 
 LHIPA was developed to be an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
-The cognitive load of a task will have many factors, but the specific complexities of the given task must undoubtedly be a part of those.
-LHIPA likely models these complexities and other factors directly related to the task.
-Our observations that LHIPA can produce context-sensitive pipelines are in line with this thinking.
+Cognitive load consists of intrinsic, extraneous and germane loads citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
+Intrinsic and extraneous cognitive load are determined by the characteristics of the material, the complexity of the information and the presentation respectively, which are both context specific factors.
+As opposed to germane load which is concerned with the subjects personal characteristics and would likely be more generalizable.
+Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA might captures the extraneous or intrinsic aspects of cognitive load.
 
 Pupil diameter has been shown to be affected by several task-specific factors.
 Both task difficulty and time limits have an impact on pupil dilation citenp:[shojaeizadehDetectingTaskDemand2019].
