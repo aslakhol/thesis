@@ -224,18 +224,18 @@ To compute the ratio, we divide GIP by LIP.
 The following algorithm extracts the feature:
 
 ```
-upper_threshold_saccade_length = get 75 percentile of saccade_lengths
-lower_threshold_saccade_length = get 25 percentile of saccade_lengths
-upper_threshold_fixation_duration = get 75 percentile of fixation_durations
-lower_threshold_fixation_duration = get 25 percentile of fixation_durations
+upper_threshold_saccade_length = 75 percentile of saccade_lengths
+lower_threshold_saccade_length = 25 percentile of saccade_lengths
+upper_threshold_fixation_duration = 75 percentile of fixation_durations
+lower_threshold_fixation_duration = 25 percentile of fixation_durations
 
 LIP = 0
 GIP = 0
-for saccade_length, fixation_duration in saccade_lengths, fixation_durations
-    fixation_is_short = fixation_duration <= lower_threshold_fixation_duration
-    fixation_is_long = upper_threshold_fixation_duration <= fixation_duration
-    saccade_is_short = saccade_length <= lower_threshold_saccade_length
-    saccade_is_long = upper_threshold_saccade_length <= saccade_length
+for s_length, f_duration in saccade_lengths, fixation_durations
+    fixation_is_short = f_duration <= lower_threshold_fixation_duration
+    fixation_is_long = upper_threshold_fixation_duration <= f_duration
+    saccade_is_short = s_length <= lower_threshold_saccade_length
+    saccade_is_long = upper_threshold_saccade_length <= s_length
 
     if fixation_is_long and saccade_is_short:
         LIP += 1
