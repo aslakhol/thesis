@@ -129,6 +129,8 @@ asciimath:[X_t = sum_(j=1)^p phi_j X_(t-j) + sum_(i=1)^q theta_i epsilon_(t-i) +
 
 The features we extract from ARMA are extracted with the following algorithm
 
+
+.Pseudocode for ARMA
 ```
 best_fit = null
 for p up to 4
@@ -137,9 +139,8 @@ for p up to 4
         if(best_fit.aic > fit.aic)
             best_fit = fit
 return best_fit["ar"], best_fit["ma"], best_fit["exog"]
-
-
 ```
+
 ===== GARCH
 
 GARCH is similar to ARMA, but it is applied to the variance of the data instead of the mean.
@@ -152,7 +153,8 @@ In the analysis of financial markets, GARCH can account for the spikes and sudde
 
 We extract features from GARCH similar to how we extract features from ARMA.
 
-```''
+.Pseudocode for GARCH
+```
 best_fit = null
 for p up to 4
     for q up to 4
@@ -179,6 +181,7 @@ We then use the resulting transition matrix as the feature.
 The reasoning behind using HMM is the same as to why we chose ARMA.
 We hypothesize that HMM might model the changing state nature of cognitive work.
 
+.Pseudocode for HMM
 ```
 normalized_timeseries = normalize the timeseries between 0 and 1
 discretized_timeseries = discretize timeseries in 100 bins
@@ -223,6 +226,7 @@ To compute the ratio, we divide GIP by LIP.
 
 The following algorithm extracts the feature:
 
+.Pseudocode for ARMA
 ```
 upper_threshold_saccade_length = 75 percentile of saccade_lengths
 lower_threshold_saccade_length = 25 percentile of saccade_lengths
