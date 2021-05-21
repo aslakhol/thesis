@@ -12,7 +12,6 @@ In order to achieve this goal, multiple components have to be present.
 . We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 . We need reproducibility.
 
-
 xref:architecture_diagram[] shows the outlines of the architecture we propose.
 The first step is data preprocessing, explained in xref:preprocessing[].
 Preprocessed data is then fed to the feature extraction step explained in xref:feature_extraction[].
@@ -49,7 +48,6 @@ Pieter Blignaut citenp:[blignautFixationIdentificationOptimum2009] suggests that
 The distance between the subject and the stimulus was 700 mm for EMIP; thus, 1º of the foveal angle works out to about 45 pixels.
 We only used fixations where the subject was reading code and disregarded data gathered during setup and calibration.
 
-
 ==== Normalization and Outlier Removal
 
 As our subjects come from multiple contexts, the need for normalization and outlier removal is extra apparent.
@@ -73,7 +71,7 @@ We will present the flow of the feature extraction process and discuss the speci
 The features are organized into three sections:
 
 * Timeseries Features
-* Eyetracking Features
+* Gaze Characteristics
 * Heatmap features
 
 ==== Flow
@@ -91,10 +89,9 @@ The flow of the feature extraction job is as follows:
 
 ==== Timeseries Features
 
-Timeseries features are features that are agnostic to the source of data.
-They are a description of the signal rather than the meaning behind the signal.
-The signals we describe with timeseries features are pupil diameter, fixation duration, saccade duration, and saccade length.
-
+After preprocessing, our dataset includes several different eye-tracking variables.
+The variables we use are pupil diameter, fixation duration, saccade duration, and saccade length.
+We interpret these signals with different timeseries modeling techniques, which are elaborated upon in this section.
 
 From each of these signals, we calculate five features.
 
@@ -113,7 +110,6 @@ We computed the centroid, variance, skew, and kurtosis of the power spectral his
 The power spectral histogram describes the repetition of patterns in the data.
 We hypothesize that similar pattern repetitions will be present in subjects that display a high cognitive performance across contexts.
 
-
 ===== Autoregressive Moving Average model (ARMA)
 
 We know that a cognitive process takes place over a span of time, and our gaze data is organized as a timeseries.
@@ -131,6 +127,7 @@ asciimath:[X_t = sum_(j=1)^p phi_j X_(t-j) + sum_(i=1)^q theta_i epsilon_(t-i) +
 
 The features we extract from ARMA are extracted with the following algorithm
 
+
 ```
 best_fit = null
 for p up to 4
@@ -139,9 +136,8 @@ for p up to 4
         if(best_fit.aic > fit.aic)
             best_fit = fit
 return best_fit["ar"], best_fit["ma"], best_fit["exog"]
-
-
 ```
+
 ===== GARCH
 
 GARCH is similar to ARMA, but it is applied to the variance of the data instead of the mean.
@@ -154,7 +150,7 @@ In the analysis of financial markets, GARCH can account for the spikes and sudde
 
 We extract features from GARCH similar to how we extract features from ARMA.
 
-```''
+```
 best_fit = null
 for p up to 4
     for q up to 4
@@ -186,11 +182,13 @@ normalized_timeseries = normalize the timeseries between 0 and 1
 discretized_timeseries = discretize timeseries in 100 bins
 best_fit = null
 for i up to 8
-   fit = GaussianHMM(covariance_type="full").fit(discretized_timeseries, n_components=i)
+   fit = GaussianHMM(covariance_type="full")
+        .fit(discretized_timeseries, n_components=i)
    if(best_fit.aic > fit.aic)
-           best_fit = fit
+        best_fit = fit
 flat_transistion_matrix = best_fit.transition_matrix.flatten()
-padded_transition_matrix = pad flat_transistion matrix with n zeroes so the length is 64
+padded_transition_matrix =
+    pad flat_transistion matrix with n zeroes so the length is 64
 return padded_transition_matrix
 ```
 
@@ -205,9 +203,9 @@ If the cognitive workload is increased beyond this point, cognitive performance 
 
 Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020]
 
-==== Eyetracking Features
+==== Gaze Characteristics
 
-These are features that are connected to the domain of eye-tracking and not signal processing features.
+Gaze Characteristics are features that are interpreted directly from the eye-tracking data and are not subject to additional signal processing.
 
 ===== Information Processing Ratio
 
@@ -218,25 +216,24 @@ Local information processing (LIP) is the opposite; one's gaze focuses on smalle
 For this metric, fixations are measured in time, while saccades are measured as distance.
 Hence we capture both the spatial and temporal dimensions.
 
-
 The information processing ratio describes how much a subject skimmed the material versus how much they focus intently.
 To compute the ratio, we divide GIP by LIP.
 
 The following algorithm extracts the feature:
 
 ```
-upper_threshold_saccade_length = get 75 percentile of saccade_lengths
-lower_threshold_saccade_length = get 25 percentile of saccade_lengths
-upper_threshold_fixation_duration = get 75 percentile of fixation_durations
-lower_threshold_fixation_duration = get 25 percentile of fixation_durations
+upper_threshold_saccade_length = 75 percentile of saccade_lengths
+lower_threshold_saccade_length = 25 percentile of saccade_lengths
+upper_threshold_fixation_duration = 75 percentile of fixation_durations
+lower_threshold_fixation_duration = 25 percentile of fixation_durations
 
 LIP = 0
 GIP = 0
-for saccade_length, fixation_duration in saccade_lengths, fixation_durations
-    fixation_is_short = fixation_duration <= lower_threshold_fixation_duration
-    fixation_is_long = upper_threshold_fixation_duration <= fixation_duration
-    saccade_is_short = saccade_length <= lower_threshold_saccade_length
-    saccade_is_long = upper_threshold_saccade_length <= saccade_length
+for s_length, f_duration in saccade_lengths, fixation_durations
+    fixation_is_short = f_duration <= lower_threshold_fixation_duration
+    fixation_is_long = upper_threshold_fixation_duration <= f_duration
+    saccade_is_short = s_length <= lower_threshold_saccade_length
+    saccade_is_long = upper_threshold_saccade_length <= s_length
 
     if fixation_is_long and saccade_is_short:
         LIP += 1
@@ -365,6 +362,7 @@ return features.flatten()
 
 After feature extraction, these are the features that are generated for each subject.
 
+.Final feature set.
 include::../tables/feature_set_table.adoc[]
 
 [[pipelines]]
@@ -398,9 +396,10 @@ With a theoretical runtime of 1 second per pipeline, the total computing time ne
 
 As an alternative, we decided to group our features manually.
 We created one group for the eye-tracking features, four for the type of signal, and five for the different time series features.
-In addition, we have a separate group for heatmaps and, lastly, one group with includes all the features.
+In addition, we have a separate group for heatmaps and, lastly, one group that includes all the features.
 The groups are presented in the following table:
 
+.Feature groups and the features contained in them.
 include::../tables/feature_groups_table.adoc[]
 
 ==== Reducing the Feature Space

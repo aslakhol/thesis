@@ -24,7 +24,7 @@
 | The Low/High Index of Pupillary Activity
 
 | HMM - Pupil Diameter
-| Transistion matrix of fitted markov model
+| Transistion matrix of a fitted hidden markov model
 
 | ARMA - Pupil Dialation
 | Ar, ma, and Exog attributes of a fitted ARMA model
@@ -36,7 +36,7 @@
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
 
 | HMM - Fixation Duration
-| Transistion matrix of fitted markov model
+| Transistion matrix of a fitted hidden markov model
 
 | ARMA - Fixation Duration
 | Ar, ma, and Exog attributes of a fitted ARMA model
@@ -48,7 +48,7 @@
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
 
 | HMM - Saccade Length
-| Transistion matrix of fitted markov model
+| Transistion matrix of a fitted hidden markov model
 
 | ARMA - Saccade Length
 | Ar, ma, and Exog attributes of a fitted ARMA model
@@ -60,7 +60,7 @@
 | Skew, Kurtosis, Mean, and Variance of the power spectral histogram
 
 | HMM - Saccade Duration
-| Transistion matrix of fitted markov model
+| Transistion matrix of a fitted hidden markov model
 
 | ARMA - Saccade Duration
 | Ar, ma, and Exog attributes of a fitted ARMA model

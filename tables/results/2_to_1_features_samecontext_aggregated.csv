@@ -1,6 +1,6 @@
 Method,Mean NRMSE,Median NRMSE Rank
 Fixation Duration,0.269,22.5
 GARCH,0.264,24.0
-Power Spectral Histogram,0.271,31.5
-ALL,0.267,32.5
+Spectral Histogram,0.271,31.5
+All,0.267,32.5
 LHIPA,0.282,37.5
