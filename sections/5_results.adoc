@@ -18,6 +18,7 @@ We calculate a specific for each dataset combination.
 We use the NRMSE value equivalent to predicting the mean label value from the in-study dataset as the baseline for each combination.
 Our pipelines are evaluated against the baseline for the given dataset combination.
 
+.The baselines for each dataset combination
 include::../tables/in_study_baselines_table.adoc[]
 
 Pseudocode for the in-study baseline:
@@ -47,26 +48,34 @@ This mean of ranks gives us the results of what pipeline components perform best
 xref:pipelines_nrmses_dim_reduction[] shows which method reduces the feature space for the pipelines with the five smallest NRMSEs per dataset.
 Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
+
+
 [[pipelines_nrmses_dim_reduction]]
 .The four best pipelines by NRMSE per dataset and whether they used dimensionality reduction or feature selection.
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
+
+
 However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines, and clearly better across the 2-to-1 pipelines.
 So our results indicate that feature selection performs better than dimensionality reduction in predicting cognitive performance on gaze data for out-of-sample testing.
 
+
+
 [[one_to_one_dim_nrmse_aggregated]]
-.Median NRMSE Rank and mean NRMSE for PCA and LASSO for all 1-to-1 pipelines.
+.Mean NRMSE and Median NRMSE Rank for PCA and LASSO for all 1-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_dim_nrmse_aggregated]]
-.Median NRMSE Rank and mean NRMSE for PCA and LASSO for all 2-to-1 pipelines.
+.Mean NRMSE and Median NRMSE Rank for PCA and LASSO for all 2-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
+
+
 
 ==== Features
 
@@ -75,7 +84,7 @@ It seems that several different feature groups perform quite well for the differ
 We note that fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines and ALL perform well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
-.The four best pipelines by NRMSES per dataset and what feature group it contained.
+.The four best pipelines by NRMSE per dataset and their feature group.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
 
@@ -83,19 +92,23 @@ When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggrega
 We see that eye-tracking is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than heatmaps and fixation duration.
 2-to-1 pipelines that include fixation duration seem to outperform other 2-to-1 pipelines, but GARCH also performs quite well.
 
+
+
 [[one_to_one_features_nrmse_aggregated]]
-.The four features with the best median NRMSE Rank and mean NRMSE for the feature groups across all 1-to-1 pipelines.
+.The five feature groups with the best median NRMSE Rank and their mean NRMSE across all 1-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/1_to_1_features_samecontext_aggregated.csv[]
 |===
 
 [[two_to_one_features_nrmse_aggregated]]
-.The four features with the best median NRMSE Rank and mean NRMSE for the feature groups across all 2-to-1 pipelines.
+.The five feature groups with the best median NRMSE Rank and their mean NRMSE across all 2-to-1 pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/2_to_1_features_samecontext_aggregated.csv[]
 |===
+
+
 
 [[generalizability]]
 === Generalizability
@@ -107,16 +120,16 @@ We do this by filtering out the pipelines that do not perform better than the ba
 From 216 pipelines, 72 beat the baseline.
 
 [[distribution_fgi]]
-.Kernel Density Estimation plot of the FGI by pipeline type
+.Kernel Density Estimation plot of the FGI by pipeline type.
 image::../figures/distribution_of_FGI.png[]
 
 As represented in xref:distribution_fgi[], 2-to-1 pipelines are in general more generalizable than 1-to-1 pipelines.
 This is in line with the results of citenp:[sharmaAssessingCognitivePerformance2020].
-For simplicity and since our focus is generalizability, we will only refer to the 2-to-1 pipelines in the following sections.
+For simplicity, since our focus is generalizability, we will only refer to the 2-to-1 pipelines in the following sections.
 
 
 [[generalizable_pipelines]]
-.Generalizable pipelines
+.The 10 most generalizable pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/generalizable_pipelines.csv[]
@@ -143,7 +156,7 @@ It should also be noted that GARCH is also the only pipeline with an in-study da
 The bottom third of the filtered baselines contain the pipelines that are more context-specific.
 
 [[context_sensitive_pipelines]]
-.Context sensitive pipelines
+.The 10 most context sensitive pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/context_sensitive_pipelines.csv[]

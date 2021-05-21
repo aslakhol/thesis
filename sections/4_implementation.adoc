@@ -362,6 +362,7 @@ return features.flatten()
 
 After feature extraction, these are the features that are generated for each subject.
 
+.Final feature set.
 include::../tables/feature_set_table.adoc[]
 
 [[pipelines]]
@@ -395,9 +396,10 @@ With a theoretical runtime of 1 second per pipeline, the total computing time ne
 
 As an alternative, we decided to group our features manually.
 We created one group for the eye-tracking features, four for the type of signal, and five for the different time series features.
-In addition, we have a separate group for heatmaps and, lastly, one group with includes all the features.
+In addition, we have a separate group for heatmaps and, lastly, one group that includes all the features.
 The groups are presented in the following table:
 
+.Feature groups and the features contained in them.
 include::../tables/feature_groups_table.adoc[]
 
 ==== Reducing the Feature Space
