@@ -14,7 +14,6 @@ Toker et al. citenp:[tokerPupillometryHeadDistance2017] has also shown that incl
 Chen and Epps citenp:[chenUsingTaskInducedPupil2014] did binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency.
 Their work showed promising results for the automatic prediction of cognitive load with gaze data.
 
-
 There are also novel features engineered from gaze data.
 Duchowski et al. citenp:[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA).
 IPA was proposed as an alternative to the existing Index of Cognitive Activity (ICA) since ICA is not available to the public.
@@ -23,9 +22,7 @@ Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020] used heatmaps
 Features from the heatmaps were extracted with a pre-trained VGG19 model.
 They showed that cognitive performance could be predicted with an error rate of less than 5%.
 
-
 Even though gaze-data has shown promising results in predicting cognitive workload and performance, there is little work in the literature that addresses inferring cognitive performance between contexts from gaze data.
-
 
 === Generalizability
 While universalism and context-sensitivity in information systems research remain essential research topics, citenp:[davisonContextKingConsidering2016, chengContextMayBe2016] generalizability continues to be a chief concern in machine learning research.
