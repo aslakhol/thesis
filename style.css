@@ -406,14 +406,9 @@ pre,
 table {
   margin-top: 35px;
   margin-bottom: 35px;
-}
-
-table {
+  width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
-}
-
-table {
   background: #fff;
   margin-bottom: 1.25em;
   border: solid 1px #dedede;

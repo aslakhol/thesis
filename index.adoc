@@ -47,3 +47,5 @@ include::sections/7_conclusion.adoc[]
 == Bibliography
 
 bibliography::[]
+
+include::sections/appendix.adoc[]
