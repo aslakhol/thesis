@@ -34,6 +34,7 @@ They are further described in the following section.
 
 The Eye-Movements In Programming (EMIP) dataset is a large eye-tracking dataset collected as a community effort involving 11 research teams across four continents.
 The goal was to provide a substantially large dataset open and free to stimulate research relating to programming and eye-tracking citenp:[bednarikEMIPEyeMovements2020].
+EMIP is published under the CC 4.0 license citenp:[CreativeCommonsAttribution] at _http://emipws.org/emip_dataset/_.
 
 ===== Participants
 
@@ -59,7 +60,7 @@ After completing the question for Vehicle, they were presented with the code for
 The rectangle code consists of a class representing a rectangle, instantiated through a constructer that takes four coordinates.
 The class also has methods to width, height, and area.
 In the _main_ function of the class, two rectangles are instantiated, and their areas are printed.
-The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity2013], and the EMIP researchers translated code from python two Scala, and Java.
+The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity2013], and the EMIP researchers translated code from python to Scala, and Java.
 The vehicle code is a class that represents a vehicle with several variables and a function to accelerate the car.
 A constructor takes a producer, a type, and a top speed.
 In the _main_ function, a vehicle is created, and its speed is accelerated citenp:[bednarikEMIPEyeMovements2020].
@@ -86,6 +87,7 @@ Below is a list of the contest of the dataset provided by Bednarik et al. citenp
 
 The CSCW dataset was gathered during the Computer-Supported Cooperative Work and Social Computing course at École Polytechnique fédérale de Lausanne.
 The study intended to show the different gaze patterns across learners in Massive Open Online Courses (MOOCS) and study the priming effect on learning citenp:[sharmaLookingLookingDual2015].
+The dataset was provided to us by our thesis advisor Kshitij Sharma.
 
 ===== Participants
 
@@ -120,6 +122,7 @@ We will be working with the data on the individual level citenp:[sharmaLookingLo
 ==== Fractions
 The dataset that we refer to as Fractions was gathered by Olson et al. citenp:[olsenUsingIntelligentTutoring2014].
 It is an eye-tracking dataset from an experiment intending to investigate the differences between individual and collaborative performance when working on conceptually or procedurally oriented problems in a intelligent tutoring system (ITS) designed to teach fractions.
+The dataset was provided to us by Jennifer K. Olsen, through our thesis advisor Kshitij Sharma.
 
 ===== Participants
 
