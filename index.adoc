@@ -17,7 +17,7 @@ Master's Thesis in Informatics, Spring 2021
 [[department]]
 Artificial Intelligence Group +
 Department of Computer and Information Science +
-Faculty Of Information Technology, Matematics and Electrical Engineering
+Faculty of Information Technology and Electrical Engineering
 
 
 [[ntnu_logo]]
