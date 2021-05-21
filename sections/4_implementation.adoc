@@ -300,7 +300,7 @@ Entropy is higher the subject's attention is more evenly spread over the stimulu
 
 To calculate the entropy of gaze, we create a grid of 50 by 50 px bins.
 We then normalize the x and y positions of each fixation in a range from 0 to 1000.
-Further, we place each fixation in one of these bins based on which bin its x and y position corresponds to.
+Further, we place each fixation in its corresponding bin, based on its x and y position.
 When we have this grid, we flatten it and take the entropy of the resulting distribution.
 
 The following algorithm extracts the feature:
