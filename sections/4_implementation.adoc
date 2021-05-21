@@ -459,9 +459,9 @@ While this can be preferred in some contexts, we decided to proceed with the mor
 
 The root part of RMSE serves to move the sum of errors back into the range of the labels being predicted to improve interpretability.
 This might have limited usefulness as the resulting numbers can still be challenging to interpret citenp:[pelanekMetricsEvaluationStudent2015].
-In our case, the labels exist in three different contexts, and since we are working across contexts, we need to normalize our RMSE values.
-Our Normalized RMSE (NRSME) is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
-Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to NRMSE in this thesis.
+In our case, the labels exist in three different contexts with labels in different ranges, and since we are working across these contexts, we need normalized values.
+Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to Normalized RMSE (NRSME).
+Our NRSME is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
 
 The following formulas calculate NRMSE.
 
