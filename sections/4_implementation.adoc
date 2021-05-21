@@ -12,7 +12,6 @@ In order to achieve this goal, multiple components have to be present.
 . We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 . We need reproducibility.
 
-
 xref:architecture_diagram[] shows the outlines of the architecture we propose.
 The first step is data preprocessing, explained in xref:preprocessing[].
 Preprocessed data is then fed to the feature extraction step explained in xref:feature_extraction[].
@@ -48,7 +47,6 @@ We set the minimum duration by finding the minimum duration of fixations from ou
 Pieter Blignaut citenp:[blignautFixationIdentificationOptimum2009] suggests that the maximum distance of a fixation when using a dispersion algorithm for finding fixations should be 1º of the foveal angle.
 The distance between the subject and the stimulus was 700 mm for EMIP; thus, 1º of the foveal angle works out to about 45 pixels.
 We only used fixations where the subject was reading code and disregarded data gathered during setup and calibration.
-
 
 ==== Normalization and Outlier Removal
 
@@ -130,7 +128,6 @@ asciimath:[X_t = sum_(j=1)^p phi_j X_(t-j) + sum_(i=1)^q theta_i epsilon_(t-i) +
 The features we extract from ARMA are extracted with the following algorithm
 
 
-.Pseudocode for ARMA
 ```
 best_fit = null
 for p up to 4
@@ -153,7 +150,6 @@ In the analysis of financial markets, GARCH can account for the spikes and sudde
 
 We extract features from GARCH similar to how we extract features from ARMA.
 
-.Pseudocode for GARCH
 ```
 best_fit = null
 for p up to 4
@@ -181,7 +177,6 @@ We then use the resulting transition matrix as the feature.
 The reasoning behind using HMM is the same as to why we chose ARMA.
 We hypothesize that HMM might model the changing state nature of cognitive work.
 
-.Pseudocode for HMM
 ```
 normalized_timeseries = normalize the timeseries between 0 and 1
 discretized_timeseries = discretize timeseries in 100 bins
@@ -226,7 +221,6 @@ To compute the ratio, we divide GIP by LIP.
 
 The following algorithm extracts the feature:
 
-.Pseudocode for ARMA
 ```
 upper_threshold_saccade_length = 75 percentile of saccade_lengths
 lower_threshold_saccade_length = 25 percentile of saccade_lengths
