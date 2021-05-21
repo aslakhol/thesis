@@ -1,10 +1,10 @@
 FGI,In Study,Feature Group,PCA or Lasso
-0.0093,emip_cscw,Heatmaps,lasso
+0.0093,emip_cscw,Heatmaps,LASSO
 0.0093,emip_cscw,ARMA,PCA
-0.0095,emip_fractions,Power Spectral Histogram,lasso
-0.0096,emip_cscw,HMM,lasso
+0.0095,emip_fractions,Spectral Histogram,LASSO
+0.0096,emip_cscw,HMM,LASSO
 0.0096,emip_fractions,LHIPA,PCA
-0.0098,emip_cscw,Saccade Length,lasso
-0.0102,emip_cscw,Eye Tracking Features,lasso
-0.0102,emip_cscw,Pupil Diameter,lasso
-0.0117,emip_cscw,ALL,lasso
+0.0098,emip_cscw,Saccade Length,LASSO
+0.0102,emip_cscw,Gaze Characteristics,LASSO
+0.0102,emip_cscw,Pupil Diameter,LASSO
+0.0117,emip_cscw,All,LASSO
