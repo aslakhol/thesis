@@ -1,6 +1,6 @@
 Method,Mean NRMSE,Median NRMSE Rank
-Eye Tracking Features,0.246,54.8
+Gaze Characteristics,0.246,54.8
 Heatmaps,0.253,61.1
 Fixation Duration,0.263,69.7
 Saccade Duration,0.266,71.2
-Power Spectral Histogram,0.268,71.8
+Spectral Histogram,0.268,71.8

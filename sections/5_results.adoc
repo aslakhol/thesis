@@ -153,6 +153,6 @@ Again we can see that the dataset combination is an important factor in which pi
 LASSO is more represented among the more context-specific pipelines.
 As with the generalizable pipelines, there are more pipelines with LASSO that beat the baseline.
 For the feature groups, we observe some differences from the generalizable pipelines.
-ARMA, LHIPA, Eye Tracking, and Pupil Diameter are present in the context-sensitive pipelines but not in the more generalizable pipelines.
+ARMA, LHIPA, Gaze Characteristics, and Pupil Diameter are present in the context-sensitive pipelines but not in the more generalizable pipelines.
 This indicates that these feature groups are more likely to produce context-sensitive pipelines.
 Heatmaps, Spectral Histogram, Hidden Markov Models, ALL, and Saccade Length appear in generalizable and context-sensitive pipelines. This further supports the observation that dataset combination is an essential variable for generalizability.

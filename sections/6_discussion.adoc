@@ -5,8 +5,8 @@
 
 - 2-to-1 pipelines are more generalizable than 1-to-1 pipelines.
 - 2-to-1 pipelines where Fractions and CSCW are the in-study datasets produce more generalizable pipelines.
-- GARCH, Power Spectral Histogram, heatmaps, saccade duration, saccade length, and Markov can produce generalizable pipelines.
-- Pupil Diameter, Eye tracking, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
+- GARCH, Power Spectral Histogram, heatmaps, Saccade Duration, Saccade Length, and HMM can produce generalizable pipelines.
+- Pupil Diameter, Gaze Characteristics, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
 
 === Filtering on the Baseline
 

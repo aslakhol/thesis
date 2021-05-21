@@ -73,7 +73,7 @@ We will present the flow of the feature extraction process and discuss the speci
 The features are organized into three sections:
 
 * Timeseries Features
-* Eyetracking Features
+* Gaze Characteristics
 * Heatmap features
 
 ==== Flow
@@ -205,7 +205,7 @@ If the cognitive workload is increased beyond this point, cognitive performance 
 
 Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020]
 
-==== Eyetracking Features
+==== Gaze Characteristics
 
 These are features that are connected to the domain of eye-tracking and not signal processing features.
 

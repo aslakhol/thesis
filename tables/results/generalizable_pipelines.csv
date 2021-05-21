@@ -1,11 +1,11 @@
 FGI,In Study,Feature Group,PCA or Lasso
-0.007,fractions_cscw,GARCH,lasso
-0.0074,fractions_cscw,Power Spectral Histogram,lasso
-0.0074,fractions_cscw,ALL,PCA
-0.0077,fractions_cscw,Saccade Duration,lasso
+0.007,fractions_cscw,GARCH,LASSO
+0.0074,fractions_cscw,Spectral Histogram,LASSO
+0.0074,fractions_cscw,All,PCA
+0.0077,fractions_cscw,Saccade Duration,LASSO
 0.0077,fractions_cscw,Heatmaps,PCA
-0.0077,fractions_cscw,Saccade Length,lasso
-0.0077,fractions_cscw,Heatmaps,lasso
-0.0078,fractions_cscw,ALL,lasso
-0.0078,fractions_cscw,HMM,lasso
+0.0077,fractions_cscw,Saccade Length,LASSO
+0.0077,fractions_cscw,Heatmaps,LASSO
+0.0078,fractions_cscw,All,LASSO
+0.0078,fractions_cscw,HMM,LASSO
 0.0081,emip_cscw,GARCH,PCA

@@ -1,3 +1,3 @@
 Method,Mean NRMSE,Median NRMSE Rank
-lasso,0.272,31.5
+LASSO,0.272,31.5
 PCA,0.283,44.0
