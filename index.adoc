@@ -23,7 +23,7 @@ Faculty of Information Technology and Electrical Engineering
 [[ntnu_logo]]
 image:figures/ntnu.png[ntnu, 100]
 
-
+include::sections/0_abstract.adoc[]
 
 toc::[]
 
