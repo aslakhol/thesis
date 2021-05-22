@@ -123,7 +123,7 @@ Entropy models the spread of the gaze over the stimulus, which might model the g
 
 In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
 However, it would be presumptuous to say that three datasets from three different contexts could represent all of the cognitive processes.
-Our goal has been to generalize between our three contexts, and we hope that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
+Our goal has been to generalize between our three contexts, and we believe that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
 We do not mean to say that our features will generalize to any context.
 Nevertheless, this is a first step that provides evidence on how gaze-related features provide a certain level of generalizability across three distinct and commonly employed contexts.
 
