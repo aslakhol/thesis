@@ -11,7 +11,7 @@ Our work presents several generalizable features and a novel architecture that c
 == Acknowledgement
 
 We extend our deepest gratitude to our advisors Kshitij Sharma and Michalis Giannakos.
-Their assistance has been thought-provoking, engaging, and critical to our success
+Their assistance has been thought-provoking, engaging, and critical to our success.
 Further, we would like to thank Jennifer Olsen for providing the Fractions dataset.
 Pål and Johannes have made life in the office a true joy.
 // Beers have been drunk; Laughs have been laughed, and quizzes have been quozed.
