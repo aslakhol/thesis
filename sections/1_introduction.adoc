@@ -30,8 +30,8 @@ We will argue that each task has some measure, such as a score, that correlates 
 Eye-tracking is the process of tracking and recording the position of a subject's gaze while interacting with digital devices.
 The gaze point for each of the eyes of a subject is recorded over time.
 Eye-tracking can be used as input control for interacting with systems citenp:[cantoniEyeTrackingComputer2014], or to record user behavior when interacting with digital and physical systems citenp:[grankaEyeTrackingAnalysisUser2004, bojkoEyeTrackingUser2005].
-As the equipment involved has become cheaper and eye-tracking with web-cameras has improved citenp:[bottWebCameraBased2017], eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
-These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], colaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
+As the equipment involved has become cheaper and eye-tracking with web cameras has improved citenp:[bottWebCameraBased2017], eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
+These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], collaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
 
 ==== Generalizability
 
