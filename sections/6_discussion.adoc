@@ -120,6 +120,15 @@ Some skill might be involved in picking the correct strategy when presented with
 Entropy models the spread of the gaze over the stimulus, which might model the generalizable aspect of focus; however, it is also affected by the task design. The verticality of saccades is also certainly context-specific as it relies heavily on the nature of and how the stimulus is organized.
 
 
+
+==== All
+In pipelines with the All feature group, we combine all features and capture both context-sensitive and generalizable patterns.
+Our results indicate that pipelines with the All feature group appear among both the context-sensitive and generalizable pipelines.
+This might be because, in our ensemble classifier, more predictive features for the training context might be preferred.
+We see that All-pipelines that are trained on the fractions_cscw tend to generalize.
+This might indicate that features that perform well when predicting fractions_cscw produce more generalizable pipelines.
+
+
 === Limitations and Further Work
 
 In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
