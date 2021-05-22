@@ -25,7 +25,8 @@ This allows us to analyze the generalizability of the pipeline.
 === Datasets
 
 We have been working with three different datasets gathered and published by other researchers.
-They are all gathered during cognitive tasks and, as such, are suitable for investigating cognitive workload.
+They are all gathered during cognitive tasks and, as such, are suitable for investigating cognitive performance.
+The selected datasets differ in context and what parts of the spectrum of cognitive processes they cover.
 We have used the shorthand names EMIP, CSCW, and Fractions to refer to the datasets.
 They are further described in the following section.
 
@@ -160,7 +161,7 @@ This only includes the data from the pairs that worked on the collaborative task
 === Contexts
 
 Our work seeks to investigate generalizability between specific contexts; thus, we must be aware of our contextual biases.
-We have gathered datasets that we consider to cover a significant spectrum of cognitive processes.
+We have selected datasets that we consider to cover a significant spectrum of cognitive processes.
 
 EMIP is an individual task that is about reading and understanding programming code.
 We hypothesize that the task in EMIP relies primarily on three of the cognitive subdomains deemed most critical by Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013].
