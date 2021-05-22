@@ -10,7 +10,7 @@
 
 === Filtering on the Baseline
 
-Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
+Our goal was to identify generalizable pipelines, and for that, we have the FGI measure.
 FGI describes how similar the distribution of errors from out-of-sample testing and out-of-study testing and is a measure of generalizability.
 However, it is not enough that the two distributions are similar.
 Generalizability should be a measure of usable predictive power in outside contexts.
@@ -28,7 +28,7 @@ In further discussions, we will focus on results from the 2-to-1 pipelines.
 
 === Generalizability of our Datasets
 
-Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP is included in the training set.
+Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP was included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
 We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect and that the variability introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
