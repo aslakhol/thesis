@@ -95,9 +95,10 @@ For example, an ARMA model would be impacted by a stimulus with longer distances
 
 LHIPA was developed to be an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
 Cognitive load consists of intrinsic, extraneous and germane loads citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
-Intrinsic and extraneous cognitive load are determined by the characteristics of the material, the complexity of the information and the presentation respectively, which are both context specific factors.
-As opposed to germane load which is concerned with the subjects personal characteristics and would likely be more generalizable.
-Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA might captures the extraneous or intrinsic aspects of cognitive load.
+The characteristics of the material determine intrinsic and extraneous cognitive load.
+They represent the complexity of the information and the presentation, respectively, which are both context-specific factors.
+This is opposed to germane load, which is concerned with the subject's personal characteristics and would likely be more generalizable.
+Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA might capture the extraneous or intrinsic aspects of cognitive load.
 
 Pupil diameter has been shown to be affected by several task-specific factors.
 Both task difficulty and time limits have an impact on pupil dilation citenp:[shojaeizadehDetectingTaskDemand2019].
@@ -112,7 +113,7 @@ However, the group primarily consists of features that model the mean of pupil d
 
 The eye-tracking feature tries to encapsulate different strategies for interacting with the stimulus.
 The information processing ratio represents the tendency to skim text versus more focused reading.
-A strategy of either skimming or focused reading might be more appropriate for a specific task, which might be why this indicates context-specificity.
+A skimming or focused reading strategy might be more appropriate for a specific task, which might be why this indicates context-specificity.
 However, this is not an entirely specific trait.
 Some skill might be involved in picking the correct strategy when presented with a stimulus, and greater familiarity might lead to a faster transition to focused reading.
 
