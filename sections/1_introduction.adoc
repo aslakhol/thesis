@@ -3,7 +3,6 @@
 
 === Motivation
 
-==== Cognition
 The evaluation of cognition or cognitive performance is essential for a variety of fields.
 Cognition describes the different workings of our mental capacities.
 Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
