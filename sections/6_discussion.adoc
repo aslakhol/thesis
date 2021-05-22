@@ -54,7 +54,7 @@ In addition, heatmaps encode information about time and space, rather than just 
 
 GARCH is a statistical modeling technique used to model timeseries data.
 Our data suggest that GARCH is the most generalizable feature group of the ones we have tested.
-GARCH is models the variance of data and has the heteroscedasticity property.
+GARCH models the variance of data and has the heteroscedasticity property.
 Heteroscedasticity means that the random disturbance is different across the elements.
 In our case, this means the variance of indicators of cognitive performance varies from point to point in the timeseries.
 In different contexts, the timing of the indicators will vary based on the task and other factors.
