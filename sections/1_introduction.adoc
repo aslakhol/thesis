@@ -105,7 +105,7 @@ This chapter presents a range of tables and plots representing the evaluations o
 [discrete]
 ===== xref:discussion[]: Discussion
 
-The discussion delves further into the results, presents our thoughts on the patterns displayed by the results, and discusses the results in relation to the literature.
+The discussion delves further into the results, presents our interpretations of the patterns displayed by the results, and discusses the results in relation to the literature.
 
 [discrete]
 ===== xref:conclusion[]: Conclusion
