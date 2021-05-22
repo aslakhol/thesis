@@ -60,11 +60,11 @@ In our case, this means the variance of indicators of cognitive performance vari
 In different contexts, the timing of the indicators will vary based on the task and other factors.
 This might explain why GARCH is generalizable across contexts.
 
-Our results indicate that spectral histograms generalize pretty well.
+Our results indicate that spectral histograms generalize quite well.
 Spectral histograms are the distribution of frequencies and their corresponding amplitudes.
 Spectral histograms capture repetitiveness and hence might capture patterns of behavior exhibited by the subjects.
 Repetitiveness indicates a flow that suggests that the subject is comfortable in their task; on the other hand, chaotic non-repetitive behavior might occur when one is not comfortable.
-We suggest that this relationship should be represented across contexts and could be why spectral histograms seem to generalize quite well.
+We suggest that this relationship should be represented across contexts and could be why spectral histograms seem to generalize.
 
 We do not know why HMM generalizes this is a mystery and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
 
