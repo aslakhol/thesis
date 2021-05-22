@@ -3,9 +3,14 @@
 
 === Motivation
 
-Modern adaptive systems rely on understanding the current cognitive capabilities of users.
-However, these systems rely primarily on tailor-made solutions to detect such capabilities.
+Modern user-adaptive systems rely on understanding the current cognitive capabilities of users citenp:[kobsaPrivacyPseudonymityUseradaptive2003, soloveySensingCognitiveMultitasking2011, nicolaeNeuralIndicatorsDepth2015].
+However, many such systems rely primarily on tailor-made solutions to detect such capabilities.
 By moving towards generalizable solutions for detecting cognitive performance, we can decrease our reliance on the time-consuming development of such detection systems.
+
+// Modern user-adaptive systems rely on understanding the current cognitive capabilities of users citenp:[kobsaPrivacyPseudonymityUseradaptive2003, soloveySensingCognitiveMultitasking2011, nicolaeNeuralIndicatorsDepth2015].
+// We should move towards generalizable solutions for detecting cognitive performance to reduce our reliance on tailor-made systems to detect users' cognitive states.
+
+// To reduce our reliance on tailor-made systems to detect users' cognitive states, we could move towards generalizable solutions for detecting cognitive performance.
 
 Cognition describes the different workings of our mental capacities.
 Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
