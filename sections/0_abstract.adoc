@@ -30,5 +30,5 @@ We extend our deepest gratitude to our advisors Kshitij Sharma and Michalis Gian
 Their assistance has been thought-provoking, engaging, and critical to our success
 Further, we would like to thank Jennifer Olsen for providing the Fractions dataset.
 Pål and Johannes have made life in the office a true joy.
-// Beers have been drunk, Laughs have been laughed and quizzes have been quozed.
+// Beers have been drunk; Laughs have been laughed, and quizzes have been quozed.
 Lastly, we would like to thank our families and Madeleine Loraas for their support and proofreading.
