@@ -1,27 +1,11 @@
 [abstract]
 == Abstract
-An abstract summarizes, usually in one paragraph of 300 words or less, the major aspects of the entire paper in a prescribed sequence that includes: 1) the overall purpose of the study and the research problem(s) you investigated; 2) the basic design of the study; 3) major findings or trends found as a result of your analysis; and, 4) a brief summary of your interpretations and conclusions.
-// Motivation: eye-tracking good cheap, window to the mind, but generalizable?
-
-// What we do: Make platform, make lots of features, test on many data.
-
-// Findings: specific, generalizable, platform.
-
-
-
-
-// The automatic measurement of cognitive performance shows much promise.
-
-
-
-
-// Sensing and machine learning advances have enabled the unobtrusive measurement of physiological responses and facial expressions so as to estimate one’s cognitive performance.
-// This often boils down to mapping the states of the cognitive processes underpinning human cognition: physiological responses (e.g., heart rate) and facial expressions (e.g., frowning) often reflect the states of our cognitive processes.
-// However, it remains unclear whether physiological responses and facial expressions used in one particular task (e.g., gaming) can reliably assess cognitive performance in another task (e.g., coding), because complex and diverse tasks often require varying levels and combinations of cognitive processes.
-// In this paper, we measure the cross-task reliability of physiological and facial responses. Specifically, we assess cognitive performance based on physiological responses and facial expressions for 123 participants in 4 independent studies (3 studies for out-of-sampling training and testing, and 1 study for evaluation only): (1) a Pac-Man game, (2) an adaptive-assessment task, (3) a code-debugging task, and (4) a gaze-based game.
-// We follow an ensemble learning approach after cross-training and cross-testing with all possible combinations of the 3 first datasets.
-// We save the 4th dataset only for testing purposes, and we showcase how to engineer generalizable features that predict cognitive performance.
-// Our results show that the extracted features do generalize, and can reliably predict cognitive performance across a diverse set of cognitive tasks that require different combinations of problem-solving, decision-making, and learning processes for their completion.
+Modern eye-tracking technology allows for the non-invasive evaluation of cognitive performance.
+Systems for detecting cognition use features tailor-made to the given context and have limited use in other settings.
+There have been efforts to create generalized features from other data sources, but previous work has not addressed this in gaze data.
+In this study, we engineer and test a multitude of features to evaluate their generalizability across contexts.
+We utilize three datasets from different contexts and a machine learning platform to perform generalizability experiments.
+Our work presents several generalizable features and a novel architecture that can aid in engineering more such features from gaze data and other domains.
 
 [discrete]
 == Acknowledgement
@@ -30,5 +14,5 @@ We extend our deepest gratitude to our advisors Kshitij Sharma and Michalis Gian
 Their assistance has been thought-provoking, engaging, and critical to our success
 Further, we would like to thank Jennifer Olsen for providing the Fractions dataset.
 Pål and Johannes have made life in the office a true joy.
-// Beers have been drunk, Laughs have been laughed and quizzes have been quozed.
+// Beers have been drunk; Laughs have been laughed, and quizzes have been quozed.
 Lastly, we would like to thank our families and Madeleine Loraas for their support and proofreading.
