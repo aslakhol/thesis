@@ -65,7 +65,6 @@ Fixations usually reflect attention to a stimulus citenp:[shojaeizadehDetectingT
 When discussing fixations, we will often refer to the fixation duration, which is the amount between the start of the fixation and the end of the fixation
 
 Saccades are small rapid eye movements that occur between two fixations.
-It is moving the eye from one stimulus to another.
 Cognitive information is not processed during saccadic eye movements.
 However, studies have shown that they still can provide information about viewing behavior and indicate changes in cognition citenp:[shojaeizadehDetectingTaskDemand2019].
 We will primarily refer to the measures saccade duration and saccade length.
