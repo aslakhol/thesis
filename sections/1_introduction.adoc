@@ -88,7 +88,7 @@ Our introduction introduces the motivation for the work, our research questions,
 The related work chapter situates our work in relation to the established literature and provides the theoretical background that outlines our assumptions.
 
 [discrete]
-===== xref:study[]: Study
+===== xref:study[]: Research Design
 
 This chapter outlines how we approach engineering generalizable features from gaze data and presents the datasets used in our experiments.
 
