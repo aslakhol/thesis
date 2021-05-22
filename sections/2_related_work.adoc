@@ -87,4 +87,4 @@ There has been a growing push to include code with materials published along wit
 Ince et al. argue that even with the complete source code, one is not guaranteed reproducibility.
 Local software and hardware environments introduce noise that could impact results.
 They argue for including descriptions of the environments in which the code was executed citenp:[inceCaseOpenComputer2012].
-With the advent of containerization and commercial cloud platform, it is possible to reach close to the same descriptive rigor of the hardware and software environments as sharing code represents for the system. citenp:[ditommasoNextflowEnablesReproducible2017, naglerSustainabilityReproducibilityContainerized2015, vaillancourtReproduciblePortableWorkflows2020]
+With the advent of containerization and commercial cloud platform, it is possible to reach close to the same descriptive rigor of the hardware and software environments as sharing code represents for the system citenp:[ditommasoNextflowEnablesReproducible2017, naglerSustainabilityReproducibilityContainerized2015, vaillancourtReproduciblePortableWorkflows2020].
