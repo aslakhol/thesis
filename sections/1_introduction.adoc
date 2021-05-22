@@ -34,7 +34,7 @@ However, they underline that generalizability is the ultimate goal of research, 
 Our work is acutely aware of the context of each of the datasets we use, and we will aim to engineer features that are generalizable to other contexts.
 We will evaluate the degree of generalizability of our experiments through statistical analysis.
 
-While generalizability is an oft pursued goal in machine learning, there is little focus on feature generalizability in the literature.
+While generalizability is a goal of machine learning research, there is little focus on feature generalizability in the literature.
 By feature generalizability, we mean the extent to which extracted features can predict the same variable, in our case cognitive performance, in different contexts.
 Inspired by the methods of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020], we aim to engineer features that exhibit feature generalizability.
 The usefulness of understanding the rationale behind features and how they might differ when predicting the same target on different types of data has been studied by Rogers et al. in the context of text mining citenp:[rogersGeneralizabilityDocumentFeatures2017].
