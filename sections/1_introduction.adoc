@@ -32,7 +32,7 @@ Davison et al. point out that one must be explicitly aware of the context of one
 Cheng et al. agree that a close look at the context of a study is critical.
 However, they underline that generalizability is the ultimate goal of research, and well-reasoned generalizability should be pursued citenp:[chengContextMayBe2016].
 Our work is acutely aware of the context of each of the datasets we use, and we will aim to engineer features that are generalizable to other contexts.
-We will evaluate the degree of generalizability of each of the pipelines used to produce our results through statistical analysis.
+We will evaluate the degree of generalizability of our experiments through statistical analysis.
 
 While generalizability is an oft pursued goal in machine learning, there is little focus on feature generalizability in the literature.
 By feature generalizability, we mean the extent to which extracted features can predict the same variable, in our case cognitive performance, in different contexts.
