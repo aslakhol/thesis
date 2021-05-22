@@ -38,7 +38,6 @@ Their work with Bluetooth beacons revealed a feature based on the received signa
 
 Ferentzi et al. investigated whether information gained from a single interoceptive modality (mode of understanding one's own body) can be generalized to other modalities. citenp:[ferentziMultichannelInvestigationInteroception2018]
 They investigated a group of students' ability to count their heartbeats, sense their gastric fullness, sense bitterness, pain threshold, proprioceptive sensitivity (ability to position their limbs), and sense of balance.
-The correlations of each of the experiments were estimated used Spearman correlation citenp:[wisslerSpearmanCorrelationFormula1905].
 They argue that their findings strongly support that interoceptive accuracy assessed with a single modality cannot be generalized to other modalities.
 
 Feature generalizability has seen some popularity in Brain-Computer Interfaces (BCI) research.
