@@ -1,7 +1,7 @@
 [[related_work]]
 == Related Work
 
-=== Eye Tracking and Cognitive Performance
+=== Eye-Tracking and Cognitive Performance
 
 Since gaze data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016], multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
 As cognitive load can be a proxy between a task and a subject's performance, citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
@@ -17,7 +17,7 @@ Their work showed promising results for the automatic prediction of cognitive lo
 There are also novel features engineered from gaze data.
 Duchowski et al. citenp:[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA).
 IPA was proposed as an alternative to the existing Index of Cognitive Activity (ICA) since ICA is not available to the public.
-Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which can discriminate cognitive load in several experiments where IPA fails do so.
+Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which can discriminate cognitive load in several experiments where IPA fails to do so.
 Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020] used heatmaps generated from the fixtures of subjects to predict students' performance.
 Features from the heatmaps were extracted with a pre-trained VGG19 model.
 They showed that cognitive performance could be predicted with an error rate of less than 5%.
@@ -79,7 +79,7 @@ Kraska et al. have developed MLBase, which includes a simple declarative languag
 The available resources for machine learning in proposed architectures, open-source and commercial platforms and pipelines, tooling, and other supporting technologies have exploded in the last years.
 Machine learning tools to process large-scale data for decision assistance, automation, and interactive data analytics are growing and will continue to be essential for research and business citenp:[nguyenMachineLearningDeep2019].
 
-The ability to reproduce a scientific works central finding, reproducibility, is key to the scientific process, and as such is essential in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
+The ability to reproduce a scientific work's central finding, reproducibility, is key to the scientific process, and as such is essential in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
 This challenge is both more complicated and more straightforward in the age of digital.
 Analyses that can be made are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
 While this added complexity adds to the difficulty in adequately describing the process involved in reaching our conclusions, digital tools can also give us the ability to share the exact code that confirms our results' citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].

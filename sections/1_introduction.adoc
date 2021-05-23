@@ -76,7 +76,7 @@ Saccades are small rapid eye movements that occur between two fixations.
 Cognitive information is not processed during saccadic eye movements.
 However, studies have shown that they still can provide information about viewing behavior and indicate changes in cognition citenp:[shojaeizadehDetectingTaskDemand2019].
 We will primarily refer to the measures saccade duration and saccade length.
-Saccade length is the euclidian distance between the two fixations.
+Saccade length is the euclidean distance between the two fixations.
 Saccade duration is the time that the eye movements take, the time between the two fixations.
 
 Pupillary changes are changes in pupil size.
