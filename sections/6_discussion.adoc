@@ -124,9 +124,10 @@ This factor seems more likely to generalize and is what we model with GARCH.
 GARCH of pupil diameter is included in this feature group.
 However, the group primarily consists of features that model the mean of pupil diameter.
 
-==== Eye-Tracking Features
+==== Gaze Characteristics
 
-The eye-tracking feature tries to encapsulate different strategies for interacting with the stimulus.
+Gaze Characteristics is the group of features that are interpreted directly from the eye-tracking data and are not subject to additional signal processing.
+The feature group tries to encapsulate different strategies for interacting with the stimulus.
 The information processing ratio represents the tendency to skim text versus more focused reading.
 A skimming or focused reading strategy might be more appropriate for a specific task, which might be why this indicates context-specificity.
 However, this is not an entirely specific trait.
