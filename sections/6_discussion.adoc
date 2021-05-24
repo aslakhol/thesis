@@ -88,7 +88,7 @@ The ensemble regressor will prefer features that are more predictive for the tra
 We see that All-pipelines that are trained on the fractions_cscw tend to generalize.
 This might indicate that the features that perform well when predicting fractions_cscw produce more generalizable pipelines.
 
-=== Context Specific Features
+=== Context-Specific Features
 
 This section will argue a few reasons we believe as to why the features are context-specific.
 
@@ -107,7 +107,7 @@ The characteristics of the material determine intrinsic and extraneous cognitive
 Intrinsic load is determined complexity of the information and extraneous load by the presentation of the material.
 Both of these are context-specific factors.
 On the other hand, the germane load is concerned with the subject's personal characteristics and would likely be more generalizable.
-Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA might capture the extraneous or intrinsic aspects of cognitive load.
+Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA captures germane cognitive loads to a lesser degree.
 
 Pupil diameter has been shown to be affected by several task-specific factors.
 Both task difficulty and time limits have an impact on pupil dilation citenp:[shojaeizadehDetectingTaskDemand2019].
