@@ -82,7 +82,7 @@ Perceived task difficulty or increased cognitive workload will correlate to cogn
 
 === Context Specific Features
 
-In this section, we will argue a few reasons we believe as to why the features are context-specific.
+This section will argue a few reasons we believe as to why the features are context-specific.
 
 ==== ARMA
 
