@@ -60,7 +60,7 @@ From this, we can extract the following research questions.
 
 === Terminology
 
-In this section, we will introduce the reader to a few key terms from the eye-tracking world.
+In this section, we will introduce the reader to a few key terms from the eye-tracking field.
 
 The term fixation refers to when the eye holds steady on an object or a position.
 In a fixation, recorded gaze points vary little in both time and space.
