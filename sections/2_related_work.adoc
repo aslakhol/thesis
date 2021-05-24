@@ -50,7 +50,7 @@ The bias-variance trade-off refers to the fact that one cannot achieve both zero
 A model with a significant bias captures the general trend of the data but does not fit the sample data points closely.
 On the other hand, variance is how similarly the model captures the testing dataset compared to the training dataset.
 Kidzinski et al. argue that much of the research on MOOCs is to focus on the specific course being studied and that, as such, models do not generalize to other courses.
-Their view is that the bias-variance trade-off is central when assessing models of MOOCs.
+Their view is that the bias-variance trade-off is central when assessing the generalizability MOOC models.
 
 Recently feature generalizability has also been shown to have relevance when predicting driver's intentions at intersections in an automotive context citenp:[phillipsGeneralizableIntentionPrediction2017], when using ML for personality assessment citenp:[bleidornUsingMachineLearning2019], in speech enhancement systems citenp:[babyBiophysicallyinspiredFeaturesImprove2018], in face-based attention mind wandering detection citenp:[stewartGeneralizabilityFaceBasedMind], and in music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
 
