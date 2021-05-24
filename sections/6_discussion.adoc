@@ -48,7 +48,7 @@ The feature vector we call heatmaps represents how the gaze interacts with the g
 However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
 The latter is a focus point for experienced coders.
 Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimuli.
-In addition, heatmaps encode information about time and space, rather than just one of the dimensions.
+In addition, heatmaps encode information about time and space rather than just one of the dimensions.
 
 ==== GARCH, Hidden Markov Models and Power Spectral Histogram
 
@@ -79,6 +79,14 @@ Since familiarity with the interface would be relevant in all tasks that our dat
 De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
+
+==== All
+
+In pipelines with the All feature group, we combine all features in one group.
+Our results show that these pipelines capture both context-sensitive and generalizable patterns.
+The ensemble regressor will prefer features that are more predictive for the training context.
+We see that All-pipelines that are trained on the fractions_cscw tend to generalize.
+This might indicate that the features that perform well when predicting fractions_cscw produce more generalizable pipelines.
 
 === Context Specific Features
 
@@ -114,11 +122,12 @@ However, the group primarily consists of features that model the mean of pupil d
 
 The eye-tracking feature tries to encapsulate different strategies for interacting with the stimulus.
 The information processing ratio represents the tendency to skim text versus more focused reading.
-A strategy of either skimming or focused reading might be more appropriate for a specific task, which might be why this indicates context-specificity.
+A skimming or focused reading strategy might be more appropriate for a specific task, which might be why this indicates context-specificity.
 However, this is not an entirely specific trait.
 Some skill might be involved in picking the correct strategy when presented with a stimulus, and greater familiarity might lead to a faster transition to focused reading.
 
-Entropy models the spread of the gaze over the stimulus, which might model the generalizable aspect of focus; however, it is also affected by the task design. The verticality of saccades is also certainly context-specific as it relies heavily on the nature of and how the stimulus is organized.
+Entropy models the spread of the gaze over the stimulus, which might model the generalizable aspect of focus; however, it is also affected by the task design.
+The verticality of saccades is also certainly context-specific as it relies heavily on the nature of and how the stimulus is organized.
 
 
 === Limitations and Further Work
