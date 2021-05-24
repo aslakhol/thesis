@@ -253,7 +253,7 @@ Saccade speed does not necessarily indicate expertise in the relevant subject ma
 A subject could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
 
 To calculate this feature, we calculated the speed by dividing the saccade length by the saccade duration.
-We then got the skew of the distribution outputted.
+We then got the skew of the outputted distribution.
 
 ```
 get_skewness_of_saccades(saccade_duration, saccade_length):
@@ -440,7 +440,7 @@ This section will outline how we achieve the fifth goal of our platform:
 
 > We need an evaluation step that collects the results from all the pipelines and can prove pipelines generalizable.
 
-Models produce by our pipelines are evaluated in two ways, with out-of-sample testing and out-of-study testing.
+Models produced by our pipelines are evaluated in two ways, with out-of-sample testing and out-of-study testing.
 Out-of-sample testing uses a subset of the in-study dataset to evaluate the predictive power of the model. Out-of-study testing uses the dataset designated as out-of-study to evaluate generalizability.
 This subsection explains how we evaluate the results of each test.
 
