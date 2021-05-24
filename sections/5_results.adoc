@@ -9,7 +9,7 @@ In xref:baselines[], we explain how baselines for the different datasets are cal
 xref:same_training_and_testing_context[] presents how pipelines performed in out-of-sample testing and which components performed the best overall by aggregating the results.
 The pipelines that show generalizability are presented in xref:generalizability[].
 The section also presents which components make up those pipelines.
-Pipelines that exhibit more context sensitivity are presented in xref:context_sensitivity[].
+Pipelines that exhibit more context-sensitivity are presented in xref:context_sensitivity[].
 
 [[baselines]]
 === Baselines
@@ -149,7 +149,7 @@ This indicates that they might be more generalizable feature groups.
 It should also be noted that GARCH is also the only pipeline with an in-study dataset that is not fractions_cscw of the ten most generalizable pipelines.
 
 [[context_sensitivity]]
-=== Context Sensitivity
+=== Context-Sensitivity
 
 The bottom third of the filtered baselines contain the pipelines that are more context-specific.
 
@@ -160,7 +160,7 @@ The bottom third of the filtered baselines contain the pipelines that are more c
 include::../tables/results/context_sensitive_pipelines.csv[]
 |===
 
-Again we can see that the dataset combination is an important factor in which pipelines exhibit context sensitivity.
+Again we can see that the dataset combination is an important factor in which pipelines exhibit context-sensitivity.
 LASSO is more represented among the more context-specific pipelines.
 As with the generalizable pipelines, there are more pipelines with LASSO that beat the baseline.
 For the feature groups, we observe some differences from the generalizable pipelines.
