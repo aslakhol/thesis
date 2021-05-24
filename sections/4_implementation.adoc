@@ -482,7 +482,7 @@ The denominator normalizes the values between -1 and 1, where 0 represents a ran
 Pipelines that have an FGI value closer to zero are more generalizable.
 
 [[reproducibility]]
-=== reproducibility
+=== Reproducibility
 
 This section explains how we reached the sixth goal of our platform.
 
