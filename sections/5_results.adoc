@@ -88,7 +88,7 @@ We note that Fixation duration performs well in most combinations and that spect
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
 
-As seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[], when we aggregate the results, we see that Gaze characteristics is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than Heatmaps and Fixation duration.
+As seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[], when we aggregate the results, we see that Gaze characteristics is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than Spectral Histograms and Heatmaps.
 2-to-1 pipelines that include Fixation duration seem to outperform other 2-to-1 pipelines, but GARCH also performs quite well.
 
 
