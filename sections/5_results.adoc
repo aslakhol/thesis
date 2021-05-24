@@ -154,7 +154,7 @@ It should also be noted that GARCH is also the only pipeline with an in-study da
 The bottom third of the filtered baselines contain the pipelines that are more context-specific.
 
 [[context_sensitive_pipelines]]
-.The 10 most context sensitive pipelines.
+.The 10 most context-sensitive pipelines.
 [format="csv", options="header"]
 |===
 include::../tables/results/context_sensitive_pipelines.csv[]
