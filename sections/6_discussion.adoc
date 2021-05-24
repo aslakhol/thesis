@@ -82,7 +82,7 @@ Perceived task difficulty or increased cognitive workload will correlate to cogn
 
 === Context Specific Features
 
-In this section, we will argue a few reasons we believe as to why the features are context-specific.
+This section will argue a few reasons we believe as to why the features are context-specific.
 
 ==== ARMA
 
@@ -95,9 +95,11 @@ For example, an ARMA model would be impacted by a stimulus with longer distances
 
 LHIPA was developed to be an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
 Cognitive load consists of intrinsic, extraneous and germane loads citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
-Intrinsic and extraneous cognitive load are determined by the characteristics of the material, the complexity of the information and the presentation respectively, which are both context specific factors.
-As opposed to germane load which is concerned with the subjects personal characteristics and would likely be more generalizable.
-Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA might captures the extraneous or intrinsic aspects of cognitive load.
+The characteristics of the material determine intrinsic and extraneous cognitive load.
+Intrinsic load is determined complexity of the information and extraneous load by the presentation of the material.
+Both of these are context-specific factors.
+On the other hand, the germane load is concerned with the subject's personal characteristics and would likely be more generalizable.
+Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA might capture the extraneous or intrinsic aspects of cognitive load.
 
 Pupil diameter has been shown to be affected by several task-specific factors.
 Both task difficulty and time limits have an impact on pupil dilation citenp:[shojaeizadehDetectingTaskDemand2019].
