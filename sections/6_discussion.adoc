@@ -92,6 +92,7 @@ This might indicate that the features that perform well when predicting fraction
 
 This section will argue a few reasons we believe as to why the features are context-specific.
 
+[[discuss_arma]]
 ==== ARMA
 
 Our results indicate that ARMA produces quite context-sensitive pipelines.
@@ -156,3 +157,9 @@ It would be possible to investigate the effects of other variants of these pipel
 
 While we can identify feature groups that can produce generalizable pipelines, we do not know how the individual features in each group affect the generalizability.
 It is also likely that combinations of features from different groups would create very generalizable pipelines.
+
+The Hidden Markov Models (HMM) are included in the top 10 most generalizable and the top 10 most context-specific pipelines.
+That HMMs generalize seems counter-intuitive, especially given that ARMA does not generalize (see xref:discuss_arma[]).
+At its core, the transition matrix of HMM represents a discrete version of ARMA.
+ARMA models how previous values in a timeseries affect the current value, while HMMs describe how previous states affect the current state.
+What dataset was used might be a significant contributing factor to why HMMs either generalize or exhibit context-specificity; However, more research is needed to draw any conclusions.
