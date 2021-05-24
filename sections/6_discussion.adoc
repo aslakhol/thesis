@@ -126,7 +126,8 @@ However, the group primarily consists of features that model the mean of pupil d
 
 ==== Gaze Characteristics
 
-Gaze characteristics tries to encapsulate different strategies for interacting with the stimulus.
+Gaze Characteristics is the group of features that are interpreted directly from the eye-tracking data and are not subject to additional signal processing.
+The feature group tries to encapsulate different strategies for interacting with the stimulus.
 The information processing ratio represents the tendency to skim text versus more focused reading.
 A skimming or focused reading strategy might be more appropriate for a specific task, which might be why this indicates context-specificity.
 However, this is not an entirely specific trait.
