@@ -3,13 +3,20 @@
 
 === Motivation
 
-==== Cognition
-The evaluation of cognition or cognitive performance is essential for a variety of fields.
+Modern user-adaptive systems rely on understanding the current cognitive capabilities of users citenp:[kobsaPrivacyPseudonymityUseradaptive2003, soloveySensingCognitiveMultitasking2011, nicolaeNeuralIndicatorsDepth2015].
+However, many such systems rely primarily on tailor-made solutions to detect such capabilities.
+By moving towards generalizable solutions for detecting cognitive performance, we can decrease our reliance on the time-consuming development of such detection systems.
+
+// Modern user-adaptive systems rely on understanding the current cognitive capabilities of users citenp:[kobsaPrivacyPseudonymityUseradaptive2003, soloveySensingCognitiveMultitasking2011, nicolaeNeuralIndicatorsDepth2015].
+// We should move towards generalizable solutions for detecting cognitive performance to reduce our reliance on tailor-made systems to detect users' cognitive states.
+
+// To reduce our reliance on tailor-made systems to detect users' cognitive states, we could move towards generalizable solutions for detecting cognitive performance.
+
 Cognition describes the different workings of our mental capacities.
 Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
-The NIH Toolbox Cognition Batteries is a well-established set of tests of cognition citenp:[weintraubCognitionAssessmentUsing2013].
+The National Institutes of Health (NIH) Toolbox Cognition Batteries is a well-established set of tests of cognition citenp:[weintraubCognitionAssessmentUsing2013].
 While the tests in the NIH Toolbox are thorough and well tested, they are also quite involved and take much time to perform.
-Therefore, we need a proxy if we are to evaluate cognitive performance in a micro context.
+Therefore, a proxy is needed to evaluate cognitive performance in a micro context.
 
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
 Cognitive load theory, first proposed by John Sweller, establishes the three domains of cognitive load as intrinsic, extraneous, and germane. Intrinsic is concerned with the complexities in the information being learned. Extraneous cognitive load is the load that stems from the instructional material. Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
@@ -23,8 +30,8 @@ We will argue that each task has some measure, such as a score, that correlates 
 Eye-tracking is the process of tracking and recording the position of a subject's gaze while interacting with digital devices.
 The gaze point for each of the eyes of a subject is recorded over time.
 Eye-tracking can be used as input control for interacting with systems citenp:[cantoniEyeTrackingComputer2014], or to record user behavior when interacting with digital and physical systems citenp:[grankaEyeTrackingAnalysisUser2004, bojkoEyeTrackingUser2005].
-As the equipment involved has become cheaper and web camera based eyetracking has improved citenp:[bottWebCameraBased2017], eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
-These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], colaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
+As the equipment involved has become cheaper and eye-tracking with web cameras has improved citenp:[bottWebCameraBased2017], eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
+These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], collaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
 
 ==== Generalizability
 
@@ -33,9 +40,9 @@ Davison et al. point out that one must be explicitly aware of the context of one
 Cheng et al. agree that a close look at the context of a study is critical.
 However, they underline that generalizability is the ultimate goal of research, and well-reasoned generalizability should be pursued citenp:[chengContextMayBe2016].
 Our work is acutely aware of the context of each of the datasets we use, and we will aim to engineer features that are generalizable to other contexts.
-We will evaluate the degree of generalizability of each of the pipelines used to produce our results through statistical analysis.
+We will evaluate the degree of generalizability of our experiments through statistical analysis.
 
-While generalizability is an oft pursued goal in machine learning, there is little focus on feature generalizability in the literature.
+While generalizability is a goal of machine learning research, there is little focus on feature generalizability in the literature.
 By feature generalizability, we mean the extent to which extracted features can predict the same variable, in our case cognitive performance, in different contexts.
 Inspired by the methods of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020], we aim to engineer features that exhibit feature generalizability.
 The usefulness of understanding the rationale behind features and how they might differ when predicting the same target on different types of data has been studied by Rogers et al. in the context of text mining citenp:[rogersGeneralizabilityDocumentFeatures2017].
@@ -43,7 +50,7 @@ Feature generalizability has also been considered a central goal in feature sele
 It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019].
 
 Sharma et al. engineered generalizable features from physiological data and facial expressions.
-They evaluated their features with a proposed "feature generalizability index" metric. citenp:[sharmaAssessingCognitivePerformance2020].
+They proposed a "feature generalizability index" metric to evaluate the generalizability of their experiments citenp:[sharmaAssessingCognitivePerformance2020].
 We will follow their methodology to develop generalizable features from gaze data.
 In addition, we will present a machine learning platform we have developed to effectively run experiments to investigate generalizability and produce features from eye-tracking data.
 
@@ -66,11 +73,10 @@ Fixations usually reflect attention to a stimulus citenp:[shojaeizadehDetectingT
 When discussing fixations, we will often refer to the fixation duration, which is the amount between the start of the fixation and the end of the fixation
 
 Saccades are small rapid eye movements that occur between two fixations.
-It is moving the eye from one stimulus to another.
 Cognitive information is not processed during saccadic eye movements.
 However, studies have shown that they still can provide information about viewing behavior and indicate changes in cognition citenp:[shojaeizadehDetectingTaskDemand2019].
 We will primarily refer to the measures saccade duration and saccade length.
-Saccade length is the euclidian distance between the two fixations.
+Saccade length is the euclidean distance between the two fixations.
 Saccade duration is the time that the eye movements take, the time between the two fixations.
 
 Pupillary changes are changes in pupil size.
@@ -90,7 +96,7 @@ Our introduction introduces the motivation for the work, our research questions,
 The related work chapter situates our work in relation to the established literature and provides the theoretical background that outlines our assumptions.
 
 [discrete]
-===== xref:study[]: Study
+===== xref:study[]: Research Design
 
 This chapter outlines how we approach engineering generalizable features from gaze data and presents the datasets used in our experiments.
 
@@ -107,7 +113,7 @@ This chapter presents a range of tables and plots representing the evaluations o
 [discrete]
 ===== xref:discussion[]: Discussion
 
-The discussion delves further into the results, presents our thoughts on the patterns displayed by the results, and discusses the results in relation to the literature.
+The discussion delves further into the results, presents our interpretations of the patterns displayed by the results, and discusses the results in relation to the literature.
 
 [discrete]
 ===== xref:conclusion[]: Conclusion

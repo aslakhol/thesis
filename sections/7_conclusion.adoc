@@ -3,10 +3,13 @@
 
 In this work, we apply the methodology presented by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] to engineer generalizable features from gaze data.
 The work draws on three independent studies with data gathered on a total of 370 subjects.
-We also propose an architecture to efficiently and easily test the generalizability of pipelines constructed of different combinations of pipeline components.
+We present two lists of pipelines based on distinct feature groups, dataset combinations, and methods to reduce the feature space.
+The lists contain the ten most generalizable and the ten most context-specific pipelines.
+These pipelines indicate that the features used to produce them can generalize between our contexts.
+We also propose and implement an architecture to efficiently and easily test the generalizability of pipelines constructed of different combinations of pipeline components.
 The code for our platform and the analysis is available on GitHub citenp:[sollesnesS0lvangIdealpancake2021].
 
-Our contributes include:
+Our contributions include:
 
 - The list of generalizable features presented in xref:generalizable_pipelines[].
 - The list of context-sensitive features presented in xref:context_sensitive_pipelines[].

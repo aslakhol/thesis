@@ -81,17 +81,15 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 xref:pipelines_nrmses_features[] shows the best four pipelines by NRMSE and their feature groups.
 It seems that several different feature groups perform quite well for the different dataset combinations.
-We note that fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines and ALL perform well, particularly for fractions_cscw.
+We note that Fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines, and All perform well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
 .The four best pipelines by NRMSE per dataset and their feature group.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
 
-When we aggregate the results, as seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[].
-We see that eye-tracking is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than heatmaps and fixation duration.
-2-to-1 pipelines that include fixation duration seem to outperform other 2-to-1 pipelines, but GARCH also performs quite well.
-
+As seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[], when we aggregate the results, we see that Gaze characteristics is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than Spectral Histograms and Heatmaps.
+2-to-1 pipelines that include Fixation duration seem to outperform other 2-to-1 pipelines, but GARCH also performs quite well.
 
 
 [[one_to_one_features_nrmse_aggregated]]
@@ -162,7 +160,7 @@ The bottom third of the filtered baselines contain the pipelines that are more c
 include::../tables/results/context_sensitive_pipelines.csv[]
 |===
 
-Again we can see that the dataset combination is an important factor in which pipelines are exhibit context sensitivity.
+Again we can see that the dataset combination is an important factor in which pipelines exhibit context sensitivity.
 LASSO is more represented among the more context-specific pipelines.
 As with the generalizable pipelines, there are more pipelines with LASSO that beat the baseline.
 For the feature groups, we observe some differences from the generalizable pipelines.

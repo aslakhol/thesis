@@ -10,7 +10,7 @@
 
 === Filtering on the Baseline
 
-Our goal is to identify generalizable pipelines, and for that, we have the FGI measure.
+Our goal was to identify generalizable pipelines, and for that, we have the FGI measure.
 FGI describes how similar the distribution of errors from out-of-sample testing and out-of-study testing and is a measure of generalizability.
 However, it is not enough that the two distributions are similar.
 Generalizability should be a measure of usable predictive power in outside contexts.
@@ -28,7 +28,7 @@ In further discussions, we will focus on results from the 2-to-1 pipelines.
 
 === Generalizability of our Datasets
 
-Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP is included in the training set.
+Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP was included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
 We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect and that the variability introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
@@ -48,23 +48,23 @@ The feature vector we call heatmaps represents how the gaze interacts with the g
 However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
 The latter is a focus point for experienced coders.
 Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimuli.
-In addition, heatmaps encode information about time and space, rather than just one of the dimensions.
+In addition, heatmaps encode information about time and space rather than just one of the dimensions.
 
 ==== GARCH, Hidden Markov Models and Power Spectral Histogram
 
 GARCH is a statistical modeling technique used to model timeseries data.
 Our data suggest that GARCH is the most generalizable feature group of the ones we have tested.
-GARCH is models the variance of data and has the heteroscedasticity property.
+GARCH models the variance of data and has the heteroscedasticity property.
 Heteroscedasticity means that the random disturbance is different across the elements.
 In our case, this means the variance of indicators of cognitive performance varies from point to point in the timeseries.
 In different contexts, the timing of the indicators will vary based on the task and other factors.
 This might explain why GARCH is generalizable across contexts.
 
-Our results indicate that spectral histograms generalize pretty well.
+Our results indicate that spectral histograms generalize quite well.
 Spectral histograms are the distribution of frequencies and their corresponding amplitudes.
 Spectral histograms capture repetitiveness and hence might capture patterns of behavior exhibited by the subjects.
 Repetitiveness indicates a flow that suggests that the subject is comfortable in their task; on the other hand, chaotic non-repetitive behavior might occur when one is not comfortable.
-We suggest that this relationship should be represented across contexts and could be why spectral histograms seem to generalize quite well.
+We suggest that this relationship should be represented across contexts and could be why spectral histograms seem to generalize.
 
 We do not know why HMM generalizes this is a mystery and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
 
@@ -80,9 +80,17 @@ De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic len
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
 
+==== All
+
+In pipelines with the All feature group, we combine all features in one group.
+Our results show that these pipelines capture both context-sensitive and generalizable patterns.
+The ensemble regressor will prefer features that are more predictive for the training context.
+We see that All-pipelines that are trained on the fractions_cscw tend to generalize.
+This might indicate that the features that perform well when predicting fractions_cscw produce more generalizable pipelines.
+
 === Context Specific Features
 
-In this section, we will argue a few reasons we believe as to why the features are context-specific.
+This section will argue a few reasons we believe as to why the features are context-specific.
 
 ==== ARMA
 
@@ -96,8 +104,9 @@ For example, an ARMA model would be impacted by a stimulus with longer distances
 LHIPA was developed to be an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
 Cognitive load consists of intrinsic, extraneous and germane loads citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
 The characteristics of the material determine intrinsic and extraneous cognitive load.
-They represent the complexity of the information and the presentation, respectively, which are both context-specific factors.
-This is opposed to germane load, which is concerned with the subject's personal characteristics and would likely be more generalizable.
+Intrinsic load is determined complexity of the information and extraneous load by the presentation of the material.
+Both of these are context-specific factors.
+On the other hand, the germane load is concerned with the subject's personal characteristics and would likely be more generalizable.
 Our observations that LHIPA can produce context-sensitive pipelines indicate that LHIPA might capture the extraneous or intrinsic aspects of cognitive load.
 
 Pupil diameter has been shown to be affected by several task-specific factors.
@@ -117,23 +126,15 @@ A skimming or focused reading strategy might be more appropriate for a specific 
 However, this is not an entirely specific trait.
 Some skill might be involved in picking the correct strategy when presented with a stimulus, and greater familiarity might lead to a faster transition to focused reading.
 
-Entropy models the spread of the gaze over the stimulus, which might model the generalizable aspect of focus; however, it is also affected by the task design. The verticality of saccades is also certainly context-specific as it relies heavily on the nature of and how the stimulus is organized.
-
-
-
-==== All
-In pipelines with the All feature group, we combine all features and capture both context-sensitive and generalizable patterns.
-Our results indicate that pipelines with the All feature group appear among both the context-sensitive and generalizable pipelines.
-This might be because, in our ensemble classifier, more predictive features for the training context might be preferred.
-We see that All-pipelines that are trained on the fractions_cscw tend to generalize.
-This might indicate that features that perform well when predicting fractions_cscw produce more generalizable pipelines.
+Entropy models the spread of the gaze over the stimulus, which might model the generalizable aspect of focus; however, it is also affected by the task design.
+The verticality of saccades is also certainly context-specific as it relies heavily on the nature of and how the stimulus is organized.
 
 
 === Limitations and Further Work
 
 In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
 However, it would be presumptuous to say that three datasets from three different contexts could represent all of the cognitive processes.
-Our goal has been to generalize between our three contexts, and we hope that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
+Our goal has been to generalize between our three contexts, and we believe that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
 We do not mean to say that our features will generalize to any context.
 Nevertheless, this is a first step that provides evidence on how gaze-related features provide a certain level of generalizability across three distinct and commonly employed contexts.
 
