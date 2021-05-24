@@ -1,11 +1,20 @@
 [abstract]
 == Abstract
 Modern eye-tracking technology allows for the non-invasive evaluation of cognitive performance.
-Systems for detecting cognition use features tailor-made to the given context and have limited use in other settings.
+Many systems for detecting cognition use features tailor-made to the given context and have limited use in other settings.
 There have been efforts to create generalized features from other data sources, but previous work has not addressed this for gaze data.
-In this study, we engineer and test a multitude of features to evaluate their generalizability across contexts.
+In this study, we engineer a multitude of features and evaluate their generalizability across contexts.
 We utilize three datasets from different contexts and a machine learning platform to perform generalizability experiments.
 Our work presents several generalizable features and a novel architecture that can aid in engineering more such features from gaze data and other domains.
+
+[discrete]
+== Oppsummering
+Moderne blikksporingsteknologi gjør det mulig med mindre sjenerende evaluering av kognitive ytelse.
+Kognisjonsevalueringssystemer bruker i dag skreddersydde egenskaper til den gitte konteksten og har begrenset brukbarhet i andre omstendigheter.
+Tidligere har det vært forsøkt å lage generaliserbare egenskaper fra andre datakilder, men dette har ikke blitt gjort for blikkdata.
+I dette studiet utvikler vi flere forskjellige egenskaper og evaluerer generaliserbarheten deres på tvers av kontekster.
+Vi utnytter tre datasett fra forskjellige kontekster og en maskinlæringsplattform for å utføre generaliserbarhetseksperimenter.
+Vårt arbeid presenterer flere generaliserbare egenskaper og en arkitektur som kan bistå i utviklingen av flere slike egenskaper fra blikkdata og andre datakilder.
 
 [discrete]
 == Acknowledgement
