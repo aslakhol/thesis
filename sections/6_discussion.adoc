@@ -22,7 +22,7 @@ We do this by filtering the set of completed baselines.
 
 As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better then 1-to-1 pipelines.
 Combining two datasets from two separate contexts for training introduces more variability to the dataset.
-The result is a model which has lower variance and generalizes better than those that use only one dataset for training.
+By introducing more variablity we are optimizing for both bias and variance which is crucial for generalizability citenp:[kidzinskiGeneralizabilityMOOCModels2016].
 These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 In further discussions, we will focus on results from the 2-to-1 pipelines.
 
