@@ -47,7 +47,7 @@ It has also been shown to be important in predicting students' affect during lea
 Sharma et al. engineered generalizable features from physiological data and facial expressions.
 They proposed a "feature generalizability index" metric to evaluate the generalizability of their experiments citenp:[sharmaAssessingCognitivePerformance2020].
 We will follow their methodology to develop generalizable features from gaze data.
-In addition, we will present a machine learning platform we have developed to effectively run experiments to investigate generalizability and produce features from eye-tracking data.
+In addition, we will present a machine learning platform we have developed to effectively run experiments to investigate generalizability and produce features from gaze data.
 
 === Research Questions
 This study aims to create a step-by-step approach to perform feature generalizability experiments on gaze data.
