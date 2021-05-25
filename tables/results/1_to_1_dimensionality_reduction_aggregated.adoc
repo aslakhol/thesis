@@ -3,7 +3,7 @@
 |===
 | Method | FGI Rank | Average FGI
 
-| Lasso
+| LASSO
 | 60.13
 | 0.010852
 

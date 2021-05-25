@@ -391,8 +391,8 @@ We have three datasets, which make up nine dataset combinations, six of which cr
 
 Initially, we considered running pipelines to test all combinations of features.
 These would prove to be unfeasible.
-With 22 features, 9 dataset combinations, and two methods of reducing the feature space, there would be 75 597 472 pipelines.
-With a theoretical runtime of 1 second per pipeline, the total computing time necessary to tackle this challenge would be approximately 2 years, and we would not make our deadline for this thesis.
+With 22 features, nine dataset combinations, and two methods of reducing the feature space, there would be 75 597 472 pipelines.
+With a theoretical runtime of one second per pipeline, the total computing time necessary to tackle this challenge would be approximately two years, and we would not make our deadline for this thesis.
 
 As an alternative, we decided to group our features manually.
 We created one group for the gaze characteristics, four for the type of signal, and five for the different time series features.
@@ -407,10 +407,10 @@ include::../tables/feature_groups_table.adoc[]
 Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and improve predictive power.
 The focus of our thesis was on testing different features, and as such, we decided not to test a wide range of alternatives.
 The effect of different methods for reducing the feature space on generalizability is a potential area for further study.
-The method we use for dimensionality reduction is PCA, and the one for feature selection is LASSO.
+The method we use for dimensionality reduction is Principal Component Analysis (PCA), and the one for feature selection is Least Absolute Shrinkage and Selection Operator (LASSO).
 For all pipelines, we also use a zero-variance filter to remove the features that have no variance in their data
 
-Lasso was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[tibshiraniRegressionShrinkageSelection1996, giannakosMultimodalDataMeans2019], which is the case for most of our feature groups.
+LASSO was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[tibshiraniRegressionShrinkageSelection1996, giannakosMultimodalDataMeans2019], which is the case for most of our feature groups.
 
 
 ==== Prediction: Ensemble Learning
@@ -466,7 +466,7 @@ The following formulas calculate NRMSE.
 
 asciimath:[RMSE = sqrt ((sum_(i=1)^text(Number of samples) (text(predicted)_i - text(original)_i)^2) / text(Number of Samples))]
 
-asciimath:[NRMSE = text(NRMSE)/(text(original)_max - text(original)_min)]
+asciimath:[NRMSE = text(RMSE)/(text(original)_max - text(original)_min)]
 
 
 [[feature_generalizability_index]]
