@@ -1,4 +1,4 @@
-In Study,Out Of Study,Feature Group,PCA or Lasso,NRMSE,FGI
+In Study,Out Of Study,Feature Group,PCA or LASSO,NRMSE,FGI
 cscw,emip,ARMA,LASSO,0.232,0.0076
 cscw,emip,ARMA,PCA,0.24,0.0078
 cscw,emip,All,LASSO,0.274,0.0079

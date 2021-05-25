@@ -410,7 +410,7 @@ The effect of different methods for reducing the feature space on generalizabili
 The method we use for dimensionality reduction is Principal Component Analysis (PCA), and the one for feature selection is Least Absolute Shrinkage and Selection Operator (LASSO).
 For all pipelines, we also use a zero-variance filter to remove the features that have no variance in their data
 
-Lasso was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[tibshiraniRegressionShrinkageSelection1996, giannakosMultimodalDataMeans2019], which is the case for most of our feature groups.
+LASSO was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[tibshiraniRegressionShrinkageSelection1996, giannakosMultimodalDataMeans2019], which is the case for most of our feature groups.
 
 
 ==== Prediction: Ensemble Learning

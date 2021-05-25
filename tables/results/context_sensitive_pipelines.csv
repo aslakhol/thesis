@@ -1,4 +1,4 @@
-FGI,In Study,Feature Group,PCA or Lasso
+FGI,In Study,Feature Group,PCA or LASSO
 0.0117,emip_cscw,All,LASSO
 0.0102,emip_cscw,Gaze Characteristics,LASSO
 0.0102,emip_cscw,Pupil Diameter,LASSO
