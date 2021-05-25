@@ -15,7 +15,8 @@ Pipelines that exhibit more context-sensitivity are presented in xref:context_se
 === Baselines
 
 We calculate a specific baseline for each dataset combination.
-We use the NRMSE value equivalent to predicting the mean label value from the in-study dataset as the baseline for each combination.
+The baseline is equivalent to predicting the mean of the labels from the in-study dataset, then calculating the NRMSE from those predictions.
+This is calculated separately for each dataset combination.
 Our pipelines are evaluated against the baseline for the given dataset combination.
 
 .The baselines for each dataset combination
