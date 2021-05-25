@@ -407,7 +407,7 @@ include::../tables/feature_groups_table.adoc[]
 Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and improve predictive power.
 The focus of our thesis was on testing different features, and as such, we decided not to test a wide range of alternatives.
 The effect of different methods for reducing the feature space on generalizability is a potential area for further study.
-The method we use for dimensionality reduction is PCA, and the one for feature selection is LASSO.
+The method we use for dimensionality reduction is Principal Component Analysis (PCA), and the one for feature selection is Least Absolute Shrinkage and Selection Operator (LASSO).
 For all pipelines, we also use a zero-variance filter to remove the features that have no variance in their data
 
 Lasso was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[tibshiraniRegressionShrinkageSelection1996, giannakosMultimodalDataMeans2019], which is the case for most of our feature groups.
