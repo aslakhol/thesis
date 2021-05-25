@@ -17,7 +17,7 @@ Cognitive workload, measured and assessed using eye-tracking technology, could s
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
 Cognitive load theory, first proposed by John Sweller, establishes the three domains of cognitive load as intrinsic, extraneous, and germane.
 Intrinsic is concerned with the complexities in the information being learned.
-Extraneous cognitive load is the load that stems from the instructional material.
+Extraneous cognitive load is the load that stems from the presentation of the instructional material.
 Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
 Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
@@ -30,7 +30,7 @@ Eye-tracking is the process of tracking and recording the position of a subject'
 The gaze point for each of the eyes of a subject is recorded over time.
 Eye-tracking can be used as input control for interacting with systems citenp:[cantoniEyeTrackingComputer2014], or to record user behavior when interacting with digital and physical systems citenp:[grankaEyeTrackingAnalysisUser2004, bojkoEyeTrackingUser2005].
 As the equipment involved has become cheaper and eye-tracking with web cameras has improved citenp:[bottWebCameraBased2017], eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
-These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], collaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021], detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
+These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], collaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021, olsenUsingIntelligentTutoring2014] and detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
 
 ==== Generalizability
 
@@ -39,12 +39,12 @@ Davison et al. point out that one must be explicitly aware of the context of one
 Cheng et al. agree that a close look at the context of a study is critical.
 However, they underline that generalizability is the ultimate goal of research, and well-reasoned generalizability should be pursued citenp:[chengContextMayBe2016].
 Our work is acutely aware of the context of each of the datasets we use, and we will aim to engineer features that are generalizable to other contexts.
-We will evaluate the degree of generalizability of our experiments through statistical analysis.
+We will evaluate the degree of generalizability of our experiments through analysis.
 
 While generalizability is a goal of machine learning research, there is little focus on feature generalizability in the literature.
 By feature generalizability, we mean the extent to which extracted features can predict the same variable, in our case cognitive performance, in different contexts.
 Inspired by the methods of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020], we aim to engineer features that exhibit feature generalizability.
-The usefulness of understanding the rationale behind features and how they might differ when predicting the same target on different types of data has been studied by Rogers et al. in the context of text mining citenp:[rogersGeneralizabilityDocumentFeatures2017].
+The usefulness of understanding the rationale behind features and how they might differ when predicting the same classification target on different types of data has been studied by Rogers et al. in the context of text mining citenp:[rogersGeneralizabilityDocumentFeatures2017].
 Feature generalizability has also been considered a central goal in feature selection within music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
 It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019].
 
@@ -56,7 +56,7 @@ In addition, we will present a machine learning platform we have developed to ef
 === Research Questions
 This study aims to create a step-by-step approach to perform feature generalizability experiments on gaze data.
 We also propose an architecture and provide an implementation for this approach.
-To determine which features and which methods for reducing the feature space are generalizable.
+Our goal is to determine a set of features and methods for reducing the feature space that is generalizable across contexts.
 From this, we can extract the following research questions.
 
 - *RQ 1* What are the most generalizable features for predicting cognitive performance using gaze data?
@@ -66,20 +66,19 @@ From this, we can extract the following research questions.
 
 In this section, we will introduce the reader to a few key terms from the eye-tracking field.
 
-The term fixation refers to when the eye holds steady on an object or a position.
-In a fixation, recorded gaze points vary little in both time and space.
+The term *fixation* refers to when the eye holds steady on an object or a position.
 Fixations usually reflect attention to a stimulus citenp:[shojaeizadehDetectingTaskDemand2019].
-When discussing fixations, we will often refer to the fixation duration, which is the amount between the start of the fixation and the end of the fixation
+When discussing fixations, we will often refer to the *fixation duration*, which is the amount between the start of the fixation and the end of the fixation
 
-Saccades are small rapid eye movements that occur between two fixations.
+*Saccades* are small rapid eye movements that occur between two fixations.
 Cognitive information is not processed during saccadic eye movements.
 However, studies have shown that they still can provide information about viewing behavior and indicate changes in cognition citenp:[shojaeizadehDetectingTaskDemand2019].
-We will primarily refer to the measures saccade duration and saccade length.
+We will primarily refer to the measures *saccade duration* and *saccade length*.
 Saccade length is the euclidean distance between the two fixations.
 Saccade duration is the time that the eye movements take, the time between the two fixations.
 
 Pupillary changes are changes in pupil size.
-We will most commonly refer to pupil diameter, which is the size in pixels or millimeters that the pupil has at a point in time.
+We will most commonly refer to *pupil diameter*, which is the size in pixels or millimeters that the pupil has at a point in time.
 Changes to the pupil diameter can serve as a reliable proxy of mental effort citenp:[shojaeizadehDetectingTaskDemand2019].
 
 === Outline
@@ -107,14 +106,15 @@ Our chapter on implementation presents the requirements for our platform, descri
 [discrete]
 ===== xref:results[]: Results
 
-This chapter presents a range of tables and plots representing the evaluations of our pipelines and provides assistance in interpreting the presented materials.
+This chapter presents the evaluations of our pipelines and provides assistance in interpreting the presented materials.
 
 [discrete]
 ===== xref:discussion[]: Discussion
 
 The discussion delves further into the results, presents our interpretations of the patterns displayed by the results, and discusses the results in relation to the literature.
+The chapter also discusses the limitations of our work and suggests further work.
 
 [discrete]
 ===== xref:conclusion[]: Conclusion
 
-At last, the conclusion presents a summary of the work, the contributions of the work, and suggestions for further work.
+At last, the conclusion presents a summary of the work and the contributions of the work.
