@@ -41,8 +41,8 @@ However, the section is presented to the reader to benchmark the range of predic
 ==== Aggregation of the Results
 
 To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
-We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on either dimensionality reduction, feature combination, then taking the average.
-This mean of ranks gives us the results of what pipeline components perform best when testing in the same context it was trained.
+We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on method of reducing the feature space or feature group, and taking the average.
+This _mean of ranks_ gives us the results of what pipeline components perform best when testing in the same context it was trained.
 
 ====  Dimensionality Reduction and Feature Selection
 
