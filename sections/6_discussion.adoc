@@ -13,7 +13,7 @@
 Our goal was to identify generalizable pipelines, and for that, we have the FGI measure.
 FGI describes how similar the distribution of errors from out-of-sample testing and out-of-study testing and is a measure of generalizability.
 However, it is not enough that the two distributions are similar.
-Generalizability should be a measure of usable predictive power in outside contexts.
+Generalizability should be a measure of usable predictive power in contexts other than the training context.
 Random guesses would create identical distributions of error in out-of-sample testing and out-of-study testing, and as such, would have a good FGI value.
 To counteract this, we chose to disregard all pipelines that do not outperform their respective baselines for the purpose of measuring generalizability.
 We do this by filtering the set of completed baselines.
