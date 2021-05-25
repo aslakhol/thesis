@@ -37,7 +37,6 @@ We theorize that pipelines trained on EMIP do worse at describing this collabora
 The variability introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
 There is a degree of division of labor in collaboration, which gives rise to individual tasks even in the collaborative context; as such, there is mutual information even between the datasets when training on collaborative tasks even when predicting individual tasks.
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
-It should also be noted that the EMIP dataset is larger than the other datasets, which might affect the behavior of our regressor when it is included as in-study.
 
 === Generalizable Features
 
