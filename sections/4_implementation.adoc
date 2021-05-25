@@ -466,7 +466,7 @@ The following formulas calculate NRMSE.
 
 asciimath:[RMSE = sqrt ((sum_(i=1)^text(Number of samples) (text(predicted)_i - text(original)_i)^2) / text(Number of Samples))]
 
-asciimath:[NRMSE = text(NRMSE)/(text(original)_max - text(original)_min)]
+asciimath:[NRMSE = text(RMSE)/(text(original)_max - text(original)_min)]
 
 
 [[feature_generalizability_index]]
