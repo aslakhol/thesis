@@ -72,8 +72,6 @@ Spectral histograms capture repetitiveness and hence might capture patterns of b
 Repetitiveness indicates a flow that suggests that the subject is comfortable in their task; on the other hand, chaotic non-repetitive behavior might occur when one is not comfortable.
 We suggest that this relationship should be represented across contexts and could be why spectral histograms seem to generalize.
 
-We do not know why HMM generalizes this is a mystery and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
-
 ==== Saccade Duration and Saccade Length
 
 Both saccade duration and saccade length seem to generalize.
