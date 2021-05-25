@@ -15,7 +15,10 @@ As such, an alternative to the Toolbox is needed for the evaluation of cognitive
 Cognitive workload, measured and assessed using eye-tracking technology, could serve as an alternative citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010, shojaeizadehDetectingTaskDemand2019].
 
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
-Cognitive load theory, first proposed by John Sweller, establishes the three domains of cognitive load as intrinsic, extraneous, and germane. Intrinsic is concerned with the complexities in the information being learned. Extraneous cognitive load is the load that stems from the instructional material. Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
+Cognitive load theory, first proposed by John Sweller, establishes the three domains of cognitive load as intrinsic, extraneous, and germane.
+Intrinsic is concerned with the complexities in the information being learned.
+Extraneous cognitive load is the load that stems from the instructional material.
+Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
 Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
 Our project will include data gathered from studies handling many different cognitive tasks.
