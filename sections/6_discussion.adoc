@@ -48,7 +48,8 @@ In this section, we will argue a few reasons we believe as to why the features g
 We observe that heatmaps are among the generalizable features.
 Our heatmap feature is the gaze-position for each subject over time, split into 30 partitions, converted to a heatmap, and fed to a pre-trained VGG19 model.
 The resulting feature vector is the feature we call heatmaps.
-While the stimulus is not included in the heatmap image, the stimulus is captured through the subject's interaction with it, as the gaze pattern will follow the stimulus.
+In a heatmap, the stimulus is captured through the subject's interaction with it, as the gaze pattern follows the stimulus.
+While the stimulus is not included in the heatmap image, information about the stimulus is still encoded.
 The feature vector we call heatmaps represents how the gaze interacts with the given stimuli. Taking EMIP as an example, a heatmap will tell us the shape of the code being presented to the subject for all subjects.
 However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
 The latter is a focus point for experienced coders.
