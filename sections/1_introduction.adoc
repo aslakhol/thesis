@@ -4,14 +4,15 @@
 === Motivation
 
 Modern user-adaptive systems rely on understanding the current cognitive capabilities of users citenp:[kobsaPrivacyPseudonymityUseradaptive2003, soloveySensingCognitiveMultitasking2011, nicolaeNeuralIndicatorsDepth2015].
-However, many such systems rely primarily on tailor-made solutions to detect such capabilities citenp:[buettnerRealtimePredictionUser2018, yamadaDetectingMentalFatigue2018, zemblysUsingMachineLearning2018]
+However, many such systems rely primarily on tailor-made solutions to detect such capabilities citenp:[buettnerRealtimePredictionUser2018, yamadaDetectingMentalFatigue2018, zemblysUsingMachineLearning2018].
 By moving towards generalizable solutions for detecting cognitive performance, we can decrease our reliance on the time-consuming development of such detection systems.
 
 Cognition describes the different workings of our mental capacities.
 Weintraub et al. citenp:[weintraubCognitionAssessmentUsing2013] identified executive function, episodic memory, language, processing speed, working memory as the most critical cognition subdomains for health, success in school and work, and independence in daily functioning.
 The National Institutes of Health (NIH) Toolbox Cognition Batteries is a well-established set of tests of cognition citenp:[weintraubCognitionAssessmentUsing2013].
-While the tests in the NIH Toolbox are thorough and well tested, they are also quite involved and take much time to perform.
-Therefore, a proxy is needed to evaluate cognitive performance in a micro context.
+While the tests in the NIH Toolbox are thorough and well tested, they are also quite involved and time-consuming.
+As such, an alternative to the Toolbox is needed for the evaluation of cognitive performance.
+Cognitive workload, measured and assessed using eye-tracking technology, could serve as an alternative citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010, shojaeizadehDetectingTaskDemand2019].
 
 Cognitive workload describes the level of mental resources that one person requires to perform a task and naturally falls within the purview of cognitive performance.
 Cognitive load theory, first proposed by John Sweller, establishes the three domains of cognitive load as intrinsic, extraneous, and germane. Intrinsic is concerned with the complexities in the information being learned. Extraneous cognitive load is the load that stems from the instructional material. Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
