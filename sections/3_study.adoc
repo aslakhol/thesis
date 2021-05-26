@@ -149,7 +149,7 @@ Participants also completed a pre-test on the morning of the experiment and a po
 Students participating in the study completed their tasks in an interactive tutoring system developed by the researchers.
 They communicated verbally through a skype connection.
 No video signal was transmitted.
-Gaze data was recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions, olsenUsingIntelligentTutoring2014].
+Gaze data was recorded using SMI RED250 eye trackers citenp:[olsenUsingIntelligentTutoring2014, SMIRED250IMotions].
 
 ===== Description of the Data
 
