@@ -1,7 +1,7 @@
 [[results]]
 == Results
 
-We ran a total of 216 pipelines with different combinations of datasets, dimensionality reduction, and feature groups.
+We ran a total of 216 pipelines with different combinations of datasets, methods for reducing the feature space, and feature groups.
 144 of these pipelines were 1-to-1 pipelines, where we trained on only one dataset and tested on another.
 72 of the pipelines were 2-to-1, where two datasets are designated in-study and one dataset designated out-of-study.
 In this section, we will present the results from these pipelines.
@@ -41,9 +41,9 @@ However, the section is presented to the reader to benchmark the range of predic
 
 ==== Aggregation of the Results
 
-To evaluate how each dimensionality reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
-We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on method of reducing the feature space or feature group, and taking the average.
-This _mean of ranks_ gives us the results of what pipeline components perform best when testing in the same context it was trained.
+To evaluate how each feature space reduction method and each feature combination performs across all the pipelines, we need to aggregate the pipelines' results.
+We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on feature space reduction method or feature group, and finding the median.
+The _median of ranks_ gives us the results of what pipeline components perform best when testing in the same context it was trained.
 
 ====  Dimensionality Reduction and Feature Selection
 
@@ -53,7 +53,7 @@ Which method performs better seems to rely heavily on the in-study dataset, maki
 
 
 [[pipelines_nrmses_dim_reduction]]
-.The four best pipelines by NRMSE per dataset and whether they used dimensionality reduction or feature selection.
+.The four best pipelines by NRMSE per dataset and whether they used PCA or LASSO.
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
 
@@ -83,14 +83,14 @@ include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregate
 
 xref:pipelines_nrmses_features[] shows the best four pipelines by NRMSE and their feature groups.
 It seems that several different feature groups perform quite well for the different dataset combinations.
-We note that Fixation duration performs well in most combinations and that spectral histograms perform well in several pipelines, and All perform well, particularly for fractions_cscw.
+We note that Fixation duration performs well in most combinations and that Spectral Histograms performs well in several pipelines, and All perform well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
 .The four best pipelines by NRMSE per dataset and their feature group.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
 
-As seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[], when we aggregate the results, we see that Gaze characteristics is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than Spectral Histograms and Heatmaps.
+As seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[], when we aggregate the results, we see that Gaze Characteristics is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than Spectral Histograms and Heatmaps.
 2-to-1 pipelines that include Fixation duration seem to outperform other 2-to-1 pipelines, but GARCH also performs quite well.
 
 
@@ -125,7 +125,7 @@ image::../figures/distribution_of_FGI.png[]
 
 As represented in xref:distribution_fgi[], 2-to-1 pipelines are in general more generalizable than 1-to-1 pipelines.
 This is in line with the results of citenp:[sharmaAssessingCognitivePerformance2020].
-For simplicity, since our focus is generalizability, we will only refer to the 2-to-1 pipelines in the following sections.
+Our focus is generalizability, and as such, we will only refer to the 2-to-1 pipelines in the following sections.
 
 
 [[generalizable_pipelines]]
@@ -146,7 +146,7 @@ LASSO is also included in the two pipelines with the best FGI.
 PCA performs very well for the feature groups ALL and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
 
 Seven of our twelve feature groups are represented among the ten most generalizable pipelines.
-However, three feature groups show up more than once, ALL, heatmaps, and GARCH.
+However, three feature groups show up more than once, ALL, Heatmaps, and GARCH.
 This indicates that they might be more generalizable feature groups.
 It should also be noted that GARCH is also the only pipeline with an in-study dataset that is not fractions_cscw of the ten most generalizable pipelines.
 
@@ -162,7 +162,7 @@ The bottom third of the filtered baselines contain the pipelines that are more c
 include::../tables/results/context_sensitive_pipelines.csv[]
 |===
 
-Again we can see that the dataset combination is an important factor in which pipelines exhibit context-sensitivity.
+Again we can see that the dataset combination is an important factor in what pipelines exhibit context-sensitivity.
 LASSO is more represented among the more context-specific pipelines.
 As with the generalizable pipelines, there are more pipelines with LASSO that beat the baseline.
 For the feature groups, we observe some differences from the generalizable pipelines.
