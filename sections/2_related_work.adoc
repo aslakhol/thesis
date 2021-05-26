@@ -3,26 +3,28 @@
 
 === Eye-Tracking and Cognitive Performance
 
-Since gaze data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016], multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
-As cognitive load can be a proxy between a task and a subject's performance, citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010], literature concerning gaze data and cognitive load is highly relevant for this thesis.
-Zhang et al. citenp:[zhangTuC4DriverCognitive] classified a driver's cognitive load in two classes, using the direction of the subject's gaze and the mean and standard deviation of pupil diameter changes.
+Gaze data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016].
+Multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
+Literature concerning gaze data and cognitive load is highly relevant for our work, as cognitive load can be a proxy between a task and a subject's performance citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010].
+Zhang et al. citenp:[zhangTuC4DriverCognitive] classified a driver's cognitive load in two classes, using the direction of the subject's gaze and the mean and standard deviation of change in pupil dilation.
 They achieved significant results using a decision tree classifier.
-Haapalainen et al. citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine their usefulness.
-Their results show that the pupillometry was one of the least valuable features for their problem.
-However, Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze data and showed aggregated features from gaze data could predict a subject's perceptual speed and visual working memory reliably.
-Toker et al. citenp:[tokerPupillometryHeadDistance2017] has also shown that including pupil dilation to the same feature set as Steichen has a significant effect on predictions of confusion and skill acquisition.
-Chen and Epps citenp:[chenUsingTaskInducedPupil2014] did binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency.
+Haapalainen et al. citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010] used multiple physiological sensors and combinations of their signals to determine the usefulness of these signals in assessing cognitive load.
+Their results show that pupillometry was one of the least valuable features for their problem.
+Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013] investigated how to infer cognitive abilities from gaze data and showed that aggregated features from gaze data could predict a subject's perceptual speed and visual working memory reliably.
+Contrary to Haapalainen et al. citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010], Toker et al. citenp:[tokerPupillometryHeadDistance2017] show that pupil dilation has a significant effect on predictions of confusion and skill acquisition when included in the feature set proposed by Steichen et al. citenp:[steichenUseradaptiveInformationVisualization2013].
+Chen and Epps citenp:[chenUsingTaskInducedPupil2014] performed binary classification on cognitive load using a Gaussian mixture model with pupil dilation and blink frequency.
 Their work showed promising results for the automatic prediction of cognitive load with gaze data.
 
 There are also novel features engineered from gaze data.
 Duchowski et al. citenp:[duchowskiIndexPupillaryActivity2018] engineered a measure of the frequency of pupil diameter oscillation which captures an indicator of cognitive load, called Index of Pupillary activity (IPA).
 IPA was proposed as an alternative to the existing Index of Cognitive Activity (ICA) since ICA is not available to the public.
-Later they proposed an improvement to IPA called The Low High Index of pupillary activity citenp:[duchowskiLowHighIndex2020], which can discriminate cognitive load in several experiments where IPA fails to do so.
+Later they proposed an improvement to IPA called The Low High Index of Pupillary Activity (LHIPA) citenp:[duchowskiLowHighIndex2020], which can discriminate cognitive load in several experiments where IPA fails to do so.
 Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020] used heatmaps generated from the fixtures of subjects to predict students' performance.
 Features from the heatmaps were extracted with a pre-trained VGG19 model.
-They showed that cognitive performance could be predicted with an error rate of less than 5%.
+They showed that they could predict cognitive performance with an error rate of less than 5%.
 
-Even though gaze-data has shown promising results in predicting cognitive workload and performance, there is little work in the literature that addresses inferring cognitive performance between contexts from gaze data.
+While research on gaze data has achieved promising results predicting cognitive workload and performance, no work has addressed inferring cognitive performance between contexts from gaze data.
+
 
 === Generalizability
 While universalism and context-sensitivity in information systems research remain essential research topics, citenp:[davisonContextKingConsidering2016, chengContextMayBe2016] generalizability continues to be a chief concern in machine learning research.
@@ -31,28 +33,28 @@ It is named as one of the primary goals in a slew of fields ranging from healthc
 Turney has worked to provide a formal definition of context sensitive features within concept learning citenp:[turneyIdentificationContextSensitiveFeatures2002, turneyExploitingContextWhen1993, turneyRobustClassificationContextsensitive1993].
 His work is strengthened by John et al. citenp:[johnIrrelevantFeaturesSubset1994] and others.
 While our view of context is tangential to his, the definition of context-sensitive features as features only relevant given a set context is still applicable to our work.
-We look to engineer generalizable features that provide predictive power on data gathered outside of the feature's context.
+We look to engineer generalizable features that provide predictive power from data gathered in a context different than the features origin.
 
 Bouchard et al. work with technologies for ambient intelligence to increase the autonomy of the elderly through enhanced tracking to assist medical personnel.
-Their work with Bluetooth beacons revealed a feature based on the received signal strength indication time-series that generalize between contexts made up of different hardware, different hardware configurations, and different floor plans citenp:[bouchardGeneralizableSpatialFeature2016].
+Their work with Bluetooth beacons revealed a feature based on the received signal strength indication timeseries that generalize between contexts made up of different hardware, different hardware configurations, and different floor plans citenp:[bouchardGeneralizableSpatialFeature2016].
 
 Ferentzi et al. investigated whether information gained from a single interoceptive modality (mode of understanding one's own body) can be generalized to other modalities. citenp:[ferentziMultichannelInvestigationInteroception2018]
 They investigated a group of students' ability to count their heartbeats, sense their gastric fullness, sense bitterness, pain threshold, proprioceptive sensitivity (ability to position their limbs), and sense of balance.
 They argue that their findings strongly support that interoceptive accuracy assessed with a single modality cannot be generalized to other modalities.
 
 Feature generalizability has seen some popularity in Brain-Computer Interfaces (BCI) research.
-Wang et al. demonstrate generalizable features generated using a simple deep neural network that decodes learning strategies from electroencephalography (EEG) signals gathered when subjects execute a learning strategy task that included context switching.
+Kim et al. demonstrate generalizable features generated using a simple deep neural network that decodes learning strategies from electroencephalography (EEG) signals gathered when subjects execute a learning strategy task citenp:[kimDecodingLearningStrategies2021].
 Nurse et al. also showed an approach including a high-dimension neural network used to do real-time EEG classification for use in BCI.
 In this approach, a neural network acted as both feature extractor and classifier, and the technique was shown to generalize citenp:[nurseGeneralizableBrainComputerInterface2015].
 
-Kidzinski et al. discuss how the bias-variance trade-off is a central concern when studying generalizability in the context Massive Open Online Courses (MOOCs) citenp:[kidzinskiGeneralizabilityMOOCModels2016].
+Kidzinski et al. discuss how the bias-variance trade-off is a central concern when studying generalizability in the context of Massive Open Online Courses (MOOCs) citenp:[kidzinskiGeneralizabilityMOOCModels2016].
 The bias-variance trade-off refers to the fact that one cannot achieve both zero variance and zero bias in practice.
 A model with a significant bias captures the general trend of the data but does not fit the sample data points closely.
 On the other hand, variance is how similarly the model captures the testing dataset compared to the training dataset.
 Kidzinski et al. argue that much of the research on MOOCs is to focus on the specific course being studied and that, as such, models do not generalize to other courses.
-Their view is that the bias-variance trade-off is central when assessing the generalizability MOOC models.
+Their view is that the bias-variance trade-off is central when assessing the generalizability MOOC models citenp:[kidzinskiGeneralizabilityMOOCModels2016].
 
-Recently feature generalizability has also been shown to have relevance when predicting driver's intentions at intersections in an automotive context citenp:[phillipsGeneralizableIntentionPrediction2017], when using ML for personality assessment citenp:[bleidornUsingMachineLearning2019], in speech enhancement systems citenp:[babyBiophysicallyinspiredFeaturesImprove2018], in face-based attention mind wandering detection citenp:[stewartGeneralizabilityFaceBasedMind], and in music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
+Recently feature generalizability has also been shown to have relevance when predicting driver's intentions at intersections in an automotive context citenp:[phillipsGeneralizableIntentionPrediction2017], when using ML for personality assessment citenp:[bleidornUsingMachineLearning2019], in speech enhancement systems citenp:[babyBiophysicallyinspiredFeaturesImprove2018], in face-based mind wandering detection citenp:[stewartGeneralizabilityFaceBasedMind], and in music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
 
 === Platform
 
@@ -69,20 +71,22 @@ Olson and Moore present TPOT, a tree-based tool for optimizing pipelines, which 
 This system exists in the new and promising field of AutoML, which seeks to automate the design of pipelines for machine learning, democratizing machine learning further.
 Mohr et al. have contributed to predicting pipeline runtimes to improve one of the significant limitations of current AutoMl technology citenp:[mohrPredictingMachineLearning2021].
 The systems we have available today take a considerable amount of time to arrive at good pipeline designs if the case is even slightly complex.
-Effectively predicting pipelines would enable us to significantly decrease the cost of AutoML systems, as one could ignore pipelines that would not complete within the systems timeout limits.
+Effectively predicting pipeline runtimes would enable us to significantly decrease the cost of AutoML systems, as one could ignore pipelines that would not complete within the systems timeout limits.
 
 There have also been several attempts at creating more generally applicable platforms for machine learning.
-López García et al. presents the DEEP-Hybrid-DataCloud framework as "a distributed architecture top provide machine learning practitioners with a set of tools and cloud services to cover the whole machine learning development cycle" citenp:[lopezgarciaCloudBasedFrameworkMachine2020].
+López García et al. presents the DEEP-Hybrid-DataCloud framework as "a distributed architecture to provide machine learning practitioners with a set of tools and cloud services to cover the whole machine learning development cycle" citenp:[lopezgarciaCloudBasedFrameworkMachine2020].
 The DEEP framework represents an important step in democratizing machine learning and deep learning for all areas of research.
 Ribeiro et al. present an architecture to provide scalable machine learning capabilities as a service, along with an open-source implementation citenp:[ribeiroMLaaSMachineLearning2015].
 Kraska et al. have developed MLBase, which includes a simple declarative language for specifying machine learning tasks to be used by both researchers and end-users citenp:[kraskaMLbaseDistributedMachinelearning].
-The available resources for machine learning in proposed architectures, open-source and commercial platforms and pipelines, tooling, and other supporting technologies have exploded in the last years.
+The available resources for machine learning such as proposed architectures, open-source and commercial platforms and pipelines, tooling, and other supporting technologies have increased significantly in the last couple of years.
 Machine learning tools to process large-scale data for decision assistance, automation, and interactive data analytics are growing and will continue to be essential for research and business citenp:[nguyenMachineLearningDeep2019].
+
+==== Reproduciblity
 
 The ability to reproduce a scientific work's central finding, reproducibility, is key to the scientific process, and as such is essential in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
 This challenge is both more complicated and more straightforward in the age of digital.
-Analyses that can be made are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
-While this added complexity adds to the difficulty in adequately describing the process involved in reaching our conclusions, digital tools can also give us the ability to share the exact code that confirms our results' citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].
+Analyses are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
+While this added complexity adds to the difficulty in adequately describing the process involved in reaching conclusions, digital tools can also enable us to share the exact code that confirms our results citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].
 There has been a growing push to include code with materials published along with scientific findings citenp:[inceCaseOpenComputer2012, DevilDetails2011].
 Ince et al. argue that even with the complete source code, one is not guaranteed reproducibility.
 Local software and hardware environments introduce noise that could impact results.
