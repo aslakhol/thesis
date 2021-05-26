@@ -1,7 +1,7 @@
 [[implementation]]
 == Implementation
 
-Our goal with this system is to create a platform on which we can perform our feature generalizability experiments efficiently and consistently.
+Our goal is to create a platform on which we can perform our feature generalizability experiments efficiently and consistently.
 
 In order to achieve this goal, multiple components have to be present.
 
@@ -15,9 +15,9 @@ In order to achieve this goal, multiple components have to be present.
 xref:architecture_diagram[] shows the outlines of the architecture we propose.
 The first step is data preprocessing, explained in xref:preprocessing[].
 Preprocessed data is then fed to the feature extraction step explained in xref:feature_extraction[].
-Then we organize 219 separate pipelines that consist of unique combinations of datasets, feature groups, and methods for reducing the feature space explained in xref:pipelines[].
+Then we organize 216 separate pipelines that consist of unique combinations of datasets, feature groups, and methods for reducing the feature space explained in xref:pipelines[].
 All pipelines use the same ensemble classifier.
-Results are then evaluated in the evaluation step, xref:evaluation[], and logged xref:reproducibility[].
+Results are then evaluated in the evaluation step (see xref:evaluation[]), and logged (see xref:reproducibility[]).
 
 [[architecture_diagram]]
 .Diagram of our architecture.
@@ -38,7 +38,6 @@ Each dataset has its own set of column names, and they also use different units.
 Some of the datasets measure time in milliseconds, while others measure it in microseconds.
 In standardizing the dataset, we converted all differing units and renamed columns that represented the same values so that all datasets are consistent with each other.
 Some subjects were missing labels; this was solved by removing the subject from the dataset.
-We also fixed inconsistencies such as wrong capitalizations of filenames.
 
 For the EMIP dataset, we were provided with the raw data without fixations calculated.
 In order to use this dataset, we calculated fixations ourselves with the library PyGaze Analyzer citenp:[dalmaijerPyGazeOpensourceCrossplatform2014].
