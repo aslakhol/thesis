@@ -249,7 +249,7 @@ Saccade velocity skewness has been shown to correlate with familiarity citenp:[p
 If the skewness is highly positive, that means that the overall saccade speeds were high.
 This indicates that the subject is familiar with the stimulus and can quickly maneuver to the relevant sections when seeking information.
 Saccade speed does not necessarily indicate expertise in the relevant subject matter.
-Non-expert participant could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
+A non-expert participant could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
 
 To calculate this feature, we calculated the speed by dividing the saccade length by the saccade duration.
 We then got the skew of the outputted distribution.
