@@ -143,10 +143,10 @@ Nine of the ten more generalizable pipelines contain this combination of dataset
 LASSO is the most represented method of feature space reduction among the more generalizable pipelines.
 We note that there are more pipelines with LASSO that beat the baseline and might explain the trend we are seeing.
 LASSO is also included in the two pipelines with the best FGI.
-PCA performs very well for the feature groups ALL and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
+PCA performs very well for the feature groups All and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
 
 Seven of our twelve feature groups are represented among the ten most generalizable pipelines.
-However, three feature groups show up more than once, ALL, Heatmaps, and GARCH.
+However, three feature groups show up more than once, All, Heatmaps, and GARCH.
 This indicates that they might be more generalizable feature groups.
 It should also be noted that GARCH is also the only pipeline with an in-study dataset that is not fractions_cscw of the ten most generalizable pipelines.
 
@@ -168,4 +168,4 @@ As with the generalizable pipelines, there are more pipelines with LASSO that be
 For the feature groups, we observe some differences from the generalizable pipelines.
 ARMA, LHIPA, Gaze Characteristics, and Pupil Diameter are present in the context-sensitive pipelines but not in the more generalizable pipelines.
 This indicates that these feature groups are more likely to produce context-sensitive pipelines.
-Heatmaps, Spectral Histogram, Hidden Markov Models, ALL, and Saccade Length appear in generalizable and context-sensitive pipelines. This further supports the observation that dataset combination is an essential variable for generalizability.
+Heatmaps, Spectral Histogram, Hidden Markov Models, All, and Saccade Length appear in generalizable and context-sensitive pipelines. This further supports the observation that dataset combination is an essential variable for generalizability.
