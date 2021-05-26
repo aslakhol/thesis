@@ -312,6 +312,7 @@ A heatmap is a graphical representation of data where values are depicted by col
 Areas of higher activity will be highlighted more.
 Our heatmaps represent the gaze position of a subject over time.
 To capture both spatial and temporal data, we create multiple heatmaps for each subject.
+Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020] show that deep features of heatmaps from gaze data can predict cognitive performance in learning activities.
 
 These are the steps we take to create our heatmaps:
 
@@ -331,14 +332,9 @@ image::../figures/fractions_heatmaps.jpg[]
 
 From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
-1. Scale the images down using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
-2. Use the pre-trained VGG-19 model to extract features per image
-3. Flatten the matrices outputted by the VGG19 model to a single list of values and concatenate them.
-
-
-As shown by Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020], deep features of heatmaps from gaze data can predict cognitive performance in learning activities.
-
-===== Pseudocode
+. Scale the images down using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
+. Use the pre-trained VGG-19 model to extract features per image
+. Combine the matrices outputted by the VGG19 model to a single feature vector
 
 ```
 frames = Split each subject into 30 partitions
@@ -367,7 +363,7 @@ This section explains how we solved goal 4 of creating our platform.
 > We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for reducing the feature space.
 
 By a pipeline, we mean a specific combination of datasets, feature groups, and methods for reducing the feature space (dimensionality reduction or feature selection).
-For simplicity, we will refer to these as pipeline components.
+We will refer to these parts as pipeline components.
 
 
 ==== Datasets
@@ -398,7 +394,7 @@ include::../tables/feature_groups_table.adoc[]
 
 ==== Reducing the Feature Space
 
-Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and improve predictive power.
+Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and decrease variance.
 The focus of our thesis was on testing different features, and as such, we decided not to test a wide range of alternatives.
 The effect of different methods for reducing the feature space on generalizability is a potential area for further study.
 The method we use for dimensionality reduction is Principal Component Analysis (PCA), and the one for feature selection is Least Absolute Shrinkage and Selection Operator (LASSO).
@@ -413,18 +409,17 @@ Our pipelines were tested with the same regressor, a weighted voting ensemble wi
 An ensemble combines several different base regressors or classifiers in order to leverage the strengths of each classifier or regressor.
 A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
 Then it averages the individual predictions respective to their given weights to form a final prediction.
-To find the weights for the voting, we perform cross-validation on each of the regressors and set their respective weights as 1 - Root Mean square error.
+To find the weights for the voting, we perform cross-validation, with the validation set, on each regressor and set their respective weights to 1 - Root Mean Square Error (RMSE).
 Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[kunchevaCombiningPatternClassifiers, anOptimalWeightSelectionRegressor2009].
 
 KNN predictors approximate the target by associating it with its n nearest neighbors in the training set.
-We use the default value five for n, provided to us by sklearn citenp:[UsScikitlearn24].
 KNNs are simplistic algorithms that, despite their simplicity, in some cases, outperform more complex learning algorithms.
 However, it is also negatively affected by non-informative features citenp:[gulEnsembleSubsetKNN2016].
 A random forest fits a number of classifying decision trees on various sub-samples of the dataset and aggregates the predictions from the different trees.
 Random forests have been shown to outperform most other families of classifiers citenp:[fernandez-delgadoWeNeedHundreds2014].
 SVR, support vector regressors are a regression version of support vector machines proposed by Drucker et al. citenp:[druckerSupportVectorRegression2003]
 SVRs estimate the target value by fitting a hyperplane by minimizing the margins of the plane with an error threshold.
-Support vector regressors perform particularly well when the dimensionality of the feature space representation is much larger than the number of examples, which is the case for some of our feature groups citenp:[druckerSupportVectorRegression2003].
+Support vector regressors perform particularly well when the dimensionality of the feature space representation is much larger than the number of examples citenp:[druckerSupportVectorRegression2003], which is the case for some of our feature groups.
 All our hyperparameters are set to the default values provided by sklearn citenp:[UsScikitlearn24].
 
 [[evaluation]]
@@ -440,9 +435,9 @@ This subsection explains how we evaluate the results of each test.
 
 ==== Evaluation Criteria
 
-We use normalized root mean squared error (NRMSE) as our primary evaluation metric.
-NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]
+We use Normalized Root Mean Squared Error (NRMSE) as our primary evaluation metric.
 NRMSE is a probabilistic understanding of errors as defined by Ferri et al. citenp:[ferriExperimentalComparisonPerformance2009].
+NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]
 The score in all our contexts is based on binary outcomes; a question is either correct or incorrect.
 Pelánek et al. citenp:[pelanekMetricsEvaluationStudent2015] argue that for such cases, metrics such as Root Mean Squared Error (RMSE) or Log-Likelihood (LL) is preferred to metrics such as Mean Average Error (MAE) or Area Under the Curve (AUC).
 MAE considers the absolute difference between the predictions and the errors and is not a suitable metric, as it prefers models that are biased toward the majority result.
@@ -453,8 +448,8 @@ While this can be preferred in some contexts, we decided to proceed with the mor
 The root part of RMSE serves to move the sum of errors back into the range of the labels being predicted to improve interpretability.
 This might have limited usefulness as the resulting numbers can still be challenging to interpret citenp:[pelanekMetricsEvaluationStudent2015].
 In our case, the labels exist in three different contexts with labels in different ranges, and since we are working across these contexts, we need normalized values.
-Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to Normalized RMSE (NRSME).
-Our NRSME is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
+Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to Normalized RMSE (NRMSE).
+Our NRMSE is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
 
 The following formulas calculate NRMSE.
 
@@ -466,14 +461,15 @@ asciimath:[NRMSE = text(RMSE)/(text(original)_max - text(original)_min)]
 [[feature_generalizability_index]]
 ==== Feature Generalizability Index (FGI)
 
-We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
-Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can safely assume that similar behavior will indicate similar results.
+Our measure for generalizability was proposed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
+We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing.
+Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can assume that similar behavior will indicate similar results.
 To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
 
-asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/(N(N-1)/4)]
+asciimath:[(text(mean ranks between groups ) - text( mean ranks within groups))/(N(N - 1)/4)]
 
 The denominator normalizes the values between -1 and 1, where 0 represents a random grouping.
-Pipelines that have an FGI value closer to zero are more generalizable.
+Pipelines that have an FGI value closer to zero are more generalizable citenp:[sharmaAssessingCognitivePerformance2020].
 
 [[reproducibility]]
 === Reproducibility
@@ -482,7 +478,7 @@ This section explains how we reached the sixth goal of our platform.
 
 > We need reproducibility.
 
-Our reproducibility strategy primarily consists of three components.
+Our reproducibility strategy primarily consists of four components.
 The version-control tool, git; the machine learning management tool, comet.ml; the python package management tool, poetry; and google cloud platform.
 
 
@@ -497,7 +493,7 @@ We use comet.ml to track the results of our experiments, the relevant hyperparam
 Poetry is a dependency manager for python citenp:[PoetryPythonDependency].
 As with any large software project, our platform relies on several third-party libraries.
 To ensure both reproducibility and ease of use and development, we use poetry to track the versions of the libraries we use.
-Poetry stores these versions in a lock-file which git tracks.
+Poetry stores these versions in a lock-file which is tracked by git.
 
 ==== Git
 
@@ -511,14 +507,14 @@ When we run an experiment in the cloud, we log the start parameters of the syste
 
 ==== Google Cloud Platform
 
-Our experiments are run on virtual machines in the google cloud platform (GCP) citenp:[kumarGoogleCloudPlatform2016].
+Our experiments are run on virtual machines in the Google Cloud Platform (GCP) citenp:[kumarGoogleCloudPlatform2016].
 GCP is one of several providers of commercial cloud and containerization services.
 Their products allow us to run our experiments on identical virtual machines, which ensures reproducibility also in the hardware aspects of our work.
 
 ==== Seeding
 
 All of our experiments ran with seeded randomness.
-Our implementation for seeding
+Our implementation for seeding the experiments is as follows:
 
 ```
 seed = 69420
