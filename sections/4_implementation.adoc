@@ -53,12 +53,14 @@ As our subjects come from multiple contexts, the need for normalization and outl
 It is essential to normalize pupil diameter.
 Pupil diameter can be affected by several factors such as lighting conditions and how well-rested the subject is citenp:[pflegingModelRelatingPupil2016].
 We chose to min-max normalize the pupil diameter in the range of 0 to 1 per subject.
+To mitigate some contextual biases we use a rolling mean with a window size of 100 samples to smooth the timeseries.
 
 Our time recordings are made at the start point of each fixation.
 This can be problematic, as there are situations where more time passes between fixations than would be reasonable for regular saccades.
 This might be due to blinking, the subject looking outside the range of the eye-tracker, or technical malfunction.
 To mitigate this, we remove the outliers by setting a threshold of 1000 ms for saccade duration.
 All gaps in time over 1000ms were reduced to 1000ms.
+
 
 [[feature_extraction]]
 === Feature Extraction
@@ -77,14 +79,12 @@ The features are organized into three sections:
 
 The flow of the feature extraction job is as follows:
 
-. Download the datasets from google cloud storage
-. Load data as a list of pandas data frames
-. Standardize data. This step is different for each dataset
-. Normalize data
-. Generate aggregated attributes, such as saccade duration, saccade_length, and angle of saccades.
-. Take the rolling mean of the signals
-. Generate features
-. Upload features to google cloud storage
+. Download the datasets from google cloud storage.
+. Standardize and normalize data.
+. Generate aggregated attributes, such as saccade duration and saccade_length.
+. Smooth the signal with rolling mean.
+. Generate features.
+. Upload features to google cloud storage.
 
 ==== Timeseries Features
 
@@ -97,7 +97,7 @@ From each of these signals, we calculate five features.
 * Power Spectral Histogram.
 * ARMA.
 * GARCH.
-* Hidden Markov models.
+* Hidden Markov Models.
 * LHIPA.
 
 ===== Power Spectral Histogram
@@ -137,7 +137,7 @@ for p up to 4
 return best_fit["ar"], best_fit["ma"], best_fit["exog"]
 ```
 
-===== GARCH
+===== Generalized AutoRegressive Conditional Heteroskedasticity (GARCH)
 
 GARCH is similar to ARMA, but it is applied to the variance of the data instead of the mean.
 
@@ -165,7 +165,7 @@ return [best_fit["alpha"],
 ```
 
 
-===== Hidden Markov Models
+===== Hidden Markov Models (HMM)
 
 Hidden Markov Models contains the Markov assumption, which assumes that the present value is conditionally independent on its non-ancestors given its n last parents.
 Similarly to ARMA, this means that the current value is a function of the past values.
@@ -200,7 +200,7 @@ Cognitive load has been shown to correlate with cognitive performance citenp:[he
 The Yerkes-Dodson law describes the relationship between the two, indicating an optimal plateau where a certain degree of cognitive workload is tied to maximized cognitive performance.
 If the cognitive workload is increased beyond this point, cognitive performance is diminished citenp:[hebbDrivesConceptualNervous1955].
 
-Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020]
+Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020].
 
 ==== Gaze Characteristics
 
@@ -208,11 +208,11 @@ Gaze Characteristics are features that are interpreted directly from the eye-tra
 
 ===== Information Processing Ratio
 
-Global information processing (GIP) is often synonymous with skimming text.
+Global Information Processing (GIP) is often analogous with skimming text.
 When skimming, one's gaze jumps between large sections of the material and does not stay in place for extended periods.
 This manifests as shorter fixations and longer saccades.
-Local information processing (LIP) is the opposite; one's gaze focuses on smaller areas for longer durations and does not move around as much.
-For this metric, fixations are measured in time, while saccades are measured as distance.
+Local Information Processing (LIP) is the opposite; one's gaze focuses on smaller areas for longer durations and does not move around as much.
+For this metric, fixations are measured in time, while saccades are measured in distance.
 Hence we capture both the spatial and temporal dimensions.
 
 The information processing ratio describes how much a subject skimmed the material versus how much they focus intently.
@@ -249,50 +249,45 @@ Saccade velocity skewness has been shown to correlate with familiarity citenp:[p
 If the skewness is highly positive, that means that the overall saccade speeds were high.
 This indicates that the subject is familiar with the stimulus and can quickly maneuver to the relevant sections when seeking information.
 Saccade speed does not necessarily indicate expertise in the relevant subject matter.
-A subject could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
+Non-expert participant could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
 
 To calculate this feature, we calculated the speed by dividing the saccade length by the saccade duration.
 We then got the skew of the outputted distribution.
 
 ```
 get_skewness_of_saccades(saccade_duration, saccade_length):
-    saccade_speed = saccade_length/saccade_duration
+    saccade_speed = saccade_length / saccade_duration
     return saccade_speed.skew()
 
 ```
 
 ===== Verticality of Saccades
 
-By verticality of saccades, we mean the ratio of which saccades move vertically over horizontally.
+By verticality of saccades, we mean the ratio of saccades moving vertically over horizontally.
 Our intuition for generating this feature is based on the difference between how we read code versus how we read text.
-An experienced coder is read vertically, focusing on definitions and conditionals.
+An experienced coder reads vertically, focusing on definitions and conditionals.
 Traditional text, on the other hand, is read line by line in a horizontal fashion.
-Based on this anecdotal observation, we were interested in how well the verticality of saccades would generalize.
+Based on this anecdotal observation, we are interested in how well the verticality of saccades would generalize.
 
 
 To calculate the feature, we get the angle between every consecutive fixation with respect to the x-axis.
 We do that with arctan2, which outputs the angle in radians between pi and -pi.
 Since we are only interested in the verticality of the saccade, we take the absolute value of the angle.
-
-```
-radians = atan2(y2 - y1, x2 - x1)
-return abs(radians)
-```
 To describe the horizontality of each point in a range between 0 and 1, we take the sine of every angle.
-```
-for angle in angles
-   angle = sin(angle)
-```
-Then we average all the sinus values.
 
 ```
+angles = atan2(y2 - y1, x2 - x1)
+
+for angle in angles
+   angle = sin(absolute_value(angle))
+
 verticality = angles.average()
 ```
 
 ===== Entropy of Gaze
 
 The entropy of gaze explains the size of the field of focus for a subject.
-Entropy is higher the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
+Entropy is higher when the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
 
 To calculate the entropy of gaze, we create a grid of 50 by 50 px bins.
 We then normalize the x and y positions of each fixation in a range from 0 to 1000.
@@ -318,12 +313,12 @@ Areas of higher activity will be highlighted more.
 Our heatmaps represent the gaze position of a subject over time.
 To capture both spatial and temporal data, we create multiple heatmaps for each subject.
 
-These are the steps we take to create our heatmaps
+These are the steps we take to create our heatmaps:
 
-. Split the data from each subject into 30 partitions
-. Create a 1920 * 1080 image
-. Plot the gaze position with heatmappy citenp:[LumenResearchHeatmappy2021]
-. Resize the image to 175*90
+. Split the data from each subject into 30 partitions.
+. Create a 1920 * 1080 image.
+. Plot the gaze position with heatmappy citenp:[LumenResearchHeatmappy2021].
+. Resize the image to 175 * 90.
 
 .Three consecutive heatmaps without stimulus from CSCW.
 image::../figures/cscw_heatmaps.jpg[]
@@ -336,7 +331,7 @@ image::../figures/fractions_heatmaps.jpg[]
 
 From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
-1. Scale the images down using the preprocess_input function found in `keras.applications.image_netutils`
+1. Scale the images down using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
 2. Use the pre-trained VGG-19 model to extract features per image
 3. Flatten the matrices outputted by the VGG19 model to a single list of values and concatenate them.
 
