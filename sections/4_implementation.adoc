@@ -1,7 +1,7 @@
 [[implementation]]
 == Implementation
 
-Our goal with this system is to create a platform on which we can perform our feature generalizability experiments efficiently and consistently.
+Our goal is to create a platform on which we can perform our feature generalizability experiments efficiently and consistently.
 
 In order to achieve this goal, multiple components have to be present.
 
@@ -15,9 +15,9 @@ In order to achieve this goal, multiple components have to be present.
 xref:architecture_diagram[] shows the outlines of the architecture we propose.
 The first step is data preprocessing, explained in xref:preprocessing[].
 Preprocessed data is then fed to the feature extraction step explained in xref:feature_extraction[].
-Then we organize 219 separate pipelines that consist of unique combinations of datasets, feature groups, and methods for reducing the feature space explained in xref:pipelines[].
+Then we organize 216 separate pipelines that consist of unique combinations of datasets, feature groups, and methods for reducing the feature space explained in xref:pipelines[].
 All pipelines use the same ensemble classifier.
-Results are then evaluated in the evaluation step, xref:evaluation[], and logged xref:reproducibility[].
+Results are then evaluated in the evaluation step (see xref:evaluation[]), and logged (see xref:reproducibility[]).
 
 [[architecture_diagram]]
 .Diagram of our architecture.
@@ -38,7 +38,6 @@ Each dataset has its own set of column names, and they also use different units.
 Some of the datasets measure time in milliseconds, while others measure it in microseconds.
 In standardizing the dataset, we converted all differing units and renamed columns that represented the same values so that all datasets are consistent with each other.
 Some subjects were missing labels; this was solved by removing the subject from the dataset.
-We also fixed inconsistencies such as wrong capitalizations of filenames.
 
 For the EMIP dataset, we were provided with the raw data without fixations calculated.
 In order to use this dataset, we calculated fixations ourselves with the library PyGaze Analyzer citenp:[dalmaijerPyGazeOpensourceCrossplatform2014].
@@ -54,12 +53,14 @@ As our subjects come from multiple contexts, the need for normalization and outl
 It is essential to normalize pupil diameter.
 Pupil diameter can be affected by several factors such as lighting conditions and how well-rested the subject is citenp:[pflegingModelRelatingPupil2016].
 We chose to min-max normalize the pupil diameter in the range of 0 to 1 per subject.
+To mitigate some contextual biases we use a rolling mean with a window size of 100 samples to smooth the timeseries.
 
 Our time recordings are made at the start point of each fixation.
 This can be problematic, as there are situations where more time passes between fixations than would be reasonable for regular saccades.
 This might be due to blinking, the subject looking outside the range of the eye-tracker, or technical malfunction.
 To mitigate this, we remove the outliers by setting a threshold of 1000 ms for saccade duration.
 All gaps in time over 1000ms were reduced to 1000ms.
+
 
 [[feature_extraction]]
 === Feature Extraction
@@ -78,14 +79,12 @@ The features are organized into three sections:
 
 The flow of the feature extraction job is as follows:
 
-. Download the datasets from google cloud storage
-. Load data as a list of pandas data frames
-. Standardize data. This step is different for each dataset
-. Normalize data
-. Generate aggregated attributes, such as saccade duration, saccade_length, and angle of saccades.
-. Take the rolling mean of the signals
-. Generate features
-. Upload features to google cloud storage
+. Download the datasets from google cloud storage.
+. Standardize and normalize data.
+. Generate aggregated attributes, such as saccade duration and saccade_length.
+. Smooth the signal with rolling mean.
+. Generate features.
+. Upload features to google cloud storage.
 
 ==== Timeseries Features
 
@@ -98,7 +97,7 @@ From each of these signals, we calculate five features.
 * Power Spectral Histogram.
 * ARMA.
 * GARCH.
-* Hidden Markov models.
+* Hidden Markov Models.
 * LHIPA.
 
 ===== Power Spectral Histogram
@@ -138,7 +137,7 @@ for p up to 4
 return best_fit["ar"], best_fit["ma"], best_fit["exog"]
 ```
 
-===== GARCH
+===== Generalized AutoRegressive Conditional Heteroskedasticity (GARCH)
 
 GARCH is similar to ARMA, but it is applied to the variance of the data instead of the mean.
 
@@ -166,7 +165,7 @@ return [best_fit["alpha"],
 ```
 
 
-===== Hidden Markov Models
+===== Hidden Markov Models (HMM)
 
 Hidden Markov Models contains the Markov assumption, which assumes that the present value is conditionally independent on its non-ancestors given its n last parents.
 Similarly to ARMA, this means that the current value is a function of the past values.
@@ -201,7 +200,7 @@ Cognitive load has been shown to correlate with cognitive performance citenp:[he
 The Yerkes-Dodson law describes the relationship between the two, indicating an optimal plateau where a certain degree of cognitive workload is tied to maximized cognitive performance.
 If the cognitive workload is increased beyond this point, cognitive performance is diminished citenp:[hebbDrivesConceptualNervous1955].
 
-Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020]
+Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020].
 
 ==== Gaze Characteristics
 
@@ -209,11 +208,11 @@ Gaze Characteristics are features that are interpreted directly from the eye-tra
 
 ===== Information Processing Ratio
 
-Global information processing (GIP) is often synonymous with skimming text.
+Global Information Processing (GIP) is often analogous with skimming text.
 When skimming, one's gaze jumps between large sections of the material and does not stay in place for extended periods.
 This manifests as shorter fixations and longer saccades.
-Local information processing (LIP) is the opposite; one's gaze focuses on smaller areas for longer durations and does not move around as much.
-For this metric, fixations are measured in time, while saccades are measured as distance.
+Local Information Processing (LIP) is the opposite; one's gaze focuses on smaller areas for longer durations and does not move around as much.
+For this metric, fixations are measured in time, while saccades are measured in distance.
 Hence we capture both the spatial and temporal dimensions.
 
 The information processing ratio describes how much a subject skimmed the material versus how much they focus intently.
@@ -250,50 +249,45 @@ Saccade velocity skewness has been shown to correlate with familiarity citenp:[p
 If the skewness is highly positive, that means that the overall saccade speeds were high.
 This indicates that the subject is familiar with the stimulus and can quickly maneuver to the relevant sections when seeking information.
 Saccade speed does not necessarily indicate expertise in the relevant subject matter.
-A subject could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
+Non-expert participant could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
 
 To calculate this feature, we calculated the speed by dividing the saccade length by the saccade duration.
 We then got the skew of the outputted distribution.
 
 ```
 get_skewness_of_saccades(saccade_duration, saccade_length):
-    saccade_speed = saccade_length/saccade_duration
+    saccade_speed = saccade_length / saccade_duration
     return saccade_speed.skew()
 
 ```
 
 ===== Verticality of Saccades
 
-By verticality of saccades, we mean the ratio of which saccades move vertically over horizontally.
+By verticality of saccades, we mean the ratio of saccades moving vertically over horizontally.
 Our intuition for generating this feature is based on the difference between how we read code versus how we read text.
-An experienced coder is read vertically, focusing on definitions and conditionals.
+An experienced coder reads vertically, focusing on definitions and conditionals.
 Traditional text, on the other hand, is read line by line in a horizontal fashion.
-Based on this anecdotal observation, we were interested in how well the verticality of saccades would generalize.
+Based on this anecdotal observation, we are interested in how well the verticality of saccades would generalize.
 
 
 To calculate the feature, we get the angle between every consecutive fixation with respect to the x-axis.
 We do that with arctan2, which outputs the angle in radians between pi and -pi.
 Since we are only interested in the verticality of the saccade, we take the absolute value of the angle.
-
-```
-radians = atan2(y2 - y1, x2 - x1)
-return abs(radians)
-```
 To describe the horizontality of each point in a range between 0 and 1, we take the sine of every angle.
-```
-for angle in angles
-   angle = sin(angle)
-```
-Then we average all the sinus values.
 
 ```
+angles = atan2(y2 - y1, x2 - x1)
+
+for angle in angles
+   angle = sin(absolute_value(angle))
+
 verticality = angles.average()
 ```
 
 ===== Entropy of Gaze
 
 The entropy of gaze explains the size of the field of focus for a subject.
-Entropy is higher the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
+Entropy is higher when the subject's attention is more evenly spread over the stimulus and lower if the subject focuses on a minor part of the stimulus.
 
 To calculate the entropy of gaze, we create a grid of 50 by 50 px bins.
 We then normalize the x and y positions of each fixation in a range from 0 to 1000.
@@ -318,13 +312,14 @@ A heatmap is a graphical representation of data where values are depicted by col
 Areas of higher activity will be highlighted more.
 Our heatmaps represent the gaze position of a subject over time.
 To capture both spatial and temporal data, we create multiple heatmaps for each subject.
+Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020] show that deep features of heatmaps from gaze data can predict cognitive performance in learning activities.
 
-These are the steps we take to create our heatmaps
+These are the steps we take to create our heatmaps:
 
-. Split the data from each subject into 30 partitions
-. Create a 1920 * 1080 image
-. Plot the gaze position with heatmappy citenp:[LumenResearchHeatmappy2021]
-. Resize the image to 175*90
+. Split the data from each subject into 30 partitions.
+. Create a 1920 * 1080 image.
+. Plot the gaze position with heatmappy citenp:[lumenresearchLumenResearchHeatmappy2021].
+. Resize the image to 175 * 90.
 
 .Three consecutive heatmaps without stimulus from CSCW.
 image::../figures/cscw_heatmaps.jpg[]
@@ -337,14 +332,9 @@ image::../figures/fractions_heatmaps.jpg[]
 
 From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
-1. Scale the images down using the preprocess_input function found in `keras.applications.image_netutils`
-2. Use the pre-trained VGG-19 model to extract features per image
-3. Flatten the matrices outputted by the VGG19 model to a single list of values and concatenate them.
-
-
-As shown by Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020], deep features of heatmaps from gaze data can predict cognitive performance in learning activities.
-
-===== Pseudocode
+. Scale the images down using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
+. Use the pre-trained VGG-19 model to extract features per image
+. Combine the matrices outputted by the VGG19 model to a single feature vector
 
 ```
 frames = Split each subject into 30 partitions
@@ -373,7 +363,7 @@ This section explains how we solved goal 4 of creating our platform.
 > We need a platform that can run multiple concurrent pipelines for combinations of datasets, features, and methods for reducing the feature space.
 
 By a pipeline, we mean a specific combination of datasets, feature groups, and methods for reducing the feature space (dimensionality reduction or feature selection).
-For simplicity, we will refer to these as pipeline components.
+We will refer to these parts as pipeline components.
 
 
 ==== Datasets
@@ -404,7 +394,7 @@ include::../tables/feature_groups_table.adoc[]
 
 ==== Reducing the Feature Space
 
-Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and improve predictive power.
+Our pipelines perform either feature selection or dimensionality reduction to reduce the number of features and decrease variance.
 The focus of our thesis was on testing different features, and as such, we decided not to test a wide range of alternatives.
 The effect of different methods for reducing the feature space on generalizability is a potential area for further study.
 The method we use for dimensionality reduction is Principal Component Analysis (PCA), and the one for feature selection is Least Absolute Shrinkage and Selection Operator (LASSO).
@@ -419,19 +409,18 @@ Our pipelines were tested with the same regressor, a weighted voting ensemble wi
 An ensemble combines several different base regressors or classifiers in order to leverage the strengths of each classifier or regressor.
 A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
 Then it averages the individual predictions respective to their given weights to form a final prediction.
-To find the weights for the voting, we perform cross-validation on each of the regressors and set their respective weights as 1 - Root Mean square error.
+To find the weights for the voting, we perform cross-validation, with the validation set, on each regressor and set their respective weights to 1 - Root Mean Square Error (RMSE).
 Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[kunchevaCombiningPatternClassifiers, anOptimalWeightSelectionRegressor2009].
 
 KNN predictors approximate the target by associating it with its n nearest neighbors in the training set.
-We use the default value five for n, provided to us by sklearn citenp:[UsScikitlearn24].
 KNNs are simplistic algorithms that, despite their simplicity, in some cases, outperform more complex learning algorithms.
 However, it is also negatively affected by non-informative features citenp:[gulEnsembleSubsetKNN2016].
 A random forest fits a number of classifying decision trees on various sub-samples of the dataset and aggregates the predictions from the different trees.
 Random forests have been shown to outperform most other families of classifiers citenp:[fernandez-delgadoWeNeedHundreds2014].
 SVR, support vector regressors are a regression version of support vector machines proposed by Drucker et al. citenp:[druckerSupportVectorRegression2003]
 SVRs estimate the target value by fitting a hyperplane by minimizing the margins of the plane with an error threshold.
-Support vector regressors perform particularly well when the dimensionality of the feature space representation is much larger than the number of examples, which is the case for some of our feature groups citenp:[druckerSupportVectorRegression2003].
-All our hyperparameters are set to the default values provided by sklearn citenp:[UsScikitlearn24].
+Support vector regressors perform particularly well when the dimensionality of the feature space representation is much larger than the number of examples citenp:[druckerSupportVectorRegression2003], which is the case for some of our feature groups.
+All our hyperparameters are set to the default values provided by sklearn citenp:[pedregosaScikitlearnMachineLearning].
 
 [[evaluation]]
 === Evaluation
@@ -446,11 +435,11 @@ This subsection explains how we evaluate the results of each test.
 
 ==== Evaluation Criteria
 
-We use normalized root mean squared error (NRMSE) as our primary evaluation metric.
-NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]
+We use Normalized Root Mean Squared Error (NRMSE) as our primary evaluation metric.
 NRMSE is a probabilistic understanding of errors as defined by Ferri et al. citenp:[ferriExperimentalComparisonPerformance2009].
+NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]
 The score in all our contexts is based on binary outcomes; a question is either correct or incorrect.
-Pelánek et al. citenp:[pelanekMetricsEvaluationStudent2015] argue that for such cases, metrics such as Root Mean Squared Error (RMSE) or Log-Likelihood (LL) is preferred to metrics such as Mean Average Error (MAE).
+Pelánek et al. citenp:[pelanekMetricsEvaluationStudent2015] argue that for such cases, metrics such as Root Mean Squared Error (RMSE) or Log-Likelihood (LL) is preferred to metrics such as Mean Average Error (MAE) or Area Under the Curve (AUC).
 MAE considers the absolute difference between the predictions and the errors and is not a suitable metric, as it prefers models that are biased toward the majority result.
 RMSE, on the other hand, does not have this issue, as it is based on the squared value of each error, giving greater weight to larger errors in its average.
 The main difference between RMSE and LL is the unbounded nature of LL, which means that it can very heavily punish models that confidently make incorrect assertions citenp:[pelanekMetricsEvaluationStudent2015].
@@ -459,8 +448,8 @@ While this can be preferred in some contexts, we decided to proceed with the mor
 The root part of RMSE serves to move the sum of errors back into the range of the labels being predicted to improve interpretability.
 This might have limited usefulness as the resulting numbers can still be challenging to interpret citenp:[pelanekMetricsEvaluationStudent2015].
 In our case, the labels exist in three different contexts with labels in different ranges, and since we are working across these contexts, we need normalized values.
-Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to Normalized RMSE (NRSME).
-Our NRSME is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
+Since we normalize the labels in a range from 0 to 1 before training, RMSE is equivalent to Normalized RMSE (NRMSE).
+Our NRMSE is normalized between 0 and 1, where 1 is the maximum error possible for the dataset.
 
 The following formulas calculate NRMSE.
 
@@ -472,14 +461,15 @@ asciimath:[NRMSE = text(RMSE)/(text(original)_max - text(original)_min)]
 [[feature_generalizability_index]]
 ==== Feature Generalizability Index (FGI)
 
-We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing, as done in citenp:[sharmaAssessingCognitivePerformance2020].
-Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can safely assume that similar behavior will indicate similar results.
+Our measure for generalizability was proposed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
+We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing.
+Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can assume that similar behavior will indicate similar results.
 To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
 
-asciimath:[(text(mean ranks between groups) - text(mean ranks within groups))/(N(N-1)/4)]
+asciimath:[(text(mean ranks between groups ) - text( mean ranks within groups))/(N(N - 1)/4)]
 
 The denominator normalizes the values between -1 and 1, where 0 represents a random grouping.
-Pipelines that have an FGI value closer to zero are more generalizable.
+Pipelines that have an FGI value closer to zero are more generalizable citenp:[sharmaAssessingCognitivePerformance2020].
 
 [[reproducibility]]
 === Reproducibility
@@ -488,7 +478,7 @@ This section explains how we reached the sixth goal of our platform.
 
 > We need reproducibility.
 
-Our reproducibility strategy primarily consists of three components.
+Our reproducibility strategy primarily consists of four components.
 The version-control tool, git; the machine learning management tool, comet.ml; the python package management tool, poetry; and google cloud platform.
 
 
@@ -503,7 +493,7 @@ We use comet.ml to track the results of our experiments, the relevant hyperparam
 Poetry is a dependency manager for python citenp:[PoetryPythonDependency].
 As with any large software project, our platform relies on several third-party libraries.
 To ensure both reproducibility and ease of use and development, we use poetry to track the versions of the libraries we use.
-Poetry stores these versions in a lock-file which git tracks.
+Poetry stores these versions in a lock-file which is tracked by git.
 
 ==== Git
 
@@ -517,14 +507,14 @@ When we run an experiment in the cloud, we log the start parameters of the syste
 
 ==== Google Cloud Platform
 
-Our experiments are run on virtual machines in the google cloud platform (GCP) citenp:[kumarGoogleCloudPlatform2016].
+Our experiments are run on virtual machines in the Google Cloud Platform (GCP) citenp:[kumarGoogleCloudPlatform2016].
 GCP is one of several providers of commercial cloud and containerization services.
 Their products allow us to run our experiments on identical virtual machines, which ensures reproducibility also in the hardware aspects of our work.
 
 ==== Seeding
 
 All of our experiments ran with seeded randomness.
-Our implementation for seeding
+Our implementation for seeding the experiments is as follows:
 
 ```
 seed = 69420

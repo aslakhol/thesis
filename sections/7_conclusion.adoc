@@ -7,7 +7,7 @@ We present two lists of pipelines based on distinct feature groups, dataset comb
 The lists contain the ten most generalizable and the ten most context-specific pipelines.
 These pipelines indicate that the features used to produce them can generalize between our contexts.
 We also propose and implement an architecture to efficiently and easily test the generalizability of pipelines constructed of different combinations of pipeline components.
-The code for our platform and the analysis is available on GitHub citenp:[sollesnesS0lvangIdealpancake2021].
+The code for our platform and the analysis is available on GitHub citenp:[sollesnesIdealpancake2021].
 
 Our contributions include:
 
