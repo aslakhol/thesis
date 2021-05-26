@@ -318,7 +318,7 @@ These are the steps we take to create our heatmaps:
 
 . Split the data from each subject into 30 partitions.
 . Create a 1920 * 1080 image.
-. Plot the gaze position with heatmappy citenp:[LumenResearchHeatmappy2021].
+. Plot the gaze position with heatmappy citenp:[lumenresearchLumenResearchHeatmappy2021].
 . Resize the image to 175 * 90.
 
 .Three consecutive heatmaps without stimulus from CSCW.
@@ -420,7 +420,7 @@ Random forests have been shown to outperform most other families of classifiers 
 SVR, support vector regressors are a regression version of support vector machines proposed by Drucker et al. citenp:[druckerSupportVectorRegression2003]
 SVRs estimate the target value by fitting a hyperplane by minimizing the margins of the plane with an error threshold.
 Support vector regressors perform particularly well when the dimensionality of the feature space representation is much larger than the number of examples citenp:[druckerSupportVectorRegression2003], which is the case for some of our feature groups.
-All our hyperparameters are set to the default values provided by sklearn citenp:[UsScikitlearn24].
+All our hyperparameters are set to the default values provided by sklearn citenp:[pedregosaScikitlearnMachineLearning].
 
 [[evaluation]]
 === Evaluation
