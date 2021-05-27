@@ -454,3 +454,12 @@ caption.title {
   text-align: left;
   margin-bottom: 10px;
 }
+
+#_bibliography + .sectionbody > .paragraph {
+  font-size: 0.9rem;
+  line-height: 1rem;
+}
+
+#_bibliography + .sectionbody > .paragraph > p {
+  margin-top: 10px;
+}

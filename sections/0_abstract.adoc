@@ -9,9 +9,9 @@ Our work presents several generalizable features and a novel architecture that c
 
 [discrete]
 == Oppsummering
-Moderne blikksporingsteknologi gjør det mulig med mindre sjenerende evaluering av kognitive ytelse.
-Kognisjonsevalueringssystemer bruker i dag skreddersydde egenskaper til den gitte konteksten og har begrenset brukbarhet i andre omstendigheter.
-Tidligere har det vært forsøkt å lage generaliserbare egenskaper fra andre datakilder, men dette har ikke blitt gjort for blikkdata.
+Moderne blikksporingsteknologi gjør det mulig med mindre sjenerende måling av kognitive ytelse.
+Kognisjonsevalueringssystemer bruker i dag skreddersydde egenskaper (features) til den gitte konteksten og har begrenset brukbarhet i andre sammenhenger.
+Tidligere har det vært forsøkt å lage generaliserbare egenskaper fra andre datakilder, men dette er ikke gjort for blikkdata.
 I dette studiet utvikler vi flere forskjellige egenskaper og evaluerer generaliserbarheten deres på tvers av kontekster.
 Vi utnytter tre datasett fra forskjellige kontekster og en maskinlæringsplattform for å utføre generaliserbarhetseksperimenter.
 Vårt arbeid presenterer flere generaliserbare egenskaper og en arkitektur som kan bistå i utviklingen av flere slike egenskaper fra blikkdata og andre datakilder.

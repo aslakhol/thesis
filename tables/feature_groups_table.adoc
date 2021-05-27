@@ -63,8 +63,8 @@
    ARMA - Saccade Duration, +
    GARCH - Saccade Duration
 
-  | ALL
-  | ALL
+  | All
+  | All features
 
 
 |===

@@ -2,11 +2,11 @@
 == Research Design
 
 The study design, described below, is inspired by a previous study by Sharma et al. that was conducted to engineer generalizable features to predict cognitive performance from physiological responses (sensor data recorded from subjects' wrists) and facial expressions citenp:[sharmaAssessingCognitivePerformance2020].
-We follow the same methodological decision as Sharma et al. but focus on the user's gaze and leverage datasets by other researchers.
+We follow the methodological design proposed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020] but focus on the user's gaze and leverage datasets by other researchers.
 
 We have selected three datasets used in published articles that all include gaze data from subjects completing one or more cognitive tasks.
 The studies that produced the datasets were distinct, and their differences allow us to argue that the datasets have different contexts.
-With these datasets, we generate several different pipelines consisting of different feature groups, different dimensionality reduction or feature selection techniques, and different combinations of the datasets.
+With these datasets, we generate several different pipelines consisting of different feature groups, different methods for reducing the feature space, and different combinations of the datasets.
 These pipelines are then evaluated using both *out-of-sample testing* to determine the predictive power on unseen data and *out-of-study testing* to assess the generalizability of the pipeline.
 
 For each pipeline, we designate either one or two datasets as in-study and one dataset as out-of-study.
@@ -15,9 +15,9 @@ If we use only one dataset as in-study, we do not include the third dataset in t
 
 We split the in-study dataset into three parts: training, validation, and testing data by leave-one-participant-out.
 The training data is used to train the model; the validation data is used to set weights for the classifiers in the voting ensemble, and the testing data is used to evaluate the predictive power of each pipeline on unseen data.
-The testing of the pipeline on unseen data from the same dataset(s) is our *out-of-sample testing*.
+The testing of the pipeline on unseen data from the same dataset(s) is our out-of-sample testing.
 
-Our next step is the *out-of-study-testing*.
+Our next step is the out-of-study-testing.
 In this step, we use the model outputted from a pipeline to make predictions on data gathered in separate contexts.
 This allows us to analyze the generalizability of the pipeline.
 
@@ -48,20 +48,20 @@ The participants were primarily university students enrolled in computing course
 ===== Tasks
 
 The participants were recorded while performing two code comprehension tasks.
-They filled out a questionnaire where they self-reported their level of programming expertise from the options none, low, medium, and high, recorded years of programming experience.
+They filled out a questionnaire where they self-reported their level of programming expertise from the options none, low, medium, and high, and recorded years of programming experience.
 In addition, they answered several other questions that make up the metadata that accompanies the eye-tracking data.
 The participants also selected the language to be used in the task, from Java, Scala, or Python.
 
-After the questioner, the eye-tracker was calibrated, and the code comprehension task was started.
-The task consisted of reading two different pieces of code called Vehicle and Rectangle, each comprising 11-22 code lines.
+After the questionnaire, the eye-tracker was calibrated, and the code comprehension task was started.
+The task consisted of reading two different pieces of code, in three languages, called Vehicle and Rectangle, each comprising 11 to 22 lines of code.
 After reading and trying to understand a piece of code, the participants would indicate that they were ready to proceed by pressing the spacebar.
 Next, the system presented the participants with a multiple-choice question that evaluated code comprehension.
-After completing the question for Vehicle, they were presented with the code for Rectangle and subsequently its accompanying question.
+After completing the question for Vehicle, they were presented with the code for Rectangle and, subsequently its accompanying question.
 
 The rectangle code consists of a class representing a rectangle, instantiated through a constructor that accepts four coordinates.
 The class also has methods to calculate width, height, and area.
 In the _main_ function of the class, two rectangles are instantiated, and their areas are printed.
-The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity2013], and the EMIP researchers translated code from python to Scala, and Java.
+The code was based on a code comprehension task developed by Hansen citenp:[hansenQuantifyingProgramComplexity2013], and the EMIP researchers translated code from Python to Scala and Java.
 The vehicle code is a class that represents a vehicle with several variables and a function to accelerate the car.
 A constructor takes a producer, a type, and a top speed.
 In the _main_ function, a vehicle is created, and its speed is accelerated citenp:[bednarikEMIPEyeMovements2020].
@@ -69,20 +69,20 @@ In the _main_ function, a vehicle is created, and its speed is accelerated citen
 ===== Technology and Experimental Setup
 
 The recording was performed using a screen-mounted SMI RED25 mobile video-based eye tracker.
-The tracker has a sample rate of 250 Hz with an accuracy < 0.4◦ and a precision of ≈ 0.03◦ of visual angle.
+The tracker has a sample rate of 250 Hz with an accuracy of less than 0.4◦ and a precision of approximately 0.03◦ of visual angle.
 Stimuli were presented on a laptop computer screen with a resolution of 1920 x 1080 pixels and were viewed without a headrest in a fashion that closely simulated a familiar programming environment.
 The data collection procedure was implemented in the SMI Experimental Suite software.
 The laptop, eye-tracker, and software were shipped between the locations to minimize differences in setup citenp:[bednarikEMIPEyeMovements2020].
 
 ===== Description of the Data
 
-Below is a list of the contest of the dataset provided by Bednarik et al. citenp:[bednarikEMIPEyeMovements2020].
+Below is a list of the dataset's contents provided by Bednarik et al. citenp:[bednarikEMIPEyeMovements2020].
 
 .Contents of the dataset
 * rawdata: a folder with 216 TSV files containing raw eye movement data.
 * stimuli: screenshots of the experiment slides in JPG-format and CSV files with AOI (area of interest) coordinates for the stimulus program
 * metadata: a CSV file with information with background information on the participants, results from the questioner, and the order in which the stimulus programs were shown.
-* data: TXT file specifying when the dataset was uploaded.
+* date: TXT file specifying when the dataset was uploaded.
 
 ==== CSCW
 
@@ -149,7 +149,7 @@ Participants also completed a pre-test on the morning of the experiment and a po
 Students participating in the study completed their tasks in an interactive tutoring system developed by the researchers.
 They communicated verbally through a skype connection.
 No video signal was transmitted.
-Gaze data recorded using SMI RED250 eye trackers citenp:[SMIRED250IMotions, olsenUsingIntelligentTutoring2014].
+Gaze data was recorded using SMI RED250 eye trackers citenp:[olsenUsingIntelligentTutoring2014, SMIRED250IMotions].
 
 ===== Description of the Data
 

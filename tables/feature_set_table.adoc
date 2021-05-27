@@ -3,69 +3,69 @@
 | Name | Description
 
 | Information Processing Ratio
-| LIP divided by GIP
+| LIP divided by GIP.
 
 | Saccade Speed Skewness
-| Skewness of the saccade speed distribution
+| Skewness of the saccade speed distribution.
 
 | Entropy of Gaze
 | Entropy of the gaze
 
 | Verticality Of Saccades
-| Metric between 0, 1 describing the average angle of the saccades
+| Metric between 0 and 1 describing the average angle of the saccades.
 
 | Heatmaps
-| Features extracted from heatmaps on VGG19
+| Features extracted from heatmaps with VGG19.
 
 | Spectral Histogram - Pupil Diameter
-| Skew, Kurtosis, Mean, and Variance of the power spectral histogram
+| Skew, Kurtosis, Mean, and Variance of the spectral histogram.
 
 | LHIPA - Pupil Diameter
-| The Low/High Index of Pupillary Activity
+| The Low/High Index of Pupillary Activity.
 
 | HMM - Pupil Diameter
-| Transistion matrix of a fitted hidden markov model
+| Transition matrix of a fitted Hidden Markov Model.
 
-| ARMA - Pupil Dialation
-| Ar, ma, and Exog attributes of a fitted ARMA model
+| ARMA - Pupil Diameter
+| The AR, MA, and Exog attributes of a fitted ARMA model.
 
 | GARCH - Pupil Diameter
-| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
+| The mu, omega, alpha, gamma, and beta attributes of a fitted GARCH model.
 
 | Spectral Histogram -  Fixation Duration
-| Skew, Kurtosis, Mean, and Variance of the power spectral histogram
+| Skew, Kurtosis, Mean, and Variance of the spectral histogram.
 
 | HMM - Fixation Duration
-| Transistion matrix of a fitted hidden markov model
+| Transition matrix of a fitted Hidden Markov Model.
 
 | ARMA - Fixation Duration
-| Ar, ma, and Exog attributes of a fitted ARMA model
+| The AR, MA, and Exog attributes of a fitted ARMA model.
 
 | GARCH - Fixation Duration
-| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
+| The mu, omega, alpha, gamma, and beta attributes of a fitted GARCH model.
 
 | Spectral Histogram - Saccade Length
-| Skew, Kurtosis, Mean, and Variance of the power spectral histogram
+| Skew, Kurtosis, Mean, and Variance of the spectral histogram.
 
 | HMM - Saccade Length
-| Transistion matrix of a fitted hidden markov model
+| Transition matrix of a fitted Hidden Markov Model.
 
 | ARMA - Saccade Length
-| Ar, ma, and Exog attributes of a fitted ARMA model
+| The AR, MA, and Exog attributes of a fitted ARMA model.
 
 | GARCH - Saccade Length
-| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
+| The mu, omega, alpha, gamma, and beta attributes of a fitted GARCH model.
 
 | Spectral Histogram - Saccade Duration
-| Skew, Kurtosis, Mean, and Variance of the power spectral histogram
+| Skew, Kurtosis, Mean, and Variance of the spectral histogram.
 
 | HMM - Saccade Duration
-| Transistion matrix of a fitted hidden markov model
+| Transition matrix of a fitted Hidden Markov Model.
 
 | ARMA - Saccade Duration
-| Ar, ma, and Exog attributes of a fitted ARMA model
+| The AR, MA, and Exog attributes of a fitted ARMA model.
 
 | GARCH - Saccade Duration
-| mu, omega, alpha, gamma, and beta attributes of a fitted Garch model
+| The mu, omega, alpha, gamma, and beta attributes of a fitted GARCH model.
 
 |===

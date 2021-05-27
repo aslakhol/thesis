@@ -10,13 +10,12 @@
 
 === Filtering on the Baseline
 
-Our goal was to identify generalizable pipelines, and for that, we have the FGI measure.
-FGI describes how similar the distribution of errors from out-of-sample testing and out-of-study testing and is a measure of generalizability.
+Our goal was to identify generalizable pipelines, and for that, we have the FGI measure described in xref:feature_generalizability_index[].
+FGI describes how similar the distribution of errors from out-of-sample testing and out-of-study testing and is a measure of generalizability citenp:[sharmaAssessingCognitivePerformance2020].
 However, it is not enough that the two distributions are similar.
-Generalizability should be a measure of usable predictive power in outside contexts.
+Generalizability should be a measure of usable predictive power in contexts other than the training context.
 Random guesses would create identical distributions of error in out-of-sample testing and out-of-study testing, and as such, would have a good FGI value.
 To counteract this, we chose to disregard all pipelines that do not outperform their respective baselines for the purpose of measuring generalizability.
-We do this by filtering the set of completed baselines.
 
 === 2-to-1 versus 1-to-1
 
@@ -30,32 +29,36 @@ In further discussions, we will focus on results from the 2-to-1 pipelines.
 [[generalizability_of_our_datasets]]
 === Generalizability of our Datasets
 
-Our results indicate that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP was included in the training set.
+xref:generalizable_pipelines[] indicates that pipelines that combine Fractions and CSCW for training and use EMIP for testing are more generalizable than pipelines where EMIP was included in the training set.
 The EMIP dataset consists of gaze data recorded of people completing individual tasks.
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
 We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect.
 The variability introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
 There is a degree of division of labor in collaboration, which gives rise to individual tasks even in the collaborative context; as such, there is mutual information even between the datasets when training on collaborative tasks even when predicting individual tasks.
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
-It should also be noted that the EMIP dataset is larger than the other datasets, which might affect the behavior of our regressor when it is included as in-study.
 
 === Generalizable Features
 
-In this section, we will argue a few reasons we believe as to why the features generalize.
+xref:generalizable_pipelines[] presents our more generalizable pipelines.
+In this section, we will explain why we believe the feature groups used in those pipelines generalize.
 
 ==== Heatmaps
 
-We observe that heatmaps are among the generalizable features.
+We observe that Heatmaps are among the generalizable feature groups.
+The feature group only contains one feature vector, the heatmaps.
 Our heatmap feature is the gaze-position for each subject over time, split into 30 partitions, converted to a heatmap, and fed to a pre-trained VGG19 model.
 The resulting feature vector is the feature we call heatmaps.
-While the stimulus is not included in the heatmap image, the stimulus is captured through the subject's interaction with it, as the gaze pattern will follow the stimulus.
-The feature vector we call heatmaps represents how the gaze interacts with the given stimuli. Taking EMIP as an example, a heatmap will tell us the shape of the code being presented to the subject for all subjects.
-However,  it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
-The latter is a focus point for experienced coders.
-Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimuli.
+In a heatmap, the stimulus is captured through the subject's interaction with it, as the gaze pattern follows the stimulus.
+While the stimulus is not included in the heatmap image, information about the stimulus is still encoded.
+The feature vector we call heatmaps represents how the gaze interacts with the given stimulus.
+Taking EMIP as an example, a heatmap will tell us the shape of the code being presented to the subject.
+However, it will also tell us how much time a subject spends reading the syntactic structures versus the variable names or conditional logic.
+The latter two are focus points for experienced coders.
+Heatmaps generalize well because instead of just capturing how a subject interacts with their stimulus, it also captures their interaction patterns and how they relate to their presented stimulus.
+The stimulus and the interaction pattern individually might be context-specific; however, the relationship between the two should generalize.
 In addition, heatmaps encode information about time and space rather than just one of the dimensions.
 
-==== GARCH, Hidden Markov Models and Power Spectral Histogram
+==== GARCH and Spectral Histogram
 
 GARCH is a statistical modeling technique used to model timeseries data.
 Our data suggest that GARCH is the most generalizable feature group of the ones we have tested.
@@ -71,8 +74,6 @@ Spectral histograms capture repetitiveness and hence might capture patterns of b
 Repetitiveness indicates a flow that suggests that the subject is comfortable in their task; on the other hand, chaotic non-repetitive behavior might occur when one is not comfortable.
 We suggest that this relationship should be represented across contexts and could be why spectral histograms seem to generalize.
 
-We do not know why HMM generalizes this is a mystery and a subject for future discussions with Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020, sharmaEyetrackingArtificialIntelligence2020, sharmaLookingLookingDual2015, sharmaMeasuringCausalityCollaborative2021]
-
 ==== Saccade Duration and Saccade Length
 
 Both saccade duration and saccade length seem to generalize.
@@ -80,7 +81,7 @@ Saccades are the movements of the eyes from one fixation to another.
 As one example, both lower saccade durations and longer saccade lengths might indicate familiarity with the stimulus.
 As discussed in xref:skewness_saccade_speed[] higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018a].
 Saccade speed is a function of saccade duration and saccade length; both factors map familiarity to some degree.
-Since familiarity with the interface would be relevant in all tasks that our datasets contain, this might be why saccade duration and saccade length generalize.
+Since familiarity with the interface would be relevant in all tasks that our datasets contain, this might explain why saccade duration and saccade length generalize.
 De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
 According to this perspective, saccadic length correlates with perceived task difficulty.
 Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
@@ -88,14 +89,15 @@ Perceived task difficulty or increased cognitive workload will correlate to cogn
 ==== All
 
 In pipelines with the All feature group, we combine all features in one group.
-Our results show that these pipelines capture both context-sensitive and generalizable patterns.
+Our results show that these pipelines capture both generalizable patterns and context-sensitive as seen xref:generalizable_pipelines[] and xref:context_sensitive_pipelines[].
 The feature preferred by the regressor will be the feature with the most mutual information with the in-study datasets; when this feature also has mutual information with the out-of-study dataset, the pipeline can generalize.
 Since the All feature group contain all the features, the generalizability of the pipeline is highly dependent on the selected in-study dataset xref:generalizability_of_our_datasets[].
 As a result, we see pipelines with the All feature group both among the most generalizable and the most context-specific pipelines.
 
 === Context-Specific Features
 
-This section will argue a few reasons we believe as to why the features are context-specific.
+xref:context_sensitive_pipelines[] presents our more context-sensitive pipelines.
+In this section, we will explain why we believe the feature groups exhibit context sensitivity.
 
 [[discuss_arma]]
 ==== ARMA
@@ -122,7 +124,7 @@ These are task-related factors, and as such, it might explain why pupil diameter
 Shojaeizadeh et al. also point out that pupil size might convey information about variation in cognitive effort.
 This factor seems more likely to generalize and is what we model with GARCH.
 GARCH of pupil diameter is included in this feature group.
-However, the group primarily consists of features that model the mean of pupil diameter.
+However, the group primarily consists of features that model the mean of the pupil diameter.
 
 ==== Gaze Characteristics
 
@@ -141,20 +143,20 @@ The verticality of saccades is also certainly context-specific as it relies heav
 
 In xref:study_contexts[], we outline how we believe our datasets are representative of a significant portion of human cognition.
 However, it would be presumptuous to say that three datasets from three different contexts could represent all of the cognitive processes.
-Our goal has been to generalize between our three contexts, and we believe that our methods provide meaningful insights into how our one could create generalizable features for other contexts.
+Our goal has been to generalize between our three contexts, and we believe that our methods provide meaningful insights into how one could create generalizable features for other contexts.
 We do not mean to say that our features will generalize to any context.
 Nevertheless, this is a first step that provides evidence on how gaze-related features provide a certain level of generalizability across three distinct and commonly employed contexts.
 
-Our results show some indications that datasets from individual tasks generalize poorly to contexts that include collaborative work.
+xref:generalizable_pipelines[] and xref:context_sensitive_pipelines[] show some indications that datasets from individual tasks generalize poorly to contexts that include collaborative work.
 Had individual work been better represented in our data, we might be able to say more about how individual tasks generalize in general.
 Ideally, we should have had at least one more dataset for individual tasks.
 
 Our work assumes that cognitive performance can be characterized by labels in our datasets and represented in gaze data.
-For our approach, we need an object, quantifiable, metric to assess cognitive performance, but as with many other things in cognition, the reality is likely more complex.
+For our approach, we need an object, quantifiable metric to assess cognitive performance, but as with many other things in cognition, the reality is likely more complex.
 
 For complete external repeatability, we would ideally publish the data we used to perform our experiments.
 However, the scope of our thesis project was such that it would be impossible to gather our own data to perform the analyses we have performed.
-As a result, we had to turn to generous researchers who allowed us to work with their data, which means that the data is not ours to share.
+As a result, we had to turn to generous researchers who allowed us to work with their data, which in turn means that the data is not ours to share.
 
 Due to the considerable effort put into creating our experimental platform, it would be possible to expand the different pipeline components we test greatly.
 In our work, we tested 22 features in 12 feature groups, three datasets in 9 combinations, two methods for reducing the feature space, and a single ensemble classifier.
@@ -164,7 +166,7 @@ It would be possible to investigate the effects of other variants of these pipel
 While we can identify feature groups that can produce generalizable pipelines, we do not know how the individual features in each group affect the generalizability.
 It is also likely that combinations of features from different groups would create very generalizable pipelines.
 
-The Hidden Markov Models (HMM) are included in the top 10 most generalizable and the top 10 most context-specific pipelines.
+The Hidden Markov Models (HMM) are included in both xref:generalizable_pipelines[] and xref:context_sensitive_pipelines[].
 That HMMs generalize seems counter-intuitive, especially given that ARMA does not generalize (see xref:discuss_arma[]).
 At its core, the transition matrix of HMM represents a discrete version of ARMA.
 ARMA models how previous values in a timeseries affect the current value, while HMMs describe how previous states affect the current state.

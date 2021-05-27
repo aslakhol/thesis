@@ -1,4 +1,4 @@
-FGI,In Study,Feature Group,PCA or Lasso
+FGI,In Study,Feature Group,PCA or LASSO
 0.007,fractions_cscw,GARCH,LASSO
 0.0074,fractions_cscw,Spectral Histogram,LASSO
 0.0074,fractions_cscw,All,PCA
