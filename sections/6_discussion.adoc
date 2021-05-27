@@ -78,13 +78,13 @@ We suggest that this relationship should be represented across contexts and coul
 
 Both saccade duration and saccade length seem to generalize.
 Saccades are the movements of the eyes from one fixation to another.
-As one example, both lower saccade durations and longer saccade lengths might indicate familiarity with the stimulus.
 As discussed in xref:skewness_saccade_speed[] higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018a].
 Saccade speed is a function of saccade duration and saccade length; both factors map familiarity to some degree.
-Since familiarity with the interface would be relevant in all tasks that our datasets contain, this might explain why saccade duration and saccade length generalize.
+The fact that saccade duration and saccade length generalizes might be explained by the fact that familiarity with the interface is relevant for all tasks contained by our datasets.
+xref:context_sensitive_pipelines[] shows that saccade length also displays context-sensitivity in some pipelines.
 De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
-According to this perspective, saccadic length correlates with perceived task difficulty.
-Perceived task difficulty or increased cognitive workload will correlate to cognitive performance across contexts.
+Due to human limitations on how quickly an eye can move, saccade length and saccade duration will correlate after a certain threshold of saccade velocity is met.
+Reading code is analogous to reading pseudowords, which might explain why saccade length displays context sensitivity when EMIP is one of the designated in-study datasets.
 
 ==== All
 
