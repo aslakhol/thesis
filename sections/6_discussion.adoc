@@ -23,7 +23,8 @@ As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better t
 Combining two datasets from two separate contexts for training introduces more variability to the dataset.
 By introducing more variability, we are optimizing for both bias and variance, which is crucial for generalizability citenp:[kidzinskiGeneralizabilityMOOCModels2016].
 These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
-When two datasets are used for in-study, they contain more information, and naturally, the chance of finding more mutual information with the out-of-study dataset is greater.
+When we generate a feature that can predict cognitive performance in two separate contexts, that feature has mutual information with cognitive performance in those two contexts.
+Such a feature likely describes some non-contextual aspects of cognitive performance, which means that it should have higher mutual information with cognitive performance in a third context.
 In further discussions, we will focus on results from the 2-to-1 pipelines.
 
 [[generalizability_of_our_datasets]]
@@ -34,7 +35,7 @@ The EMIP dataset consists of gaze data recorded of people completing individual 
 All datasets include information from one or more context-specific tasks, but the Fractions and CSCW also have a collaborative aspect.
 We theorize that pipelines trained on EMIP do worse at describing this collaborative aspect.
 The variability introduced by the interactions that come with collaborative work assists those pipelines in generalizing.
-There is a degree of division of labor in collaboration, which gives rise to individual tasks even in the collaborative context; as such, there is mutual information even between the datasets when training on collaborative tasks even when predicting individual tasks.
+There is a degree of division of labor in collaboration, which gives rise to individual tasks even in the collaborative context; as such, there is mutual information even with cognitive performance in individual tasks even when training on collaborative tasks.
 Pinpointing the effectiveness of training on collaborative data when generalizing to contexts without a collaborative aspect is a promising area for more experimentation.
 
 === Generalizable Features
@@ -90,7 +91,7 @@ Reading code is analogous to reading pseudowords, which might explain why saccad
 
 In pipelines with the All feature group, we combine all features in one group.
 Our results show that these pipelines capture both generalizable patterns and context-sensitive as seen xref:generalizable_pipelines[] and xref:context_sensitive_pipelines[].
-The feature preferred by the regressor will be the feature with the most mutual information with the in-study datasets; when this feature also has mutual information with the out-of-study dataset, the pipeline can generalize.
+The feature preferred by the regressor will be the feature with the most mutual information with cognitive performance in the in-study datasets; when this feature also has mutual information with cognitive perfomance in the the out-of-study dataset, the pipeline can generalize.
 Since the All feature group contain all the features, the generalizability of the pipeline is highly dependent on the selected in-study dataset xref:generalizability_of_our_datasets[].
 As a result, we see pipelines with the All feature group both among the most generalizable and the most context-specific pipelines.
 
