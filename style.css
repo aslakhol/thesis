@@ -379,7 +379,7 @@ h5 + .paragraph {
   margin: 1.1in;
 
   @bottom-left {
-    content: counter(page);
+    content: counter(page, lower-roman);
   }
 
   @bottom-center {
@@ -399,7 +399,7 @@ h2:not(#_abstract):not(.discrete) + * {
 
 @page body-content {
   @bottom-left {
-    content: counter(page, lower-roman);
+    content: counter(page);
   }
 }
 
