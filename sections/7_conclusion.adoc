@@ -11,6 +11,6 @@ The code for our platform and the analysis is available on GitHub citenp:[solles
 
 Our contributions include:
 
-- The list of generalizable features presented in xref:generalizable_pipelines[].
-- The list of context-sensitive features presented in xref:context_sensitive_pipelines[].
+- A set of features that has the capacity to generalize across contexts presented in xref:generalizable_pipelines[].
+- A set of features that has the capacity to display context-sensitivity presented in xref:context_sensitive_pipelines[].
 - The architecture and implementation for experimenting on modular pipelines for generalizability experiments presented in xref:implementation[].
