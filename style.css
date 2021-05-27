@@ -388,6 +388,10 @@ h5 + .paragraph {
   }
 }
 
+#introduction {
+  counter-reset: page 1;
+}
+
 .imageblock,
 pre,
 .math {
