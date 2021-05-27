@@ -332,7 +332,7 @@ image::../figures/fractions_heatmaps.jpg[]
 
 From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
-. Scale the images down using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
+. Scale images using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
 . Use the pre-trained VGG-19 model to extract features per image
 . Combine the matrices outputted by the VGG19 model to a single feature vector
 
