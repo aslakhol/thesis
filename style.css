@@ -392,6 +392,17 @@ h5 + .paragraph {
   counter-reset: page 1;
 }
 
+h2:not(#_abstract):not(.discrete),
+h2:not(#_abstract):not(.discrete) + * {
+  page: body-content;
+}
+
+@page body-content {
+  @bottom-left {
+    content: counter(page, lower-roman);
+  }
+}
+
 .imageblock,
 pre,
 .math {
