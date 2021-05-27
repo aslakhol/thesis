@@ -200,7 +200,7 @@ Cognitive load has been shown to correlate with cognitive performance citenp:[he
 The Yerkes-Dodson law describes the relationship between the two, indicating an optimal plateau where a certain degree of cognitive workload is tied to maximized cognitive performance.
 If the cognitive workload is increased beyond this point, cognitive performance is diminished citenp:[hebbDrivesConceptualNervous1955].
 
-Our implementation of LHIPA is based on the code found in citenp:[duchowskiIndexPupillaryActivity2018, duchowskiLowHighIndex2020].
+Our implementation of LHIPA is based on the code found in citenp:[duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
 ==== Gaze Characteristics
 
@@ -249,7 +249,7 @@ Saccade velocity skewness has been shown to correlate with familiarity citenp:[p
 If the skewness is highly positive, that means that the overall saccade speeds were high.
 This indicates that the subject is familiar with the stimulus and can quickly maneuver to the relevant sections when seeking information.
 Saccade speed does not necessarily indicate expertise in the relevant subject matter.
-Non-expert participant could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
+A non-expert participant could be familiar with the material and hence know where to look for information, but an expert would also quickly assert what information they are seeking.
 
 To calculate this feature, we calculated the speed by dividing the saccade length by the saccade duration.
 We then got the skew of the outputted distribution.
@@ -400,7 +400,7 @@ The effect of different methods for reducing the feature space on generalizabili
 The method we use for dimensionality reduction is Principal Component Analysis (PCA), and the one for feature selection is Least Absolute Shrinkage and Selection Operator (LASSO).
 For all pipelines, we also use a zero-variance filter to remove the features that have no variance in their data
 
-LASSO was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[tibshiraniRegressionShrinkageSelection1996, giannakosMultimodalDataMeans2019], which is the case for most of our feature groups.
+LASSO was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[giannakosMultimodalDataMeans2019, tibshiraniRegressionShrinkageSelection1996], which is the case for most of our feature groups.
 
 
 ==== Prediction: Ensemble Learning
@@ -410,7 +410,7 @@ An ensemble combines several different base regressors or classifiers in order t
 A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
 Then it averages the individual predictions respective to their given weights to form a final prediction.
 To find the weights for the voting, we perform cross-validation, with the validation set, on each regressor and set their respective weights to 1 - Root Mean Square Error (RMSE).
-Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[kunchevaCombiningPatternClassifiers, anOptimalWeightSelectionRegressor2009].
+Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[anOptimalWeightSelectionRegressor2009, kunchevaCombiningPatternClassifiers].
 
 KNN predictors approximate the target by associating it with its n nearest neighbors in the training set.
 KNNs are simplistic algorithms that, despite their simplicity, in some cases, outperform more complex learning algorithms.

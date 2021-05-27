@@ -1,5 +1,5 @@
 :bibtex-file: library.bib
-:bibtex-order: alphabetical
+:bibtex-order: appearance
 :bibtex-style: ieee
 :stem: asciimath
 :xrefstyle: short
