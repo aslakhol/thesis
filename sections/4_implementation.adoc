@@ -17,7 +17,7 @@ The first step is data preprocessing, explained in xref:preprocessing[].
 Preprocessed data is then fed to the feature extraction step explained in xref:feature_extraction[].
 Then we organize 216 separate pipelines that consist of unique combinations of datasets, feature groups, and methods for reducing the feature space explained in xref:pipelines[].
 All pipelines use the same ensemble classifier.
-Results are then evaluated in the evaluation step (see xref:evaluation[]), and logged (see xref:reproducibility[]).
+Results are then evaluated in the evaluation step (see xref:evaluation[]) and logged (see xref:reproducibility[]).
 
 [[architecture_diagram]]
 .Diagram of our architecture.
@@ -36,7 +36,7 @@ This subsection explains how we achieved goals 1 & 2 of creating a platform for 
 We use three datasets from different experiments with different contexts.
 Each dataset has its own set of column names, and they also use different units.
 Some of the datasets measure time in milliseconds, while others measure it in microseconds.
-In standardizing the dataset, we converted all differing units and renamed columns that represented the same values so that all datasets are consistent with each other.
+In standardizing the dataset, we converted all differing units and renamed columns representing the same values so that all datasets are consistent.
 Some subjects were missing labels; this was solved by removing the subject from the dataset.
 
 For the EMIP dataset, we were provided with the raw data without fixations calculated.
@@ -51,9 +51,9 @@ We only used fixations where the subject was reading code and disregarded data g
 
 As our subjects come from multiple contexts, the need for normalization and outlier removal is extra apparent.
 It is essential to normalize pupil diameter.
-Pupil diameter can be affected by several factors such as lighting conditions and how well-rested the subject is citenp:[pflegingModelRelatingPupil2016].
+Pupil diameter can be affected by several factors, such as lighting conditions and how well-rested the subject is citenp:[pflegingModelRelatingPupil2016].
 We chose to min-max normalize the pupil diameter in the range of 0 to 1 per subject.
-To mitigate some contextual biases we use a rolling mean with a window size of 100 samples to smooth the timeseries.
+To mitigate some contextual biases, we use a rolling mean with a window size of 100 samples to smooth the timeseries.
 
 Our time recordings are made at the start point of each fixation.
 This can be problematic, as there are situations where more time passes between fixations than would be reasonable for regular saccades.
@@ -66,7 +66,7 @@ All gaps in time over 1000ms were reduced to 1000ms.
 === Feature Extraction
 This subsection explains how we achieved goal 3.
 
-> We need a platform that can generate computationally expensive features for multiple large datasets
+> We need a platform that can generate computationally expensive features for multiple large datasets.
 
 We will present the flow of the feature extraction process and discuss the specific features we extract.
 The features are organized into three sections:
@@ -145,7 +145,7 @@ ARMA assumes a uniform distribution of the events it is modeling with shifting t
 However, we know that this is not entirely descriptive of cognitive processes.
 When working with a cognitive task, one has periods of intense focus to understand one aspect of the problem and other periods where one's mind rests.
 The heteroskedasticity aspect of GARCH accounts for this grouping of events.
-In the analysis of financial markets, GARCH can account for the spikes and sudden drops in prices of specific investment vehicles citenp:[bollerslevGeneralizedAutoregressiveConditional1986], we posit that GARCH will allow us to model the perceived grouping of cognitive workload spikes in a like manner.
+In the analysis of financial markets, GARCH can account for the spikes and sudden drops in prices of specific investment vehicles citenp:[bollerslevGeneralizedAutoregressiveConditional1986]. We posit that GARCH will allow us to model the perceived grouping of cognitive workload spikes in a like manner.
 
 We extract features from GARCH similar to how we extract features from ARMA.
 
@@ -208,7 +208,7 @@ Gaze Characteristics are features that are interpreted directly from the eye-tra
 
 ===== Information Processing Ratio
 
-Global Information Processing (GIP) is often analogous with skimming text.
+Global Information Processing (GIP) is often analogous to skimming text.
 When skimming, one's gaze jumps between large sections of the material and does not stay in place for extended periods.
 This manifests as shorter fixations and longer saccades.
 Local Information Processing (LIP) is the opposite; one's gaze focuses on smaller areas for longer durations and does not move around as much.
@@ -291,7 +291,7 @@ Entropy is higher when the subject's attention is more evenly spread over the st
 
 To calculate the entropy of gaze, we create a grid of 50 by 50 px bins.
 We then normalize the x and y positions of each fixation in a range from 0 to 1000.
-Further, we place each fixation in its corresponding bin, based on its x and y position.
+Further, we place each fixation in its corresponding bin based on its x and y position.
 When we have this grid, we flatten it and take the entropy of the resulting distribution.
 
 The following algorithm extracts the feature:
@@ -330,7 +330,7 @@ image::../figures/emip_heatmaps.jpg[]
 .Three consecutive heatmaps without stimulus from Fractions.
 image::../figures/fractions_heatmaps.jpg[]
 
-From the heatmaps used a pretrained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
+From the heatmaps, we used a pre-trained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
 . Scale images using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
 . Use the pre-trained VGG-19 model to extract features per image
