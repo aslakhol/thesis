@@ -85,7 +85,7 @@ The fact that saccade duration and saccade length generalizes might be explained
 xref:context_sensitive_pipelines[] shows that saccade length also displays context-sensitivity in some pipelines.
 De Luca et al. citenp:[delucaReadingWordsPseudowords2002] show that saccadic length increases when reading longer pseudowords.
 Due to human limitations on how quickly an eye can move, saccade length and saccade duration will correlate after a certain threshold of saccade velocity is met.
-Reading code is analogous to reading pseudowords, which might explain why saccade length displays context sensitivity when EMIP is one of the designated in-study datasets.
+Reading code is analogous to reading pseudowords, which might explain why saccade length displays context-sensitivity when EMIP is one of the designated in-study datasets.
 
 ==== All
 
@@ -98,7 +98,7 @@ As a result, we see pipelines with the All feature group both among the most gen
 === Context-Specific Features
 
 xref:context_sensitive_pipelines[] presents our more context-sensitive pipelines.
-In this section, we will explain why we believe the feature groups exhibit context sensitivity.
+In this section, we will explain why we believe the feature groups exhibit context-sensitivity.
 
 [[discuss_arma]]
 ==== ARMA
