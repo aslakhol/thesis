@@ -376,7 +376,8 @@ h5 + .paragraph {
 
 @page {
   size: A4;
-  margin: 1.1in;
+  margin-top: 1.1in;
+  margin-bottom: 1.1in;
 
   @bottom-left {
     content: counter(page, lower-roman);
@@ -386,6 +387,16 @@ h5 + .paragraph {
     content: string(title);
     text-transform: uppercase;
   }
+}
+
+@page :left {
+  margin-left: 1.31in;
+  margin-right: 0.89in;
+}
+
+@page :right {
+  margin-left: 0.89in;
+  margin-right: 1.31in;
 }
 
 #blank_page {
