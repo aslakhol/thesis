@@ -374,6 +374,16 @@ h5 + .paragraph {
   page-break-inside: avoid;
 }
 
+h2:not(.discrete) {
+  break-before: right;
+}
+
+@page :blank {
+  @bottom-left {
+    content: "";
+  }
+}
+
 @page {
   size: A4;
   margin-top: 1.1in;
