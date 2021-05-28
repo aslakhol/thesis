@@ -16,7 +16,7 @@ Master's Thesis in Informatics, Spring 2021
 
 [[department]]
 Artificial Intelligence Group +
-Department of Computer and Information Science +
+Department of Computer Science +
 Faculty of Information Technology and Electrical Engineering
 
 
