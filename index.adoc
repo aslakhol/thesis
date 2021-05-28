@@ -7,6 +7,7 @@
 :stylesheet: empty.css
 :docinfo: shared,private-footer
 :toc: macro
+:last-update-label!:
 
 = Engineering Generalizable Features for Cognitive Performance from Eye-Tracking Data Through Machine Learning
 Aslak Hollund and August Sollesnes Solvang
