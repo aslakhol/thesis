@@ -89,7 +89,7 @@ body {
   counter-reset: definition;
   counter-reset: sidenote-counter;
 
-  color: hsl(0, 5%, 10%);
+  color: rgb(0, 0, 0);
   background-color: hsl(210, 20%, 98%);
 
   text-rendering: optimizeLegibility;
