@@ -65,9 +65,10 @@ When finding the most generalizable features, we will necessarily discover featu
 
 The thesis will tackle the research questions through the following research objectives:
 
-- *RO 1* Propose and implement a platform that allows for generalizability experiments.
-- *RO 2* Create a library of eye-tracking features.
-- *RO 3* Perform experiments on data from different contexts to evaluate generalizability and context-specificity of these features.
+- *RO 1* Design and develop a platform that allows for generalizability experiments.
+- *RO 2* Collect a wide range of eye-tracking datasets from cognitive tasks in different contexts.
+- *RO 3* Perform experiments on the developed platform and the selected datasets to evaluate the generalizability and context-specificity of a range of features.
+- *RO 4* Create a library of generalizable and context-sensitive gaze features that account for users’ cognitive performance.
 
 === Terminology
 
