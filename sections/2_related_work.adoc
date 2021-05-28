@@ -3,7 +3,7 @@
 
 === Eye-Tracking and Cognitive Performance
 
-Gaze data of a human can be associated with cognition citenp:[raptisUsingEyeTracking2016].
+Gaze data from a human can be associated with cognition citenp:[raptisUsingEyeTracking2016].
 Multiple studies have been conducted to find relationships between eye-tracking and cognitive performance.
 Literature concerning gaze data and cognitive load is highly relevant for our work, as cognitive load can be a proxy between a task and a subject's performance citenp:[haapalainenPsychophysiologicalMeasuresAssessing2010].
 Zhang et al. citenp:[zhangTuC4DriverCognitive] classified a driver's cognitive load in two classes, using the direction of the subject's gaze and the mean and standard deviation of change in pupil dilation.
@@ -30,10 +30,10 @@ While research on gaze data has achieved promising results predicting cognitive 
 While universalism and context-sensitivity in information systems research remain essential research topics, citenp:[davisonContextKingConsidering2016, chengContextMayBe2016] generalizability continues to be a chief concern in machine learning research.
 It is named as one of the primary goals in a slew of fields ranging from healthcare analytics citenp:[dexterGeneralizationMachineLearning2020, vollmerMachineLearningArtificial2020], business research citenp:[salminenMachineLearningApproach2019], finance citenp:[mcnallyPredictingPriceBitcoin2018] to psychiatry citenp:[chekroudCrosstrialPredictionTreatment2016]
 
-Turney has worked to provide a formal definition of context sensitive features within concept learning citenp:[turneyIdentificationContextSensitiveFeatures2002, turneyExploitingContextWhen1993, turneyRobustClassificationContextsensitive1993].
+Turney has worked to provide a formal definition of context-sensitive features within concept learning citenp:[turneyIdentificationContextSensitiveFeatures2002, turneyExploitingContextWhen1993, turneyRobustClassificationContextsensitive1993].
 His work is strengthened by John et al. citenp:[johnIrrelevantFeaturesSubset1994] and others.
 While our view of context is tangential to his, the definition of context-sensitive features as features only relevant given a set context is still applicable to our work.
-We look to engineer generalizable features that provide predictive power from data gathered in a context different than the features origin.
+We look to engineer generalizable features that provide predictive power from data gathered in a context different from the feature's origin.
 
 Bouchard et al. work with technologies for ambient intelligence to increase the autonomy of the elderly through enhanced tracking to assist medical personnel.
 Their work with Bluetooth beacons revealed a feature based on the received signal strength indication timeseries that generalize between contexts made up of different hardware, different hardware configurations, and different floor plans citenp:[bouchardGeneralizableSpatialFeature2016].
@@ -51,8 +51,8 @@ Kidzinski et al. discuss how the bias-variance trade-off is a central concern wh
 The bias-variance trade-off refers to the fact that one cannot achieve both zero variance and zero bias in practice.
 A model with a significant bias captures the general trend of the data but does not fit the sample data points closely.
 On the other hand, variance is how similarly the model captures the testing dataset compared to the training dataset.
-Kidzinski et al. argue that much of the research on MOOCs is to focus on the specific course being studied and that, as such, models do not generalize to other courses.
-Their view is that the bias-variance trade-off is central when assessing the generalizability MOOC models citenp:[kidzinskiGeneralizabilityMOOCModels2016].
+Kidzinski et al. argue that much of the research on MOOCs focuses on the specific course being studied and, as such, models do not generalize to other courses.
+Their view is that the bias-variance trade-off is central when assessing the generalizability of MOOC models citenp:[kidzinskiGeneralizabilityMOOCModels2016].
 
 Recently feature generalizability has also been shown to have relevance when predicting driver's intentions at intersections in an automotive context citenp:[phillipsGeneralizableIntentionPrediction2017], when using ML for personality assessment citenp:[bleidornUsingMachineLearning2019], in speech enhancement systems citenp:[babyBiophysicallyinspiredFeaturesImprove2018], in face-based mind wandering detection citenp:[stewartGeneralizabilityFaceBasedMind], and in music information retrieval citenp:[saariGeneralizabilitySimplicityCriteria2011].
 
@@ -60,10 +60,10 @@ Recently feature generalizability has also been shown to have relevance when pre
 
 Machine learning platforms and pipelines are essential in many research projects.
 In bioinformatics, Guzzetta et al. present an L1L2 based machine learning pipeline that is effective for fitting quantitative phenotypes from genome data citenp:[guzzettaMachineLearningPipeline2010].
-Fountain-Jones et al. demonstrate how a flexible ensemble pipeline can be used for predicting pathogen exposure in animal ecology.
-To demonstrate their pipeline, they model pathogen exposure risk in two different viruses that infect African lions citenp:[fountain-jonesHowMakeMore2019]
+Fountain-Jones et al. demonstrate how a flexible ensemble pipeline can predict pathogen exposure in animal ecology.
+To demonstrate their pipeline, they model pathogen exposure risk in two different viruses that infect African lions citenp:[fountain-jonesHowMakeMore2019].
 Sutton et al. have developed PhysOnline, a pipeline built on the Apache Spark platform.
-PhysOnline uses streaming physiological data and can be used for real-time classification in the biomedical and health informatics field citenp:[suttonPhysOnlineOpenSource2019]
+PhysOnline uses streaming physiological data and can be used for real-time classification in the biomedical and health informatics field citenp:[suttonPhysOnlineOpenSource2019].
 Shaikh et al. tackle the complicated task of creating a machine learning pipeline that can ensure fairness in decision-making. The system can understand policies written in natural language and will assist users in ensuring that set fairness policies are followed citenp:[shaikhEndToEndMachineLearning2017].
 
 There has been some research that focuses on the pipelines themselves.
@@ -75,17 +75,17 @@ Effectively predicting pipeline runtimes would enable us to significantly decrea
 
 There have also been several attempts at creating more generally applicable platforms for machine learning.
 López García et al. presents the DEEP-Hybrid-DataCloud framework as "a distributed architecture to provide machine learning practitioners with a set of tools and cloud services to cover the whole machine learning development cycle" citenp:[lopezgarciaCloudBasedFrameworkMachine2020].
-The DEEP framework represents an important step in democratizing machine learning and deep learning for all areas of research.
+The DEEP framework represents an important step in democratizing machine learning and deep learning for all research areas.
 Ribeiro et al. present an architecture to provide scalable machine learning capabilities as a service, along with an open-source implementation citenp:[ribeiroMLaaSMachineLearning2015].
 Kraska et al. have developed MLBase, which includes a simple declarative language for specifying machine learning tasks to be used by both researchers and end-users citenp:[kraskaMLbaseDistributedMachinelearning].
 The available resources for machine learning such as proposed architectures, open-source and commercial platforms and pipelines, tooling, and other supporting technologies have increased significantly in the last couple of years.
 Machine learning tools to process large-scale data for decision assistance, automation, and interactive data analytics are growing and will continue to be essential for research and business citenp:[nguyenMachineLearningDeep2019].
 
-==== Reproduciblity
+==== Reproducibility
 
-The ability to reproduce a scientific work's central finding, reproducibility, is key to the scientific process, and as such is essential in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
+The ability to reproduce a scientific work's central finding, reproducibility, is key to the scientific process, and as such, is essential in information systems research citenp:[ramGitCanFacilitate2013, pengReproducibleResearchComputational2011, schwabMakingScientificComputations2000, rupprechtImprovingReproducibilityData2020].
 This challenge is both more complicated and more straightforward in the age of digital.
-Analyses are made on larger, more complex datasets and with ever more complex digital tools supporting the analysis.
+Analyses are made on larger, more complex datasets and more complex digital tools supporting the analysis.
 While this added complexity adds to the difficulty in adequately describing the process involved in reaching conclusions, digital tools can also enable us to share the exact code that confirms our results citenp:[ramGitCanFacilitate2013, inceCaseOpenComputer2012].
 There has been a growing push to include code with materials published along with scientific findings citenp:[inceCaseOpenComputer2012, DevilDetails2011].
 Ince et al. argue that even with the complete source code, one is not guaranteed reproducibility.

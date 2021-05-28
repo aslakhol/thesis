@@ -18,7 +18,7 @@ Cognitive workload describes the level of mental resources that one person requi
 Cognitive load theory, first proposed by John Sweller, establishes the three domains of cognitive load as intrinsic, extraneous, and germane.
 Intrinsic is concerned with the complexities in the information being learned.
 Extraneous cognitive load is the load that stems from the presentation of the instructional material.
-Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
+Lastly, germane cognitive load is concerned with the learner's personal characteristics and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
 Cognitive workload has also been shown to influence one's eye movements9 citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
 Our project will include data gathered from studies handling many different cognitive tasks.
@@ -30,7 +30,7 @@ Eye-tracking is the process of tracking and recording the position of a subject'
 The gaze point for each of the eyes of a subject is recorded over time.
 Eye-tracking can be used as input control for interacting with systems citenp:[cantoniEyeTrackingComputer2014], or to record user behavior when interacting with digital and physical systems citenp:[grankaEyeTrackingAnalysisUser2004, bojkoEyeTrackingUser2005].
 As the equipment involved has become cheaper and eye-tracking with web cameras has improved citenp:[bottWebCameraBased2017], eye-tracking has emerged as a promising non-invasive way to evaluate many facets of interactions with digital systems.
-These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], collaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021, olsenUsingIntelligentTutoring2014] and detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
+These include collaborative work in MOOC learners citenp:[sharmaLookingLookingDual2015], collaboration when interacting with Intelligent Tutoring Systems citenp:[sharmaMeasuringCausalityCollaborative2021, olsenUsingIntelligentTutoring2014], and detecting task-demand citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiIndexPupillaryActivity2018].
 
 ==== Generalizability
 
@@ -49,8 +49,8 @@ Feature generalizability has also been considered a central goal in feature sele
 It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019].
 
 Sharma et al. engineered generalizable features from physiological data and facial expressions.
-They present the results from four independent studies and perform cross-training and testing with combinations of these datasets to explore the generalizabilty of their features across contexts.
-To evaluate the generalizability of their experiments they proposed a "feature generalizability index" metric citenp:[sharmaAssessingCognitivePerformance2020].
+They present the results from four independent studies and perform cross-training and testing with combinations of these datasets to explore the generalizability of their features across contexts.
+To evaluate the generalizability of their experiments, they proposed a "feature generalizability index" metric citenp:[sharmaAssessingCognitivePerformance2020].
 
 === Research Questions
 We will follow the methodology of Sharma et al. to develop generalizable features from gaze data citenp:[sharmaAssessingCognitivePerformance2020].
@@ -76,7 +76,7 @@ In this section, we will introduce the reader to a few key terms from the eye-tr
 
 The term *fixation* refers to when the eye holds steady on an object or a position.
 Fixations usually reflect attention to a stimulus citenp:[shojaeizadehDetectingTaskDemand2019].
-When discussing fixations, we will often refer to the *fixation duration*, which is the amount between the start of the fixation and the end of the fixation
+When discussing fixations, we will often refer to the *fixation duration*, which is the amount between the start of the fixation and the end of the fixation.
 
 *Saccades* are small rapid eye movements that occur between two fixations.
 Cognitive information is not processed during saccadic eye movements.
