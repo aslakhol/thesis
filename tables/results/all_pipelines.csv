@@ -1,4 +1,4 @@
-In Study,Out Of Study,Feature Group,PCA or LASSO,NRMSE,FGI
+In Study Datasets,Out Of Study Dataset,Feature Group,PCA or LASSO,NRMSE,FGI
 cscw,emip,ARMA,LASSO,0.232,0.0076
 cscw,emip,ARMA,PCA,0.24,0.0078
 cscw,emip,All,LASSO,0.274,0.0079
@@ -119,30 +119,30 @@ emip_cscw,fractions,Saccade Length,LASSO,0.287,0.0098
 emip_cscw,fractions,Saccade Length,PCA,0.295,0.01
 emip_cscw,fractions,Spectral Histogram,LASSO,0.261,0.0089
 emip_cscw,fractions,Spectral Histogram,PCA,0.309,0.0131
-emip_fractions,cscw,ARMA,LASSO,0.33,0.0099
-emip_fractions,cscw,ARMA,PCA,0.278,0.0082
-emip_fractions,cscw,All,LASSO,0.323,0.01
-emip_fractions,cscw,All,PCA,0.323,0.0099
-emip_fractions,cscw,Fixation Duration,LASSO,0.241,0.0084
-emip_fractions,cscw,Fixation Duration,PCA,0.313,0.0102
-emip_fractions,cscw,GARCH,LASSO,0.303,0.0093
-emip_fractions,cscw,GARCH,PCA,0.288,0.0084
-emip_fractions,cscw,Gaze Characteristics,LASSO,0.316,0.0094
-emip_fractions,cscw,Gaze Characteristics,PCA,0.295,0.0091
-emip_fractions,cscw,HMM,LASSO,0.304,0.0098
-emip_fractions,cscw,HMM,PCA,0.311,0.0091
-emip_fractions,cscw,Heatmaps,LASSO,0.377,0.011
-emip_fractions,cscw,Heatmaps,PCA,0.325,0.01
-emip_fractions,cscw,LHIPA,LASSO,0.33,0.0095
-emip_fractions,cscw,LHIPA,PCA,0.283,0.0096
-emip_fractions,cscw,Pupil Diameter,LASSO,0.295,0.0096
-emip_fractions,cscw,Pupil Diameter,PCA,0.295,0.0097
-emip_fractions,cscw,Saccade Duration,LASSO,0.33,0.0099
-emip_fractions,cscw,Saccade Duration,PCA,0.324,0.0106
-emip_fractions,cscw,Saccade Length,LASSO,0.303,0.0093
-emip_fractions,cscw,Saccade Length,PCA,0.336,0.01
-emip_fractions,cscw,Spectral Histogram,LASSO,0.278,0.0095
-emip_fractions,cscw,Spectral Histogram,PCA,0.306,0.0103
+fractions_emip,cscw,ARMA,LASSO,0.33,0.0099
+fractions_emip,cscw,ARMA,PCA,0.278,0.0082
+fractions_emip,cscw,All,LASSO,0.323,0.01
+fractions_emip,cscw,All,PCA,0.323,0.0099
+fractions_emip,cscw,Fixation Duration,LASSO,0.241,0.0084
+fractions_emip,cscw,Fixation Duration,PCA,0.313,0.0102
+fractions_emip,cscw,GARCH,LASSO,0.303,0.0093
+fractions_emip,cscw,GARCH,PCA,0.288,0.0084
+fractions_emip,cscw,Gaze Characteristics,LASSO,0.316,0.0094
+fractions_emip,cscw,Gaze Characteristics,PCA,0.295,0.0091
+fractions_emip,cscw,HMM,LASSO,0.304,0.0098
+fractions_emip,cscw,HMM,PCA,0.311,0.0091
+fractions_emip,cscw,Heatmaps,LASSO,0.377,0.011
+fractions_emip,cscw,Heatmaps,PCA,0.325,0.01
+fractions_emip,cscw,LHIPA,LASSO,0.33,0.0095
+fractions_emip,cscw,LHIPA,PCA,0.283,0.0096
+fractions_emip,cscw,Pupil Diameter,LASSO,0.295,0.0096
+fractions_emip,cscw,Pupil Diameter,PCA,0.295,0.0097
+fractions_emip,cscw,Saccade Duration,LASSO,0.33,0.0099
+fractions_emip,cscw,Saccade Duration,PCA,0.324,0.0106
+fractions_emip,cscw,Saccade Length,LASSO,0.303,0.0093
+fractions_emip,cscw,Saccade Length,PCA,0.336,0.01
+fractions_emip,cscw,Spectral Histogram,LASSO,0.278,0.0095
+fractions_emip,cscw,Spectral Histogram,PCA,0.306,0.0103
 fractions,cscw,ARMA,LASSO,0.247,0.0127
 fractions,cscw,ARMA,PCA,0.302,0.0127
 fractions,cscw,All,LASSO,0.266,0.013
