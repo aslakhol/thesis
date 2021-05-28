@@ -375,7 +375,7 @@ No dataset is used twice in one pipeline.
 
 We refer to the pipelines where one dataset is designated in-study as 1-to-1 pipelines, as these pipelines train on one dataset and test on another.
 Pipelines, where two datasets are designated in-study, are referred to as 2-to-1 pipelines since we train on two datasets combined and test on one dataset.
-We have three datasets, which make up nine dataset combinations, six of which create 1-to-1 pipelines and three go into 2-to-1 pipelines.
+We have three datasets, which make up nine dataset combinations, six of which create 1-to-1 pipelines, and three go into 2-to-1 pipelines.
 
 ==== Feature Groups
 
@@ -398,7 +398,7 @@ Our pipelines perform either feature selection or dimensionality reduction to re
 The focus of our thesis was on testing different features, and as such, we decided not to test a wide range of alternatives.
 The effect of different methods for reducing the feature space on generalizability is a potential area for further study.
 The method we use for dimensionality reduction is Principal Component Analysis (PCA), and the one for feature selection is Least Absolute Shrinkage and Selection Operator (LASSO).
-For all pipelines, we also use a zero-variance filter to remove the features that have no variance in their data
+We also use a zero-variance filter for all pipelines to remove the features with no variance in their data.
 
 LASSO was selected as our feature selection algorithm because it has been shown to perform very well when the number of samples is less than the number of features citenp:[giannakosMultimodalDataMeans2019, tibshiraniRegressionShrinkageSelection1996], which is the case for most of our feature groups.
 
@@ -410,7 +410,7 @@ An ensemble combines several different base regressors or classifiers in order t
 A voting regressor is an ensemble that fits several regressors, each on the whole dataset.
 Then it averages the individual predictions respective to their given weights to form a final prediction.
 To find the weights for the voting, we perform cross-validation, with the validation set, on each regressor and set their respective weights to 1 - Root Mean Square Error (RMSE).
-Many studies have been published that demonstrate that ensemble methods frequently improve on the average performance of the single regressor citenp:[anOptimalWeightSelectionRegressor2009, kunchevaCombiningPatternClassifiers].
+Many studies have been published that demonstrate that ensemble methods frequently improve upon the average performance of the single regressor citenp:[anOptimalWeightSelectionRegressor2009, kunchevaCombiningPatternClassifiers].
 
 KNN predictors approximate the target by associating it with its n nearest neighbors in the training set.
 KNNs are simplistic algorithms that, despite their simplicity, in some cases, outperform more complex learning algorithms.
@@ -437,9 +437,9 @@ This subsection explains how we evaluate the results of each test.
 
 We use Normalized Root Mean Squared Error (NRMSE) as our primary evaluation metric.
 NRMSE is a probabilistic understanding of errors as defined by Ferri et al. citenp:[ferriExperimentalComparisonPerformance2009].
-NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019]
+NRMSE is commonly used in learning technologies to evaluate learning predictions citenp:[moreno-marcosPredictionMOOCsReview2019].
 The score in all our contexts is based on binary outcomes; a question is either correct or incorrect.
-Pelánek et al. citenp:[pelanekMetricsEvaluationStudent2015] argue that for such cases, metrics such as Root Mean Squared Error (RMSE) or Log-Likelihood (LL) is preferred to metrics such as Mean Average Error (MAE) or Area Under the Curve (AUC).
+Pelánek et al. citenp:[pelanekMetricsEvaluationStudent2015] argue that for such cases, metrics such as Root Mean Squared Error (RMSE) or Log-Likelihood (LL) are preferred to metrics such as Mean Average Error (MAE) or Area Under the Curve (AUC).
 MAE considers the absolute difference between the predictions and the errors and is not a suitable metric, as it prefers models that are biased toward the majority result.
 RMSE, on the other hand, does not have this issue, as it is based on the squared value of each error, giving greater weight to larger errors in its average.
 The main difference between RMSE and LL is the unbounded nature of LL, which means that it can very heavily punish models that confidently make incorrect assertions citenp:[pelanekMetricsEvaluationStudent2015].
@@ -464,7 +464,7 @@ asciimath:[NRMSE = text(RMSE)/(text(original)_max - text(original)_min)]
 Our measure for generalizability was proposed by Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 We measure the generalizability of features by comparing the distributions of NRMSE values from the out-of-sample testing and the out-of-study testing.
 Since the ground truth in both the in-study datasets and the out-of-study datasets indicate cognitive performance, we can assume that similar behavior will indicate similar results.
-To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), which is a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
+To compare the distributions of NRMSE, we use analysis of similarity (ANOSIM), a non-parametric function, to find the similarity of two distributions citenp:[clarkeNonparametricMultivariateAnalyses1993].
 
 asciimath:[(text(mean ranks between groups ) - text( mean ranks within groups))/(N(N - 1)/4)]
 
@@ -486,7 +486,7 @@ The version-control tool, git; the machine learning management tool, comet.ml; t
 
 comet.ml is a machine learning management tool citenp:[comet.mlCometMLHome2021].
 It can handle user management, visualization, tracking of experiments, and much more.
-We use comet.ml to track the results of our experiments, the relevant hyperparameters, the git commit hash, which indicates our software state, and the virtual machine on the google cloud platform which executed the code.
+We use comet.ml to track the results of our experiments, the relevant hyperparameters, the git commit hash, which indicates our software state, and the virtual machine on the google cloud platform, which executed the code.
 
 ==== Poetry
 
@@ -509,7 +509,8 @@ When we run an experiment in the cloud, we log the start parameters of the syste
 
 Our experiments are run on virtual machines in the Google Cloud Platform (GCP) citenp:[kumarGoogleCloudPlatform2016].
 GCP is one of several providers of commercial cloud and containerization services.
-Their products allow us to run our experiments on identical virtual machines, which ensures reproducibility also in the hardware aspects of our work.
+Their products allow us to run our experiments on identical virtual machines, which also ensures reproducibility in our work's hardware aspects.
+
 
 ==== Seeding
 
