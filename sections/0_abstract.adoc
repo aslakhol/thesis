@@ -17,7 +17,7 @@ Vi utnytter tre datasett fra forskjellige kontekster og en maskinlæringsplattfo
 Vårt arbeid presenterer flere generaliserbare egenskaper og en arkitektur som kan bistå i utviklingen av flere slike egenskaper fra blikkdata og andre datakilder.
 
 [discrete]
-== Acknowledgement
+== Acknowledgment
 
 We extend our deepest gratitude to our advisors Kshitij Sharma and Michalis Giannakos.
 Their assistance has been thought-provoking, engaging, and critical to our success.
