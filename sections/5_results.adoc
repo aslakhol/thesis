@@ -45,23 +45,19 @@ To evaluate how each feature space reduction method and each feature combination
 We do this by ranking, giving each pipeline a rank for NRMSE, then grouping on feature space reduction method or feature group, and finding the median.
 The _median of ranks_ gives us the results of what pipeline components perform best when testing in the same context it was trained.
 
+
+[[dimensionality_reduction_and_feature_selection]]
 ====  Dimensionality Reduction and Feature Selection
-
-xref:pipelines_nrmses_dim_reduction[] shows which method reduces the feature space for the pipelines with the five smallest NRMSEs per dataset.
-Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
-
-
 
 [[pipelines_nrmses_dim_reduction]]
 .The four best pipelines by NRMSE per dataset and whether they used PCA or LASSO. xref:pipelines_nrmses_dim_reduction[] and xref:pipelines_nrmses_features[] are the same figure with different labels.
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
-
+xref:pipelines_nrmses_dim_reduction[] shows which method reduces the feature space for the pipelines with the five smallest NRMSEs per dataset.
+Which method performs better seems to rely heavily on the in-study dataset, making it hard to conclude which of the two performs better.
 
 However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[] and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines and clearly better across the 2-to-1 pipelines.
 So our results indicate that feature selection performs better than dimensionality reduction in predicting cognitive performance on gaze data for out-of-sample testing.
-
-
 
 [[one_to_one_dim_nrmse_aggregated]]
 .Mean NRMSE and Median NRMSE Rank for PCA and LASSO for all 1-to-1 pipelines.
@@ -77,18 +73,16 @@ include::../tables/results/1_to_1_dimensionality_reduction_samecontext_aggregate
 include::../tables/results/2_to_1_dimensionality_reduction_samecontext_aggregated.csv[]
 |===
 
-
-
 ==== Features
-
-xref:pipelines_nrmses_features[] shows the best four pipelines by NRMSE and their feature groups.
-It seems that several different feature groups perform quite well for the different dataset combinations.
-We note that Fixation duration performs well in most combinations and that Spectral Histograms performs well in several pipelines, and All perform well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
 .The four best pipelines by NRMSE per dataset and their feature group. xref:pipelines_nrmses_dim_reduction[] and xref:pipelines_nrmses_features[] are the same figure with different labels.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
+
+xref:pipelines_nrmses_features[] shows the best four pipelines by NRMSE and their feature groups.
+It seems that several different feature groups perform quite well for the different dataset combinations.
+We note that Fixation duration performs well in most combinations and that Spectral Histograms performs well in several pipelines, and All perform well, particularly for fractions_cscw.
 
 As seen in xref:one_to_one_features_nrmse_aggregated[] and xref:two_to_one_features_nrmse_aggregated[], when we aggregate the results, we see that Gaze Characteristics is the best feature group for out-of-sample testing amongst the 1-to-1 pipelines, performing slightly better than Spectral Histograms and Heatmaps.
 2-to-1 pipelines that include Fixation duration seem to outperform other 2-to-1 pipelines, but GARCH also performs quite well.

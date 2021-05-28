@@ -14,7 +14,7 @@ xref:density_plot[] shows the density for all the values in the datasets and sig
 .Density plots per signal and dataset.
 image::../figures/density_plots.jpg[]
 
-
+[[appendix_all_pipelines]]
 === All Pipelines
 
 .All 216 pipelines.
