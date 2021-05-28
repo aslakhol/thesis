@@ -19,7 +19,7 @@ Cognitive load theory, first proposed by John Sweller, establishes the three dom
 Intrinsic is concerned with the complexities in the information being learned.
 Extraneous cognitive load is the load that stems from the presentation of the instructional material.
 Lastly germane cognitive load is concerned with the personal characteristics of the learner and the amount of attention that is being applied when learning citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
-Cognitive workload has also been shown to influence one's eye movements. citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
+Cognitive workload has also been shown to influence one's eye movements9 citenp:[shojaeizadehDetectingTaskDemand2019, duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
 Our project will include data gathered from studies handling many different cognitive tasks.
 We will argue that each task has some measure, such as a score, that correlates to the cognitive performance for that task.
@@ -49,18 +49,26 @@ Feature generalizability has also been considered a central goal in feature sele
 It has also been shown to be important in predicting students' affect during learning citenp:[huttTimeScaleGeneralizable2019].
 
 Sharma et al. engineered generalizable features from physiological data and facial expressions.
-They proposed a "feature generalizability index" metric to evaluate the generalizability of their experiments citenp:[sharmaAssessingCognitivePerformance2020].
-We will follow their methodology to develop generalizable features from gaze data.
-In addition, we will present a machine learning platform we have developed to effectively run experiments to investigate generalizability and produce features from gaze data.
+They present the results from four independent studies and perform cross-training and testing with combinations of these datasets to explore the generalizabilty of their features across contexts.
+To evaluate the generalizability of their experiments they proposed a "feature generalizability index" metric citenp:[sharmaAssessingCognitivePerformance2020].
 
 === Research Questions
-This study aims to create a step-by-step approach to perform feature generalizability experiments on gaze data.
-We also propose an architecture and provide an implementation for this approach.
-Our goal is to determine a set of features and methods for reducing the feature space that is generalizable across contexts.
-From this, we can extract the following research questions.
+We will follow the methodology of Sharma et al. to develop generalizable features from gaze data citenp:[sharmaAssessingCognitivePerformance2020].
+In the process, we will also develop and present a machine learning platform to effectively run experiments to investigate generalizability and produce features from gaze data.
+
+Our research questions are as follows:
 
 - *RQ 1* What are the most generalizable features for predicting cognitive performance using gaze data?
-- *RQ 1 a* What are the most context-specific features for predicting cognitive performance using gaze data?
+- *RQ 2* What are the most context-specific features for predicting cognitive performance using gaze data?
+
+When finding the most generalizable features, we will necessarily discover features that exhibit a high degree of context-specificity.
+
+The thesis will tackle the research questions through the following research objectives:
+
+- *RO 1* Design and develop a platform that allows for generalizability experiments.
+- *RO 2* Collect a wide range of eye-tracking datasets from cognitive tasks in different contexts.
+- *RO 3* Perform experiments on the developed platform and the selected datasets to evaluate the generalizability and context-specificity of a range of features.
+- *RO 4* Create a library of generalizable and context-sensitive gaze features that account for users’ cognitive performance.
 
 === Terminology
 
