@@ -400,13 +400,13 @@ h2:not(.discrete) {
 }
 
 @page :left {
-  margin-left: 1.31in;
-  margin-right: 0.89in;
+  margin-right: 1.31in;
+  margin-left: 0.89in;
 }
 
 @page :right {
-  margin-left: 0.89in;
-  margin-right: 1.31in;
+  margin-right: 0.89in;
+  margin-left: 1.31in;
 }
 
 #blank_page {
