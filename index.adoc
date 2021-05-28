@@ -28,7 +28,6 @@ image:figures/ntnu.png[ntnu, 100]
 [discrete]
 == Blank page
 
-
 include::sections/0_abstract.adoc[]
 
 toc::[]
