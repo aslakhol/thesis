@@ -53,7 +53,7 @@ Which method performs better seems to rely heavily on the in-study dataset, maki
 
 
 [[pipelines_nrmses_dim_reduction]]
-.The four best pipelines by NRMSE per dataset and whether they used PCA or LASSO. xref:pipelines_nrmses_dim_reduction[] and xref:pipelines_nrmses_features[] are the same table with different labels.
+.The four best pipelines by NRMSE per dataset and whether they used PCA or LASSO. xref:pipelines_nrmses_dim_reduction[] and xref:pipelines_nrmses_features[] are the same figure with different labels.
 image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
 
@@ -86,7 +86,7 @@ It seems that several different feature groups perform quite well for the differ
 We note that Fixation duration performs well in most combinations and that Spectral Histograms performs well in several pipelines, and All perform well, particularly for fractions_cscw.
 
 [[pipelines_nrmses_features]]
-.The four best pipelines by NRMSE per dataset and their feature group. xref:pipelines_nrmses_dim_reduction[] and xref:pipelines_nrmses_features[] are the same table with different labels.
+.The four best pipelines by NRMSE per dataset and their feature group. xref:pipelines_nrmses_dim_reduction[] and xref:pipelines_nrmses_features[] are the same figure with different labels.
 image::../figures/feature_groups_context_sensitivity.jpg[]
 
 
