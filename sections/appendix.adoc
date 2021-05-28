@@ -8,7 +8,7 @@ If there are any questions or bugs regarding the code, please open an issue.
 The text of this thesis can be found at https://github.com/aslakhol/thesis.
 
 === Density Plots
-xref:density_plot[] shows the density for all the values in the datasets and signals we use. The data is normalized as explained in xref:preprocessing[].
+xref:density_plot[] shows the density for all the values in the datasets and signals we use. The data is normalized, as explained in xref:preprocessing[].
 
 [[density_plot]]
 .Density plots per signal and dataset.
