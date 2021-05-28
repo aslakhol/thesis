@@ -202,6 +202,7 @@ If the cognitive workload is increased beyond this point, cognitive performance 
 
 Our implementation of LHIPA is based on the code found in citenp:[duchowskiLowHighIndex2020, duchowskiIndexPupillaryActivity2018].
 
+[[gaze_characteristics]]
 ==== Gaze Characteristics
 
 Gaze Characteristics are features that are interpreted directly from the eye-tracking data and are not subject to additional signal processing.
@@ -218,6 +219,7 @@ Hence we capture both the spatial and temporal dimensions.
 The information processing ratio describes how much a subject skimmed the material versus how much they focus intently.
 To compute the ratio, we divide GIP by LIP.
 
+[[IPR_algorithm_p]]
 The following algorithm extracts the feature:
 
 ```
@@ -314,6 +316,7 @@ Our heatmaps represent the gaze position of a subject over time.
 To capture both spatial and temporal data, we create multiple heatmaps for each subject.
 Sharma et al. citenp:[sharmaEyetrackingArtificialIntelligence2020] show that deep features of heatmaps from gaze data can predict cognitive performance in learning activities.
 
+[[steps_for_heatmap_p]]
 These are the steps we take to create our heatmaps:
 
 . Split the data from each subject into 30 partitions.
@@ -330,6 +333,7 @@ image::../figures/emip_heatmaps.jpg[]
 .Three consecutive heatmaps without stimulus from Fractions.
 image::../figures/fractions_heatmaps.jpg[]
 
+[[heatmap_processing_p]]
 From the heatmaps, we used a pre-trained vgg19 model citenp:[simonyanVeryDeepConvolutional2015] with the imagenet weights citenp:[krizhevskyImageNetClassificationDeep2017] to generate a feature vector per image.
 
 . Scale images using the preprocess_input function provided by Keras citenp:[franccoischolletKeras2015]
@@ -511,7 +515,7 @@ Our experiments are run on virtual machines in the Google Cloud Platform (GCP) c
 GCP is one of several providers of commercial cloud and containerization services.
 Their products allow us to run our experiments on identical virtual machines, which also ensures reproducibility in our work's hardware aspects.
 
-
+[[seeding]]
 ==== Seeding
 
 All of our experiments ran with seeded randomness.
