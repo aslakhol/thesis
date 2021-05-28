@@ -6,7 +6,7 @@
 - 2-to-1 pipelines are more generalizable than 1-to-1 pipelines.
 - 2-to-1 pipelines where Fractions and CSCW are the in-study datasets produce more generalizable pipelines.
 - GARCH, Power Spectral Histogram, heatmaps, Saccade Duration, Saccade Length, and HMM can produce generalizable pipelines.
-- Pupil Diameter, Gaze Characteristics, LHIPA, and ARMA can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
+- Pupil Diameter, Gaze Characteristics, LHIPA, and ARMA, can produce context-sensitive pipelines, and we do not observe any tendencies to generalize.
 
 === Filtering on the Baseline
 
@@ -19,12 +19,12 @@ To counteract this, we chose to disregard all pipelines that do not outperform t
 
 === 2-to-1 versus 1-to-1
 
-As shown in xref:distribution_fgi[] 2-to-1 pipelines tend to generalize better than 1-to-1 pipelines.
+As shown in xref:distribution_fgi[], 2-to-1 pipelines tend to generalize better than 1-to-1 pipelines.
 Combining two datasets from two separate contexts for training introduces more variability to the dataset.
 By introducing more variability, we are optimizing for both bias and variance, which is crucial for generalizability citenp:[kidzinskiGeneralizabilityMOOCModels2016].
 These results align with the findings of Sharma et al. citenp:[sharmaAssessingCognitivePerformance2020].
 When we generate a feature that can predict cognitive performance in two separate contexts, that feature has mutual information with cognitive performance in those two contexts.
-Such a feature likely describes some non-contextual aspects of cognitive performance, which means that it should have higher mutual information with cognitive performance in a third context.
+Such a feature likely describes some non-contextual aspects of cognitive performance, meaning it should have higher mutual information with cognitive performance in a third context.
 In further discussions, we will focus on results from the 2-to-1 pipelines.
 
 [[generalizability_of_our_datasets]]
@@ -79,7 +79,7 @@ We suggest that this relationship should be represented across contexts and coul
 
 Both saccade duration and saccade length seem to generalize.
 Saccades are the movements of the eyes from one fixation to another.
-As discussed in xref:skewness_saccade_speed[] higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018a].
+As discussed in xref:skewness_saccade_speed[], higher saccade speeds correlate with familiarity with the stimulus citenp:[pappasVisualAestheticsECommerce2018a].
 Saccade speed is a function of saccade duration and saccade length; both factors map familiarity to some degree.
 The fact that saccade duration and saccade length generalizes might be explained by the fact that familiarity with the interface is relevant for all tasks contained by our datasets.
 xref:context_sensitive_pipelines[] shows that saccade length also displays context-sensitivity in some pipelines.
@@ -90,9 +90,9 @@ Reading code is analogous to reading pseudowords, which might explain why saccad
 ==== All
 
 In pipelines with the All feature group, we combine all features in one group.
-Our results show that these pipelines capture both generalizable patterns and context-sensitive as seen xref:generalizable_pipelines[] and xref:context_sensitive_pipelines[].
-The feature preferred by the regressor will be the feature with the most mutual information with cognitive performance in the in-study datasets; when this feature also has mutual information with cognitive perfomance in the the out-of-study dataset, the pipeline can generalize.
-Since the All feature group contain all the features, the generalizability of the pipeline is highly dependent on the selected in-study dataset xref:generalizability_of_our_datasets[].
+Our results show that these pipelines capture both generalizable patterns and context-sensitive, as seen in xref:generalizable_pipelines[] and xref:context_sensitive_pipelines[].
+The feature preferred by the regressor will be the feature with the most mutual information with cognitive performance in the in-study datasets; when this feature also has mutual information with cognitive performance in the out-of-study dataset, the pipeline can generalize.
+Since the All feature group contains all the features, the generalizability of the pipeline is highly dependent on the selected in-study dataset xref:generalizability_of_our_datasets[].
 As a result, we see pipelines with the All feature group both among the most generalizable and the most context-specific pipelines.
 
 === Context-Specific Features
@@ -111,7 +111,7 @@ For example, an ARMA model would be impacted by a stimulus with longer distances
 ====  LHIPA and Pupil Diameter
 
 LHIPA was developed to be an indicator of cognitive load citenp:[duchowskiLowHighIndex2020].
-Cognitive load consists of intrinsic, extraneous and germane loads citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
+Cognitive load consists of intrinsic, extraneous, and germane loads citenp:[swellerCognitiveLoadProblem1988, swellerCognitiveArchitectureInstructional1998, swellerElementInteractivityIntrinsic2010].
 The characteristics of the material determine intrinsic and extraneous cognitive load.
 Intrinsic load is determined complexity of the information and extraneous load by the presentation of the material.
 Both of these are context-specific factors.
@@ -161,7 +161,7 @@ As a result, we had to turn to generous researchers who allowed us to work with 
 
 Due to the considerable effort put into creating our experimental platform, it would be possible to expand the different pipeline components we test greatly.
 In our work, we tested 22 features in 12 feature groups, three datasets in 9 combinations, two methods for reducing the feature space, and a single ensemble classifier.
-While our tested features are quite exhaustive, we limited how many feature-space reduction methods we worked with and tested only a single ensemble classifier.
+While our tested features are exhaustive, we limited how many feature-space reduction methods we worked with and tested only a single ensemble classifier.
 It would be possible to investigate the effects of other variants of these pipeline components on generalizability in further work.
 
 While we can identify feature groups that can produce generalizable pipelines, we do not know how the individual features in each group affect the generalizability.
