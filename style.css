@@ -388,8 +388,8 @@ h5 + .paragraph {
   }
 }
 
-#_abstract {
-  counter-reset: page 3;
+#blank_page {
+  visibility: hidden;
 }
 
 #introduction {
