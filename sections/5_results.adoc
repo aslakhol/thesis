@@ -58,7 +58,7 @@ image::../figures/dimensionality_reduction_context_sensitivity.jpg[]
 
 
 
-However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[], and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines, and clearly better across the 2-to-1 pipelines.
+However, when we aggregate the results as seen in xref:one_to_one_dim_nrmse_aggregated[] and xref:two_to_one_dim_nrmse_aggregated[], we can see that LASSO performs slightly better than PCA across all 1-to-1 pipelines and clearly better across the 2-to-1 pipelines.
 So our results indicate that feature selection performs better than dimensionality reduction in predicting cognitive performance on gaze data for out-of-sample testing.
 
 
@@ -123,7 +123,7 @@ From 216 pipelines, 72 beat the baseline.
 .Kernel Density Estimation plot of the FGI by pipeline type.
 image::../figures/distribution_of_FGI.png[]
 
-As represented in xref:distribution_fgi[], 2-to-1 pipelines are in general more generalizable than 1-to-1 pipelines.
+As represented in xref:distribution_fgi[], 2-to-1 pipelines are, in general, more generalizable than 1-to-1 pipelines.
 This is in line with the results of citenp:[sharmaAssessingCognitivePerformance2020].
 Our focus is generalizability, and as such, we will only refer to the 2-to-1 pipelines in the following sections.
 
@@ -135,13 +135,13 @@ Our focus is generalizability, and as such, we will only refer to the 2-to-1 pip
 include::../tables/results/generalizable_pipelines.csv[]
 |===
 
-xref:generalizable_pipelines[] shows the 10 most generalizable pipelines.
+xref:generalizable_pipelines[] shows the most generalizable pipelines.
 The first and most prevalent factor for generalizable pipelines is which datasets were designated in-study datasets for that pipeline.
 When the in-study dataset combines Fractions and CSCW (fractions_cscw), and EMIP is the out-of-study dataset, the pipelines are more generalizable.
 Nine of the ten more generalizable pipelines contain this combination of datasets.
 
 LASSO is the most represented method of feature space reduction among the more generalizable pipelines.
-We note that there are more pipelines with LASSO that beat the baseline and might explain the trend we are seeing.
+We note that more pipelines with LASSO beat the baseline, which might explain the trend we are seeing.
 LASSO is also included in the two pipelines with the best FGI.
 PCA performs very well for the feature groups All and heatmap; this might be explained by the fact that these are the largest feature groups with hundreds of thousands of values.
 
