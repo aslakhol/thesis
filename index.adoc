@@ -8,7 +8,7 @@
 :docinfo: shared,private-footer
 :toc: macro
 
-= Engineering Generalizable Features for Cognitive Performance from Eye-Tracking Data Through a Machine Learning Platform
+= Engineering Generalizable Features for Cognitive Performance from Eye-Tracking Data Through Machine Learning
 Aslak Hollund and August Sollesnes Solvang
 
 [[byline]]
